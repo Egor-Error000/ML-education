@@ -1,0 +1,62 @@
+[
+  {
+    "name": "chat-LLM Study Plan Status.txt",
+    "sha256": "4bafe9f5e9e9ad7bc4795d2562b1b59e25a01e62092c4c255de23565819a8510",
+    "bytes": 162637,
+    "lines": 3041,
+    "turns": 20
+  },
+  {
+    "name": "chat-Изучение Fine-tuning LLM.txt",
+    "sha256": "c316f05e6186d52fa65a83126c9776c6cc036eccc7a44513776326561f4fb81b",
+    "bytes": 107602,
+    "lines": 919,
+    "turns": 20
+  },
+  {
+    "name": "chat-План изучения темы(1).txt",
+    "sha256": "89c7e64e40ae96baa840dde9ac9b9845717fdd80fa1276b73acb35d949c680c6",
+    "bytes": 460450,
+    "lines": 8351,
+    "turns": 50
+  },
+  {
+    "name": "chat-План изучения темы.txt",
+    "sha256": "10b305e4825e96b4e401d5b320917abfaa03d19d48e8f53dec1043735c3b56bf",
+    "bytes": 226015,
+    "lines": 5600,
+    "turns": 18
+  },
+  {
+    "name": "chat-Пункт D4.txt",
+    "sha256": "08faa6604f0ecef8c1dc4ba2d44646d928ea27dcb3bc2eb42cc45beb1efc1ac3",
+    "bytes": 171309,
+    "lines": 3904,
+    "turns": 18
+  },
+  {
+    "name": "blank.pdf",
+    "sha256": "90034eab6edbfdf24a3094bc4dc5b0c732a07f7cfb7d213bd8b3cec1abdb56a6",
+    "bytes": 676805,
+    "pages": 17,
+    "page_characters": [
+      8258,
+      4837,
+      2571,
+      2655,
+      2503,
+      2554,
+      2720,
+      2931,
+      2634,
+      2684,
+      2973,
+      1936,
+      2770,
+      2297,
+      2228,
+      1603,
+      930
+    ]
+  }
+]
