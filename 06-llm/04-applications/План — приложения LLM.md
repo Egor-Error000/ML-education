@@ -1,5 +1,9 @@
 # План: приложения на основе LLM
 
+Подробные главы по вашим чатам: [Учебные конспекты — 5 глав](Учебные%20конспекты/README.md). Сохранены вопросы об embeddings, BM25, multi-vector storage и локальных agent loops; формулы оформлены в LaTeX.
+
+Обучение encoder embeddings и reranker для RAG подробно изучается в [плане BERT](<../../07-bert/План — BERT и encoder-модели для NLP.md#f>); здесь остаются сборка приложения, orchestration и оценка всей pipeline.
+
 План объединяет structured output, вызов инструментов, orchestration и RAG. Общий inference/serving маршрут остаётся в [плане inference](../03-inference/%D0%9F%D0%BB%D0%B0%D0%BD%20%E2%80%94%20%D0%B8%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%81%20LLM.md); исторический конспект и точные источники — в [notes](notes/README.md).
 
 ## Темы

@@ -1,13 +1,18 @@
 # Единый маршрут изучения ML, CV и LLM
 
-Обновлено: 12 октября 2026. Исходные восемь планов сохранены в [архиве](archive/2026-10-12); архив не входит в действующий маршрут.
+**[Открыть версию для чтения](<Читать конспекты.html>)** — все главы с набранными формулами, навигацией и поиском по названиям; работает без интернета.
+
+Обновлено: 17 октября 2026. Исходные восемь планов сохранены в [архиве](archive/2026-10-12); архив не входит в действующий маршрут.
+
+Рядом со всеми 11 действующими планами подготовлены **95 подробных учебных глав**: [общее оглавление конспектов](<Учебные конспекты.md>). Формулы оформлены в LaTeX; главы содержат примеры, ограничения, ответы и практику. Добавленный CV-чат интегрирован в [девять глав Computer Vision](05-computer-vision/Учебные%20конспекты/README.md); исходник и исправления — в [реестре S7](<05-computer-vision/notes/Интеграция CV-чата S7.md>).
 
 ## Где что лежит
 
-Каждая тема хранится отдельно: `plan.md` — маршрут и задания, `notes/` — конспекты по занятиям. Для LLM подтемы дополнительно разделены на foundations, adaptation, inference, applications и lifecycle. Архив и миграционный реестр вынесены отдельно.
+Каждая тема хранится отдельно: файл с названием «План — тема» содержит маршрут и задания, папка `notes/` — прежние заметки и историю. Папка `Учебные конспекты/` содержит подробные главы с формулами, примерами и самопроверкой по вашим чатам; недостающие темы отмечаются как дополнения. Для LLM подтемы дополнительно разделены на foundations, adaptation, inference, applications и lifecycle. Архив и миграционный реестр вынесены отдельно.
 
 - [Данные](01-data/%D0%9F%D0%BB%D0%B0%D0%BD%20%E2%80%94%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%B8%20%D0%BA%D0%B0%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE%20ML-%D1%8D%D0%BA%D1%81%D0%BF%D0%B5%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B0.md) · [Регуляризация](02-regularization/%D0%9F%D0%BB%D0%B0%D0%BD%20%E2%80%94%20%D1%80%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F.md) · [Категориальные признаки](03-categorical-features/%D0%9F%D0%BB%D0%B0%D0%BD%20%E2%80%94%20%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5%20%D0%BF%D1%80%D0%B8%D0%B7%D0%BD%D0%B0%D0%BA%D0%B8.md) · [Кластеризация](04-clustering/%D0%9F%D0%BB%D0%B0%D0%BD%20%E2%80%94%20%D0%BA%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F.md) · [Computer Vision](05-computer-vision/%D0%9F%D0%BB%D0%B0%D0%BD%20%E2%80%94%20%D0%BA%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%D0%BD%D0%BE%D0%B5%20%D0%B7%D1%80%D0%B5%D0%BD%D0%B8%D0%B5.md)
 - [Раздел LLM и его подтемы](06-llm/README.md): foundations → adaptation / inference → applications → lifecycle
+- [BERT и encoder-модели для NLP](<07-bert/План — BERT и encoder-модели для NLP.md>): архитектура, fine-tuning, классификация, NER, QA, embeddings, поиск, multilingual и deployment
 - [Архив исходных планов и чатов](archive/README.md) · [Реестр миграции LLM](06-llm/migration/MIGRATION_PLAN.md)
 
 История занятий LLM сопоставлена с новыми планами: [план миграции](06-llm/migration/MIGRATION_PLAN.md), [прогресс с источниками](06-llm/migration/PROGRESS.md), [поправки конспектов](06-llm/migration/CORRECTIONS.md), [контекст продолжения](06-llm/migration/CONTINUATION.md). Восстановленное обсуждение не означает автоматически проверенное понимание или выполненную практику.
@@ -62,6 +67,7 @@
 - Категории: one-hot, unknown/missing, frequency/hash, cross-fitted target encoding и нативный бустинг.
 - Кластеризация: геометрия/scaling/PCA, K-Means/GMM/DBSCAN, метрики и устойчивость.
 - CV: классификация, detection, semantic/instance segmentation и анализ ошибок.
+- BERT/encoder NLP: tokenizer и MLM → task head/loss → корректный tuning → выбранная ветка classification/extraction/retrieval. Современные модели и отдельные маршруты под задачи — в [большом плане BERT](<07-bert/План — BERT и encoder-модели для NLP.md>).
 - LLM: оценка baseline, tokenizer/chat template, SFT/LoRA, основы DPO; prefill/decode, KV-cache, sampling, structured output, RAG и tool execution.
 - По интересу: альтернативные PEFT/preference-loss, QAT/pruning, DEC/IDEC, SAM/PAC-Bayes, multi-agent RL и continual learning. Углублять с конкретным вопросом.
 

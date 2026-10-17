@@ -2,6 +2,8 @@
 
 Папка содержит отдельные планы и конспекты, чтобы история обучения не смешивалась с будущими темами.
 
+Смежная encoder-ветка — [BERT и encoder-модели для NLP](<../07-bert/План — BERT и encoder-модели для NLP.md>): bidirectional архитектура, task heads, NER/QA, embeddings и обучение retrieval/reranking. Общие основы Transformer связаны с этой веткой; generative alignment и agentic training продолжаются здесь.
+
 1. [Foundations](01-foundations/%D0%9F%D0%BB%D0%B0%D0%BD%20%E2%80%94%20%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D1%8B%20LLM.md): последовательности, Transformer, attention, hidden states.
 2. [Adaptation](02-adaptation/%D0%9F%D0%BB%D0%B0%D0%BD%20%E2%80%94%20%D0%B0%D0%B4%D0%B0%D0%BF%D1%82%D0%B0%D1%86%D0%B8%D1%8F%20LLM.md): PEFT/LoRA, SFT, preference learning, distillation, evaluation.
 3. [Inference](03-inference/%D0%9F%D0%BB%D0%B0%D0%BD%20%E2%80%94%20%D0%B8%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%81%20LLM.md): quantization, KV cache, serving, decoding.

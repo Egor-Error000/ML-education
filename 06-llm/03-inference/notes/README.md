@@ -1,5 +1,7 @@
 # Конспекты: inference LLM
 
+[Подробный учебный курс](<../Учебные конспекты/README.md>) подготовлен отдельно; эта папка сохраняет прежние заметки и историю.
+
 - [Объединённый конспект: quantization, KV cache, serving и decoding](llm-inference.md)
 - [Исследовательский разбор DSpark](llm-inference-research.md)
 

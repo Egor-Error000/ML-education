@@ -58,5 +58,14 @@
       1603,
       930
     ]
+  },
+  {
+    "name": "chat-План изучения темы(2).txt",
+    "sha256": "0375527447b080efba74d67131e47136e468a4d588ec88f117ef0fc87afccf6a",
+    "bytes": 268157,
+    "lines": 7816,
+    "source_id": "S7",
+    "topic": "computer-vision",
+    "format_note": "No reliable role delimiters; contains inserted English planning and duplicated formulas."
   }
 ]

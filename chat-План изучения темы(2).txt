@@ -1,0 +1,7816 @@
+
+# План: Задачи Computer Vision — от постановки задачи к архитектурам
+
+Принцип для каждой задачи: **сначала задача в отрыве от моделей** (что это, как
+формально ставится, как измеряется, какие классические/базовые подходы) →
+**потом архитектуры**, решающие эту задачу, с объяснением механики, включая
+соответствующую голову/версию YOLO и 1-2 альтернативных подхода для контраста.
+
+Порядок задач подобран по нарастанию сложности и с учётом зависимостей (каждая
+следующая опирается на понятия из предыдущей).
+
+---
+
+## 1. Image Classification
+
+*(Скорее всего уже знакомо через ваш SSL-проект — короткое повторение / фундамент для остального.)*
+
+**Задача в отрыве от моделей:**
+- Постановка: один label на изображение, no localization
+- Метрики: accuracy, top-5 accuracy, confusion matrix, precision/recall/F1 по классам
+- Базовые подходы: kNN на пикселях/эмбеддингах, простой MLP, лишь затем CNN
+
+**Архитектуры:**
+- Классический CNN pipeline: conv → pooling → FC (LeNet/AlexNet как исторический ориентир)
+- ResNet — skip-connections, почему они решают vanishing gradient
+- YOLO classification head — чем отличается/не отличается от "чистого" классификатора
+- ViT (Vision Transformer) — для контраста CNN vs attention-based подход
+
+---
+
+## 2. Object Detection
+
+**Задача в отрыве от моделей:**
+- Постановка: множество объектов, каждому — bbox + класс + confidence
+- Формат разметки: COCO/VOC/YOLO-форматы (уже разбирали в контексте данных)
+- Метрики: IoU (Intersection over Union), precision/recall, **mAP** (mean Average
+  Precision) — разобрать по шагам, как считается: IoU-порог → TP/FP/FN → precision-recall
+  curve → AP → усреднение по классам
+- Проблема дубликатов предсказаний → зачем нужен NMS (Non-Maximum Suppression),
+  как работает алгоритмически, до знакомства с NMS-free моделями
+
+**Классические подходы (до deep learning эры / ранний DL):**
+- Sliding window + классификатор (исторический baseline, почему медленно)
+- Two-stage: R-CNN → Fast R-CNN → Faster R-CNN (region proposal + классификация
+  отдельно) — важно понять как контраст к one-stage
+- One-stage: сама идея YOLO / SSD — почему это было прорывом по скорости
+
+**Архитектуры (в хронологии, которую уже прошли вширь):**
+- YOLOv1-v3: anchor-based эволюция, multi-scale prediction
+- YOLOv8: anchor-free детекция, decoupled head
+- YOLOv10/26: NMS-free подход — механика dual label assignment
+- Альтернатива для контраста: RT-DETR (transformer-based detection, без anchor
+  и без NMS изначально по другой причине, чем YOLO)
+
+---
+
+## 3. Semantic Segmentation
+
+**Задача в отрыве от моделей:**
+- Постановка: pixel-wise классификация, каждый пиксель → класс, без разделения
+  на экземпляры
+- Метрики: pixel accuracy, **IoU/Jaccard по классам**, mean IoU (mIoU) — главная
+  метрика в сегментации
+- Формат разметки: маски (обычно PNG с индексами классов на пиксель), отличие
+  от bbox-разметки detection
+
+**Архитектуры:**
+- FCN (Fully Convolutional Network) — базовая идея: замена FC-слоёв на conv,
+  чтобы сохранить пространственную структуру
+- U-Net — encoder-decoder со skip-connections, почему это стало стандартом
+  (особенно в медицине)
+- DeepLab — atrous/dilated convolution, зачем нужно расширенное рецептивное поле
+  без потери разрешения
+- YOLO26 semantic segmentation head — как урезанная/интегрированная версия
+  этих идей внутри единого фреймворка
+
+---
+
+## 4. Instance Segmentation
+
+*(Идёт после semantic segmentation и object detection, т.к. это их пересечение.)*
+
+**Задача в отрыве от моделей:**
+- Постановка: bbox/маска + класс **для каждого экземпляра** отдельно, даже
+  внутри одного класса
+- Метрики: тот же mAP, что и в detection, но посчитанный по IoU масок, а не bbox
+- Концептуальная сложность: как разделить два перекрывающихся объекта одного класса
+
+**Архитектуры:**
+- Mask R-CNN — как естественное расширение Faster R-CNN (детекция + segmentation
+  head поверх ROI)
+- YOLACT — one-stage подход к instance segmentation (прототипные маски +
+  коэффициенты, идея ближе к YOLO-философии скорости)
+- YOLOv8/YOLO11 instance segmentation head — как это встроено в unified-архитектуру
+
+---
+
+## 5. Pose Estimation / Keypoint Detection
+
+**Задача в отрыве от моделей:**
+- Постановка: N заданных keypoint'ов на объекте (скелет), не произвольная форма
+- Метрики: **OKS** (Object Keypoint Similarity) — аналог IoU, но для точек с
+  учётом их видимости/масштаба; PCK (Percentage of Correct Keypoints)
+- Top-down vs bottom-up подход: сначала найти человека, потом keypoints внутри
+  bbox (top-down) — или сначала найти все keypoints на картинке, потом
+  сгруппировать их по людям (bottom-up). Это ключевая архитектурная развилка,
+  важно понять её до конкретных моделей.
+
+**Архитектуры:**
+- OpenPose — классический bottom-up подход (part affinity fields)
+- HRNet — почему сохранение высокого разрешения через всю сеть критично для
+  точной локализации точек
+- YOLOv8/11 pose head — top-down в едином проходе, как это устроено конкретно
+
+---
+
+## 6. Oriented Bounding Box (OBB) Detection
+
+**Задача в отрыве от моделей:**
+- Постановка: bbox + угол поворота (обычно 5 параметров: x, y, w, h, θ вместо 4)
+- Почему обычный axis-aligned bbox неприменим: примеры с аэроснимками
+  (корабли/самолёты под углом) — bbox захватывает избыточный фон, IoU с истинным
+  объектом занижен
+- Метрики: modified IoU с учётом поворота (rotated IoU) — сложнее вычисляется,
+  чем обычный IoU
+
+**Архитектуры:**
+- Ранние подходы к rotated detection в аэрокосмических данных (до YOLO-эры)
+- YOLOv8/11 OBB head — как angle предсказывается дополнительным параметром
+- Проблема periodicity угла (0° и 180° могут визуально совпадать для
+  симметричных объектов) и как её обходят в loss-функции
+
+---
+
+## 7. Multi-Object Tracking (MOT)
+
+**Задача в отрыве от моделей:**
+- Постановка: не разовая детекция, а сохранение identity объекта через
+  последовательность кадров
+- Проблемы: occlusion (временное перекрытие), id-switch (потеря идентичности),
+  re-identification после долгого исчезновения из кадра
+- Метрики: **MOTA** (Multi-Object Tracking Accuracy), **IDF1** — понять, почему
+  простого accuracy на кадр недостаточно для видео-задачи
+
+**Архитектуры / алгоритмы:**
+- Разделение на два слоя: detector (YOLO) + association-алгоритм — это не одна
+  модель, а pipeline
+- SORT / DeepSORT — Kalman filter + IoU-matching, базовый classic подход
+- ByteTrack / BoT-SORT — что используется в связке с YOLOv8/11/26 сейчас, чем
+  отличается от DeepSORT
+
+---
+
+## 8. Depth Estimation
+
+**Задача в отрыве от моделей:**
+- Постановка: monocular depth estimation — предсказать расстояние до камеры по
+  одному 2D-изображению (принципиально ill-posed задача без стерео/LiDAR)
+- Метрики: RMSE, Abs Relative Error на глубине — регрессионные метрики, не
+  detection-метрики
+- Почему это вообще возможно из одной картинки: модель учится на монокулярных
+  cues (перспектива, относительный размер, текстура) — важно понять эту
+  предпосылку до архитектур
+
+**Архитектуры:**
+- MiDaS / DPT — специализированные модели для monocular depth, transformer-based
+- YOLO26 depth estimation head — как интегрировано в единый фреймворк, на каких
+  данных предобучено (NYU Depth V2 и т.д.)
+
+---
+
+## 9. Open-Vocabulary Detection
+
+*(Последнее в списке — требует понимания object detection (п.2) и базового
+знакомства с text-image моделями типа CLIP.)*
+
+**Задача в отрыве от моделей:**
+- Постановка: детекция по произвольному текстовому запросу класса, не
+  зафиксированному в train
+- Зачем: не нужно переобучать модель под каждый новый набор классов
+- Принципиальная идея: совмещение visual embedding space и text embedding space
+  (тот же принцип, что в CLIP — притягивание похожих по смыслу изображения и текста)
+
+**Архитектуры:**
+- CLIP как база — короткое напоминание механики contrastive image-text обучения
+  (перекликается с вашим SSL-проектом, только модальности разные)
+- YOLO-World — как совмещает YOLO-детектор с текстовым энкодером
+- YOLO26 open-vocabulary версия
+
+---
+
+## Итоговая последовательность прохождения
+
+1. Image Classification (фундамент/повтор)
+2. Object Detection (ядро всего семейства YOLO)
+3. Semantic Segmentation
+4. Instance Segmentation (пересечение 2+3)
+5. Pose Estimation
+6. OBB Detection
+7. Multi-Object Tracking (требует п.2 как основу)
+8. Depth Estimation
+9. Open-Vocabulary Detection (требует п.2 + базовое знакомство с CLIP)
+
+Для каждого пункта — сначала блок "задача в отрыве", потом "архитектуры",
+с возможностью углубляться в конкретную модель по ходу вопросов.
+
+
+Я тебе прикрепил план изучения материала . Начни с первого пункта и начни его расписывать - задачу Image Classification .
+
+We need answer in Russian. User attached plan. They ask: "Начни с первого пункта и начни его расписывать - задачу Image Classification." Need produce detailed explanation for Image Classification following plan: task apart from models then architectures. Need likely comprehensive. We need craft response. We need decide depth. Desired oververbosity 5, but task is educational, maybe detailed. We need cover: postановка, formal, metrics, baselines, architectures: CNN pipeline, ResNet, YOLO classification head, ViT. Should follow principle. We can structure. Since they want "начни его расписывать" maybe first part of series. We can give full item 1. Need maybe note that later can go deeper. We need ensure accurate. Russian language.
+
+We need include:
+
+    Постановка: image classification: given image x ∈ R^{H×W×C}, assign label y ∈ {1..K}. Single-label, no localization. Variants: binary/multiclass/multilabel? Plan says one label per image. Could mention multilabel separate. Formal: learn f_θ: X -> Y or probability p(y|x). Loss cross-entropy. If multi-class exclusive softmax. Dataset D={(x_i,y_i)}.
+
+    Metrics: accuracy, top-k accuracy (top-5), confusion matrix, precision/recall/F1 per class, macro/micro/weighted. ROC-AUC for binary? Maybe. For imbalance.
+
+    Baselines: kNN on pixels/embeddings, MLP, then CNN.
+
+    Classical/basic approaches: feature extraction (SIFT/HOG) + SVM/kNN; PCA; kNN on raw pixels; MLP on flattened image. Why fail: no spatial invariance, curse dimensionality.
+
+    CNN pipeline: conv -> nonlinearity -> pooling -> FC. LeNet/AlexNet. Concepts: local receptive fields, weight sharing, translation equivariance, hierarchy. Conv formula. Pooling. ReLU. Softmax. Training: cross-entropy, SGD/Adam, augmentation, regularization. AlexNet: ReLU, dropout, data augmentation, GPU. VGG? maybe mention.
+
+    ResNet: skip connections. Vanishing gradient. Residual block: y = F(x)+x. Identity mapping. Bottleneck. Why helps optimization, gradient flow, deep networks. BatchNorm. Variants ResNet-50 etc.
+
+    YOLO classification head: YOLO usually detection, but classification head in YOLO? Need clarify: YOLOv8/11 have classification models (YOLOv8-cls) with backbone and classification head. It's not detection head. It outputs class logits. Difference from pure classifier: same backbone (CSPDarknet etc), maybe SPPF, global average pooling? Actually YOLOv8 classification head: uses backbone, then head with convolutional layers, global average pooling? Let's recall. Ultralytics YOLOv8-cls: architecture: backbone similar to detection, then classification head: Conv, GAP? Actually YOLOv8-cls head:
+
+    Backbone: Conv, C2f, SPPF.
+
+    Head: Conv, Conv, AdaptiveAvgPool? Let's verify. In YOLOv8 classification, model has Classify head: self.conv = Conv(c1, c2, k=1, s=1, p=0); self.pool = nn.AdaptiveAvgPool2d(1); self.drop = nn.Dropout(p=dropout, inplace=True); self.fc = nn.Linear(c2, nc). So yes. It uses GAP + dropout + linear. Difference from "pure" classifier: integrated into YOLO framework, same backbone and training pipeline, often pretrained on detection? But classification models separate. It outputs one label. It may use same augmentations, etc. In detection head, classification is per anchor/grid cell. In classification model, one global label. So explain.
+
+    ViT: Vision Transformer. Patch embedding: split image into patches (e.g., 16x16), flatten linear projection + positional embeddings, [CLS] token, Transformer encoder blocks (multi-head self-attention, MLP), classification head on [CLS] or pooled. Contrast with CNN: global attention from start, less inductive bias (locality, translation equivariance), needs more data or strong augmentation/pretraining, but scales. Hybrids (ConvNeXt? Swin). Mention DeiT, Swin? Maybe 1-2 alternatives. For contrast CNN vs attention. ViT mechanics.
+
+    Also maybe mention classic CNN architectures: LeNet-5, AlexNet, VGG, Inception, ResNet, EfficientNet. But plan specifically: LeNet/AlexNet, ResNet, YOLO cls, ViT. We can include.
+
+    Metrics details: top-5: correct if true class in top 5 probabilities. Confusion matrix: rows true, cols pred. Precision = TP/(TP+FP), recall = TP/(TP+FN), F1. Macro vs micro. For multiclass, per-class one-vs-rest. Accuracy can be misleading with imbalance.
+
+    Formalization: loss: L = -Σ y_i log p_i. Softmax.
+
+    Data: train/val/test, cross-validation? maybe.
+
+    Decision rule: y_hat = argmax p(y|x).
+
+    Baselines: kNN on raw pixels: Euclidean distance, no training, bad due to high dimensionality and no invariance. kNN on embeddings (e.g., pretrained CNN) good. MLP: flatten image -> hidden layers -> softmax. Doesn't exploit spatial structure, many parameters, overfits. CNN: exploits.
+
+    Classical: HOG + SVM. SIFT + bag of visual words.
+
+    Training details: data augmentation (random crop, flip, color jitter, mixup, cutmix), regularization (weight decay, dropout), normalization, batch norm, learning rate schedules.
+
+    Evaluation: top-1/top-5 on ImageNet.
+
+Need answer in Russian. Could start: "Пункт 1. Image Classification". Then sections: 1) Задача в отрыве от моделей; 1.1 Постановка; 1.2 Метрики; 1.3 Базовые подходы; 2) Архитектуры; 2.1 CNN pipeline; 2.2 ResNet; 2.3 YOLO classification head; 2.4 ViT; 2.5 Сравнение. Maybe add "что важно вынести".
+
+Need maybe mention "no localization" explicitly. "Один label на изображение". "Мульти-класс vs мульти-лейбл". Since plan says one label per image, but can note if multilabel then sigmoid + BCE.
+
+Need maybe include formulas. Use LaTeX. Need not too long? User likely expects educational. Desired oververbosity 5. We can be moderately detailed. But the task is large. We can write maybe 2000-3000 words? That's okay. We need not overdo. But final should be useful.
+
+Let's craft carefully.
+
+Potential structure:
+1. Image Classification
+Часть A. Задача в отрыве от моделей
+1. Постановка
+
+    Вход: изображение X ∈ R^{H×W×C}.
+
+    Выход: один класс y ∈ {1,...,K}.
+
+    Формально: f_θ: X -> Y, или p_θ(y|x). Для exclusive classes softmax. Для multilabel sigmoid.
+
+    Обучение: dataset D = {(x_i,y_i)}. Loss: CE = -Σ_{k} y_k log p_k. Минимизация.
+
+    Инференс: y_hat = argmax_k p_θ(k|x).
+
+    Нет bbox, масок, ключевых точек. Вся ответственность — глобальное семантическое содержание.
+
+2. Метрики
+
+    Accuracy = correct/total.
+
+    Top-k: correct if true in top k. Top-5 common.
+
+    Confusion matrix: K×K, rows true, cols predicted. Диагональ правильные.
+
+    Per-class precision/recall/F1. Macro avg vs micro vs weighted.
+
+    Для бинарной: ROC-AUC, PR-AUC. Для imbalance accuracy плоха.
+
+    Пример: 99% background, модель всегда background даёт 99% accuracy, но recall класса 0.
+
+3. Базовые подходы
+
+    kNN на пикселях: flatten, L2. Проблемы: размерность, нет инвариантности к сдвигу/масштабу, освещению.
+
+    kNN на эмбеддингах: если есть предобученный CNN/CLIP, работает как простой baseline.
+
+    HOG/SIFT + SVM: классический pipeline до DL.
+
+    MLP: flatten -> FC -> ReLU -> FC -> softmax. Не использует пространственную структуру, много параметров, переобучение. Но исторически и как baseline.
+
+    Вывод: нужна архитектура с локальностью, weight sharing, иерархией признаков.
+
+Часть B. Архитектуры
+1. Классический CNN pipeline
+
+    Слой: conv -> BN -> ReLU -> pooling.
+
+    Conv: local receptive field, weight sharing. Формула: (f * x)[i,j] = Σ_{m,n} w[m,n] x[i+m,j+n] + b. Выход: feature map.
+
+    Pooling: max/avg, уменьшает разрешение, даёт локальную инвариантность.
+
+    Иерархия: края -> текстуры -> части -> объекты.
+
+    В конце: global average pooling или flatten -> FC -> softmax.
+
+    LeNet-5: 2 conv, pool, FC, 10 классов, digit recognition.
+
+    AlexNet: глубже, ReLU, dropout, augmentation, GPU. Победа ImageNet 2012.
+
+    VGG: 3x3 conv стеки, глубина.
+
+    Inception/GoogLeNet: multi-scale.
+
+    EfficientNet: compound scaling.
+
+    Обучение: CE, SGD/Adam, augmentation (crop, flip, color jitter, mixup/cutmix), weight decay, dropout, BN.
+
+    Плюсы: inductive bias locality, translation equivariance, параметры эффективны. Минусы: ограниченный глобальный контекст (решается attention/большими рецептивными полями).
+
+2. ResNet
+
+    Проблема: с глубиной ошибка растёт не из-за переобучения, а из-за оптимизации: vanishing/exploding gradients, degradation.
+
+    Residual block: y = F(x, W) + x. Если размерности не совпадают, проекция W_s x.
+
+    F учит "остаток" относительно identity. Легче учить близко к нулю, чем полное преобразование.
+
+    Градиент: ∂L/∂x = ∂L/∂y (1 + ∂F/∂x). Даже если ∂F мало, градиент не затухает благодаря 1.
+
+    Bottleneck: 1x1 -> 3x3 -> 1x1 для экономии.
+
+    Варианты: ResNet-18/34/50/101/152. BN после conv.
+
+    Итог: позволил очень глубокие сети, стал backbone для detection/segmentation.
+
+3. YOLO classification head
+
+    YOLO обычно detection. Но в Ultralytics есть YOLOv8/11/26-cls.
+
+    Архитектура: backbone (CSPDarknet/C2f/SPPF) -> classification head: Conv -> AdaptiveAvgPool -> Dropout -> Linear -> K logits.
+
+    Отличие от detection head: detection предсказывает для каждой spatial location/anchor класс + bbox; classification model предсказывает один глобальный класс на изображение.
+
+    Отличие от "чистого" классификатора: тот же фреймворк, backbone, training pipeline, augmentations, export. Но по сути это обычный CNN-классификатор с GAP+FC.
+
+    Зачем: единый API, предобученные веса, удобно сравнивать, использовать backbone для других задач.
+
+    Не путать: classification head внутри detection (ветка cls) и отдельная YOLO-cls модель.
+
+4. ViT (Vision Transformer)
+
+    Идея: изображение как последовательность патчей.
+
+    Patch embedding: x ∈ R^{H×W×C} -> N = HW/P^2 патчей P×P. Каждый flatten -> линейная проекция в D. + positional embedding. + [CLS] token.
+
+    Transformer encoder: L блоков. В каждом: LayerNorm -> Multi-Head Self-Attention -> residual -> LayerNorm -> MLP (GELU) -> residual.
+
+    Self-attention: Q,K,V. Attention(Q,K,V)=softmax(QK^T/√d_k)V. Все патчи могут взаимодействовать сразу, глобальный контекст с первого слоя.
+
+    Классификация: голова на [CLS] или mean-pool патчей -> Linear -> K.
+
+    Contrast with CNN:
+
+        CNN: locality, translation equivariance, weight sharing — встроены. Хорошо работает на малых данных.
+
+        ViT: меньше inductive bias, нужно много данных или сильная аугментация/предобучение (JFT, ImageNet-21k, MAE, DINO). Зато лучше масштабируется, глобальные зависимости.
+
+    Гибриды: Swin (оконное внимание, иерархия), ConvNeXt (CNN с дизайном в духе трансформеров). DeiT — distillation для данных.
+
+    Итог: для классификации сейчас часто CNN (EfficientNet/ConvNeXt) или ViT/Swin в зависимости от данных и ресурсов.
+
+5. Сравнение и что вынести
+
+    Задача: глобальный label.
+
+    Метрики: accuracy/top-k, confusion matrix, precision/recall/F1.
+
+    Базовые: kNN, HOG+SVM, MLP.
+
+    CNN: conv+pool+FC, LeNet/AlexNet.
+
+    ResNet: skip connections.
+
+    YOLO-cls: обычный классификатор внутри YOLO-фреймворка.
+
+    ViT: attention-based, другой inductive bias.
+
+    Дальше: detection опирается на backbone и classification head.
+
+Need maybe mention "top-5 accuracy" for ImageNet. "Confusion matrix" details.
+
+Could also include small example of metrics calculation? Maybe not necessary but helpful. We can include concise.
+
+Need ensure Russian terms: "полносвязный слой", "свёрточный", "субдискретизация/пулинг", "остаточные связи", "головной классификатор", "предобучение", "аугментация". "Метрики: доля правильных ответов".
+
+Need maybe mention "YOLO classification head" maybe "YOLOv8-cls" specifics: In YOLOv8 classification, head uses Classify module. We can say "в Ultralytics YOLOv8/11/26-cls" if not sure about YOLO26. Plan mentions YOLO26. We can say "YOLO-cls (например, YOLOv8-cls / YOLO11-cls / YOLO26-cls)". Avoid exact if uncertain. But can describe typical.
+
+Need maybe mention "top-1 vs top-5". "Accuracy = (TP+TN)/N for binary? For multiclass = correct/N". "Macro-F1". Good.
+
+Need maybe mention "multilabel classification": if image can have multiple labels, use sigmoid + binary cross-entropy per class, metrics mAP? But plan says one label. We can note as variant.
+
+Need maybe include "почему CNN лучше MLP": параметры sharing, локальность, иерархия, equivariance. "Translation equivariance: сдвиг входа -> сдвиг карты признаков; pooling даёт локальную инвариантность."
+
+Need maybe include "ResNet vanishing gradient": chain rule product of Jacobians. Skip connection creates identity path. "degradation problem": 56-layer plain network worse than 20-layer on train error.
+
+Need maybe include "ViT patch embedding": if P=16, H=W=224 -> N=196 patches. [CLS] token. Positional embeddings learnable. "Attention complexity O(N^2)" — bottleneck for high resolution. Swin solves with windows.
+
+Need maybe include "YOLO classification head vs ViT": not necessary.
+
+Could also include "как измеряется": "top-5 accuracy: модель выдаёт 5 наиболее вероятных классов; если истинный среди них — correct." "Confusion matrix: помогает увидеть, какие классы путаются." "Precision/Recall/F1: для каждого класса, особенно при дисбалансе." "Macro avg: среднее по классам, не учитывает размер класса; micro: учитывает; weighted: по поддержке." Good.
+
+Need maybe include "формально": Let X be space of images, Y = {1,...,K}. Model fθ: X -> [0,1]^K, sum=1. Loss: L = - (1/N) Σ_i log pθ(y_i | x_i). If multilabel: L = -Σ_i Σ_k y_ik log p_ik + (1-y_ik) log(1-p_ik).
+
+Need maybe include "инференс: y_hat = argmax". "Top-k: y_true ∈ top_k(p)."
+
+Need maybe include "базовые подходы": kNN on pixels: d(x,x') = ||x-x'||_2. "Проклятие размерности". "MLP: flatten 224*224*3 = 150k inputs, first hidden 1000 -> 150M parameters, overfit." Good.
+
+Need maybe include "CNN pipeline": formula for conv: y_{i,j,k} = φ(Σ_{c,m,n} w_{k,c,m,n} x_{c,i+m,j+n} + b_k). "Pooling: max_{m,n} x_{i+m,j+n}". "Global average pooling: усреднение по spatial, уменьшает параметры." "Softmax: p_k = exp(z_k)/Σ exp(z_j)." "Cross-entropy."
+
+Need maybe include "LeNet/AlexNet historical": LeNet 1998, AlexNet 2012. AlexNet: 5 conv, 3 FC, ReLU, dropout, data augmentation, GPU. Top-5 error 15.3% vs 26.2% second. Good.
+
+Need maybe include "ResNet variants": ResNet-50 uses bottleneck. "Identity shortcut". "Projection shortcut when dimensions change." "Pre-activation ResNet" maybe optional. "DenseNet" alternative? Plan says 1-2 alternatives for contrast. For classification, maybe ViT is contrast. Could also mention ConvNeXt/Swin. But not necessary.
+
+Need maybe include "YOLO classification head": Let's be precise. In YOLOv8-cls, architecture:
+
+    Backbone: Conv, C2f, SPPF.
+
+    Head: Classify: Conv(c1, c2, 1), AdaptiveAvgPool2d(1), Dropout, Linear(c2, nc).
+    So yes. "Чем отличается от 'чистого' классификатора": почти ничем, кроме фреймворка. "В detection head cls-ветка предсказывает класс для каждого anchor/grid cell, а не один глобальный." Good.
+
+Need maybe include "ViT": "Patch embedding: Conv2d with kernel P and stride P can implement." "Class token." "Positional embedding." "Transformer block." "MLP head." "Contrast: CNN inductive bias vs ViT data hunger." "DeiT, Swin, ConvNeXt." Good.
+
+Need maybe include "Что дальше": "Object Detection опирается на backbone и classification head; в detection к классификации добавляется локализация." Good.
+
+Need final answer not too huge but complete. We can use headings and bullet lists. That will be readable.
+
+Maybe the user expects "начни расписывать" as first part of a series. We can end with "Если хочешь, следующим сообщением углубимся в любой подпункт: метрики mAP? нет, это для detection. Для classification: confusion matrix, ResNet, ViT." But maybe no need. Could ask if continue to Object Detection? But they asked start with first. We can say "Готов идти дальше во 2 пункт или углубиться в любой блок."
+
+Need ensure no markdown table? Fine.
+
+Let's draft in Russian.
+
+Potential final:
+1. Image Classification
+A. Задача в отрыве от моделей
+1.1 Постановка
+
+...
+1.2 Метрики
+
+...
+1.3 Базовые подходы
+
+...
+B. Архитектуры
+2.1 CNN pipeline
+
+...
+2.2 ResNet
+
+...
+2.3 YOLO classification head
+
+...
+2.4 ViT
+
+...
+2.5 Что важно вынести
+
+Maybe include "multilabel variant" in note.
+
+Let's write with formulas.
+
+Need be careful: "Top-5 accuracy" for ImageNet: if true class in top 5. "Top-1" = accuracy. "Confusion matrix: строки — истина, столбцы — предсказание" or vice versa? Common: rows true, columns predicted. We'll state.
+
+"Precision = TP/(TP+FP), Recall = TP/(TP+FN), F1 = 2PR/(P+R)." For multiclass per class one-vs-rest.
+
+"Macro average: average of per-class metrics; micro: aggregate TP/FP/FN; weighted: by support." Good.
+
+"kNN on embeddings": e.g., using pretrained CNN, CLIP. Good.
+
+"MLP": flatten -> FC. "Почему плохо: нет weight sharing, нет локальности, параметров много."
+
+"CNN": "conv -> BN -> ReLU -> pool". "LeNet/AlexNet". "AlexNet details." "VGG, Inception, EfficientNet." Maybe mention "ResNet" separately.
+
+"ResNet": "y = F(x) + x". "Vanishing gradient: derivative includes identity term." "Degradation problem." "Bottleneck." "Backbone for detection/segmentation."
+
+"YOLO classification head": "YOLOv8-cls etc." "Classify head: Conv -> GAP -> Dropout -> Linear." "Same as pure classifier but in YOLO framework." "Detection head's cls branch vs classification model."
+
+"ViT": "patch embedding, [CLS], positional, transformer encoder, MHSA, MLP, residual, LayerNorm." "Attention formula." "Contrast CNN vs ViT." "Swin/ConvNeXt/DeiT."
+
+"Вывод": "Image classification is foundation. Backbone learned here used in detection/segmentation."
+
+Need maybe mention "YOLO classification head — чем отличается/не отличается от 'чистого' классификатора": It is essentially a classifier; difference is training pipeline, backbone, augmentations, export, unified API. In detection, classification is per region. Good.
+
+Could include "YOLO26" mention: "в новых YOLO (v8/11/26) есть отдельные cls-модели". Good.
+
+Need maybe mention "ViT needs more data: ImageNet-1k only works with strong augmentation/distillation (DeiT); on JFT-300M/ImageNet-21k works great." Good.
+
+Need maybe include "Swin: hierarchical window attention; ConvNeXt: CNN modernized." Good.
+
+Now final. Ensure not too long? It's okay. We can make it around 2500 words. Desired oververbosity 5. Maybe 1500-2000. Let's write.
+1. Image Classification
+A. Задача в отрыве от моделей
+1.1. Постановка
+
+Image Classification — это задача, где модели нужно по изображению выдать один класс (или вероятности по классам), без указания местоположения объекта.
+
+Формально:
+
+    Вход: изображение x∈RH×W×Cx∈RH×W×C.
+
+    Выход: класс y∈{1,…,K}y∈{1,…,K}, где KK — число классов.
+
+    Модель учит функцию fθ:X→Yfθ​:X→Y.
+
+    Обычно модель выдаёт вектор логитов z∈RKz∈RK, затем вероятности:
+    pθ(y=k∣x)=exp⁡(zk)∑j=1Kexp⁡(zj)
+    pθ​(y=k∣x)=∑j=1K​exp(zj​)exp(zk​)​
+
+    для взаимоисключающих классов.
+
+    Решение на инференсе:
+    y^=arg⁡max⁡kpθ(k∣x)
+    y^​=argkmax​pθ​(k∣x)
+
+Обучение:
+
+    Датасет: D={(xi,yi)}i=1ND={(xi​,yi​)}i=1N​.
+
+    Функция потерь — кросс-энтропия:
+    L=−1N∑i=1Nlog⁡pθ(yi∣xi)
+    L=−N1​i=1∑N​logpθ​(yi​∣xi​)
+
+    Оптимизация: SGD/Adam + backpropagation.
+
+Важно: в классификации нет bbox, масок, ключевых точек. Модель отвечает только за глобальное семантическое содержание изображения: «что здесь изображено в целом?».
+
+Если классов может быть несколько одновременно, это уже multi-label classification: тогда используют сигмоиду на каждый класс и binary cross-entropy. Но в базовой постановке из плана — один label на изображение.
+1.2. Метрики
+
+Главные метрики:
+
+    Accuracy — доля правильных ответов:
+    Accuracy=число правильных предсказанийвсего примеров
+    Accuracy=всего примеровчисло правильных предсказаний​
+
+    Top-k accuracy — правильным считается ответ, если истинный класс попал в top-k предсказаний. Часто используют top-5 accuracy на ImageNet:
+
+        модель выдаёт 5 наиболее вероятных классов;
+
+        если истинный класс среди них — пример засчитан.
+
+    Confusion matrix — матрица K×KK×K:
+
+        строки — истинные классы;
+
+        столбцы — предсказанные;
+
+        диагональ — правильные ответы;
+
+        вне диагонали — какие классы модель путает.
+
+    Precision / Recall / F1 по классам:
+
+        Precision: TPTP+FPTP+FPTP​ — насколько модель точна, когда говорит «это класс k».
+
+        Recall: TPTP+FNTP+FNTP​ — какую долю объектов класса k модель нашла.
+
+        F1: 2⋅P⋅RP+R2⋅P+RP⋅R​.
+
+        Для многоклассовой задачи считают per-class, затем усредняют:
+
+            macro-F1 — среднее по классам, все классы равны;
+
+            micro-F1 — агрегирует TP/FP/FN по всем классам;
+
+            weighted-F1 — среднее с учётом размера класса.
+
+    Для бинарной классификации дополнительно смотрят ROC-AUC и PR-AUC, особенно при дисбалансе.
+
+Почему accuracy может обманывать: если 99% примеров — класс «фон», модель, всегда предсказывающая «фон», получит 99% accuracy, но не будет решать задачу.
+1.3. Базовые подходы до CNN
+
+    kNN на пикселях:
+
+        изображение разворачивают в вектор;
+
+        сравнивают по L2 или косинусу;
+
+        минусы: проклятие размерности, нет инвариантности к сдвигу, масштабу, освещению.
+
+    kNN на эмбеддингах:
+
+        берут предобученную CNN/CLIP;
+
+        извлекают эмбеддинг;
+
+        обучают kNN или линейный классификатор.
+
+        Это сильный простой baseline, но не самостоятельная архитектура.
+
+    Классические признаки + SVM:
+
+        HOG, SIFT, LBP, цветовые гистограммы;
+
+        затем SVM или Random Forest.
+
+        Исторически работало, но уступает CNN.
+
+    MLP на пикселях:
+
+        flatten изображения → полносвязные слои → softmax.
+
+        Проблемы: огромное число параметров, нет локальности и weight sharing, сильное переобучение.
+
+        Пример: изображение 224×224×3224×224×3 — это 150 528 входов. Первый скрытый слой на 1000 нейронов даст ~150 млн параметров.
+
+Вывод: нужна архитектура, которая использует локальность, разделяемые веса и иерархию признаков. Это и есть CNN.
+B. Архитектуры
+2.1. Классический CNN pipeline
+
+Базовая схема:
+Conv→BN→ReLU→Pool→⋯→FC→Softmax
+Conv→BN→ReLU→Pool→⋯→FC→Softmax
+
+Ключевые идеи:
+
+    Локальное рецептивное поле: нейрон смотрит не на всё изображение, а на небольшой участок.
+
+    Weight sharing: один и тот же фильтр применяется по всей картинке.
+
+    Translation equivariance: сдвиг объекта на входе приводит к сдвигу карты признаков.
+
+    Pooling даёт локальную инвариантность и уменьшает разрешение.
+
+    Иерархия признаков:
+
+        ранние слои — края, углы, цвета;
+
+        средние — текстуры, части объектов;
+
+        глубокие — объекты и сцены.
+
+Формула свёртки:
+yi,j,k=ϕ(∑c,m,nwk,c,m,n⋅xc,i+m,j+n+bk)
+yi,j,k​=ϕ(c,m,n∑​wk,c,m,n​⋅xc,i+m,j+n​+bk​)
+
+где ww — ядро свёртки, cc — входной канал, kk — выходной канал.
+
+Исторические ориентиры:
+
+    LeNet-5 (1998): 2 свёрточных слоя + pooling + FC. Распознавание цифр.
+
+    AlexNet (2012): глубже, ReLU, dropout, data augmentation, обучение на GPU. Победа на ImageNet.
+
+    VGG: стек 3×3 свёрток, показал важность глубины.
+
+    Inception/GoogLeNet: multi-scale ветки.
+
+    EfficientNet: compound scaling глубины, ширины и разрешения.
+
+Обучение CNN:
+
+    loss: cross-entropy;
+
+    оптимизаторы: SGD + momentum, Adam;
+
+    регуляризация: weight decay, dropout, batch norm;
+
+    аугментации: random crop, flip, color jitter, mixup, cutmix;
+
+    нормализация входов.
+
+Плюсы CNN: сильные встроенные inductive biases — локальность, разделяемые веса, иерархия.
+Минусы: ограниченный глобальный контекст; решается увеличением рецептивного поля или attention-механизмами.
+2.2. ResNet
+
+Проблема: с ростом глубины обычные CNN начинают работать хуже не из-за переобучения, а из-за degradation problem и vanishing/exploding gradients.
+
+ResNet предлагает skip connection:
+y=F(x,W)+x
+y=F(x,W)+x
+
+где F(x,W)F(x,W) — остаточное преобразование. Если размерности не совпадают, используют проекцию WsxWs​x.
+
+Почему это помогает:
+
+    сети проще выучить «ничего не менять», чем полное преобразование;
+
+    градиент течёт по identity-пути:
+    ∂L∂x=∂L∂y(1+∂F∂x)
+    ∂x∂L​=∂y∂L​(1+∂x∂F​)
+
+    даже если ∂F∂x∂x∂F​ мал, градиент не затухает благодаря единице;
+
+    появляется возможность обучать очень глубокие сети: 50, 101, 152 слоя.
+
+Варианты:
+
+    ResNet-18/34 — basic block;
+
+    ResNet-50/101/152 — bottleneck: 1×1 → 3×3 → 1×1 для экономии вычислений;
+
+    batch norm после свёрток.
+
+ResNet стал стандартным backbone для detection, segmentation, pose и других задач.
+2.3. YOLO classification head
+
+YOLO — это прежде всего detection, но в семействе Ultralytics есть отдельные classification-модели: YOLOv8-cls, YOLO11-cls, YOLO26-cls.
+
+Как устроена классификационная голова в YOLO-cls:
+
+    backbone: CSPDarknet / C2f / SPPF — как в detection;
+
+    затем classification head:
+
+        Conv 1×11×1;
+
+        AdaptiveAvgPool до 1×11×1;
+
+        Dropout;
+
+        Linear → KK логитов.
+
+То есть по сути это обычный CNN-классификатор с GAP + FC.
+
+Чем отличается от «чистого» классификатора:
+
+    почти ничем архитектурно;
+
+    но встроен в единый YOLO-фреймворк: те же аугментации, training loop, экспорт, API, предобученные веса.
+
+Чем отличается от classification-ветки в detection head:
+
+    в detection голова предсказывает класс для каждой пространственной позиции/anchor;
+
+    в YOLO-cls модель выдаёт один глобальный класс на изображение.
+
+Зачем это нужно: удобно использовать один стек, сравнивать backbone, переиспользовать веса для detection/segmentation.
+2.4. ViT — Vision Transformer
+
+ViT — принципиально другой подход: изображение представляется как последовательность патчей.
+
+Схема:
+
+    Изображение H×W×CH×W×C разрезается на патчи P×PP×P.
+
+        Например, 224×224224×224, патч 16×1616×16 → 196 патчей.
+
+    Каждый патч flatten → линейная проекция в размерность DD.
+
+    Добавляется positional embedding.
+
+    Добавляется обучаемый токен [CLS].
+
+    Последовательность проходит через LL Transformer-блоков:
+
+        LayerNorm;
+
+        Multi-Head Self-Attention;
+
+        residual;
+
+        LayerNorm;
+
+        MLP (GELU);
+
+        residual.
+
+    Классификационная голова берёт [CLS] или mean-pool патчей → Linear → KK.
+
+Self-attention:
+Attention(Q,K,V)=softmax(QKTdk)V
+Attention(Q,K,V)=softmax(dk​
+​QKT​)V
+
+Ключевое отличие от CNN:
+
+    CNN: локальность и translation equivariance встроены архитектурно.
+
+    ViT: меньше inductive bias, все патчи могут взаимодействовать сразу, глобальный контекст с первого слоя.
+
+    ViT требует много данных или сильного предобучения/augmentation. На маленьких датасетах чистый ViT проигрывает CNN.
+
+    На больших данных ViT масштабируется лучше.
+
+Альтернативы и гибриды:
+
+    DeiT — distillation для обучения ViT на ImageNet-1k;
+
+    Swin Transformer — оконное внимание и иерархия, ближе к CNN;
+
+    ConvNeXt — CNN, модернизированная под дизайн трансформеров.
+
+2.5. Что важно вынести из пункта 1
+
+    Image Classification — фундамент: здесь появляются backbone, которые потом используются в detection, segmentation, pose.
+
+    Формально: изображение → один класс, loss — cross-entropy, метрика — accuracy/top-k, confusion matrix, precision/recall/F1.
+
+    Базовые подходы: kNN, HOG+SVM, MLP.
+
+    CNN: conv + pooling + FC, LeNet/AlexNet.
+
+    ResNet: skip connections решают vanishing gradient и degradation.
+
+    YOLO-cls: обычный классификатор внутри YOLO-фреймворка.
+
+    ViT: attention-based подход с другим inductive bias, требует больше данных, но лучше масштабируется.
+
+Следующий пункт — Object Detection — естественно опирается на всё это: backbone и классификационная голова остаются, но добавляется локализация объекта.
+Что такое backbone , и расскажи подробнее про то , как и плчему устроен  ViT
+
+We need answer in Russian. User asks: "Что такое backbone, и расскажи подробнее про то, как и почему устроен ViT". Need explain backbone concept, and ViT in detail how and why. We need craft comprehensive answer. We have previous context. We need answer likely in Russian. Need be detailed but not too overboard. Desired oververbosity 5. We should explain backbone: in CV, backbone is feature extractor, usually CNN or transformer, outputs feature maps/embeddings. Used by heads for classification, detection, segmentation, etc. Examples: ResNet, CSPDarknet, Swin, ViT. Discuss why: transfer learning, hierarchy, multi-scale, pretraining. Then ViT: architecture, patch embedding, positional encoding, CLS token, transformer encoder blocks, MSA, MLP, LayerNorm, residuals. Why it works: self-attention global receptive field, no locality prior, learns relationships, scales with data. Compare to CNN: inductive biases. Discuss variants: DeiT, Swin, hybrid. Need maybe formulas. Explain attention. Explain complexity O(N^2) with patches. Explain positional embeddings. Explain pre-training (supervised, self-supervised like MAE, DINO). Explain why ViT needs lots of data. Explain patch size, resolution, interpolation. Mention classification head. Mention why CLS token? It aggregates info; alternatively global average pooling. Mention LayerNorm placement (pre-norm). Mention MLP ratio 4. Mention multi-head. Mention QKV. Mention class token. Mention patch embedding via conv with stride P. Mention output. Mention inductive biases: translation equivariance, locality in CNN; ViT has to learn from data. Mention hybrid: CNN backbone + transformer. Mention Swin hierarchical windows to reduce complexity. Mention use in detection/segmentation as backbone.
+
+We need answer likely in Russian. Let's structure:
+
+    Что такое backbone
+
+    Определение: "позвоночник" сети, извлекает признаки.
+
+    Роль: вход изображение -> feature maps / embeddings.
+
+    Зачем отделять: переиспользование, transfer learning, разные головы.
+
+    Примеры: ResNet, EfficientNet, CSPDarknet (YOLO), ViT, Swin.
+
+    Требования: иерархия, multi-scale, receptive field, эффективность.
+
+    Как используется: backbone + neck + head. В detection: backbone -> neck (FPN/PAN) -> head. В segmentation: encoder (backbone) + decoder. В classification: backbone + head.
+
+    Обучение: pretrain on ImageNet, fine-tune.
+
+    ViT: как устроен
+
+    Общая идея: изображение как последовательность патчей, transformer encoder.
+
+    Пошагово:
+    a) Разбиение на патчи: P x P, число N = HW/P^2.
+    b) Линейная проекция каждого патча: flatten + Linear -> D. Эквивалентно Conv2d(kernel=P, stride=P).
+    c) Positional embeddings: добавляются, потому что self-attention permutation-invariant. Обучаемые или синусоидальные. 2D или 1D.
+    d) CLS token: обучаемый вектор, добавляется в начало. Его выход используется для классификации. Альтернатива - GAP.
+    e) Transformer encoder: L блоков. Каждый:
+
+        LayerNorm (pre-norm)
+
+        Multi-Head Self-Attention (MSA)
+
+        residual
+
+        LayerNorm
+
+        MLP (Linear -> GELU -> Linear)
+
+        residual
+        f) Голова: LayerNorm -> Linear(D, K) на CLS токене.
+
+    Формулы:
+    z0 = [x_cls; x_p1 E; ...; x_pN E] + E_pos
+    z'l = MSA(LN(z{l-1})) + z_{l-1}
+    z_l = MLP(LN(z'_l)) + z'_l
+    y = LN(z_L^0)
+
+    MSA: Q,K,V, attention.
+
+    Почему ViT работает / почему так устроен
+
+    Self-attention: каждый патч может взаимодействовать с каждым с первого слоя -> глобальный контекст.
+
+    Нет встроенной локальности/трансляционной эквивариантности -> меньше inductive bias, больше гибкости, но нужно больше данных.
+
+    Патчи как "слова", transformer как языковая модель.
+
+    Позиционные эмбеддинги возвращают пространственную информацию.
+
+    CLS токен агрегирует глобальную информацию.
+
+    Масштабируемость: больше данных/модели -> лучше; сходится с законом масштабирования.
+
+    Сравнение с CNN: CNN хорош на малых данных, ViT на больших. Гибриды.
+
+    Нюансы и варианты
+
+    Вычислительная сложность O(N^2) от числа патчей; N = (H/P)^2. Уменьшение P увеличивает N квадратично.
+
+    Swin: окна, иерархия, shifted windows -> линейная сложность, multi-scale.
+
+    DeiT: distillation, augmentation для обучения на ImageNet-1k.
+
+    MAE, BEiT, DINO: self-supervised pretraining.
+
+    Hybrid: CNN features -> transformer.
+
+    ViT как backbone для detection/segmentation: ViTDet, Mask R-CNN with ViT, Swin.
+
+    Итог: backbone = feature extractor; ViT = transformer encoder на патчах. Почему: global attention, scalability.
+
+Need answer in Russian. Should be clear. Maybe include diagram text. Avoid too long but detailed. Desired oververbosity 5. We can provide enough.
+
+We should maybe clarify "backbone" in context of YOLO: CSPDarknet as backbone, neck PANet, head. In classification YOLO-cls backbone + cls head. Good.
+
+Maybe mention "head" vs "backbone". Backbone outputs feature maps at different scales (strides). For CNN: stages. For ViT: usually single-scale, but Swin hierarchical. That's important for dense tasks.
+
+Let's write. Use headings. Ensure no mistakes. ViT patch embedding: input HxWxC, patch P, N = HW/P^2, each patch flattened to P^2*C, linear to D. CLS token. Positional embeddings added. Transformer encoder. Classification head. Self-attention formula. Multi-head.
+
+Why positional embeddings: because attention is permutation invariant. If no pos, model sees set of patches. Positional embeddings can be learned 1D or 2D, or sinusoidal. Interpolation for different resolution.
+
+Why CLS token: from BERT; acts as global representation; through attention it gathers info. Alternative: global average pooling of patch tokens.
+
+Why pre-norm: training stability for deep transformers.
+
+Why MLP: non-linearity, channel mixing; attention mixes tokens, MLP mixes channels.
+
+Why multi-head: different heads attend to different patterns.
+
+Why ViT needs more data: lacks locality and translation equivariance, must learn from data. Inductive bias vs data.
+
+Maybe mention "attention is all you need" but for vision.
+
+Let's craft final. Ensure Russian. Use markdown.
+Что такое backbone
+
+Backbone (дословно «позвоночник», «хребет») — это основная часть нейросети, которая извлекает признаки из изображения. Обычно backbone принимает изображение и превращает его в набор feature maps или эмбеддингов, а дальше уже специализированные «головы» (heads) решают конкретную задачу: классификацию, детекцию, сегментацию, позу и т.д.
+
+Упрощённо:
+Изображение→Backbone→Признаки→Head→Ответ
+Изображение→Backbone→Признаки→Head→Ответ
+
+Например, в детекции:
+Backbone→Neck (FPN/PAN)→Detection Head
+Backbone→Neck (FPN/PAN)→Detection Head
+
+В классификации:
+Backbone→Classification Head
+Backbone→Classification Head
+
+В сегментации:
+Backbone (encoder)→Decoder→Маска
+Backbone (encoder)→Decoder→Маска
+Зачем выделяют backbone
+
+    Переиспользование. Один и тот же backbone можно подключить к разным головам. ResNet-50 может быть backbone и для классификации, и для Faster R-CNN, и для Mask R-CNN.
+
+    Transfer learning. Backbone предобучают на большом датасете (например, ImageNet), а потом дообучают под конкретную задачу. Это экономит данные и время.
+
+    Разделение ответственности. Backbone отвечает за общие признаки: края, текстуры, формы, части объектов. Голова — за конкретную задачу.
+
+    Масштабируемость. Можно заменить backbone на более мощный (ResNet → Swin → ViT), не переписывая всю архитектуру.
+
+Примеры backbone
+
+    CNN-based: LeNet, AlexNet, VGG, ResNet, EfficientNet, ConvNeXt, CSPDarknet (в YOLO).
+
+    Transformer-based: ViT, Swin Transformer, DeiT.
+
+    Гибридные: CNN + Transformer.
+
+Для плотных задач (детекция, сегментация) backbone часто должен давать multi-scale features — карты признаков разного разрешения. У CNN это естественно: разные стадии имеют разный stride. У чистого ViT обычно одно разрешение, поэтому для детекции/сегментации чаще берут Swin или гибриды.
+ViT — Vision Transformer
+
+ViT (Vision Transformer) — это архитектура, которая применяет Transformer encoder, изначально созданный для текста, к изображениям. Идея: представить изображение как последовательность патчей, как предложение из слов.
+1. Как устроен ViT
+Шаг 1. Разбиение на патчи
+
+Изображение x∈RH×W×Cx∈RH×W×C разрезается на патчи размера P×PP×P.
+
+Число патчей:
+N=HWP2
+N=P2HW​
+
+Например, 224×224224×224, патч 16×1616×16 → N=196N=196.
+
+Каждый патч разворачивается в вектор длины P2CP2C. Например, 16×16×3=76816×16×3=768.
+Шаг 2. Линейная проекция патчей
+
+Каждый патч проходит через линейный слой:
+xpi∈RP2C→RD
+xpi​∈RP2C→RD
+
+где DD — размерность эмбеддинга (например, 768, 1024).
+
+Это эквивалентно свёртке P×PP×P со stride PP. То есть на входе ViT фактически стоит patch embedding, который превращает изображение в последовательность векторов.
+
+Получаем последовательность:
+xp1,xp2,…,xpN
+xp1​,xp2​,…,xpN​
+Шаг 3. CLS-токен
+
+В начало последовательности добавляется обучаемый вектор [CLS]:
+z0=[xcls;xp1E;xp2E;… ;xpNE]
+z0​=[xcls​;xp1​E;xp2​E;…;xpN​E]
+
+где EE — матрица проекции.
+
+[CLS] — это специальный токен, который не соответствует никакому патчу. Через self-attention он собирает информацию со всех патчей. Его выход в конце используется для классификации. Это идея из BERT.
+
+Альтернатива: вместо [CLS] можно усреднить все патч-токены (global average pooling).
+Шаг 4. Positional embeddings
+
+Self-attention не знает о порядке элементов. Если перемешать патчи, результат attention не изменится. Но для изображения пространственное расположение критично.
+
+Поэтому к каждому токену добавляется positional embedding:
+z0=[xcls;xp1E;… ;xpNE]+Epos
+z0​=[xcls​;xp1​E;…;xpN​E]+Epos​
+
+Positional embeddings могут быть:
+
+    обучаемыми;
+
+    синусоидальными;
+
+    1D или 2D.
+
+При смене разрешения изображения их можно интерполировать.
+Шаг 5. Transformer Encoder
+
+Последовательность проходит через LL одинаковых блоков. Каждый блок:
+
+    LayerNorm
+
+    Multi-Head Self-Attention
+
+    Residual connection
+
+    LayerNorm
+
+    MLP (обычно Linear → GELU → Linear)
+
+    Residual connection
+
+Формально (pre-norm вариант):
+zl′=MSA(LN(zl−1))+zl−1
+zl′​=MSA(LN(zl−1​))+zl−1​
+zl=MLP(LN(zl′))+zl′
+zl​=MLP(LN(zl′​))+zl′​
+
+где l=1,…,Ll=1,…,L.
+Multi-Head Self-Attention
+
+Для каждого токена строятся три вектора:
+
+    Query QQ
+
+    Key KK
+
+    Value VV
+
+Внимание:
+Attention(Q,K,V)=softmax(QKTdk)V
+Attention(Q,K,V)=softmax(dk​
+​QKT​)V
+
+Multi-head означает, что attention считается параллельно несколькими «головами» с разными проекциями. Каждая голова может улавливать разные типы связей: локальные, глобальные, семантические.
+MLP
+
+После attention идёт MLP:
+MLP(x)=Linear(GELU(Linear(x)))
+MLP(x)=Linear(GELU(Linear(x)))
+
+Обычно внутренняя размерность в 4 раза больше DD. Attention смешивает информацию между токенами, а MLP — внутри каждого токена (по каналам).
+Шаг 6. Классификационная голова
+
+После последнего блока берётся выход [CLS]-токена:
+y=LN(zL0)
+y=LN(zL0​)
+
+Затем:
+y^=Linear(y)∈RK
+y^​=Linear(y)∈RK
+
+и softmax.
+2. Почему ViT так устроен
+2.1. Глобальный контекст с первого слоя
+
+В CNN нейрон в первом слое видит только маленький участок. Чтобы увидеть всё изображение, нужно много слоёв. В ViT каждый патч через self-attention может взаимодействовать с каждым другим патчем уже в первом блоке. Это даёт глобальный контекст сразу.
+2.2. Меньше inductive bias
+
+CNN «знает» заранее:
+
+    локальность;
+
+    трансляционную эквивариантность;
+
+    иерархию.
+
+ViT почти ничего этого не знает. Он должен выучить эти свойства из данных. Поэтому:
+
+    на маленьких датасетах ViT проигрывает CNN;
+
+    на больших датасетах (JFT-300M, ImageNet-21k) ViT выигрывает и лучше масштабируется.
+
+Это компромисс: меньше встроенных предположений → больше гибкости, но нужно больше данных.
+2.3. Позиционные эмбеддинги возвращают пространство
+
+Без positional embeddings ViT видит изображение как мешок патчей. Позиционные эмбеддинги добавляют информацию о том, где находится патч. Это ключевой элемент.
+2.4. CLS-токен как агрегатор
+
+[CLS] через attention собирает глобальную информацию. Его выход — компактное представление всего изображения. Это удобно для классификации.
+2.5. Масштабируемость
+
+ViT хорошо масштабируется:
+
+    больше данных → лучше;
+
+    больше модель → лучше;
+
+    больше разрешение → лучше, если достаточно данных.
+
+Это согласуется с scaling laws, как в NLP.
+3. Сложности и ограничения ViT
+
+    Квадратичная сложность attention.
+    O(N2)
+    O(N2)
+
+    где NN — число патчей. Если уменьшить патч, NN растёт квадратично, и вычисления становятся очень дорогими.
+
+    Нужно много данных.
+    На ImageNet-1k чистый ViT без сильных аугментаций и дистилляции работает хуже ResNet. DeiT показал, как обучать ViT на меньших данных.
+
+    Одно разрешение.
+    У чистого ViT feature maps одного масштаба. Для детекции и сегментации нужны multi-scale признаки, поэтому часто используют Swin, PVT, ViTDet или гибриды.
+
+    Позиционные эмбеддинги и смена разрешения.
+    При тестировании на другом разрешении их приходится интерполировать.
+
+4. Варианты и развитие
+
+    DeiT — distillation + сильные аугментации, чтобы обучать ViT на ImageNet-1k.
+
+    Swin Transformer — иерархия, локальные окна, shifted windows. Сложность линейна по числу патчей, есть multi-scale.
+
+    MAE, BEiT, DINO — self-supervised предобучение ViT.
+
+    Hybrid — CNN извлекает признаки, затем Transformer обрабатывает последовательность.
+
+    ViTDet — ViT как backbone для detection.
+
+    CLIP — ViT как image encoder, обучаемый на парах изображение-текст.
+
+5. Итог
+
+    Backbone — это извлекатель признаков. Он превращает изображение в эмбеддинги/feature maps, которые затем используются головой под конкретную задачу.
+
+    ViT — это Transformer encoder, который работает не со словами, а с патчами изображения.
+
+    Изображение → патчи → линейная проекция → + positional embeddings → + CLS → Transformer блоки → голова.
+
+    Почему так: self-attention даёт глобальный контекст, positional embeddings возвращают пространство, CLS агрегирует информацию, а отсутствие сильных inductive bias позволяет ViT лучше масштабироваться на больших данных.
+
+    Главные ограничения: квадратичная сложность, потребность в данных, одно разрешение. Отсюда — Swin, DeiT, гибриды.
+
+Можешь сильно подробнее расписать шаг 2 . Желательно с полной математикой и т.д
+
+The user wants a very detailed explanation of Step 2 of ViT — the linear projection of patches. They want full mathematics. Let me write a thorough mathematical treatment.
+
+Step 2 in my previous explanation was: "Линейная проекция патчей" — each patch is flattened and projected via a linear layer.
+
+Let me be very thorough and mathematical. I'll cover:
+
+    Notation setup
+
+    Image as a tensor
+
+    Patch extraction as a mathematical operation (unfold / im2col)
+
+    Flattening each patch
+
+    The linear projection — weight matrix, bias
+
+    Equivalence to convolution with stride P
+
+    Dimensional analysis with concrete numbers
+
+    Matrix formulation for the whole batch
+
+    Implementation details (how it's actually done in code)
+
+    Why this works / intuition
+
+    Learnable vs fixed
+
+    Relation to patch embedding in different ViT variants
+
+Let me write this out carefully with full math.
+
+I'll use consistent notation:
+
+    Image: X ∈ R^{H × W × C}
+
+    Patch size: P
+
+    Number of patches: N = (H/P) × (W/P) = HW/P²
+
+    Embedding dimension: D
+
+Let me write the full mathematical treatment.
+
+Patch extraction:
+X is divided into a grid of P × P patches. Let's index patches by (i,j) where i ∈ {1,...,H/P}, j ∈ {1,...,W/P}.
+
+Each patch X_{i,j} ∈ R^{P × P × C}.
+
+Flattening: vec(X_{i,j}) ∈ R^{P²C}.
+
+So we have N vectors each in R^{P²C}.
+
+Linear projection: E ∈ R^{P²C × D}, b ∈ R^D.
+
+z_{i,j} = vec(X_{i,j})^T E + b ∈ R^D.
+
+Alternatively, each patch embedding is: z_n = E^T vec(X_n) + b.
+
+Equivalence to convolution: conv2d with kernel size P, stride P, out_channels D, in_channels C. The weight tensor of this conv has shape D × C × P × P. This is exactly the same number of parameters as E (P²C × D). The mapping: E[(c,p,q), d] = W_conv[d, c, p, q].
+
+Let me also discuss:
+
+    The order of flattening (row-major)
+
+    Batch formulation
+
+    How it's implemented (unfold + linear, or conv2d)
+
+    Parameter count: P²C × D + D
+
+For ViT-Base: P=16, C=3, D=768. So P²C = 256 × 3 = 768. So E is 768 × 768 = 589,824 params + 768 bias.
+
+For ViT-Large: D=1024, P=16, C=3. E is 768 × 1024 = 786,432 + 1024.
+
+Let me also discuss:
+
+    Why not just use raw pixels as tokens? Because that would be too many tokens (H×W = 50,176 for 224×224), and attention is O(N²).
+
+    Patch size trade-off: smaller patches = more tokens = more compute but finer detail. P=16 is standard, P=14 for some, P=8 for higher resolution.
+
+Also cover:
+
+    The patch embedding can be viewed as a learnable "tokenizer"
+
+    Different from NLP where tokens are discrete; here tokens are continuous vectors from patches
+
+    The linear projection is essentially a learned linear map from pixel space to embedding space
+
+Let me also discuss:
+
+    The equivalence proof in detail
+
+    The matrix formulation for all patches at once: use unfold or im2col
+
+Actually, let me be very careful and thorough. I'll structure it as:
+Step 2 in full detail: Linear projection of patches
+2.1 Notation and setup
+2.2 Patch extraction — formal definition
+2.3 Flattening — the vec operator
+2.4 The linear projection — full math
+2.5 Matrix formulation for the whole image
+2.6 Equivalence to convolution
+2.7 Parameter count and concrete numbers
+2.8 Batch formulation
+2.9 Implementation in practice
+2.10 Why this design — intuition and trade-offs
+2.11 Variants and edge cases
+
+Let me write it out.
+
+For the vec operator, I'll define it as row-major (which is what PyTorch uses for flatten).
+
+Actually, let me think about the exact ordering. In PyTorch, if you have a patch of shape (C, P, P) and you flatten it, you get a vector of length CPP in row-major order: for c in range(C): for h in range(P): for w in range(P): vec[cPP + h*P + w] = patch[c, h, w].
+
+This matters for the equivalence to conv2d. In PyTorch's conv2d, the weight has shape (out_channels, in_channels, kH, kW), and the operation is:
+
+out[d, i, j] = sum_{c, p, q} weight[d, c, p, q] * input[c, istride + p, jstride + q] + bias[d]
+
+And the unfold operation: input.unfold(2, P, P).unfold(3, P, P) gives shape (C, H/P, W/P, P, P), then permute and reshape to (H/P * W/P, CPP) in some order.
+
+The exact correspondence: if we flatten the patch in order (c, p, q), then the weight matrix E should have rows indexed by (c, p, q) and columns by d. And the conv weight W[d, c, p, q] = E[(c,p,q), d].
+
+OK let me write this up properly.
+
+I'll also include the derivation showing that the linear projection on flattened patches is exactly a convolution.
+
+Let me write the full answer in Russian, since the user is writing in Russian.
+
+Let me be really thorough with the math. I'll include:
+
+    Definitions with indices
+
+    Matrix forms
+
+    The conv equivalence proof
+
+    Concrete numbers for ViT-Base
+
+    Implementation details
+
+    Why patches and not pixels
+
+Let me write this out now.
+Шаг 2. Линейная проекция патчей — полная математика
+
+Разберём этот шаг максимально подробно: от определения тензора изображения до эквивалентности свёртке и конкретных чисел для ViT-Base.
+2.1. Обозначения и постановка
+
+Пусть изображение — тензор:
+X∈RH×W×C
+X∈RH×W×C
+
+где:
+
+    HH — высота,
+
+    WW — ширина,
+
+    CC — число каналов (обычно 3 для RGB).
+
+Задан размер патча P×PP×P. Предполагаем, что HH и WW делятся на PP нацело (в противном случае делают padding или resize).
+
+Число патчей по каждой оси:
+Nh=HP,Nw=WP
+Nh​=PH​,Nw​=PW​
+
+Общее число патчей:
+N=Nh⋅Nw=HWP2
+N=Nh​⋅Nw​=P2HW​
+
+Размерность эмбеддинга (ширина модели):
+D
+D
+
+Для ViT-Base: P=16P=16, H=W=224H=W=224, C=3C=3, D=768D=768.
+
+Тогда:
+Nh=Nw=22416=14,N=14⋅14=196
+Nh​=Nw​=16224​=14,N=14⋅14=196
+2.2. Извлечение патчей — формально
+
+Индексируем патчи парой (i,j)(i,j), где:
+i∈{0,1,…,Nh−1},j∈{0,1,…,Nw−1}
+i∈{0,1,…,Nh​−1},j∈{0,1,…,Nw​−1}
+
+Патч (i,j)(i,j) — это подтензор:
+Xi,j∈RP×P×C
+Xi,j​∈RP×P×C
+
+Элементы патча:
+(Xi,j)p,q,c=XiP+p,  jP+q,  c
+(Xi,j​)p,q,c​=XiP+p,jP+q,c​
+
+где p,q∈{0,…,P−1}p,q∈{0,…,P−1}, c∈{0,…,C−1}c∈{0,…,C−1}.
+
+То есть патч (i,j)(i,j) «вырезается» из изображения начиная с позиции (iP,jP)(iP,jP).
+
+Важно: патчи не перекрываются, потому что stride равен PP. Это ключевое отличие от свёртки с меньшим stride.
+2.3. Flatten патча — оператор vec
+
+Каждый патч Xi,jXi,j​ разворачивается в вектор. Определим vec как row-major (порядок, который использует PyTorch при .flatten()):
+vec(Xi,j)∈RP2C
+vec(Xi,j​)∈RP2C
+
+Компоненты:
+(vec(Xi,j))cP2+pP+q=(Xi,j)p,q,c
+(vec(Xi,j​))cP2+pP+q​=(Xi,j​)p,q,c​
+
+То есть индекс в векторе — это c⋅P2+p⋅P+qc⋅P2+p⋅P+q. Порядок: сначала канал, потом строка внутри патча, потом столбец.
+
+Длина вектора:
+P2C
+P2C
+
+Для P=16P=16, C=3C=3: P2C=256⋅3=768P2C=256⋅3=768.
+
+Обозначим этот вектор коротко:
+xi,j:=vec(Xi,j)∈RP2C
+xi,j​:=vec(Xi,j​)∈RP2C
+
+Итого имеем NN векторов xi,jxi,j​, каждый длины P2CP2C.
+2.4. Линейная проекция — полная формула
+
+Вводим обучаемую матрицу проекции:
+E∈R(P2C)×D
+E∈R(P2C)×D
+
+и обучаемый вектор смещения:
+b∈RD
+b∈RD
+
+Проекция патча (i,j)(i,j):
+zi,j=E⊤xi,j+b∈RD
+zi,j​=E⊤xi,j​+b∈RD
+
+Покомпонентно:
+zi,j(d)=∑k=0P2C−1Ek,d xi,j(k)+b(d),d=0,…,D−1
+zi,j(d)​=k=0∑P2C−1​Ek,d​xi,j(k)​+b(d),d=0,…,D−1
+
+где xi,j(k)xi,j(k)​ — kk-я компонента вектора патча, а Ek,dEk,d​ — элемент матрицы EE.
+
+Смысл: каждая компонента эмбеддинга z(d)z(d) — это линейная комбинация всех пикселей патча (по всем каналам). Матрица EE — это обучаемое линейное отображение из пространства «сырых пикселей патча» RP2CRP2C в пространство эмбеддингов RDRD.
+
+Число параметров на этом шаге:
+P2C⋅D+D
+P2C⋅D+D
+
+Для ViT-Base:
+768⋅768+768=589,824+768=590,592
+768⋅768+768=589,824+768=590,592
+
+Для ViT-Large (D=1024D=1024):
+768⋅1024+1024=786,432+1024=787,456
+768⋅1024+1024=786,432+1024=787,456
+2.5. Матричная форма для всего изображения
+
+Соберём все векторы патчей в одну матрицу:
+Xpatches∈RN×(P2C)
+Xpatches​∈RN×(P2C)
+
+Строка nn — это xi,j⊤xi,j⊤​ для соответствующего патча. Порядок строк: сначала по ii, потом по jj (или наоборот — зависит от реализации, но фиксирован).
+
+Тогда проекция всех патчей сразу:
+Z=Xpatches E+1Nb⊤
+Z=Xpatches​E+1N​b⊤
+
+где Z∈RN×DZ∈RN×D, 1N1N​ — вектор из единиц длины NN.
+
+Или покомпонентно:
+Zn,d=∑k(Xpatches)n,kEk,d+bd
+Zn,d​=k∑​(Xpatches​)n,k​Ek,d​+bd​
+
+Это обычное матричное умножение + broadcast bias. Именно так это и реализовано в коде: Linear(P*P*C, D) применяется к тензору формы (N, P*P*C).
+2.6. Эквивалентность свёртке
+
+Ключевой факт: линейная проекция flatten-патчей эквивалентна свёртке с ядром P×PP×P, stride PP, числом выходных каналов DD.
+Доказательство
+
+Рассмотрим свёртку:
+Conv2D(X,W,b)с W∈RD×C×P×P,  b∈RD
+Conv2D(X,W,b)с W∈RD×C×P×P,b∈RD
+
+Выход свёртки:
+Yi,j,d=∑c=0C−1∑p=0P−1∑q=0P−1Wd,c,p,q⋅XiP+p,  jP+q,  c+bd
+Yi,j,d​=c=0∑C−1​p=0∑P−1​q=0∑P−1​Wd,c,p,q​⋅XiP+p,jP+q,c​+bd​
+
+Теперь посмотрим на линейную проекцию патча:
+zi,j(d)=∑k=0P2C−1Ek,d xi,j(k)+bd
+zi,j(d)​=k=0∑P2C−1​Ek,d​xi,j(k)​+bd​
+
+Раскроем xi,j(k)xi,j(k)​ через компоненты патча. По определению vec:
+xi,j(cP2+pP+q)=XiP+p,  jP+q,  c
+xi,j(cP2+pP+q)​=XiP+p,jP+q,c​
+
+Подставляем:
+zi,j(d)=∑c=0C−1∑p=0P−1∑q=0P−1EcP2+pP+q,  d⋅XiP+p,  jP+q,  c+bd
+zi,j(d)​=c=0∑C−1​p=0∑P−1​q=0∑P−1​EcP2+pP+q,d​⋅XiP+p,jP+q,c​+bd​
+
+Сравниваем с формулой свёртки. Они совпадают, если положить:
+Wd,c,p,q=EcP2+pP+q,  d
+Wd,c,p,q​=EcP2+pP+q,d​
+
+То есть:
+Patch embedding=Conv2D с kernel P,  stride P,  out_channels D
+Patch embedding=Conv2D с kernel P,stride P,out_channels D​
+Что это даёт
+
+    Понимание. ViT на входе — это свёрточный слой с большим ядром и большим stride. Никакой магии: сначала изображение «прореживается» свёрткой до сетки Nh×NwNh​×Nw​, а потом эти векторы идут в Transformer.
+
+    Реализация. В коде можно делать либо unfold + Linear, либо Conv2d(P, P, D). Второе часто быстрее и использует оптимизированные CUDA-ядра.
+
+    Параметры. У свёртки и у линейного слоя одинаковое число параметров: D⋅C⋅P2+DD⋅C⋅P2+D. Это не совпадение, а следствие эквивалентности.
+
+    Инициализация. Иногда patch embedding инициализируют как свёртку (например, из предобученного CNN), но обычно обучают с нуля.
+
+Тонкость с порядком flatten
+
+Эквивалентность свёртке выполняется только при согласованном порядке flatten и порядка осей в весах свёртки. Если vec использует порядок (p,q,c)(p,q,c) вместо (c,p,q)(c,p,q), то соответствие будет другим, но всё равно линейным отображением. Главное — фиксировать порядок и согласовать его с реализацией.
+
+В PyTorch:
+
+    nn.Conv2d использует веса формы (out, in, kH, kW) и порядок (c, p, q) при вычислении;
+
+    nn.Linear после flatten использует row-major порядок (c, p, q).
+
+Поэтому они эквивалентны.
+2.7. Конкретные числа
+ViT-Base/16
+Параметр	Значение
+H=WH=W	224
+CC	3
+PP	16
+Nh=NwNh​=Nw​	14
+NN	196
+P2CP2C	768
+DD	768
+Параметров в EE	768⋅768=589,824768⋅768=589,824
+Параметров в bb	768
+Итого	590,592
+ViT-Large/16
+Параметр	Значение
+PP	16
+NN	196
+P2CP2C	768
+DD	1024
+Параметров в EE	768⋅1024=786,432768⋅1024=786,432
+Итого	787,456
+ViT-Huge/14
+Параметр	Значение
+PP	14
+NN	16×16=25616×16=256
+P2CP2C	196⋅3=588196⋅3=588
+DD	1280
+Параметров в EE	588⋅1280=752,640588⋅1280=752,640
+
+Обратите внимание: уменьшение патча с 16 до 14 увеличивает NN с 196 до 256, то есть на ~30%, и это сильно влияет на стоимость attention (O(N2)O(N2)).
+2.8. Батчевая форма
+
+На практике работают с батчем изображений:
+X∈RB×H×W×C
+X∈RB×H×W×C
+
+После patch embedding:
+Z∈RB×N×D
+Z∈RB×N×D
+
+Формула:
+Zb,n,d=∑k(Xpatches)b,n,kEk,d+bd
+Zb,n,d​=k∑​(Xpatches​)b,n,k​Ek,d​+bd​
+
+В коде:
+python
+
+# X: (B, C, H, W)
+patches = X.unfold(2, P, P).unfold(3, P, P)  # (B, C, N_h, N_w, P, P)
+patches = patches.permute(0, 2, 3, 1, 4, 5)   # (B, N_h, N_w, C, P, P)
+patches = patches.flatten(1, 2).flatten(-3)   # (B, N, C*P*P)
+Z = self.proj(patches)                        # (B, N, D)
+
+# или эквивалентно:
+Z = self.conv_proj(X)                         # (B, D, N_h, N_w)
+Z = Z.flatten(2).transpose(1, 2)              # (B, N, D)
+
+2.9. Почему именно патчи, а не пиксели?
+
+Если бы мы взяли каждый пиксель как отдельный токен:
+N=H⋅W=224⋅224=50,176
+N=H⋅W=224⋅224=50,176
+
+Сложность self-attention:
+O(N2)=O(50,1762)≈2.5⋅109
+O(N2)=O(50,1762)≈2.5⋅109
+
+Против N=196N=196:
+O(1962)≈3.8⋅104
+O(1962)≈3.8⋅104
+
+Разница — в 65,000 раз. Это неподъёмно.
+
+Патчи решают две задачи:
+
+    Резко сокращают число токенов. N=HW/P2N=HW/P2. При P=16P=16 это уменьшение в 256 раз.
+
+    Дают локальные признаки. Каждый патч — это уже небольшой фрагмент изображения с локальной структурой. Линейная проекция превращает его в эмбеддинг.
+
+Компромисс: чем меньше патч, тем больше токенов, тем детальнее, но тем дороже. Стандарт — P=16P=16 или P=14P=14. Для плотных задач (детекция, сегментация) иногда берут P=8P=8 или используют иерархические архитектуры (Swin).
+2.10. Что именно выучивает проекция?
+
+Матрица EE — это обучаемый линейный фильтр, который каждому патчу ставит в соответствие вектор в пространстве DD. Интерпретации:
+
+    Каждая строка Ek,:Ek,:​ — это «шаблон» для одного компонента эмбеддинга.
+
+    Столбец E:,dE:,d​ — это линейная функция от всех пикселей патча, выдающая dd-ю компоненту.
+
+    После обучения патч-эмбеддинги похожих патчей (например, «трава», «небо», «край объекта») оказываются близки в RDRD.
+
+По сути, это обучаемый токенизатор: он переводит непрерывное пиксельное представление в последовательность векторов, с которой умеет работать Transformer.
+
+В отличие от NLP, где токены дискретны и берутся из словаря, здесь токены непрерывны и порождаются линейным слоем. Это одна из ключевых адаптаций Transformer к изображениям.
+2.11. Варианты и обобщения
+
+    Перекрывающиеся патчи. Если stride <P<P, патчи перекрываются. Тогда patch embedding — это свёртка с kernel PP, stride S<PS<P. Это увеличивает NN и даёт более плотное покрытие.
+
+    Multi-scale patch embedding. В Swin Transformer патчи меньшего размера на ранних стадиях и объединение (patch merging) на поздних — аналог иерархии CNN.
+
+    Conv stem. Вместо одного слоя P×PP×P ставят несколько свёрток 3×33×3 до patch embedding. Это добавляет локальный inductive bias и помогает на малых данных (например, в некоторых вариантах ViT и в Hybrid ViT).
+
+    Learnable vs fixed. Обычно EE обучается. Но можно инициализировать его свёрткой из предобученной CNN или даже фиксировать (например, использовать DCT-базис). На практике обучаемый вариант работает лучше.
+
+    Positional embeddings добавляются после. Важно: patch embedding не содержит информации о позиции. Она добавляется на следующем шаге. Сам по себе patch embedding — это permutation-invariant преобразование.
+
+2.12. Итог
+
+    Патч (i,j)(i,j) — это подтензор P×P×CP×P×C, вырезанный с шагом PP.
+
+    Flatten превращает его в вектор длины P2CP2C.
+
+    Линейная проекция E∈R(P2C)×DE∈R(P2C)×D переводит его в эмбеддинг длины DD.
+
+    Формула: zi,j=E⊤xi,j+bzi,j​=E⊤xi,j​+b.
+
+    Это эквивалентно свёртке с ядром P×PP×P, stride PP, DD выходными каналами.
+
+    Число параметров: P2C⋅D+DP2C⋅D+D.
+
+    Для ViT-Base/16: N=196N=196, D=768D=768, ~590K параметров в patch embedding.
+
+    Патчи, а не пиксели — потому что attention O(N2)O(N2), и N=HW/P2N=HW/P2 должно быть разумным.
+
+    Patch embedding — это обучаемый токенизатор, переводящий пиксели в последовательность векторов для Transformer.
+
+Теперь перейдём к пункту 2 плана
+
+The user wants me to move on to point 2 of the plan: Object Detection. They want me to follow the same structure as point 1: first the task in isolation from models (what it is, how it's formally stated, how it's measured, classical/basic approaches), then architectures that solve this task, with explanations of mechanics, including the corresponding YOLO head/version and 1-2 alternative approaches for contrast.
+
+Let me write a comprehensive, detailed explanation of Object Detection following the same style as the Image Classification section. I should be thorough and cover:
+
+    Task in isolation:
+
+    Formulation: multiple objects, each with bbox + class + confidence
+
+    Annotation formats: COCO/VOC/YOLO
+
+    Metrics: IoU, precision/recall, mAP (step by step), NMS
+
+    Classical approaches: sliding window, R-CNN family, one-stage YOLO/SSD
+
+    Architectures:
+
+    YOLOv1-v3: anchor-based evolution, multi-scale prediction
+
+    YOLOv8: anchor-free, decoupled head
+
+    YOLOv10/26: NMS-free, dual label assignment
+
+    Alternative: RT-DETR
+
+Let me make this detailed and thorough, similar to the level of detail in the ViT patch embedding explanation. I'll include math where appropriate.
+2. Object Detection
+A. Задача в отрыве от моделей
+1.1. Постановка
+
+Object Detection — это задача, где модели нужно найти на изображении все объекты интереса, и для каждого выдать:
+
+    bbox (bounding box) — прямоугольник, ограничивающий объект;
+
+    класс объекта;
+
+    confidence — уверенность модели в том, что это действительно объект.
+
+Формально:
+
+    Вход: изображение x∈RH×W×Cx∈RH×W×C.
+
+    Выход: множество детекций
+    D={(bi,ci,si)}i=1M
+    D={(bi​,ci​,si​)}i=1M​
+
+    где:
+
+        bi=(x1,y1,x2,y2)bi​=(x1​,y1​,x2​,y2​) — координаты bbox (или x,y,w,hx,y,w,h);
+
+        ci∈{1,…,K}ci​∈{1,…,K} — класс;
+
+        si∈[0,1]si​∈[0,1] — confidence score.
+
+Число MM заранее неизвестно — оно зависит от изображения. Это ключевое отличие от классификации, где выход всегда один.
+
+Что значит «найти все объекты»:
+
+    Нужно не просто определить, что на картинке есть кошка, а указать где она;
+
+    если на картинке две кошки — нужно две детекции;
+
+    если объектов нет — пустое множество.
+
+Почему это сложнее классификации:
+
+    Переменное число выходов. Нельзя просто выдать фиксированный вектор.
+
+    Локализация. Нужно предсказать непрерывные координаты, а не дискретный класс.
+
+    Перекрытия. Объекты могут перекрываться, один объект может быть внутри другого.
+
+    Масштаб. Объекты могут быть разного размера: от нескольких пикселей до всего изображения.
+
+    Дисбаланс. Фона обычно гораздо больше, чем объектов.
+
+1.2. Формат разметки
+VOC (Pascal Visual Object Classes)
+
+Формат XML:
+xml
+
+<annotation>
+  <object>
+    <name>dog</name>
+    <bndbox>
+      <xmin>100</xmin>
+      <ymin>200</ymin>
+      <xmax>300</xmax>
+      <ymax>400</ymax>
+    </bndbox>
+  </object>
+</annotation>
+
+    Координаты — абсолютные пиксели.
+
+    20 классов.
+
+COCO (Common Objects in Context)
+
+Формат JSON:
+json
+
+{
+  "images": [{"id": 1, "file_name": "img.jpg", "width": 640, "height": 480}],
+  "annotations": [
+    {"image_id": 1, "category_id": 1, "bbox": [100, 200, 200, 200], "area": 40000}
+  ],
+  "categories": [{"id": 1, "name": "person"}]
+}
+
+    bbox — [x, y, width, height], где (x, y) — левый верхний угол.
+
+    80 классов.
+
+    Есть area для фильтрации мелких объектов.
+
+YOLO-формат
+
+Текстовый файл, одна строка на объект:
+text
+
+class_id x_center y_center width height
+
+    Координаты нормализованы к [0,1][0,1] относительно ширины и высоты изображения.
+
+    Пример: 0 0.5 0.5 0.2 0.3 — класс 0, центр в (0.5, 0.5), ширина 0.2, высота 0.3.
+
+    Удобен для быстрой загрузки: не нужно парсить XML/JSON.
+
+    Один файл .txt на изображение.
+
+Соответствие форматов:
+	VOC	COCO	YOLO
+Формат	XML	JSON	TXT
+Координаты	абсолютные	абсолютные	нормализованные
+Bbox	xmin, ymin, xmax, ymax	x, y, w, h	xc, yc, w, h
+Классы	20	80	любое
+
+Конвертация VOC → YOLO:
+xc=xmin⁡+xmax⁡2W,yc=ymin⁡+ymax⁡2H
+xc​=2Wxmin​+xmax​​,yc​=2Hymin​+ymax​​
+w=xmax⁡−xmin⁡W,h=ymax⁡−ymin⁡H
+w=Wxmax​−xmin​​,h=Hymax​−ymin​​
+1.3. IoU — Intersection over Union
+
+Базовая метрика для сравнения двух bbox.
+
+Для bbox AA и BB:
+IoU(A,B)=∣A∩B∣∣A∪B∣
+IoU(A,B)=∣A∪B∣∣A∩B∣​
+
+где ∣A∩B∣∣A∩B∣ — площадь пересечения, ∣A∪B∣∣A∪B∣ — площадь объединения.
+
+Площадь объединения:
+∣A∪B∣=∣A∣+∣B∣−∣A∩B∣
+∣A∪B∣=∣A∣+∣B∣−∣A∩B∣
+
+Как вычислить пересечение:
+
+Пусть A=(x1A,y1A,x2A,y2A)A=(x1A​,y1A​,x2A​,y2A​), B=(x1B,y1B,x2B,y2B)B=(x1B​,y1B​,x2B​,y2B​).
+
+Координаты пересечения:
+x1∩=max⁡(x1A,x1B),y1∩=max⁡(y1A,y1B)
+x1∩​=max(x1A​,x1B​),y1∩​=max(y1A​,y1B​)
+x2∩=min⁡(x2A,x2B),y2∩=min⁡(y2A,y2B)
+x2∩​=min(x2A​,x2B​),y2∩​=min(y2A​,y2B​)
+
+Ширина и высота пересечения:
+w∩=max⁡(0,x2∩−x1∩),h∩=max⁡(0,y2∩−y1∩)
+w∩=max(0,x2∩​−x1∩​),h∩=max(0,y2∩​−y1∩​)
+
+Площадь пересечения:
+∣A∩B∣=w∩⋅h∩
+∣A∩B∣=w∩⋅h∩
+
+Свойства IoU:
+
+    IoU∈[0,1]IoU∈[0,1];
+
+    IoU=1IoU=1 — идеальное совпадение;
+
+    IoU=0IoU=0 — нет пересечения;
+
+    не зависит от масштаба (относительная метрика).
+
+Порог IoU: обычно IoU≥0.5IoU≥0.5 считается «детекция правильная». В COCO используют усреднение по порогам 0.5:0.05:0.95.
+1.4. Precision, Recall, TP/FP/FN
+
+Для одного класса и одного порога IoU:
+
+    TP (True Positive) — предсказание с IoU≥thresholdIoU≥threshold и правильным классом.
+
+    FP (False Positive) — предсказание с IoU<thresholdIoU<threshold или неправильным классом, либо лишнее предсказание.
+
+    FN (False Negative) — истинный объект, для которого нет предсказания с IoU≥thresholdIoU≥threshold.
+
+Precision=TPTP+FP
+Precision=TP+FPTP​
+Recall=TPTP+FN
+Recall=TP+FNTP​
+
+Проблема: нужно выбрать порог confidence. Если порог низкий — много FP, recall высокий. Если высокий — мало FP, но много FN.
+
+Решение: precision-recall curve — график precision vs recall при всех порогах confidence.
+1.5. mAP — mean Average Precision
+
+Разберём по шагам.
+Шаг 1. Ранжирование предсказаний
+
+Все предсказания сортируются по убыванию confidence.
+Шаг 2. Расчёт TP/FP на каждом пороге
+
+Идём по списку сверху вниз. Для каждого предсказания:
+
+    если оно соответствует истинному объекту (IoU ≥ threshold, класс совпадает) и этот объект ещё не «занят» — TP;
+
+    иначе — FP.
+
+Получаем последовательность TP/FP.
+Шаг 3. Precision и Recall на каждом шаге
+
+После kk-го предсказания:
+Precision(k)=TP(k)TP(k)+FP(k)
+Precision(k)=TP(k)+FP(k)TP(k)​
+Recall(k)=TP(k)TPtotal
+Recall(k)=TPtotal​TP(k)​
+
+где TPtotalTPtotal​ — общее число истинных объектов.
+Шаг 4. Precision-Recall curve
+
+Строим график PrecisionPrecision vs RecallRecall. Обычно precision падает с ростом recall.
+Шаг 5. Интерполяция precision
+
+Для сглаживания кривой используют интерполяцию:
+pinterp(r)=max⁡r~≥rp(r~)
+pinterp​(r)=r~≥rmax​p(r~)
+
+То есть precision в точке rr — это максимум precision при recall ≥r≥r.
+Шаг 6. Average Precision (AP)
+AP=∫01pinterp(r) dr
+AP=∫01​pinterp​(r)dr
+
+На практике — численное интегрирование:
+AP=∑k=1N(rk+1−rk)⋅pinterp(rk+1)
+AP=k=1∑N​(rk+1​−rk​)⋅pinterp​(rk+1​)
+
+Или в дискретном варианте VOC2007: усреднение precision в 11 точках recall 0,0.1,…,1.00,0.1,…,1.0.
+Шаг 7. mAP
+mAP=1K∑k=1KAPk
+mAP=K1​k=1∑K​APk​
+
+где KK — число классов.
+
+Варианты mAP:
+
+    mAP@0.5 — IoU threshold = 0.5 (VOC).
+
+    mAP@0.5:0.95 — усреднение по 10 порогам от 0.5 до 0.95 с шагом 0.05 (COCO).
+
+    mAP@0.75 — более строгий порог.
+
+Пример:
+
+Пусть для класса «кошка» 5 истинных объектов. Предсказания:
+#	Confidence	TP/FP	Cum TP	Cum FP	Precision	Recall
+1	0.95	TP	1	0	1.00	0.20
+2	0.90	TP	2	0	1.00	0.40
+3	0.85	FP	2	1	0.67	0.40
+4	0.80	TP	3	1	0.75	0.60
+5	0.70	FP	3	2	0.60	0.60
+6	0.60	TP	4	2	0.67	0.80
+7	0.50	FP	4	3	0.57	0.80
+8	0.40	TP	5	3	0.63	1.00
+
+Интерполированная precision:
+
+    r=0.2r=0.2: max precision при recall ≥ 0.2 = 1.00
+
+    r=0.4r=0.4: max = 1.00
+
+    r=0.6r=0.6: max = 0.75
+
+    r=0.8r=0.8: max = 0.67
+
+    r=1.0r=1.0: max = 0.63
+
+AP ≈ среднее этих значений ≈ 0.81.
+1.6. NMS — Non-Maximum Suppression
+
+Проблема: модель часто выдаёт несколько bbox для одного объекта. Нужно оставить один.
+
+Алгоритм:
+
+    Собрать все предсказания для одного класса.
+
+    Отсортировать по убыванию confidence.
+
+    Взять предсказание с максимальным confidence — это «победитель».
+
+    Удалить все предсказания, у которых IoU с победителем > threshold (например, 0.5).
+
+    Повторять, пока не останутся предсказания.
+
+Псевдокод:
+text
+
+def nms(boxes, scores, iou_threshold):
+    keep = []
+    order = argsort(scores)[::-1]
+    while order:
+        i = order[0]
+        keep.append(i)
+        ious = [iou(boxes[i], boxes[j]) for j in order[1:]]
+        order = [j for j, o in zip(order[1:], ious) if o <= iou_threshold]
+    return keep
+
+Параметры:
+
+    iou_threshold — обычно 0.5 или 0.7;
+
+    чем ниже порог, тем агрессивнее подавление.
+
+Проблемы NMS:
+
+    Жадность. Порядок обработки влияет на результат.
+
+    Перекрывающиеся объекты. Если два объекта одного класса сильно перекрываются, NMS может удалить один из них.
+
+    Скорость. Для большого числа предсказаний NMS может быть медленным.
+
+    Не дифференцируемость. Нельзя обучать end-to-end.
+
+Soft-NMS: вместо удаления — уменьшать confidence пропорционально IoU:
+sj=sj⋅e−IoU2σ
+sj​=sj​⋅e−σIoU2​
+
+NMS-free подходы: YOLOv10, RT-DETR — обучаются так, чтобы не требовать NMS.
+1.7. Классические подходы
+Sliding Window + Classifier
+
+Идея: двигаем окно фиксированного размера по изображению с шагом, классифицируем каждое окно.
+
+Проблемы:
+
+    Вычислительная сложность. Для изображения H×WH×W и окна K×KK×K с шагом SS: HWS2S2HW​ окон. Для каждого — forward pass классификатора.
+
+    Масштаб. Нужно перебирать размеры окна.
+
+    Форма. Объекты не прямоугольные.
+
+    Дисбаланс. Большинство окон — фон.
+
+Исторически использовалось с HOG+SVM, но было очень медленным.
+R-CNN (2014)
+
+Идея: сначала region proposals, потом классификация.
+
+    Selective Search генерирует ~2000 регионов-кандидатов.
+
+    Каждый регион масштабируется до фиксированного размера (например, 224×224224×224).
+
+    CNN извлекает признаки.
+
+    SVM классифицирует.
+
+    Линейная регрессия уточняет bbox.
+
+Проблемы:
+
+    Очень медленно: 2000 forward pass на изображение.
+
+    Не end-to-end.
+
+    Много дискового пространства для признаков.
+
+Fast R-CNN (2015)
+
+Улучшения:
+
+    CNN прогоняется один раз по всему изображению → feature map.
+
+    RoI Pooling извлекает фиксированный вектор для каждого региона из feature map.
+
+    Далее — FC слои для классификации и регрессии bbox.
+
+RoI Pooling:
+
+    Регион проецируется на feature map;
+
+    делится на k×kk×k бинов;
+
+    в каждом бине — max pooling;
+
+    результат — фиксированный k×k×Ck×k×C тензор.
+
+Плюсы:
+
+    В 10 раз быстрее R-CNN.
+
+    End-to-end обучение (кроме region proposals).
+
+Минусы:
+
+    Region proposals всё ещё отдельный этап (Selective Search).
+
+    Не полностью end-to-end.
+
+Faster R-CNN (2015)
+
+Ключевая идея: RPN (Region Proposal Network) — обучаемая сеть для генерации регионов.
+
+Архитектура:
+
+    Backbone → feature map.
+
+    RPN предсказывает:
+
+        objectness score для каждого anchor;
+
+        смещения bbox (dx, dy, dw, dh).
+
+    Anchors — набор bbox фиксированного размера и соотношения сторон в каждой позиции feature map.
+
+        Например, 9 anchors: 3 масштаба × 3 соотношения.
+
+    RoI Pooling → классификация + регрессия.
+
+Anchor:
+anchor=(xc,yc,w,h)
+anchor=(xc​,yc​,w,h)
+
+Для каждой позиции feature map и каждого anchor предсказываются:
+
+    pp — вероятность объекта;
+
+    t=(tx,ty,tw,th)t=(tx​,ty​,tw​,th​) — смещения.
+
+Преобразование anchor → bbox:
+x=wa⋅tx+xa
+x=wa​⋅tx​+xa​
+y=ha⋅ty+ya
+y=ha​⋅ty​+ya​
+w=wa⋅etw
+w=wa​⋅etw​
+h=ha⋅eth
+h=ha​⋅eth​
+
+где (xa,ya,wa,ha)(xa​,ya​,wa​,ha​) — anchor.
+
+Loss:
+L=Lcls+λLreg
+L=Lcls​+λLreg​
+
+    LclsLcls​ — cross-entropy для objectness;
+
+    LregLreg​ — smooth L1 для bbox.
+
+Плюсы:
+
+    Полностью end-to-end.
+
+    Быстрее Fast R-CNN.
+
+    Точность высокая.
+
+Минусы:
+
+    Two-stage: сначала proposals, потом классификация.
+
+    Медленнее one-stage.
+
+One-stage: YOLO и SSD
+
+Идея: одна сеть предсказывает классы и bbox напрямую, без отдельного этапа proposals.
+
+YOLO (You Only Look Once, 2015):
+
+    Изображение делится на S×SS×S grid.
+
+    Каждая ячейка предсказывает BB bbox + confidence + KK классов.
+
+    Выход: S×S×(B⋅5+K)S×S×(B⋅5+K).
+
+    Loss: сумма localization loss, confidence loss, classification loss.
+
+SSD (Single Shot MultiBox Detector, 2016):
+
+    Multi-scale feature maps.
+
+    Default boxes (аналоги anchors) разного размера.
+
+    Предсказания на нескольких масштабах.
+
+Почему one-stage быстрее:
+
+    Нет отдельного RPN.
+
+    Один forward pass.
+
+    Проще архитектура.
+
+Почему two-stage точнее:
+
+    RPN фокусируется на потенциальных объектах.
+
+    RoI Pooling даёт более точные признаки для каждого региона.
+
+    Меньше дисбаланс классов на этапе классификации.
+
+B. Архитектуры
+2.1. YOLOv1
+
+Идея: одна сеть, один forward pass, предсказание всех объектов сразу.
+
+Архитектура:
+
+    24 свёрточных слоя + 2 FC.
+
+    Вход: 448×448448×448.
+
+    Выход: 7×7×307×7×30.
+
+Декомпозиция выхода:
+
+    S=7S=7, B=2B=2, K=20K=20 (VOC).
+
+    S×S×(B⋅5+K)=7×7×(2⋅5+20)=7×7×30S×S×(B⋅5+K)=7×7×(2⋅5+20)=7×7×30.
+
+Каждая ячейка предсказывает:
+
+    2 bbox: (x,y,w,h,confidence)(x,y,w,h,confidence);
+
+    20 классов.
+
+Loss:
+L=λcoord∑i=0S2∑j=0B1ijobj[(xi−x^i)2+(yi−y^i)2]
+L=λcoord​i=0∑S2​j=0∑B​1ijobj​[(xi​−x^i​)2+(yi​−y^​i​)2]
++λcoord∑i=0S2∑j=0B1ijobj[(wi−w^i)2+(hi−h^i)2]
++λcoord​i=0∑S2​j=0∑B​1ijobj​[(wi​
+​−w^i​
+​)2+(hi​
+​−h^i​
+​)2]
++∑i=0S2∑j=0B1ijobj(Ci−C^i)2
++i=0∑S2​j=0∑B​1ijobj​(Ci​−C^i​)2
++λnoobj∑i=0S2∑j=0B1ijnoobj(Ci−C^i)2
++λnoobj​i=0∑S2​j=0∑B​1ijnoobj​(Ci​−C^i​)2
++∑i=0S21iobj∑c∈classes(pi(c)−p^i(c))2
++i=0∑S2​1iobj​c∈classes∑​(pi​(c)−p^​i​(c))2
+
+где:
+
+    1ijobj1ijobj​ — 1, если в ячейке ii есть объект и j-й bbox «ответственен» за него;
+
+    λcoord=5λcoord​=5, λnoobj=0.5λnoobj​=0.5;
+
+    w,hw
+    ​,h
+    ​ — чтобы малые объекты давали больший вклад.
+
+Проблемы YOLOv1:
+
+    Плохо с мелкими объектами.
+
+    Одна ячейка — только один объект (даже если B=2B=2, только один bbox «отвечает»).
+
+    Грубая сетка 7×77×7.
+
+2.2. YOLOv2 / YOLO9000
+
+Улучшения:
+
+    Batch Norm после каждой свёртки.
+
+    High resolution classifier — предобучение на 448×448448×448.
+
+    Anchors вместо прямого предсказания bbox.
+
+    Dimension clusters — k-means для выбора размеров anchors.
+
+    Multi-scale training — смена разрешения каждые 10 эпох.
+
+    Darknet-19 backbone.
+
+    YOLO9000 — совместное обучение на detection и classification (WordTree).
+
+Anchor box:
+bx=σ(tx)+cx
+bx​=σ(tx​)+cx​
+by=σ(ty)+cy
+by​=σ(ty​)+cy​
+bw=pw⋅etw
+bw​=pw​⋅etw​
+bh=ph⋅eth
+bh​=ph​⋅eth​
+
+где (cx,cy)(cx​,cy​) — координаты ячейки, (pw,ph)(pw​,ph​) — размер anchor.
+
+Почему sigmoid для tx,tytx​,ty​: чтобы центр bbox оставался внутри ячейки.
+2.3. YOLOv3
+
+Улучшения:
+
+    Darknet-53 backbone (с residual connections).
+
+    Multi-scale prediction: 3 масштаба (13×1313×13, 26×2626×26, 52×5252×52).
+
+    FPN-подобная структура: upsample + concat.
+
+    Independent logistic classifiers вместо softmax (multi-label).
+
+    9 anchors: 3 на каждый масштаб.
+
+Multi-scale prediction:
+
+    Мелкая сетка → крупные объекты.
+
+    Крупная сетка → мелкие объекты.
+
+Feature Pyramid Network (FPN):
+
+    Top-down путь: upsample + lateral connections.
+
+    Даёт семантически сильные признаки на всех масштабах.
+
+Loss:
+
+    Objectness: binary cross-entropy.
+
+    Class: binary cross-entropy.
+
+    Bbox: MSE или CIoU.
+
+2.4. YOLOv4 / YOLOv5
+
+YOLOv4:
+
+    CSPDarknet53 backbone.
+
+    SPP (Spatial Pyramid Pooling).
+
+    PAN (Path Aggregation Network).
+
+    Mish activation.
+
+    Mosaic augmentation.
+
+    CIoU loss.
+
+    Bag of freebies / bag of specials.
+
+YOLOv5:
+
+    PyTorch реализация.
+
+    Focus layer.
+
+    CSP bottleneck.
+
+    AutoAnchor.
+
+    EMA weights.
+
+    Гибкость: n/s/m/l/x.
+
+2.5. YOLOv8
+
+Ключевые изменения:
+
+    Anchor-free detection.
+
+        Вместо anchors — предсказание центра объекта.
+
+        Каждая позиция feature map предсказывает расстояние до границ: (l,t,r,b)(l,t,r,b).
+
+        Или напрямую (x1,y1,x2,y2)(x1​,y1​,x2​,y2​).
+
+    Decoupled head.
+
+        Отдельные ветки для классификации и регрессии.
+
+        Раньше: один общий тензор.
+
+        Теперь: два параллельных пути.
+
+    C2f block.
+
+        Замена C3.
+
+        Больше gradient flow.
+
+    Task-aligned assigner.
+
+        Динамическое назначение anchors.
+
+    Distribution Focal Loss (DFL).
+
+        Предсказание распределения по координатам.
+
+    CIoU + DFL loss.
+
+Anchor-free:
+bbox=(x−l,y−t,x+r,y+b)
+bbox=(x−l,y−t,x+r,y+b)
+
+где (x,y)(x,y) — центр, (l,t,r,b)(l,t,r,b) — расстояния до границ.
+
+Decoupled head:
+text
+
+Features → Conv → Conv → [Cls branch] → class scores
+                    → [Reg branch] → bbox
+
+Почему лучше:
+
+    Нет гиперпараметров anchors.
+
+    Проще для разных датасетов.
+
+    Лучше работает с мелкими объектами.
+
+2.6. YOLOv10 / YOLO26 — NMS-free
+
+Проблема NMS:
+
+    Не дифференцируем.
+
+    Гиперпараметр IoU threshold.
+
+    Медленно при большом числе предсказаний.
+
+    Может удалять правильные детекции.
+
+Идея NMS-free:
+
+    Обучить модель так, чтобы для каждого объекта было ровно одно предсказание.
+
+    Тогда NMS не нужен.
+
+Dual label assignment (YOLOv10):
+
+    One-to-many: несколько предсказаний на объект (для богатого supervision).
+
+    One-to-one: одно предсказание на объект (для NMS-free инференса).
+
+    Два heads: один для one-to-many, другой для one-to-one.
+
+    На инференсе используется one-to-one head.
+
+Consistent dual assignments:
+
+    Оба assignment согласованы.
+
+    One-to-one head получает градиенты от one-to-many.
+
+Преимущества:
+
+    Нет NMS → быстрее инференс.
+
+    Нет гиперпараметра.
+
+    End-to-end обучение.
+
+YOLO26:
+
+    Дальнейшее развитие.
+
+    Ещё более эффективный NMS-free.
+
+    Улучшенные heads для segmentation, pose, OBB, depth.
+
+2.7. RT-DETR — альтернатива
+
+DETR (DEtection TRansformer, 2020):
+
+    Transformer encoder-decoder.
+
+    Object queries — обучаемые эмбеддинги.
+
+    Предсказание фиксированного числа объектов.
+
+    Hungarian matching для loss.
+
+    Нет NMS, нет anchors.
+
+Проблемы DETR:
+
+    Медленная сходимость.
+
+    Плохо с мелкими объектами.
+
+Deformable DETR:
+
+    Deformable attention — смотрит только на несколько точек.
+
+    Быстрее сходится.
+
+RT-DETR (Real-Time DETR, 2023):
+
+    Efficient hybrid encoder.
+
+    IoU-aware query selection.
+
+    Real-time скорость.
+
+    NMS-free.
+
+Сравнение с YOLO:
+	YOLO	RT-DETR
+Подход	CNN-based	Transformer-based
+Anchors	Нет (v8+)	Нет
+NMS	Нужен (до v10)	Не нужен
+Скорость	Очень высокая	Высокая
+Точность	Высокая	Сопоставимая
+Сложность	Проще	Сложнее
+2.8. Сводная таблица эволюции YOLO
+Версия	Год	Backbone	Anchors	Head	NMS	Ключевое
+v1	2015	Custom	Нет	Unified	Да	Первый one-stage
+v2	2016	Darknet-19	Да	Unified	Да	Anchors, BN
+v3	2018	Darknet-53	Да	Multi-scale	Да	FPN, 3 масштаба
+v4	2020	CSPDarknet53	Да	Multi-scale	Да	BoF/BoS
+v5	2020	CSPDarknet	Да	Multi-scale	Да	PyTorch, удобство
+v8	2023	C2f	Нет	Decoupled	Да	Anchor-free
+v10	2024	C2f	Нет	Dual	Нет	NMS-free
+26	2025	C2f	Нет	Dual	Нет	Multi-task
+2.9. Что важно вынести из пункта 2
+
+    Object Detection: найти все объекты, выдать bbox + класс + confidence.
+
+    Метрики: IoU, precision/recall, mAP (пошагово), NMS.
+
+    Форматы: VOC, COCO, YOLO.
+
+    Классические подходы: sliding window → R-CNN → Fast R-CNN → Faster R-CNN.
+
+    One-stage: YOLO, SSD.
+
+    YOLO эволюция: anchors → anchor-free → NMS-free.
+
+    YOLOv8: anchor-free, decoupled head, C2f, DFL.
+
+    YOLOv10/26: dual label assignment, NMS-free.
+
+    RT-DETR: transformer-based альтернатива.
+
+Следующий пункт — Semantic Segmentation — опирается на detection и классификацию: нужно не просто найти объекты, а классифицировать каждый пиксель.
+Да , переходим к следующему пункту плана
+
+User wants semantic segmentation. Let me write a thorough explanation following the same pattern.
+3. Semantic Segmentation
+A. Задача в отрыве от моделей
+1.1. Постановка
+
+Semantic Segmentation — это задача, где модели нужно присвоить каждому пикселю изображения класс объекта, к которому он принадлежит. При этом объекты одного класса не разделяются между собой.
+
+Формально:
+
+    Вход: изображение x∈RH×W×Cx∈RH×W×C.
+
+    Выход: карта классов
+    Y^∈{1,…,K}H×W
+    Y^∈{1,…,K}H×W
+
+    где KK — число классов (включая фон).
+
+    Или вероятностная карта:
+    P^∈[0,1]H×W×K,P^i,j,k=p(yi,j=k∣x)
+    P^∈[0,1]H×W×K,P^i,j,k​=p(yi,j​=k∣x)
+
+Функция модели:
+fθ:RH×W×C→RH×W×K
+fθ​:RH×W×C→RH×W×K
+
+Решение на инференсе:
+Y^i,j=arg⁡max⁡kP^i,j,k
+Y^i,j​=argkmax​P^i,j,k​
+
+Ключевое отличие от classification и detection:
+Задача	Выход
+Classification	один класс на изображение
+Detection	множество bbox + классы
+Semantic Segmentation	класс на каждый пиксель, без разделения объектов
+Instance Segmentation	класс + экземпляр на каждый пиксель
+
+Пример: если на картинке три кошки, semantic segmentation выдаст одну маску «кошка» на всех трёх. Instance segmentation выдаст три отдельные маски.
+
+Почему это сложнее:
+
+    Плотное предсказание. Нужно предсказать H⋅WH⋅W значений, а не одно.
+
+    Пространственная точность. Границы объектов должны быть точными.
+
+    Контекст. Чтобы понять, что пиксель — это «дорога», нужно смотреть на большой контекст.
+
+    Дисбаланс. Фон обычно занимает большую часть пикселей.
+
+    Мультимасштабность. Объекты разного размера: от маленьких до огромных.
+
+1.2. Формат разметки
+
+Маски — обычно PNG с индексами классов на пиксель:
+
+    Один канал (grayscale), значение пикселя = индекс класса.
+
+    Пример: 0 — фон, 1 — кошка, 2 — собака, 3 — машина.
+
+    Размер маски = размер изображения.
+
+Альтернативы:
+
+    COCO panoptic — JSON с сегментами.
+
+    Cityscapes — PNG с индексами классов, отдельно instance IDs.
+
+    Pascal VOC — PNG с палитрой, где каждому классу соответствует цвет.
+
+Важно: в semantic segmentation объекты одного класса сливаются в одну маску. Если два человека перекрываются, semantic segmentation не различает их.
+
+Формат данных:
+text
+
+dataset/
+  images/
+    img1.jpg
+    img2.jpg
+  masks/
+    img1.png    # значения пикселей = индексы классов
+    img2.png
+
+1.3. Метрики
+Pixel Accuracy
+Pixel Accuracy=∑i,j1[Y^i,j=Yi,j]H⋅W
+Pixel Accuracy=H⋅W∑i,j​1[Y^i,j​=Yi,j​]​
+
+Доля правильно классифицированных пикселей.
+
+Проблема: при сильном дисбалансе (99% фона) модель, всегда предсказывающая фон, получит 99% accuracy, но не решит задачу.
+IoU / Jaccard по классам
+
+Для класса kk:
+IoUk=∣Yk∩Y^k∣∣Yk∪Y^k∣
+IoUk​=∣Yk​∪Y^k​∣∣Yk​∩Y^k​∣​
+
+где YkYk​ — множество пикселей истинного класса kk, Y^kY^k​ — предсказанного.
+
+Покомпонентно:
+IoUk=TPkTPk+FPk+FNk
+IoUk​=TPk​+FPk​+FNk​TPk​​
+
+где:
+
+    TPkTPk​ — пиксели, где истинный и предсказанный класс = kk;
+
+    FPkFPk​ — пиксели, где предсказан kk, но истинный другой;
+
+    FNkFNk​ — пиксели, где истинный kk, но предсказан другой.
+
+mean IoU (mIoU)
+
+Главная метрика в сегментации:
+mIoU=1K∑k=1KIoUk
+mIoU=K1​k=1∑K​IoUk​
+
+Варианты:
+
+    mIoU — среднее по классам;
+
+    fwIoU (frequency-weighted IoU) — среднее с весами по частоте классов;
+
+    Boundary IoU — IoU, учитывающий только пиксели у границ.
+
+Dice / F1
+Dicek=2∣Yk∩Y^k∣∣Yk∣+∣Y^k∣=2TPk2TPk+FPk+FNk
+Dicek​=∣Yk​∣+∣Y^k​∣2∣Yk​∩Y^k​∣​=2TPk​+FPk​+FNk​2TPk​​
+
+Связан с IoU:
+Dice=2IoU1+IoU
+Dice=1+IoU2IoU​
+
+Часто используется в медицине.
+Confusion matrix
+
+Матрица K×KK×K, где CijCij​ — число пикселей истинного класса ii, предсказанных как jj. По ней считают все остальные метрики.
+1.4. Базовые подходы до FCN
+
+    Пиксельные признаки + классификатор.
+
+        Для каждого пикселя берут признаки (цвет, текстура, HOG);
+
+        обучают SVM/Random Forest;
+
+        медленно, нет контекста.
+
+    Superpixels.
+
+        Изображение разбивается на регионы (SLIC, Felzenszwalb);
+
+        признаки региона → классификатор;
+
+        быстрее, но зависит от качества суперпикселей.
+
+    MRF/CRF.
+
+        Вероятностная модель;
+
+        учёт пространственной согласованности;
+
+        часто используется как post-processing для CNN.
+
+    Sliding window classification.
+
+        Классифицируем каждое окно;
+
+        очень медленно.
+
+Почему не работало:
+
+    Нет end-to-end обучения;
+
+    Нет иерархии признаков;
+
+    Нет учёта глобального контекста.
+
+B. Архитектуры
+2.1. FCN — Fully Convolutional Network (2015)
+
+Ключевая идея: заменить полносвязные слои на свёрточные, чтобы сеть могла работать с изображениями любого размера и выдавать пространственную карту.
+
+Проблема: в классификационных CNN (AlexNet, VGG) в конце стоят FC-слои, которые «выпрямляют» пространственную структуру:
+feature map 7×7×512→flatten→4096→4096→1000
+feature map 7×7×512→flatten→4096→4096→1000
+
+Решение FCN:
+
+    FC-слой 40964096 можно представить как свёртку 7×7×512×40967×7×512×4096;
+
+    FC-слой 10001000 — как свёртку 1×1×4096×10001×1×4096×1000;
+
+    тогда выход — карта 1×1×10001×1×1000, но её можно «растянуть» на любой вход.
+
+Архитектура FCN:
+
+    Backbone (VGG-16) без FC-слоёв → feature map с stride 32.
+
+    Свёртки 1×11×1 для получения KK каналов.
+
+    Upsampling (transposed convolution) до исходного разрешения.
+
+Проблема: после 5 pooling'ов разрешение падает в 32 раза. Прямой upsample даёт грубые маски.
+
+Решения:
+
+    FCN-32s: upsample stride 32 → грубо.
+
+    FCN-16s: combine с pool4 → лучше.
+
+    FCN-8s: combine с pool3 → ещё лучше.
+
+Skip connections:
+output=upsample(conv1×1(pool5))+conv1×1(pool4)
+output=upsample(conv1×1​(pool5))+conv1×1​(pool4)
+
+Затем upsample до полного разрешения.
+
+Loss: pixel-wise cross-entropy:
+L=−1HW∑i,jlog⁡p(yi,j∣x)
+L=−HW1​i,j∑​logp(yi,j​∣x)
+
+Значение FCN:
+
+    Первая end-to-end обучаемая сеть для сегментации.
+
+    Показала, что CNN можно использовать для плотных задач.
+
+    Ввела идею skip connections для восстановления разрешения.
+
+2.2. U-Net (2015)
+
+Идея: encoder-decoder с skip connections между соответствующими уровнями.
+
+Архитектура (U-образная):
+
+Encoder (contracting path):
+
+    Свёртки 3×33×3 + ReLU;
+
+    Max pooling 2×22×2;
+
+    Разрешение уменьшается, число каналов растёт.
+
+Bottleneck:
+
+    Самый глубокий уровень;
+
+    Максимальное семантическое содержание.
+
+Decoder (expanding path):
+
+    Upsampling (transposed conv или bilinear);
+
+    Concatenation с feature map из encoder;
+
+    Свёртки 3×33×3 + ReLU.
+
+Финальный слой:
+
+    1×11×1 свёртка → KK каналов;
+
+    Softmax.
+
+Схема:
+text
+
+Input → Conv → Conv → Down → Conv → Conv → Down → ... → Bottleneck
+  |                    |                              |
+  └────────────────────┴──────────────────────────────┘
+                       (skip connections)
+  |                    |                              |
+Output ← Conv ← Conv ← Up ← Conv ← Conv ← Up ← ... ← Bottleneck
+
+Почему это работает:
+
+    Skip connections передают высокочастотную информацию (границы, текстуры) с ранних слоёв на поздние.
+
+    Decoder восстанавливает пространственное разрешение.
+
+    Concatenation (а не сложение) даёт сети доступ к обоим типам признаков.
+
+Формально:
+xdec(l)=Conv(Concat[Up(xdec(l+1)),xenc(l)])
+xdec(l)​=Conv(Concat[Up(xdec(l+1)​),xenc(l)​])
+
+Loss:
+
+    Pixel-wise cross-entropy;
+
+    Часто добавляют weighted loss для границ:
+    w(x)=wc(x)+w0⋅exp⁡(−(d1(x)+d2(x))22σ2)
+    w(x)=wc​(x)+w0​⋅exp(−2σ2(d1​(x)+d2​(x))2​)
+
+    где d1,d2d1​,d2​ — расстояния до ближайших границ.
+
+Применение:
+
+    Медицинская визуализация (клетки, органы);
+
+    Спутниковые снимки;
+
+    Дорожная разметка.
+
+Почему U-Net стал стандартом:
+
+    Простой;
+
+    Эффективный;
+
+    Работает на малых данных;
+
+    Легко модифицируется.
+
+Варианты:
+
+    U-Net++ — вложенные skip connections;
+
+    Attention U-Net — attention на skip connections;
+
+    ResU-Net — residual blocks;
+
+    3D U-Net — для объёмных данных.
+
+2.3. DeepLab
+
+Ключевая проблема: в CNN pooling уменьшает разрешение, что плохо для сегментации. Но без pooling рецептивное поле маленькое.
+
+Решение: atrous/dilated convolution.
+Dilated (atrous) convolution
+
+Обычная свёртка 3×33×3:
+yi,j=∑m=−11∑n=−11wm,n⋅xi+m,j+n
+yi,j​=m=−1∑1​n=−1∑1​wm,n​⋅xi+m,j+n​
+
+Dilated свёртка 3×33×3 с dilation rate rr:
+yi,j=∑m=−11∑n=−11wm,n⋅xi+m⋅r,j+n⋅r
+yi,j​=m=−1∑1​n=−1∑1​wm,n​⋅xi+m⋅r,j+n⋅r​
+
+Эффект:
+
+    r=1r=1 — обычная свёртка, рецептивное поле 3×33×3;
+
+    r=2r=2 — рецептивное поле 5×55×5, но параметров столько же, сколько у 3×33×3;
+
+    r=4r=4 — рецептивное поле 9×99×9.
+
+Формула рецептивного поля:
+
+Для стека свёрток с dilation rates r1,…,rLr1​,…,rL​:
+RF=1+∑l=1L(kl−1)⋅rl
+RF=1+l=1∑L​(kl​−1)⋅rl​
+
+где klkl​ — размер ядра.
+
+Зачем:
+
+    Увеличивает рецептивное поле без уменьшения разрешения;
+
+    Не добавляет параметров;
+
+    Позволяет сохранить детали.
+
+Atrous Spatial Pyramid Pooling (ASPP)
+
+Идея: применить несколько dilated свёрток с разными rr параллельно и объединить результаты.
+ASPP(x)=Concat[Convr=1(x),Convr=6(x),Convr=12(x),Convr=18(x),GAP(x)]
+ASPP(x)=Concat[Convr=1​(x),Convr=6​(x),Convr=12​(x),Convr=18​(x),GAP(x)]
+
+Зачем:
+
+    Multi-scale контекст;
+
+    Разные rr улавливают объекты разного размера.
+
+DeepLab версии
+
+DeepLab v1 (2015):
+
+    VGG-16 backbone;
+
+    Dilated conv для сохранения разрешения;
+
+    CRF как post-processing.
+
+DeepLab v2 (2016):
+
+    ResNet backbone;
+
+    ASPP.
+
+DeepLab v3 (2017):
+
+    Улучшенный ASPP;
+
+    Image-level features (GAP);
+
+    Batch norm.
+
+DeepLab v3+ (2018):
+
+    Encoder-decoder (как U-Net);
+
+    ASPP в encoder;
+
+    Skip connections;
+
+    Depthwise separable conv для скорости.
+
+Формально DeepLab v3+:
+Output=Decoder(ASPP(Encoder(x)),Low-level features)
+Output=Decoder(ASPP(Encoder(x)),Low-level features)
+
+Почему DeepLab важен:
+
+    Показал силу dilated convolutions;
+
+    ASPP — стандартный блок для multi-scale;
+
+    DeepLab v3+ — один из лучших архитектур для semantic segmentation.
+
+2.4. Другие важные архитектуры
+SegNet (2015)
+
+    Encoder-decoder;
+
+    Max-unpooling вместо transposed conv;
+
+    Индексы pooling сохраняются в encoder и используются в decoder.
+
+PSPNet (2016)
+
+    Pyramid Pooling Module;
+
+    Глобальное усреднение на разных масштабах;
+
+    Хорошо для сцен.
+
+HRNet (2019)
+
+    Параллельные ветки с разным разрешением;
+
+    Постоянный обмен информацией между ветками;
+
+    Не теряет разрешение;
+
+    Стал backbone для pose, segmentation.
+
+SegFormer (2021)
+
+    Transformer-based;
+
+    Иерархический encoder (как Swin);
+
+    Простой MLP decoder;
+
+    Эффективный.
+
+Mask2Former (2022)
+
+    Универсальная архитектура для semantic, instance, panoptic;
+
+    Masked attention;
+
+    Transformer-based.
+
+SAM (2023)
+
+    Segment Anything Model;
+
+    Prompt-based segmentation;
+
+    Огромный датасет (1B масок).
+
+2.5. YOLO Semantic Segmentation Head
+
+В YOLOv8/YOLO11/YOLO26 есть режим segmentation, но важно различать:
+
+    YOLO-seg — это instance segmentation (каждый объект отдельно);
+
+    YOLO26 semantic segmentation — semantic (все объекты класса слиты).
+
+Как устроена segmentation head в YOLO:
+
+    Backbone (C2f, SPPF) → multi-scale features.
+
+    Neck (PAN-FPN) → агрегация.
+
+    Segmentation head:
+
+        Prototype masks: KK прототипов размера H/4×W/4H/4×W/4;
+
+        Mask coefficients: для каждой детекции — вектор длины KK;
+
+        Маска = линейная комбинация прототипов с коэффициентами.
+
+Формально:
+M=σ(∑k=1Kck⋅Pk)
+M=σ(k=1∑K​ck​⋅Pk​)
+
+где PkPk​ — прототипы, ckck​ — коэффициенты, σσ — sigmoid.
+
+Для semantic segmentation:
+
+    В YOLO26 добавлена отдельная ветка, которая предсказывает карту классов H×W×CH×W×C;
+
+    Использует multi-scale features;
+
+    Loss: cross-entropy + Dice.
+
+Почему встроено в YOLO:
+
+    Единый фреймворк для detection, segmentation, pose, OBB;
+
+    Общий backbone и neck;
+
+    Удобство использования.
+
+2.6. Функции потерь
+Cross-Entropy
+LCE=−1HW∑i,jlog⁡p(yi,j∣x)
+LCE​=−HW1​i,j∑​logp(yi,j​∣x)
+
+Проблема: дисбаланс классов.
+Weighted Cross-Entropy
+LWCE=−1HW∑i,jwyi,jlog⁡p(yi,j∣x)
+LWCE​=−HW1​i,j∑​wyi,j​​logp(yi,j​∣x)
+
+где wkwk​ — вес класса kk. Часто wk=1/freqkwk​=1/freqk​.
+Focal Loss
+Lfocal=−1HW∑i,jα(1−pt)γlog⁡pt
+Lfocal​=−HW1​i,j∑​α(1−pt​)γlogpt​
+
+где ptpt​ — вероятность истинного класса, γγ — фокусирующий параметр.
+
+Эффект: уменьшает вклад «лёгких» примеров, фокусируется на сложных.
+Dice Loss
+LDice=1−2∑i,jpi,jyi,j∑i,jpi,j+∑i,jyi,j
+LDice​=1−∑i,j​pi,j​+∑i,j​yi,j​2∑i,j​pi,j​yi,j​​
+
+Плюсы: работает при дисбалансе.
+IoU Loss
+LIoU=1−∑p⋅y∑p+∑y−∑p⋅y
+LIoU​=1−∑p+∑y−∑p⋅y∑p⋅y​
+Комбинированные
+L=LCE+λLDice
+L=LCE​+λLDice​
+
+Или:
+L=LCE+λLIoU
+L=LCE​+λLIoU​
+2.7. Post-processing
+CRF (Conditional Random Field)
+
+    Моделирует пространственную согласованность;
+
+    Сглаживает границы;
+
+    Использовался в DeepLab v1/v2.
+
+Energy:
+E(x)=∑iψu(xi)+∑i<jψp(xi,xj)
+E(x)=i∑​ψu​(xi​)+i<j∑​ψp​(xi​,xj​)
+
+где ψuψu​ — unary (из CNN), ψpψp​ — pairwise (штраф за разные классы у похожих пикселей).
+Morphological operations
+
+    Opening/closing для удаления шума;
+
+    Сглаживание границ.
+
+Test-time augmentation
+
+    Прогон на нескольких масштабах/flip;
+
+    Усреднение предсказаний.
+
+2.8. Сравнение архитектур
+Архитектура	Год	Backbone	Ключевое
+FCN	2015	VGG	Замена FC на conv
+U-Net	2015	Custom	Encoder-decoder + skip
+SegNet	2015	VGG	Max-unpooling
+DeepLab v1	2015	VGG	Dilated conv + CRF
+DeepLab v2	2016	ResNet	ASPP
+PSPNet	2016	ResNet	Pyramid pooling
+DeepLab v3	2017	ResNet	Улучшенный ASPP
+DeepLab v3+	2018	ResNet/Xception	Encoder-decoder + ASPP
+HRNet	2019	Custom	Параллельные ветки
+SegFormer	2021	Mix Transformer	Transformer-based
+Mask2Former	2022	Swin	Универсальная
+SAM	2023	ViT	Prompt-based
+2.9. Что важно вынести из пункта 3
+
+    Semantic Segmentation: класс на каждый пиксель, объекты одного класса не разделяются.
+
+    Метрики: pixel accuracy, IoU по классам, mIoU, Dice.
+
+    Формат: PNG-маски с индексами классов.
+
+    FCN: замена FC на conv, end-to-end обучение, skip connections.
+
+    U-Net: encoder-decoder + skip connections, стандарт в медицине.
+
+    DeepLab: dilated/atrous conv, ASPP, multi-scale контекст.
+
+    YOLO-seg: instance segmentation, прототипы + коэффициенты.
+
+    Loss: CE, weighted CE, Focal, Dice, IoU, комбинации.
+
+    Post-processing: CRF, морфология, TTA.
+
+Следующий пункт — Instance Segmentation — это пересечение detection и semantic segmentation: нужно найти каждый объект отдельно и выдать маску для каждого.
+Да , теперь к Instance Segmentation
+
+The user wants me to continue with the next topic: Instance Segmentation. Let me provide a comprehensive explanation following the same structure as before: task in isolation from models, then architectures.
+4. Instance Segmentation
+A. Задача в отрыве от моделей
+1.1. Постановка
+
+Instance Segmentation — это задача, где модели нужно для каждого экземпляра объекта на изображении выдать:
+
+    маску (попиксельную);
+
+    класс;
+
+    confidence (опционально);
+
+    bbox (опционально, но часто предсказывается).
+
+Формально:
+
+    Вход: изображение x∈RH×W×Cx∈RH×W×C.
+
+    Выход: множество экземпляров
+    D={(Mi,ci,si)}i=1M
+    D={(Mi​,ci​,si​)}i=1M​
+
+    где:
+
+        Mi∈{0,1}H×WMi​∈{0,1}H×W — бинарная маска ii-го экземпляра;
+
+        ci∈{1,…,K}ci​∈{1,…,K} — класс;
+
+        si∈[0,1]si​∈[0,1] — confidence.
+
+Ключевое отличие от semantic segmentation:
+Задача	Выход
+Semantic	одна маска на класс (все объекты класса слиты)
+Instance	отдельная маска на каждый экземпляр
+
+Пример: три кошки на картинке:
+
+    Semantic segmentation: одна маска «кошка» на всех трёх;
+
+    Instance segmentation: три отдельные маски, каждая со своим контуром.
+
+Ключевое отличие от object detection:
+Задача	Выход
+Detection	bbox + класс
+Instance	маска (попиксельно) + класс
+
+Почему это сложнее, чем detection + semantic по отдельности:
+
+    Нужно разделить перекрывающиеся объекты одного класса.
+
+        В semantic segmentation это не проблема (все кошки — одна маска).
+
+        В instance segmentation нужно понять, где заканчивается одна кошка и начинается другая.
+
+    Нужна точная граница.
+
+        Bbox грубый, маска — точная.
+
+        Нужно предсказать контур с точностью до пикселя.
+
+    Переменное число экземпляров.
+
+        Как в detection, число объектов заранее неизвестно.
+
+    Совмещение двух задач.
+
+        Нужно и найти объект (detection), и сегментировать его (segmentation).
+
+Формально: instance segmentation = detection + попиксельная сегментация для каждого экземпляра.
+1.2. Формат разметки
+COCO
+json
+
+{
+  "images": [{"id": 1, "file_name": "img.jpg", "width": 640, "height": 480}],
+  "annotations": [
+    {
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [100, 200, 200, 200],
+      "segmentation": [[x1, y1, x2, y2, ...]],  // polygon
+      "area": 40000,
+      "iscrowd": 0
+    }
+  ]
+}
+
+Форматы segmentation:
+
+    Polygon: список точек контура (для не-перекрывающихся объектов);
+
+    RLE (Run-Length Encoding): для перекрывающихся объектов и iscrowd.
+
+RLE (Run-Length Encoding)
+
+Компактное представление бинарной маски:
+text
+
+mask = [0, 0, 1, 1, 1, 0, 0, 1, 1]
+rle = [(2, 3), (7, 2)]  # (start, length) для единиц
+
+В COCO RLE кодируется как:
+json
+
+{"counts": [0, 2, 3, 2, 2], "size": [480, 640]}
+
+где counts — чередование длин нулей и единиц.
+Pascal VOC
+
+    PNG-маски с палитрой;
+
+    Каждый экземпляр — отдельный цвет;
+
+    Отдельно class для каждого экземпляра.
+
+YOLO-формат для segmentation
+text
+
+class_id x1 y1 x2 y2 x3 y3 ... xn yn
+
+    Полигон, нормализованный к [0,1][0,1];
+
+    Число точек может варьироваться.
+
+1.3. Метрики
+
+Instance segmentation использует те же метрики, что detection, но IoU считается по маскам, а не по bbox.
+Mask IoU
+
+Для предсказанной маски MM и истинной GG:
+Mask IoU=∣M∩G∣∣M∪G∣
+Mask IoU=∣M∪G∣∣M∩G∣​
+Mask mAP
+
+    mAP@0.5 — IoU threshold 0.5;
+
+    mAP@0.5:0.95 — COCO-style, усреднение по 10 порогам.
+
+Алгоритм:
+
+    Для каждого класса собрать все предсказания.
+
+    Отсортировать по confidence.
+
+    Для каждого предсказания: сопоставить с истинным объектом по Mask IoU.
+
+    TP/FP/FN → precision-recall curve → AP.
+
+    Усреднить по классам → mAP.
+
+Отличие от detection mAP:
+
+    IoU считается по маскам, а не по bbox;
+
+    Маски точнее, поэтому метрика строже;
+
+    Часто mAP по маскам ниже, чем mAP по bbox.
+
+Дополнительные метрики
+
+    Boundary IoU — IoU только по пикселям у границ;
+
+    Boundary F1 — F1 по границам;
+
+    Panoptic Quality (PQ) — для panoptic segmentation.
+
+1.4. Концептуальная сложность
+
+Как разделить два перекрывающихся объекта одного класса?
+
+Это ключевая проблема instance segmentation. Есть несколько подходов:
+
+    Top-down (detection-first):
+
+        Сначала найти bbox каждого объекта (detection);
+
+        Потом внутри каждого bbox сегментировать объект;
+
+        Пример: Mask R-CNN.
+
+    Bottom-up (embedding-first):
+
+        Сначала сегментировать всё (semantic);
+
+        Потом сгруппировать пиксели в экземпляры по эмбеддингам;
+
+        Пример: DeepMask, associative embedding.
+
+    One-stage (dense prediction):
+
+        Предсказать маски напрямую, без явного detection;
+
+        Пример: YOLACT, SOLO.
+
+B. Архитектуры
+2.1. Mask R-CNN (2017)
+
+Идея: естественное расширение Faster R-CNN: добавить segmentation head поверх RoI.
+
+Архитектура:
+
+    Backbone (ResNet-FPN) → feature map.
+
+    RPN → region proposals.
+
+    RoIAlign → фиксированный вектор для каждого RoI.
+
+    Два параллельных head:
+
+        Classification head: класс + bbox regression (как в Faster R-CNN);
+
+        Mask head: бинарная маска 28×2828×28 для каждого класса.
+
+Ключевое отличие от Faster R-CNN:
+
+    Добавлена mask branch;
+
+    RoIAlign вместо RoIPool.
+
+RoIAlign
+
+Проблема RoIPool: квантование координат (округление до целых пикселей) → потеря точности.
+
+RoIAlign:
+
+    Не округляет координаты;
+
+    Использует bilinear interpolation для выборки значений в дробных координатах;
+
+    Точнее для масок.
+
+Формально:
+
+Для точки (x,y)(x,y) в RoI:
+f(x,y)=∑i,jf(xi,yj)⋅max⁡(0,1−∣x−xi∣)⋅max⁡(0,1−∣y−yj∣)
+f(x,y)=i,j∑​f(xi​,yj​)⋅max(0,1−∣x−xi​∣)⋅max(0,1−∣y−yj​∣)
+
+где (xi,yj)(xi​,yj​) — ближайшие целые пиксели.
+Mask head
+
+    Вход: RoIAlign feature 14×14×C14×14×C;
+
+    4 свёртки 3×33×3;
+
+    Transposed conv 2×22×2 → 28×2828×28;
+
+    1×11×1 conv → KK каналов;
+
+    Sigmoid → бинарная маска для каждого класса.
+
+Важно: маска предсказывается для каждого класса независимо, без softmax между классами. Класс выбирается по classification head, затем берётся соответствующая маска.
+
+Формально:
+M∈R28×28×K,Mk=σ(Conv(RoIAlign(x,b)))
+M∈R28×28×K,Mk​=σ(Conv(RoIAlign(x,b)))
+
+Loss:
+L=Lcls+Lbox+Lmask
+L=Lcls​+Lbox​+Lmask​
+
+где:
+
+    LclsLcls​ — cross-entropy для класса;
+
+    LboxLbox​ — smooth L1 для bbox;
+
+    LmaskLmask​ — binary cross-entropy для маски.
+
+Lmask=−1282∑i,j[yi,jlog⁡y^i,j+(1−yi,j)log⁡(1−y^i,j)]
+Lmask​=−2821​i,j∑​[yi,j​logy^​i,j​+(1−yi,j​)log(1−y^​i,j​)]
+
+Почему работает:
+
+    RoIAlign даёт точные признаки;
+
+    Отдельная mask branch не мешает classification;
+
+    Multi-task learning улучшает обе задачи.
+
+Плюсы:
+
+    Высокая точность;
+
+    End-to-end;
+
+    Гибкость (можно менять backbone).
+
+Минусы:
+
+    Two-stage → медленнее one-stage;
+
+    Mask head работает на каждом RoI → дорого;
+
+    Не real-time.
+
+2.2. YOLACT (2019)
+
+Идея: one-stage instance segmentation через прототипные маски.
+
+Ключевая идея: не предсказывать маску для каждого объекта напрямую, а:
+
+    Предсказать K прототипов масок (глобальных, для всего изображения);
+
+    Для каждой детекции предсказать коэффициенты c∈RKc∈RK;
+
+    Маска = линейная комбинация прототипов с коэффициентами.
+
+Формально:
+Mi=σ(∑k=1Kci,k⋅Pk)
+Mi​=σ(k=1∑K​ci,k​⋅Pk​)
+
+где:
+
+    Pk∈RH×WPk​∈RH×W — прототип kk;
+
+    ci,kci,k​ — коэффициент для детекции ii;
+
+    σσ — sigmoid.
+
+Архитектура:
+
+    Backbone (ResNet-FPN) → feature maps.
+
+    Protonet: несколько свёрток → KK прототипов H/4×W/4H/4×W/4.
+
+    Prediction head: для каждого anchor предсказывает:
+
+        class;
+
+        bbox;
+
+        KK mask coefficients.
+
+    Assembly: mask = coefficients × prototypes → crop по bbox.
+
+Почему это работает:
+
+    Прототипы — глобальные, разделяются между всеми объектами;
+
+    Коэффициенты — компактные (K чисел на объект);
+
+    Линейная комбинация даёт маску;
+
+    Быстро: нет RoIAlign, нет отдельной mask branch на каждый RoI.
+
+Loss:
+L=Lcls+Lbox+Lmask
+L=Lcls​+Lbox​+Lmask​
+
+LmaskLmask​ — cross-entropy между собранной маской и ground truth.
+
+Плюсы:
+
+    Real-time (30+ FPS);
+
+    One-stage;
+
+    Простой.
+
+Минусы:
+
+    Точность ниже Mask R-CNN;
+
+    Прототипы могут не покрывать редкие формы;
+
+    Проблемы с мелкими объектами.
+
+2.3. SOLO (2020)
+
+Идея: instance segmentation без detection — напрямую предсказывать маски.
+
+Ключевая идея: разделить изображение на S × S ячеек, каждая ячейка отвечает за объект, чей центр попадает в неё.
+
+Архитектура:
+
+    Backbone (FPN) → feature maps.
+
+    Two branches:
+
+        Category branch: S×S×KS×S×K — класс для каждой ячейки;
+
+        Mask branch: S2×H×WS2×H×W — маска для каждой ячейки.
+
+    Mask = комбинация: для каждой ячейки — своя маска.
+
+Формально:
+Mask∈RS2×H×W,Class∈RS2×K
+Mask∈RS2×H×W,Class∈RS2×K
+
+Loss:
+L=Lcls+Lmask
+L=Lcls​+Lmask​
+
+Плюсы:
+
+    Простой;
+
+    One-stage;
+
+    Нет anchors, нет NMS.
+
+Минусы:
+
+    Проблемы с перекрывающимися объектами;
+
+    Фиксированное разрешение масок.
+
+SOLOv2: улучшенная версия с dynamic conv.
+2.4. YOLOv8/YOLO11/YOLO26 Instance Segmentation Head
+
+YOLO-seg — это instance segmentation, встроенная в YOLO-фреймворк.
+
+Архитектура:
+
+    Backbone (C2f, SPPF) → multi-scale features.
+
+    Neck (PAN-FPN) → агрегация.
+
+    Detection head: class + bbox.
+
+    Segmentation head:
+
+        Prototype masks: KK прототипов H/4×W/4H/4×W/4;
+
+        Mask coefficients: для каждой детекции — вектор длины KK;
+
+        Маска = линейная комбинация прототипов.
+
+Формально:
+Mi=σ(∑k=1Kci,k⋅Pk)
+Mi​=σ(k=1∑K​ci,k​⋅Pk​)
+
+где PkPk​ — прототипы, ci,kci,k​ — коэффициенты.
+
+Отличие от YOLACT:
+
+    Интегрировано в YOLO-фреймворк;
+
+    Использует anchor-free detection (YOLOv8+);
+
+    Decoupled head;
+
+    Task-aligned assigner.
+
+Loss:
+L=Lcls+Lbox+Lmask
+L=Lcls​+Lbox​+Lmask​
+
+LmaskLmask​ — binary cross-entropy между предсказанной и истинной маской.
+
+Pipeline на инференсе:
+
+    Detection head → bbox + class + coefficients.
+
+    NMS → финальные детекции.
+
+    Для каждой детекции: mask = coefficients × prototypes.
+
+    Crop mask по bbox.
+
+    Threshold → бинарная маска.
+
+Плюсы:
+
+    Единый фреймворк;
+
+    Быстро;
+
+    Хорошая точность;
+
+    Multi-task (detection + segmentation).
+
+Минусы:
+
+    Маски грубее, чем у Mask R-CNN;
+
+    Прототипы фиксированного разрешения.
+
+2.5. Другие важные архитектуры
+DeepMask (2015)
+
+    Один из первых подходов;
+
+    Предсказывает маску + objectness для каждого patch;
+
+    Не end-to-end.
+
+SharpMask (2016)
+
+    Улучшение DeepMask;
+
+    Refinement модуль для уточнения границ.
+
+Mask Scoring R-CNN (2019)
+
+    Добавляет mask IoU head;
+
+    Предсказывает качество маски;
+
+    Улучшает ранжирование.
+
+Panoptic FPN (2019)
+
+    Объединяет semantic и instance;
+
+    Panoptic segmentation.
+
+PointRend (2020)
+
+    Refinement масок в точках;
+
+    Адаптивная выборка точек у границ.
+
+QueryInst (2021)
+
+    Transformer-based;
+
+    Query для каждого экземпляра.
+
+Mask2Former (2022)
+
+    Универсальная: semantic + instance + panoptic;
+
+    Masked attention;
+
+    Transformer-based.
+
+SAM (2023)
+
+    Prompt-based;
+
+    Не требует обучения под конкретную задачу;
+
+    Огромный датасет.
+
+2.6. Сравнение архитектур
+Архитектура	Год	Подход	Backbone	Ключевое
+Mask R-CNN	2017	Two-stage	ResNet-FPN	RoIAlign + mask head
+YOLACT	2019	One-stage	ResNet-FPN	Прототипы + коэффициенты
+SOLO	2020	One-stage	FPN	Прямое предсказание масок
+YOLOv8-seg	2023	One-stage	C2f	Прототипы + коэффициенты
+Mask2Former	2022	Transformer	Swin	Универсальная
+SAM	2023	Prompt-based	ViT	Zero-shot
+2.7. Сравнение с semantic и detection
+	Semantic	Instance	Detection
+Выход	маска на класс	маска на экземпляр	bbox + класс
+Разделение объектов	Нет	Да	Да
+Точность границ	Высокая	Высокая	Низкая (bbox)
+Число выходов	Фиксировано (K)	Переменное	Переменное
+Метрика	mIoU	Mask mAP	mAP
+2.8. Функции потерь
+Mask Loss
+Lmask=−1N∑i[yilog⁡y^i+(1−yi)log⁡(1−y^i)]
+Lmask​=−N1​i∑​[yi​logy^​i​+(1−yi​)log(1−y^​i​)]
+
+Binary cross-entropy по пикселям маски.
+Dice Loss
+LDice=1−2∑p⋅y∑p+∑y
+LDice​=1−∑p+∑y2∑p⋅y​
+Boundary Loss
+Lboundary=∑i∣∇Mi−∇Gi∣
+Lboundary​=i∑​∣∇Mi​−∇Gi​∣
+
+Штраф за неточные границы.
+Комбинированные
+L=Lcls+Lbox+λ1Lmask+λ2LDice
+L=Lcls​+Lbox​+λ1​Lmask​+λ2​LDice​
+2.9. Post-processing
+NMS
+
+    Как в detection;
+
+    Применяется к bbox;
+
+    Маски берутся для оставшихся детекций.
+
+Mask NMS
+
+    NMS по mask IoU, а не bbox IoU;
+
+    Точнее, но медленнее.
+
+Soft-NMS
+
+    Мягкое подавление;
+
+    Уменьшение confidence пропорционально IoU.
+
+Matrix NMS
+
+    Для YOLACT;
+
+    Параллельное подавление;
+
+    Быстрее обычного NMS.
+
+2.10. Что важно вынести из пункта 4
+
+    Instance Segmentation: маска + класс для каждого экземпляра отдельно.
+
+    Ключевая сложность: разделить перекрывающиеся объекты одного класса.
+
+    Метрики: Mask IoU, Mask mAP (COCO-style).
+
+    Формат: COCO (polygon/RLE), YOLO (polygon).
+
+    Mask R-CNN: Faster R-CNN + mask head + RoIAlign.
+
+    YOLACT: one-stage, прототипы + коэффициенты.
+
+    SOLO: прямое предсказание масок без detection.
+
+    YOLO-seg: прототипы + коэффициенты, встроено в YOLO.
+
+    Loss: BCE, Dice, Boundary, комбинации.
+
+    Post-processing: NMS, Mask NMS, Soft-NMS, Matrix NMS.
+
+Следующий пункт — Pose Estimation / Keypoint Detection — опирается на detection и segmentation: нужно найти объект и предсказать ключевые точки (скелет).
+Да , давай перейдём к следующему пункту
+
+The user wants to move to the next point: Pose Estimation / Keypoint Detection. Let me write a comprehensive section following the same style as previous sections: first the task in isolation from models, then architectures. I should cover:
+
+    Postановка: N keypoints per object (skeleton), not arbitrary shape
+
+    Metrics: OKS, PCK
+
+    Top-down vs bottom-up approaches
+
+    Architectures: OpenPose, HRNet, YOLOv8/11 pose head
+
+Let me write this thoroughly with math and detail.
+5. Pose Estimation / Keypoint Detection
+A. Задача в отрыве от моделей
+1.1. Постановка
+
+Pose Estimation (оценка позы) — это задача, где модели нужно найти на изображении ключевые точки (keypoints) объекта и собрать их в скелет. Чаще всего речь о человеческой позе: суставы и части тела.
+
+Формально:
+
+    Вход: изображение x∈RH×W×Cx∈RH×W×C.
+
+    Выход: для каждого объекта — набор из NN ключевых точек:
+    P={(pi,vi)}i=1N
+    P={(pi​,vi​)}i=1N​
+
+    где:
+
+        pi=(xi,yi)pi​=(xi​,yi​) — координаты точки ii;
+
+        vi∈{0,1,2}vi​∈{0,1,2} — видимость:
+
+            0 — не размечена / вне изображения;
+
+            1 — размечена, но не видна (перекрыта);
+
+            2 — видна.
+
+Ключевое отличие от всех предыдущих задач:
+Задача	Выход
+Classification	один класс
+Detection	bbox + класс
+Semantic Segmentation	класс на пиксель
+Instance Segmentation	маска на экземпляр
+Pose Estimation	N фиксированных keypoints на объект
+
+Что значит «фиксированные keypoints»:
+
+    Набор точек заранее задан: например, 17 точек для COCO (нос, глаза, уши, плечи, локти, запястья, бёдра, колени, лодыжки).
+
+    Это не произвольная форма, а заранее определённый скелет.
+
+    Для каждого объекта предсказываются одни и те же NN точек.
+
+Пример (COCO, 17 keypoints):
+text
+
+0: nose
+1: left_eye        2: right_eye
+3: left_ear        4: right_ear
+5: left_shoulder   6: right_shoulder
+7: left_elbow      8: right_elbow
+9: left_wrist      10: right_wrist
+11: left_hip       12: right_hip
+13: left_knee      14: right_knee
+15: left_ankle     16: right_ankle
+
+Другие наборы:
+
+    MPII: 16 keypoints.
+
+    COCO: 17 keypoints.
+
+    Human3.6M: 17 keypoints (3D).
+
+    OpenPose: 18 или 25 keypoints (body + hands + face).
+
+    Face landmarks: 5, 68 или 468 точек.
+
+    Hand pose: 21 keypoint.
+
+Почему это сложнее detection:
+
+    Точность. Нужно предсказать координаты с точностью до нескольких пикселей.
+
+    Окклюзия. Точки могут быть перекрыты — нужно предсказать их положение или пометить как невидимые.
+
+    Переменное число людей. Как в detection, число объектов неизвестно.
+
+    Связность. Точки не независимы — они образуют скелет, и это нужно учитывать.
+
+    Масштаб. Люди могут быть разного размера.
+
+    Поза. Люди могут быть в произвольных позах, в том числе редких.
+
+Формально: pose estimation = detection + предсказание NN точек для каждого объекта.
+1.2. Формат разметки
+COCO
+json
+
+{
+  "annotations": [
+    {
+      "image_id": 1,
+      "category_id": 1,  // person
+      "keypoints": [x1, y1, v1, x2, y2, v2, ..., x17, y17, v17],
+      "num_keypoints": 17,
+      "bbox": [100, 200, 200, 400]
+    }
+  ]
+}
+
+    keypoints — плоский список троек (x,y,v)(x,y,v);
+
+    vv — visibility (0, 1, 2);
+
+    num_keypoints — число видимых точек.
+
+MPII
+json
+
+{
+  "joints": [[x1, y1], [x2, y2], ...],
+  "joints_vis": [1, 1, 0, ...]
+}
+
+CrowdPose
+
+    Аналогично COCO, но с учётом толпы и окклюзий.
+
+3D-разметка (Human3.6M, MPI-INF-3DHP)
+
+    (x,y,z)(x,y,z) для каждой точки;
+
+    Часто требует multi-view или depth.
+
+1.3. Метрики
+OKS — Object Keypoint Similarity
+
+Главная метрика для pose estimation. Аналог IoU, но для точек.
+OKS=∑iexp⁡(−di22s2ki2)⋅δ(vi>0)∑iδ(vi>0)
+OKS=∑i​δ(vi​>0)∑i​exp(−2s2ki2​di2​​)⋅δ(vi​>0)​
+
+где:
+
+    didi​ — евклидово расстояние между предсказанной и истинной точкой ii:
+    di=(xi−x^i)2+(yi−y^i)2
+    di​=(xi​−x^i​)2+(yi​−y^​i​)2
+    ​
+
+    ss — масштаб объекта (обычно area bboxarea bbox
+    ​);
+
+    kiki​ — константа, зависящая от типа точки (определяется из статистики разметки);
+
+    δ(vi>0)δ(vi​>0) — индикатор, учитываем только видимые точки.
+
+Смысл:
+
+    Чем ближе предсказание к истине, тем ближе OKS к 1;
+
+    ss нормирует ошибку по размеру объекта: для крупного объекта допускается большая абсолютная ошибка;
+
+    kiki​ учитывает, что разные точки имеют разную «сложность» (например, глаза сложнее, чем плечи).
+
+Значения kiki​ для COCO:
+text
+
+nose: 0.026
+eyes: 0.025
+ears: 0.035
+shoulders: 0.079
+elbows: 0.072
+wrists: 0.062
+hips: 0.107
+knees: 0.087
+ankles: 0.089
+
+OKS как IoU: OKS ∈ [0, 1], порог 0.5 или 0.75 используется для TP/FP.
+mAP для pose
+
+    AP@0.5 — OKS threshold 0.5;
+
+    AP@0.75 — строже;
+
+    AP@0.5:0.95 — COCO-style, усреднение по 10 порогам.
+
+Алгоритм:
+
+    Для каждого изображения — все предсказания.
+
+    Сопоставить с истинными объектами по OKS.
+
+    TP/FP/FN → precision-recall → AP.
+
+    Усреднить по классам (обычно только person).
+
+Дополнительно:
+
+    AP^M — для средних объектов;
+
+    AP^L — для крупных;
+
+    AR — average recall.
+
+PCK — Percentage of Correct Keypoints
+
+Доля точек, для которых расстояние до истинной меньше порога:
+PCK@α=1N∑iδ(didnorm<α)
+PCK@α=N1​i∑​δ(dnorm​di​​<α)
+
+где dnormdnorm​ — нормировка:
+
+    PCKh: нормировка на размер головы (расстояние между ушами);
+
+    PCK: нормировка на размер торса (расстояние между плечами и бёдрами).
+
+Порог αα: обычно 0.5 (50% от нормировки).
+MPJPE — Mean Per Joint Position Error
+
+Для 3D:
+MPJPE=1N∑i∥pi−p^i∥
+MPJPE=N1​i∑​∥pi​−p^​i​∥
+
+    P-MPJPE: после выравнивания по Procrustes;
+
+    N-MPJPE: после выравнивания по масштабу и повороту.
+
+Другие
+
+    PDJ (Percentage of Detected Joints) — доля точек в пределах порога;
+
+    AUC — площадь под кривой PCK.
+
+1.4. Top-down vs Bottom-up
+
+Ключевая архитектурная развилка.
+Top-down
+
+Идея: сначала найти каждого человека (detection), потом внутри bbox предсказать keypoints.
+
+Pipeline:
+
+    Detector (YOLO, Faster R-CNN) → bbox для каждого человека.
+
+    Для каждого bbox — crop + resize.
+
+    Pose model → keypoints внутри bbox.
+
+Плюсы:
+
+    Точность выше: модель работает с одним человеком, может использовать больше параметров;
+
+    Проще обучение: одна поза на изображение;
+
+    Хорошо работает при небольшом числе людей.
+
+Минусы:
+
+    Зависит от качества detector;
+
+    Медленно при большом числе людей (N forward pass);
+
+    Ошибки detector'а передаются в pose.
+
+Примеры: Mask R-CNN (keypoint branch), HRNet, SimpleBaseline, YOLOv8-pose.
+Bottom-up
+
+Идея: сначала найти все keypoints на изображении, потом сгруппировать их по людям.
+
+Pipeline:
+
+    Pose model → heatmap для каждой точки + grouping cues (part affinity fields, embeddings).
+
+    Группировка точек в скелеты.
+
+    Получение поз для каждого человека.
+
+Плюсы:
+
+    Быстрее при большом числе людей (один forward pass);
+
+    Не зависит от detector;
+
+    Real-time.
+
+Минусы:
+
+    Сложнее: нужно правильно сгруппировать точки;
+
+    Точность ниже при окклюзиях;
+
+    Проблемы с перекрывающимися людьми.
+
+Примеры: OpenPose, Associative Embedding, HigherHRNet, YOLO-pose (bottom-up вариант).
+Сравнение
+	Top-down	Bottom-up
+Порядок	detect → keypoints	keypoints → group
+Число forward	N + 1	1
+Точность	Выше	Ниже
+Скорость	Падает с N	Постоянная
+Зависимость от detector	Да	Нет
+Окклюзии	Лучше	Хуже
+1.5. Heatmap-подход
+
+Основной способ представления keypoints в deep learning.
+
+Вместо прямого предсказания координат (x,y)(x,y), модель предсказывает heatmap — карту вероятностей:
+H∈[0,1]H′×W′×N
+H∈[0,1]H′×W′×N
+
+где H′,W′H′,W′ — разрешение heatmap (обычно H/4×W/4H/4×W/4), NN — число точек.
+
+Ground truth heatmap:
+
+Для каждой точки pi=(xi,yi)pi​=(xi​,yi​) создаётся гауссово распределение:
+Hi(u,v)=exp⁡(−(u−xi)2+(v−yi)22σ2)
+Hi​(u,v)=exp(−2σ2(u−xi​)2+(v−yi​)2​)
+
+где (u,v)(u,v) — координаты пикселя heatmap, σσ — стандартное отклонение (обычно 2).
+
+Предсказание координат:
+p^i=arg⁡max⁡(u,v)Hi(u,v)
+p^​i​=arg(u,v)max​Hi​(u,v)
+
+Или с sub-pixel точностью: взвешенное среднее по окрестности максимума.
+
+Loss:
+L=∑i=1N∑u,v(Hi(u,v)−H^i(u,v))2
+L=i=1∑N​u,v∑​(Hi​(u,v)−H^i​(u,v))2
+
+MSE между предсказанной и истинной heatmap.
+
+Почему heatmap, а не регрессия координат:
+
+    Heatmap сохраняет пространственную структуру;
+
+    Легче обучать: задача плотного предсказания, как в сегментации;
+
+    Более устойчиво к шуму;
+
+    Работает с окклюзиями: если точка не видна, heatmap размыта, но модель может предсказать её положение.
+
+Недостатки:
+
+    Дорого по памяти: H′×W′×NH′×W′×N;
+
+    Нужна постобработка (argmax, refinement);
+
+    Квантование координат.
+
+1.6. Альтернативы heatmap
+Прямая регрессия координат
+
+Модель предсказывает (x,y)(x,y) напрямую:
+p^i=FC(features)
+p^​i​=FC(features)
+
+Плюсы: просто, быстро.
+Минусы: хуже точность, нет пространственной структуры.
+Integral regression
+
+Предсказывается heatmap, но координаты — через soft-argmax:
+x^i=∑u,vu⋅softmax(Hi(u,v))
+x^i​=u,v∑​u⋅softmax(Hi​(u,v))
+
+Плюсы: дифференцируемо, end-to-end.
+Минусы: сложнее.
+SimCC (Simple Coordinate Classification)
+
+Раздельно классифицируем xx и yy:
+P(x=u),P(y=v)
+P(x=u),P(y=v)
+
+Затем:
+x^=arg⁡max⁡uP(x=u)
+x^=argumax​P(x=u)
+
+Используется в RTMPose, YOLO-pose.
+B. Архитектуры
+2.1. OpenPose (2017)
+
+Классический bottom-up подход.
+
+Архитектура:
+
+    Backbone (VGG-19) → feature map.
+
+    Two-branch multi-stage CNN:
+
+        Branch 1: heatmaps для NN keypoints;
+
+        Branch 2: Part Affinity Fields (PAFs) — векторные поля, кодирующие связи между точками.
+
+Part Affinity Fields (PAFs):
+
+Для каждой пары связанных точек (например, плечо-локоть) предсказывается 2D векторное поле:
+L∈RH′×W′×2×C
+L∈RH′×W′×2×C
+
+где CC — число связей (обычно 17 для COCO).
+
+Идея: для пикселя на линии между двумя точками предсказывается единичный вектор, направленный от первой точки ко второй.
+
+Формально:
+
+Для связи между точками p1p1​ и p2p2​:
+L(p)=p2−p1∥p2−p1∥
+L(p)=∥p2​−p1​∥p2​−p1​​
+
+для точек pp на отрезке между p1p1​ и p2p2​.
+
+Loss:
+L=Lheatmap+LPAF
+L=Lheatmap​+LPAF​
+
+Группировка:
+
+    Найти все keypoints (argmax heatmap).
+
+    Для каждой пары связанных точек — вычислить интеграл PAF вдоль линии:
+    E=∫01L(p(t))⋅p2−p1∥p2−p1∥dt
+    E=∫01​L(p(t))⋅∥p2​−p1​∥p2​−p1​​dt
+
+    Сопоставить пары с максимальным EE (bipartite matching).
+
+Плюсы:
+
+    Real-time;
+
+    Не зависит от detector;
+
+    Работает с толпой.
+
+Минусы:
+
+    Сложная группировка;
+
+    Проблемы с перекрытиями;
+
+    Точность ниже top-down.
+
+2.2. HRNet (2019)
+
+High-Resolution Network — ключевая архитектура для pose estimation.
+
+Идея: сохранять высокое разрешение через всю сеть, а не уменьшать его как в обычных CNN.
+
+Архитектура:
+
+    Начинается с высокого разрешения;
+
+    Постепенно добавляются ветки с меньшим разрешением;
+
+    Параллельные ветки разного разрешения;
+
+    Постоянный обмен информацией между ветками.
+
+Схема:
+text
+
+Branch 1 (H × W)    ────┬────┬────┬────
+                        │    │    │
+Branch 2 (H/2 × W/2) ───┴────┼────┼────
+                             │    │
+Branch 3 (H/4 × W/4) ────────┴────┼────
+                                  │
+Branch 4 (H/8 × W/8) ─────────────┴────
+
+Fusion:
+
+На каждом этапе ветки обмениваются информацией:
+
+    Downsample: свёртка со stride 2;
+
+    Upsample: bilinear или transposed conv;
+
+    Суммирование или конкатенация.
+
+Формально:
+outi=∑jResizej→i(inj)
+outi​=j∑​Resizej→i​(inj​)
+
+Почему высокое разрешение важно:
+
+    Keypoints — мелкие объекты;
+
+    При уменьшении разрешения теряется точность;
+
+    HRNet сохраняет детали на всех уровнях.
+
+Применение:
+
+    Pose estimation (2D, 3D);
+
+    Semantic segmentation;
+
+    Face alignment;
+
+    Detection.
+
+Плюсы:
+
+    Высокая точность;
+
+    Хорошо работает с мелкими точками;
+
+    Multi-scale.
+
+Минусы:
+
+    Дорого по вычислениям;
+
+    Сложная архитектура.
+
+Варианты:
+
+    HRNet-W32, HRNet-W48 — разная ширина;
+
+    HigherHRNet — для bottom-up;
+
+    Lite-HRNet — для мобильных.
+
+2.3. SimpleBaseline (2018)
+
+Идея: простой baseline, чтобы понять, что важно в pose estimation.
+
+Архитектура:
+
+    Backbone (ResNet) → feature map.
+
+    Deconvolution layers (transposed conv) для upsampling;
+
+    Финальная 1×11×1 свёртка → NN heatmaps.
+
+Схема:
+text
+
+ResNet → Conv → Deconv × 3 → Conv 1×1 → Heatmaps
+
+Результат: SimpleBaseline показал, что даже простая архитектура с хорошим backbone даёт конкурентные результаты. Главное — разрешение и upsampling.
+
+Влияние: стало ясно, что сложные архитектуры не всегда нужны; важны базовые компоненты.
+2.4. Mask R-CNN для pose (2017)
+
+Top-down подход: detection + keypoint head.
+
+Архитектура:
+
+    Backbone (ResNet-FPN);
+
+    RPN → RoI;
+
+    RoIAlign → feature 14×1414×14;
+
+    Keypoint head:
+
+        8 свёрток 3×33×3;
+
+        Transposed conv 2×22×2 → 28×2828×28;
+
+        1×11×1 conv → NN heatmaps 28×2828×28;
+
+    Для каждой точки — argmax.
+
+Loss:
+L=Lcls+Lbox+Lkeypoint
+L=Lcls​+Lbox​+Lkeypoint​
+
+LkeypointLkeypoint​ — MSE между heatmap и ground truth.
+
+Плюсы:
+
+    Просто;
+
+    Работает;
+
+    Один forward pass для detection + pose.
+
+Минусы:
+
+    Точность ниже специализированных моделей;
+
+    Зависит от detector.
+
+2.5. YOLOv8/11/26 Pose Head
+
+Top-down в едином проходе.
+
+Архитектура:
+
+    Backbone (C2f, SPPF) → multi-scale features.
+
+    Neck (PAN-FPN) → агрегация.
+
+    Pose head:
+
+        Detection branch: class + bbox;
+
+        Keypoint branch: N×3N×3 значений на каждый anchor (x, y, visibility).
+
+Формально:
+
+Для каждого объекта предсказывается:
+K^∈RN×3
+K^∈RN×3
+
+где NN — число keypoints (17 для COCO), 3 — (x,y,v)(x,y,v).
+
+Особенности:
+
+    Anchor-free (YOLOv8+);
+
+    Decoupled head;
+
+    Keypoints предсказываются относительно центра bbox или ячейки;
+
+    Visibility — бинарная или 3-классовая.
+
+Loss:
+L=Lcls+Lbox+λLpose
+L=Lcls​+Lbox​+λLpose​
+
+LposeLpose​ — MSE или OKS-based loss.
+
+Pipeline на инференсе:
+
+    Detection → bbox + class.
+
+    Для каждого bbox — keypoints.
+
+    NMS.
+
+    Финальные позы.
+
+Плюсы:
+
+    Единый фреймворк;
+
+    Быстро;
+
+    Хорошая точность;
+
+    Multi-task.
+
+Минусы:
+
+    Точность ниже HRNet;
+
+    Keypoints предсказываются грубее.
+
+2.6. Другие важные архитектуры
+Associative Embedding (2017)
+
+    Bottom-up;
+
+    Каждой точке — эмбеддинг;
+
+    Точки одного человека — близкие эмбеддинги;
+
+    Группировка по эмбеддингам.
+
+HigherHRNet (2020)
+
+    Bottom-up;
+
+    HRNet + deconv для высокого разрешения;
+
+    Associative embedding.
+
+DEKR (2021)
+
+    Bottom-up;
+
+    Disentangled keypoint regression;
+
+    Adaptive convolution.
+
+ViTPose (2022)
+
+    ViT backbone для pose;
+
+    Простой decoder;
+
+    SOTA точность.
+
+RTMPose (2023)
+
+    Real-time;
+
+    SimCC;
+
+    CSPNeXt backbone.
+
+MediaPipe Pose (2020)
+
+    Легковесная;
+
+    Для мобильных;
+
+    BlazePose.
+
+2.7. Сравнение архитектур
+Архитектура	Год	Подход	Backbone	Ключевое
+OpenPose	2017	Bottom-up	VGG-19	PAFs
+Mask R-CNN pose	2017	Top-down	ResNet-FPN	Keypoint head
+SimpleBaseline	2018	Top-down	ResNet	Deconv
+HRNet	2019	Top-down	HRNet	Высокое разрешение
+HigherHRNet	2020	Bottom-up	HRNet	Multi-resolution
+ViTPose	2022	Top-down	ViT	Transformer
+RTMPose	2023	Top-down	CSPNeXt	SimCC
+YOLOv8-pose	2023	Top-down	C2f	Единый фреймворк
+2.8. 3D Pose Estimation
+
+Задача: предсказать (x,y,z)(x,y,z) для каждой точки.
+
+Подходы:
+
+    Direct 3D: модель предсказывает 3D напрямую.
+
+    2D → 3D lifting: сначала 2D, потом подъём в 3D.
+
+    Multi-view: несколько камер.
+
+    Depth-based: RGB-D.
+
+Архитектуры:
+
+    VideoPose3D — temporal model;
+
+    MeTRAbs — metric 3D;
+
+    PyMAF — feedback loop;
+
+    HybrIK — hybrid.
+
+Метрики:
+
+    MPJPE;
+
+    P-MPJPE;
+
+    N-MPJPE;
+
+    3DPCK.
+
+2.9. Функции потерь
+MSE на heatmap
+L=∑i,u,v(Hi(u,v)−H^i(u,v))2
+L=i,u,v∑​(Hi​(u,v)−H^i​(u,v))2
+OKS-based loss
+LOKS=1−OKS
+LOKS​=1−OKS
+Wing Loss
+
+Для регрессии координат:
+Lwing={wln⁡(1+∣x∣/ϵ)∣x∣<w∣x∣−Cиначе
+Lwing​={wln(1+∣x∣/ϵ)∣x∣−C​∣x∣<wиначе​
+Adaptive Wing Loss
+L={αln⁡(1+∣x∣/ϵ)∣x∣<θA∣x∣−Cиначе
+L={αln(1+∣x∣/ϵ)A∣x∣−C​∣x∣<θиначе​
+KL Divergence
+
+Для распределений heatmap:
+LKL=∑Hilog⁡HiH^i
+LKL​=∑Hi​logH^i​Hi​​
+Комбинированные
+L=Lheatmap+λLOKS
+L=Lheatmap​+λLOKS​
+2.10. Post-processing
+Argmax
+p^i=arg⁡max⁡(u,v)Hi(u,v)
+p^​i​=arg(u,v)max​Hi​(u,v)
+Sub-pixel refinement
+
+    Взвешенное среднее по окрестности максимума;
+
+    Квадратичная интерполяция;
+
+    Gaussian fitting.
+
+Test-time augmentation
+
+    Flip;
+
+    Multi-scale;
+
+    Усреднение heatmaps.
+
+Smoothing (для видео)
+
+    Temporal smoothing;
+
+    Kalman filter;
+
+    Optical flow.
+
+2.11. Что важно вынести из пункта 5
+
+    Pose Estimation: NN фиксированных keypoints на объект.
+
+    Метрики: OKS, PCK, mAP, MPJPE (3D).
+
+    Top-down vs Bottom-up — ключевая развилка.
+
+    Heatmap — основной способ представления.
+
+    OpenPose: bottom-up, PAFs.
+
+    HRNet: высокое разрешение через всю сеть.
+
+    Mask R-CNN pose: top-down, keypoint head.
+
+    YOLO-pose: top-down в едином проходе.
+
+    Loss: MSE, OKS, Wing, KL, комбинации.
+
+    Post-processing: argmax, sub-pixel, TTA, smoothing.
+
+Следующий пункт — OBB Detection — расширение detection на повёрнутые bbox, что критично для аэроснимков и других задач, где объекты ориентированы.
+Давай к следующему пункту
+
+The user wants me to continue with the next point in the plan, which is OBB Detection (Oriented Bounding Box Detection). Let me write a comprehensive explanation following the same structure as before: first the task in isolation from models, then architectures.
+6. Oriented Bounding Box (OBB) Detection
+A. Задача в отрыве от моделей
+1.1. Постановка
+
+Oriented Bounding Box Detection (детекция ориентированных ограничивающих рамок) — это задача detection, где вместо обычного axis-aligned bbox (выровненного по осям) предсказывается повёрнутый прямоугольник с углом наклона.
+
+Формально:
+
+    Вход: изображение x∈RH×W×Cx∈RH×W×C.
+
+    Выход: множество детекций
+    D={(bi,ci,si)}i=1M
+    D={(bi​,ci​,si​)}i=1M​
+
+    где:
+
+        bi=(xc,yc,w,h,θ)bi​=(xc​,yc​,w,h,θ) — 5 параметров вместо 4;
+
+        ci∈{1,…,K}ci​∈{1,…,K} — класс;
+
+        si∈[0,1]si​∈[0,1] — confidence.
+
+Пять параметров OBB:
+
+    xc,ycxc​,yc​ — центр прямоугольника;
+
+    ww — ширина (обычно вдоль «длинной» оси);
+
+    hh — высота (перпендикулярно ширине);
+
+    θθ — угол поворота.
+
+Альтернативные параметризации:
+
+    OpenCV-формат: (xc,yc,w,h,θ)(xc​,yc​,w,h,θ), где θ∈[−90°,0°)θ∈[−90°,0°).
+
+    8-точечный: (x1,y1,x2,y2,x3,y3,x4,y4)(x1​,y1​,x2​,y2​,x3​,y3​,x4​,y4​) — четыре угла.
+
+    6-параметрический: (x1,y1,x2,y2,h)(x1​,y1​,x2​,y2​,h) — две противоположные вершины + высота.
+
+Ключевое отличие от обычного detection:
+	Axis-aligned bbox	Oriented bbox
+Параметров	4 (x1,y1,x2,y2x1​,y1​,x2​,y2​)	5 (xc,yc,w,h,θxc​,yc​,w,h,θ)
+Ориентация	Всегда горизонтальная	Произвольный угол
+Покрытие объекта	Плохое при наклоне	Точное
+IoU	Простой	Сложный (rotated IoU)
+
+Пример: самолёт на аэроснимке под углом 45°. Axis-aligned bbox захватит много фона (треугольники по углам). Oriented bbox точно обведёт самолёт.
+1.2. Почему обычный bbox неприменим
+
+Проблема 1: Избыточный фон.
+
+Для наклонного объекта axis-aligned bbox:
+
+    площадь bbox = w⋅h⋅(cos⁡θ+sin⁡θ)w⋅h⋅(cosθ+sinθ);
+
+    для θ=45°θ=45°: площадь в 2≈1.412
+    ​≈1.41 раза больше;
+
+    для тонких длинных объектов (корабли, самолёты, мосты) — ещё хуже.
+
+Проблема 2: Заниженный IoU.
+
+Если истинный объект повёрнут, а предсказание — axis-aligned:
+IoU=∣A∩B∣∣A∪B∣
+IoU=∣A∪B∣∣A∩B∣​
+
+Для повёрнутого прямоугольника IoU с axis-aligned bbox может быть < 0.5, даже если объект найден правильно. Это ломает метрики и NMS.
+
+Проблема 3: NMS удаляет правильные детекции.
+
+Если два объекта расположены рядом под углом, их axis-aligned bbox сильно перекрываются → NMS удаляет один из них.
+
+Проблема 4: Неточная локализация.
+
+Для задач, где важна точная граница (аэроснимки, документы, text detection), axis-aligned bbox недостаточен.
+
+Где нужен OBB:
+
+    Аэроснимки и спутниковые изображения:
+
+        корабли, самолёты, здания, мосты;
+
+        объекты ориентированы произвольно.
+
+    Text detection:
+
+        текст под углом;
+
+        вывески, номера машин.
+
+    Промышленность:
+
+        детали на конвейере;
+
+        дефекты под углом.
+
+    Медицина:
+
+        клетки, органы;
+
+        ориентированные структуры.
+
+    Документы:
+
+        сканы под углом;
+
+        таблицы, формы.
+
+    Robotics:
+
+        объекты для захвата;
+
+        ориентированные поверхности.
+
+1.3. Формат разметки
+DOTA (Dataset for Object Detection in Aerial Images)
+
+Основной датасет для OBB.
+text
+
+x1 y1 x2 y2 x3 y3 x4 y4 class_name difficult
+
+    8 координат — четыре угла (по часовой стрелке);
+
+    class_name — класс;
+
+    difficult — 0 или 1.
+
+Пример:
+text
+
+100 200 300 200 300 400 100 400 plane 0
+
+DOTA-v1.0: 15 классов, 2806 изображений.
+DOTA-v1.5: + small vehicles, 16 классов.
+DOTA-v2.0: 18 классов, 11,268 изображений.
+YOLO-OBB формат
+text
+
+class_id x1 y1 x2 y2 x3 y3 x4 y4
+
+    Координаты нормализованы к [0,1][0,1];
+
+    Четыре угла;
+
+    Или: class_id xc yc w h angle (зависит от реализации).
+
+В Ultralytics YOLO-OBB:
+text
+
+class_id x1 y1 x2 y2 x3 y3 x4 y4
+
+где (xi,yi)(xi​,yi​) — нормализованные координаты углов.
+COCO-style для OBB
+json
+
+{
+  "annotations": [
+    {
+      "bbox": [x, y, w, h, angle],
+      "segmentation": [[x1, y1, x2, y2, x3, y3, x4, y4]],
+      "category_id": 1
+    }
+  ]
+}
+
+Конвертация
+
+Из 8 точек в (xc,yc,w,h,θ)(xc​,yc​,w,h,θ):
+xc=14∑i=14xi,yc=14∑i=14yi
+xc​=41​i=1∑4​xi​,yc​=41​i=1∑4​yi​
+w=(x2−x1)2+(y2−y1)2
+w=(x2​−x1​)2+(y2​−y1​)2
+​
+h=(x3−x2)2+(y3−y2)2
+h=(x3​−x2​)2+(y3​−y2​)2
+​
+θ=arctan⁡2(y2−y1,x2−x1)
+θ=arctan2(y2​−y1​,x2​−x1​)
+
+Из (xc,yc,w,h,θ)(xc​,yc​,w,h,θ) в 8 точек:
+
+Углы прямоугольника до поворота:
+(±w/2,±h/2)
+(±w/2,±h/2)
+
+После поворота на θθ:
+xi=xc+w2cos⁡θ⋅si−h2sin⁡θ⋅ti
+xi​=xc​+2w​cosθ⋅si​−2h​sinθ⋅ti​
+yi=yc+w2sin⁡θ⋅si+h2cos⁡θ⋅ti
+yi​=yc​+2w​sinθ⋅si​+2h​cosθ⋅ti​
+
+где (si,ti)∈{(−1,−1),(1,−1),(1,1),(−1,1)}(si​,ti​)∈{(−1,−1),(1,−1),(1,1),(−1,1)}.
+1.4. Метрики
+Rotated IoU
+
+Главная сложность: IoU для повёрнутых прямоугольников не имеет простой формулы.
+
+Способы вычисления:
+
+    Полигональный подход:
+
+        Представить каждый OBB как полигон из 4 точек;
+
+        Вычислить пересечение полигонов (Sutherland-Hodgman);
+
+        Площадь пересечения → IoU.
+
+    Triangulation:
+
+        Разбить пересечение на треугольники;
+
+        Суммировать площади.
+
+    Аналитический (для двух прямоугольников):
+
+        Сложно, много случаев.
+
+Формально:
+Rotated IoU=∣A∩B∣∣A∣+∣B∣−∣A∩B∣
+Rotated IoU=∣A∣+∣B∣−∣A∩B∣∣A∩B∣​
+
+где ∣A∩B∣∣A∩B∣ — площадь пересечения двух повёрнутых прямоугольников.
+
+Проблема: Rotated IoU не дифференцируем по углу, что затрудняет обучение.
+Альтернативы Rotated IoU
+
+    Gaussian IoU:
+
+        Каждый OBB → 2D Gaussian;
+
+        IoU → расстояние между Gaussian;
+
+        Дифференцируемо.
+
+    ProbIoU:
+
+        Вероятностная интерпретация;
+
+        Замкнутая формула;
+
+        Дифференцируемо.
+
+    KLD (Kullback-Leibler Divergence):
+
+        Расстояние между распределениями;
+
+        Для loss-функции.
+
+mAP для OBB
+
+    mAP@0.5 — Rotated IoU threshold 0.5;
+
+    mAP@0.5:0.95 — усреднение по порогам;
+
+    Алгоритм тот же, что в обычном detection, но IoU — rotated.
+
+DOTA метрики:
+
+    mAP — mean Average Precision;
+
+    AP@0.5, AP@0.75;
+
+    mAP@0.5:0.95.
+
+Проблема periodicity угла
+
+Ключевая сложность: угол θθ и θ+180°θ+180° описывают один и тот же прямоугольник, если поменять ww и hh местами:
+(xc,yc,w,h,θ)≡(xc,yc,h,w,θ+90°)
+(xc​,yc​,w,h,θ)≡(xc​,yc​,h,w,θ+90°)
+(xc,yc,w,h,θ)≡(xc,yc,w,h,θ+180°)
+(xc​,yc​,w,h,θ)≡(xc​,yc​,w,h,θ+180°)
+
+Последствия:
+
+    Loss по углу: если истинный угол 0°0°, а предсказанный 179°179°, MSE даст огромную ошибку, хотя визуально это почти одно и то же.
+
+    NMS: два предсказания с углами 1°1° и 179°179° могут быть одним объектом.
+
+    Обучение: модель не может стабильно выучить угол.
+
+Решения:
+
+    Ограничение диапазона:
+
+        θ∈[−90°,0°)θ∈[−90°,0°) (OpenCV);
+
+        Или θ∈[−45°,135°)θ∈[−45°,135°);
+
+        Но проблема на границах остаётся.
+
+    Угол как классификация:
+
+        Разбить 360°360° на BB бинов;
+
+        Предсказывать распределение по бинам;
+
+        Пример: CSL (Circular Smooth Label).
+
+    Угол как вектор:
+
+        Предсказывать (cos⁡θ,sin⁡θ)(cosθ,sinθ);
+
+        Или (cos⁡2θ,sin⁡2θ)(cos2θ,sin2θ) для учёта 180°180°-периодичности;
+
+        Loss — косинусное расстояние.
+
+    Rotation-aware loss:
+
+        Учитывать периодичность в loss;
+
+        Пример: Rotated IoU loss, ProbIoU loss.
+
+    Определение «длинной» стороны:
+
+        Всегда w≥hw≥h;
+
+        Тогда θ∈[−90°,90°)θ∈[−90°,90°);
+
+        Убирает неоднозначность w↔hw↔h.
+
+    KLD / Gaussian loss:
+
+        Не работает с углом напрямую;
+
+        Сравнивает распределения.
+
+1.5. Проблемы OBB detection
+
+    Угол периодичен — см. выше.
+
+    Rotated IoU дорогой — полигональные вычисления.
+
+    Rotated NMS — нужен rotated IoU.
+
+    Boundary discontinuity — при переходе через 0°0°/180°180°.
+
+    Аннотации — сложнее размечать, чем axis-aligned.
+
+    Меньше данных — OBB-датасетов меньше.
+
+    Меньше предобученных моделей — большинство на ImageNet/COCO (axis-aligned).
+
+B. Архитектуры
+2.1. Ранние подходы (до YOLO-эры)
+Rotated RPN
+
+    Расширение RPN для предсказания угла;
+
+    Anchors с разными углами: 0°, 30°, 60°, 90°, 120°, 150°;
+
+    Или anchors с обучаемыми углами.
+
+RRPN (Rotation Region Proposal Network, 2017)
+
+    Anchors с углами;
+
+    Rotated RoI Pooling;
+
+    Для text detection.
+
+R2CNN (2017)
+
+    Faster R-CNN + rotated bbox regression;
+
+    Для text detection.
+
+RoI Transformer (2019)
+
+    Learning rotated RoI;
+
+    RRoI Align;
+
+    Для аэроснимков.
+
+SCRDet (2019)
+
+    Для мелких и densely packed объектов;
+
+    IoU-Smooth L1 loss;
+
+    Для аэроснимков.
+
+Gliding Vertex (2020)
+
+    Предсказание 4 вершин вместо угла;
+
+    Обходит проблему периодичности.
+
+CSL (2020)
+
+    Circular Smooth Label;
+
+    Угол как классификация;
+
+    Решает проблему границ.
+
+DCL (2021)
+
+    Densely Coded Labels;
+
+    Угол как бинарный код;
+
+    Учитывает периодичность.
+
+Oriented R-CNN (2021)
+
+    Two-stage;
+
+    Oriented RPN;
+
+    Midpoint offset representation;
+
+    SOTA на DOTA.
+
+2.2. YOLOv8/11 OBB Head
+
+Ultralytics добавили OBB в YOLOv8.
+
+Архитектура:
+
+    Backbone (C2f, SPPF) → multi-scale features.
+
+    Neck (PAN-FPN) → агрегация.
+
+    OBB head:
+
+        Detection branch: class + OBB;
+
+        OBB: xc,yc,w,h,θxc​,yc​,w,h,θ или 8 точек.
+
+Особенности:
+
+    Anchor-free;
+
+    Decoupled head;
+
+    Угол предсказывается как дополнительный параметр;
+
+    Loss: rotated IoU + DFL.
+
+Формально:
+
+Для каждой позиции feature map:
+b^=(xc,yc,w,h,θ)
+b^=(xc​,yc​,w,h,θ)
+
+Loss:
+L=Lcls+Lbox+Langle
+L=Lcls​+Lbox​+Langle​
+
+где:
+
+    LclsLcls​ — BCE;
+
+    LboxLbox​ — rotated IoU loss или ProbIoU;
+
+    LangleLangle​ — loss по углу.
+
+ProbIoU loss (используется в YOLOv8-OBB):
+
+Каждый OBB → 2D Gaussian:
+μ=(xc,yc)
+μ=(xc​,yc​)
+Σ=R⋅diag(w2/4,h2/4)⋅RT
+Σ=R⋅diag(w2/4,h2/4)⋅RT
+
+где RR — матрица поворота.
+
+Расстояние между Gaussian:
+d2=∥μ1−μ2∥2+Tr(Σ1+Σ2−2(Σ11/2Σ2Σ11/2)1/2)
+d2=∥μ1​−μ2​∥2+Tr(Σ1​+Σ2​−2(Σ11/2​Σ2​Σ11/2​)1/2)
+
+ProbIoU:
+ProbIoU=1−exp⁡(−d2)
+ProbIoU=1−exp(−d2)
+
+Loss:
+LProbIoU=1−ProbIoU
+LProbIoU​=1−ProbIoU
+
+Плюсы ProbIoU:
+
+    Дифференцируемо;
+
+    Замкнутая формула;
+
+    Учитывает угол;
+
+    Быстро.
+
+NMS:
+
+    Rotated NMS;
+
+    Или ProbIoU-based NMS.
+
+Pipeline:
+
+    OBB head → предсказания.
+
+    Rotated NMS.
+
+    Финальные OBB.
+
+Плюсы:
+
+    Встроено в YOLO;
+
+    Быстро;
+
+    Хорошая точность.
+
+2.3. YOLO26 OBB
+
+Дальнейшее развитие:
+
+    NMS-free OBB;
+
+    Dual label assignment;
+
+    Улучшенные heads;
+
+    Multi-task.
+
+NMS-free для OBB:
+
+    One-to-one head предсказывает один OBB на объект;
+
+    Не нужен rotated NMS;
+
+    Быстрее.
+
+2.4. RT-DETR для OBB
+
+Transformer-based OBB detection:
+
+    Deformable attention;
+
+    Object queries;
+
+    NMS-free;
+
+    Rotated bbox regression.
+
+Преимущества:
+
+    NMS-free;
+
+    End-to-end;
+
+    Хорошо для densely packed объектов.
+
+2.5. Специализированные архитектуры для аэроснимков
+DOTA-ориентированные
+
+    O-RCNN (Oriented R-CNN);
+
+    SCRDet;
+
+    Gliding Vertex;
+
+    CSL;
+
+    DCL;
+
+    ReDet (Rotation-equivariant);
+
+    Oriented RepPoints.
+
+Text detection
+
+    TextBoxes++;
+
+    EAST;
+
+    RRPN;
+
+    R2CNN;
+
+    DB (Differentiable Binarization);
+
+    PSENet.
+
+Промышленность
+
+    YOLO-OBB;
+
+    MMRotate (OpenMMLab);
+
+    Detectron2 с rotated bbox.
+
+2.6. Сравнение представлений угла
+Представление	Плюсы	Минусы
+Прямой угол θθ	Просто	Периодичность, boundary discontinuity
+(cos⁡θ,sin⁡θ)(cosθ,sinθ)	Нет периодичности	Не учитывает 180°180°
+(cos⁡2θ,sin⁡2θ)(cos2θ,sin2θ)	Учитывает 180°180°	Не учитывает w↔hw↔h
+8 точек	Нет угла	Неоднозначность порядка точек
+CSL (классификация)	Решает boundary	Дискретизация
+DCL (бинарный код)	Учитывает периодичность	Сложнее
+Gaussian / ProbIoU	Дифференцируемо	Не интерпретируется как угол
+2.7. Loss-функции для OBB
+Rotated IoU Loss
+LIoU=1−Rotated IoU
+LIoU​=1−Rotated IoU
+
+Проблема: не дифференцируемо.
+ProbIoU Loss
+LProbIoU=1−ProbIoU
+LProbIoU​=1−ProbIoU
+
+Плюсы: дифференцируемо, замкнутая формула.
+Gaussian Wasserstein Distance
+LGWD=1−exp⁡(−d2)
+LGWD​=1−exp(−d2
+​)
+KLD Loss
+LKLD=KL(P∥Q)
+LKLD​=KL(P∥Q)
+CSL Loss
+LCSL=−∑iyilog⁡y^i
+LCSL​=−i∑​yi​logy^​i​
+
+где yiyi​ — сглаженная метка угла.
+Комбинированные
+L=Lcls+λ1LProbIoU+λ2Langle
+L=Lcls​+λ1​LProbIoU​+λ2​Langle​
+2.8. NMS для OBB
+Rotated NMS
+
+    IoU — rotated;
+
+    Полигональные вычисления;
+
+    Медленнее обычного NMS.
+
+ProbIoU NMS
+
+    IoU — ProbIoU;
+
+    Быстрее;
+
+    Дифференцируемо.
+
+Skew NMS
+
+    Для densely packed объектов;
+
+    Учитывает угол.
+
+NMS-free (YOLO26, RT-DETR)
+
+    Не нужен;
+
+    One-to-one assignment.
+
+2.9. Post-processing
+Rotated NMS
+python
+
+def rotated_nms(boxes, scores, iou_threshold):
+    keep = []
+    order = argsort(scores)[::-1]
+    while order:
+        i = order[0]
+        keep.append(i)
+        ious = [rotated_iou(boxes[i], boxes[j]) for j in order[1:]]
+        order = [j for j, o in zip(order[1:], ious) if o <= iou_threshold]
+    return keep
+
+Angle refinement
+
+    Уточнение угла по соседним пикселям;
+
+    Или по heatmap.
+
+Test-time augmentation
+
+    Multi-scale;
+
+    Rotation TTA;
+
+    Усреднение.
+
+2.10. Что важно вынести из пункта 6
+
+    OBB Detection: bbox + угол поворота (5 параметров).
+
+    Нужен для аэроснимков, text detection, промышленности.
+
+    Метрики: Rotated IoU, mAP с rotated IoU.
+
+    Проблема периодичности угла — ключевая сложность.
+
+    Решения: ограничение диапазона, (cos⁡2θ,sin⁡2θ)(cos2θ,sin2θ), CSL, ProbIoU.
+
+    Ранние подходы: RRPN, R2CNN, RoI Transformer, SCRDet, Gliding Vertex, CSL, DCL, Oriented R-CNN.
+
+    YOLOv8/11 OBB: anchor-free, ProbIoU loss, rotated NMS.
+
+    YOLO26 OBB: NMS-free.
+
+    RT-DETR: transformer-based OBB.
+
+    Loss: Rotated IoU, ProbIoU, GWD, KLD, CSL.
+
+    Post-processing: rotated NMS, ProbIoU NMS, angle refinement.
+
+Следующий пункт — Multi-Object Tracking (MOT) — опирается на detection: нужно не просто найти объекты на кадре, а сохранить их identity через последовательность кадров.
+Теперь  Multi-Object Tracking (MOT)
+
+The user wants me to cover Multi-Object Tracking (MOT) as the next topic in their plan. Let me write a comprehensive explanation following the same structure as previous topics: task in isolation from models, then architectures/algorithms.
+
+Key points from the plan:
+
+    Постановка: не разовая детекция, а сохранение identity объекта через последовательность кадров
+
+    Проблемы: occlusion, id-switch, re-identification
+
+    Метрики: MOTA, IDF1
+
+    Архитектуры/алгоритмы:
+
+        Разделение на два слоя: detector (YOLO) + association-алгоритм — это не одна модель, а pipeline
+
+        SORT / DeepSORT — Kalman filter + IoU-matching
+
+        ByteTrack / BoT-SORT
+
+I need to cover:
+
+    Task formulation (what MOT is)
+
+    Metrics (MOTA, IDF1, etc.)
+
+    Problem statement: occlusion, id-switch, re-identification
+
+    Architectures/algorithms:
+
+        Two-layer separation: detector + association
+
+        SORT (Kalman filter + Hungarian algorithm)
+
+        DeepSORT (adds appearance features)
+
+        ByteTrack (low-confidence detections)
+
+        BoT-SORT (camera motion compensation)
+
+        Modern approaches
+
+Let me write this comprehensively.
+7. Multi-Object Tracking (MOT)
+A. Задача в отрыве от моделей
+1.1. Постановка
+
+Multi-Object Tracking — это задача, где модели нужно не просто найти объекты на отдельном кадре, а сохранить идентичность (identity) каждого объекта через последовательность кадров видео.
+
+Формально:
+
+    Вход: последовательность кадров {xt}t=1T{xt​}t=1T​, где xt∈RH×W×Cxt​∈RH×W×C.
+
+    Выход: для каждого кадра — множество треков:
+    Tt={(bit,cit,idit,sit)}i=1Mt
+    Tt​={(bit​,cit​,idit​,sit​)}i=1Mt​​
+
+    где:
+
+        bitbit​ — bbox объекта ii в кадре tt;
+
+        citcit​ — класс;
+
+        iditidit​ — уникальный идентификатор трека (целое число);
+
+        sitsit​ — confidence.
+
+Ключевое отличие от detection:
+	Detection	Tracking
+Вход	одно изображение	последовательность кадров
+Выход	bbox + класс	bbox + класс + ID
+Задача	найти объекты	найти + связать объекты во времени
+Идентичность	Нет	Есть
+
+Что значит «сохранить identity»:
+
+    Если человек появился в кадре 1 с ID=5, то в кадре 2, 3, ..., пока он в кадре, у него должен быть тот же ID=5.
+
+    Если он ушёл и вернулся — по возможности тот же ID.
+
+    Два разных человека не должны получить один ID.
+
+Формально: MOT = detection на каждом кадре + ассоциация детекций между кадрами.
+1.2. Ключевые проблемы
+Occlusion (перекрытие)
+
+Объект может быть временно перекрыт другим объектом или вышел из кадра.
+
+Виды:
+
+    Partial occlusion — часть объекта видна;
+
+    Full occlusion — объект полностью скрыт;
+
+    Self-occlusion — объект перекрывает сам себя (например, человек в позе);
+
+    Crowd occlusion — много объектов, плотно перекрывающихся.
+
+Проблема: detector может не найти объект при полном перекрытии. Tracker должен «помнить» его и восстановить ID после появления.
+ID switch (id-switch)
+
+Объект получает новый ID или его ID переходит другому объекту.
+
+Причины:
+
+    Ошибка detector'а;
+
+    Ошибка ассоциации;
+
+    Долгая окклюзия;
+
+    Похожие объекты.
+
+ID switch — главная проблема MOT. Метрика IDF1 и IDs (ID switches) измеряют её.
+Re-identification (ReID)
+
+После долгого отсутствия объект возвращается в кадр. Нужно узнать его и присвоить тот же ID.
+
+Проблемы:
+
+    Изменение внешнего вида (освещение, поза, ракурс);
+
+    Изменение масштаба;
+
+    Другие объекты похожего вида.
+
+ReID — отдельная задача, часто используется как компонент MOT.
+Другие проблемы
+
+    Масштаб: объекты могут быть разного размера;
+
+    Скорость: объекты могут двигаться быстро;
+
+    Появление/исчезновение: объекты входят и выходят из кадра;
+
+    Похожие объекты: одинаково одетые люди, одинаковые машины;
+
+    Камера: движение камеры, смена ракурса;
+
+    Реальное время: нужно обрабатывать 30+ FPS.
+
+1.3. Форматы разметки
+MOTChallenge
+
+Основной формат для MOT.
+text
+
+frame, id, x, y, w, h, conf, -1, -1, -1
+
+    frame — номер кадра;
+
+    id — ID трека (−1 для игнорируемых);
+
+    x, y, w, h — bbox (левый верхний угол + размеры);
+
+    conf — confidence (1 для ground truth);
+
+    Остальные поля — заглушки.
+
+DanceTrack
+
+    Похожий формат;
+
+    Танцоры с похожей внешностью;
+
+    Сложные движения.
+
+KITTI
+
+    Для автономного вождения;
+
+    2D и 3D bbox;
+
+    Машины, пешеходы, велосипедисты.
+
+VisDrone
+
+    Аэроснимки;
+
+    Много мелких объектов.
+
+BDD100K
+
+    Автономное вождение;
+
+    Разнообразные условия.
+
+1.4. Метрики
+MOTA — Multi-Object Tracking Accuracy
+MOTA=1−∑t(FNt+FPt+IDSt)∑tGTt
+MOTA=1−∑t​GTt​∑t​(FNt​+FPt​+IDSt​)​
+
+где:
+
+    FNtFNt​ — false negatives (пропущенные объекты);
+
+    FPtFPt​ — false positives (лишние детекции);
+
+    IDStIDSt​ — ID switches;
+
+    GTtGTt​ — число истинных объектов в кадре tt.
+
+Смысл: комбинированная метрика, учитывающая пропуски, ложные срабатывания и смены ID.
+
+Проблема: может быть отрицательной (если ошибок больше, чем объектов). Не учитывает, насколько хорошо сохраняется ID.
+IDF1
+IDF1=2⋅IDTP2⋅IDTP+IDFP+IDFN
+IDF1=2⋅IDTP+IDFP+IDFN2⋅IDTP​
+
+где:
+
+    IDTPIDTP — истинно положительные по ID;
+
+    IDFPIDFP — ложные по ID;
+
+    IDFNIDFN — пропущенные по ID.
+
+Смысл: F1-мера по идентичности, а не по кадрам. Показывает, насколько хорошо трекер сохраняет ID.
+
+IDF1 vs MOTA:
+
+    MOTA фокусируется на detection-ошибках;
+
+    IDF1 фокусируется на association-ошибках;
+
+    Хороший трекер должен иметь высокие обе.
+
+HOTA — Higher Order Tracking Accuracy
+HOTA=DetA⋅AssA
+HOTA=DetA⋅AssA
+​
+
+где:
+
+    DetADetA — detection accuracy;
+
+    AssAAssA — association accuracy.
+
+Смысл: балансирует detection и association. Считается более справедливой, чем MOTA.
+
+HOTA разбивается на:
+
+    DetA — насколько хорошо детектируются объекты;
+
+    AssA — насколько хорошо связываются;
+
+    LocA — насколько точны bbox;
+
+    HOTA — общая.
+
+Другие метрики
+
+    MT (Mostly Tracked) — доля треков, отслеженных ≥ 80% времени;
+
+    ML (Mostly Lost) — доля треков, отслеженных ≤ 20% времени;
+
+    IDs (ID Switches) — число смен ID;
+
+    FM (Fragmentations) — число разрывов треков;
+
+    MOTP — средняя ошибка локализации;
+
+    AMOTA — для 3D MOT.
+
+Сравнение
+Метрика	Что измеряет	Плюсы	Минусы
+MOTA	detection + association	Простая	Может быть отрицательной
+IDF1	identity	Фокус на ID	Не учитывает detection
+HOTA	detection + association	Сбалансированная	Сложнее
+MT/ML	покрытие треков	Интерпретируемая	Не детальная
+1.5. Классификация подходов
+По числу этапов
+
+    Tracking-by-detection (TbD):
+
+        Детектор на каждом кадре;
+
+        Ассоциация детекций;
+
+        Самый популярный подход.
+
+    Joint detection and tracking:
+
+        Одна сеть предсказывает и детекции, и ID;
+
+        Пример: Tracktor, JDE, FairMOT.
+
+    Single-shot:
+
+        Детекция + embedding в одном проходе;
+
+        Пример: JDE, FairMOT.
+
+По способу ассоциации
+
+    Online:
+
+        Обрабатывает кадры по мере поступления;
+
+        Не знает будущего;
+
+        Real-time.
+
+    Offline:
+
+        Обрабатывает всё видео;
+
+        Может использовать будущие кадры;
+
+        Точнее, но не real-time.
+
+    Near-online:
+
+        Небольшой буфер кадров;
+
+        Компромисс.
+
+По представлению объекта
+
+    Bbox-based:
+
+        Ассоциация по IoU, расстоянию;
+
+        Просто.
+
+    Appearance-based:
+
+        Ассоциация по эмбеддингам;
+
+        ReID-модель.
+
+    Motion-based:
+
+        Kalman filter, optical flow;
+
+        Предсказание положения.
+
+    Hybrid:
+
+        Комбинация motion + appearance.
+
+B. Архитектуры и алгоритмы
+2.1. Разделение на два слоя
+
+Ключевая идея MOT: это не одна модель, а pipeline из двух компонентов:
+
+    Detector (YOLO, Faster R-CNN) → bbox на каждом кадре.
+
+    Association algorithm → связывание bbox в треки.
+
+Почему так:
+
+    Detector можно менять независимо;
+
+    Association можно менять независимо;
+
+    Легче отлаживать;
+
+    Можно использовать SOTA detector и SOTA association.
+
+Pipeline:
+text
+
+Frame t → Detector → Detections_t → Association → Tracks_t
+                ↑                              ↓
+                └──────── Kalman filter ───────┘
+
+Компоненты association:
+
+    Motion model: предсказание положения объекта (Kalman filter).
+
+    Appearance model: эмбеддинги для ReID.
+
+    Matching: сопоставление детекций с треками (Hungarian algorithm).
+
+    Track management: создание, удаление, обновление треков.
+
+2.2. SORT (2016)
+
+Simple Online and Realtime Tracking — базовый алгоритм.
+
+Компоненты:
+
+    Detector: Faster R-CNN (в оригинале).
+
+    Kalman filter: предсказание положения.
+
+    Hungarian algorithm: сопоставление.
+
+    IoU: метрика близости.
+
+Kalman filter:
+
+Состояние объекта:
+x=[u,v,s,r,u˙,v˙,s˙]T
+x=[u,v,s,r,u˙,v˙,s˙]T
+
+где:
+
+    (u,v)(u,v) — центр bbox;
+
+    ss — площадь;
+
+    rr — соотношение сторон;
+
+    (u˙,v˙,s˙)(u˙,v˙,s˙) — скорости.
+
+Предсказание:
+xt∣t−1=Fxt−1∣t−1
+xt∣t−1​=Fxt−1∣t−1​
+Pt∣t−1=FPt−1∣t−1FT+Q
+Pt∣t−1​=FPt−1∣t−1​FT+Q
+
+Обновление:
+Kt=Pt∣t−1HT(HPt∣t−1HT+R)−1
+Kt​=Pt∣t−1​HT(HPt∣t−1​HT+R)−1
+xt∣t=xt∣t−1+Kt(zt−Hxt∣t−1)
+xt∣t​=xt∣t−1​+Kt​(zt​−Hxt∣t−1​)
+
+Hungarian algorithm:
+
+Строится матрица стоимостей:
+Cij=1−IoU(di,tj)
+Cij​=1−IoU(di​,tj​)
+
+где didi​ — детекция, tjtj​ — трек.
+
+Задача: найти оптимальное сопоставление с минимальной стоимостью.
+
+Алгоритм:
+
+    Предсказать положение треков (Kalman).
+
+    Вычислить IoU между детекциями и предсказанными треками.
+
+    Hungarian algorithm → сопоставление.
+
+    Обновить треки.
+
+    Создать новые треки для несопоставленных детекций.
+
+    Удалить треки, не обновлённые NN кадров.
+
+Плюсы:
+
+    Простой;
+
+    Быстрый (260+ FPS);
+
+    Хороший baseline.
+
+Минусы:
+
+    Нет appearance-модели;
+
+    Плохо при окклюзиях;
+
+    Много ID switches;
+
+    Не работает при движении камеры.
+
+2.3. DeepSORT (2017)
+
+Deep SORT = SORT + appearance model.
+
+Ключевое добавление: ReID-эмбеддинги для каждого объекта.
+
+Компоненты:
+
+    Detector: Faster R-CNN / YOLO.
+
+    Kalman filter: как в SORT.
+
+    Appearance model: CNN для эмбеддингов.
+
+    Matching: комбинация motion + appearance.
+
+Appearance model:
+
+    CNN (в оригинале — deep cosine metric learning);
+
+    Для каждого bbox — эмбеддинг e∈R128e∈R128;
+
+    Нормализованный.
+
+Matching:
+Cij=λ⋅dmotion(i,j)+(1−λ)⋅dappearance(i,j)
+Cij​=λ⋅dmotion​(i,j)+(1−λ)⋅dappearance​(i,j)
+
+где:
+
+    dmotiondmotion​ — Mahalanobis distance от Kalman;
+
+    dappearancedappearance​ — косинусное расстояние между эмбеддингами.
+
+Каскадное сопоставление:
+
+    Сначала сопоставить треки с высоким confidence;
+
+    Затем — с низким;
+
+    Использовать разные пороги.
+
+Track management:
+
+    Tentative: новый трек, ждёт подтверждения;
+
+    Confirmed: подтверждённый трек;
+
+    Deleted: удалённый трек.
+
+Плюсы:
+
+    Лучше при окклюзиях;
+
+    Меньше ID switches;
+
+    Работает с ReID.
+
+Минусы:
+
+    Медленнее SORT (40+ FPS);
+
+    Зависит от качества ReID;
+
+    ReID может путать похожих.
+
+2.4. ByteTrack (2021)
+
+Ключевая идея: использовать low-confidence detections для трекинга.
+
+Проблема: обычные трекеры отбрасывают детекции с низким confidence. Но при окклюзии объект может иметь низкий confidence — и трек теряется.
+
+Решение ByteTrack:
+
+    Разделить детекции на high и low по confidence.
+
+    Сопоставить high-детекции с треками (как обычно).
+
+    Сопоставить low-детекции с оставшимися треками (по IoU).
+
+    Это позволяет восстановить треки при окклюзии.
+
+Алгоритм:
+text
+
+1. Detections → high (conf > τ), low (τ > conf > 0.1)
+2. Kalman predict
+3. Match high detections with tracks (IoU + Hungarian)
+4. Match low detections with unmatched tracks (IoU + Hungarian)
+5. Create new tracks for unmatched high detections
+6. Delete tracks not updated for N frames
+
+Почему работает:
+
+    Low-детекции часто соответствуют реальным объектам при окклюзии;
+
+    IoU-матчинг достаточно надёжен;
+
+    Нет appearance-модели → быстрее.
+
+Плюсы:
+
+    SOTA на MOT17, MOT20;
+
+    30+ FPS;
+
+    Простой;
+
+    Не нужен ReID.
+
+Минусы:
+
+    Нет appearance;
+
+    Плохо при похожих объектах;
+
+    Зависит от detector'а.
+
+2.5. BoT-SORT (2022)
+
+Bag of Tricks for SORT — улучшение ByteTrack.
+
+Ключевые добавления:
+
+    Camera motion compensation (CMC):
+
+        Компенсация движения камеры;
+
+        GMC (Global Motion Compensation);
+
+        Позволяет работать с движущейся камерой.
+
+    Improved Kalman filter:
+
+        Учёт размера bbox;
+
+        Улучшенная модель.
+
+    ReID:
+
+        Опционально;
+
+        Комбинация motion + appearance.
+
+    IoU + ReID matching:
+
+        Комбинированная стоимость.
+
+Формально:
+Cij=λ⋅dIoU(i,j)+(1−λ)⋅dReID(i,j)
+Cij​=λ⋅dIoU​(i,j)+(1−λ)⋅dReID​(i,j)
+
+CMC:
+
+    Оценка гомографии между кадрами;
+
+    Коррекция предсказаний Kalman;
+
+    Работает с ECC, ORB, SIFT.
+
+Плюсы:
+
+    SOTA;
+
+    Работает с движущейся камерой;
+
+    Гибкий (можно включать/выключать ReID).
+
+Минусы:
+
+    Сложнее ByteTrack;
+
+    CMC добавляет вычисления.
+
+2.6. JDE / FairMOT
+
+Joint Detection and Embedding.
+
+Идея: одна сеть предсказывает и детекции, и эмбеддинги для ReID.
+
+JDE (2020):
+
+    YOLOv3 backbone;
+
+    Detection head + embedding head;
+
+    Один forward pass.
+
+FairMOT (2021):
+
+    Anchor-free;
+
+    CenterNet-based;
+
+    Detection + ReID head.
+
+Формально:
+L=Ldet+λLReID
+L=Ldet​+λLReID​
+
+Плюсы:
+
+    Быстро (один forward);
+
+    End-to-end.
+
+Минусы:
+
+    Конфликт между detection и ReID;
+
+    Хуже, чем раздельные SOTA.
+
+2.7. Tracktor
+
+Идея: использовать detector для трекинга без ассоциации.
+
+Подход:
+
+    Bbox из предыдущего кадра → RoI Pooling → regression → bbox в текущем кадре;
+
+    Detector сам «трекает».
+
+Плюсы:
+
+    Просто;
+
+    Не нужен Hungarian.
+
+Минусы:
+
+    Зависит от detector'а;
+
+    Плохо при быстром движении.
+
+2.8. Transformer-based MOT
+MOTR (2021)
+
+    DETR-based;
+
+    Track queries;
+
+    End-to-end.
+
+TransTrack (2021)
+
+    Transformer для detection + tracking.
+
+TrackFormer (2021)
+
+    Track queries;
+
+    DETR-based.
+
+MOTRv2 (2023)
+
+    MOTR + YOLO detector;
+
+    SOTA на MOT17.
+
+Преимущества:
+
+    End-to-end;
+
+    Нет явной ассоциации;
+
+    Хорошо с окклюзиями.
+
+Недостатки:
+
+    Медленнее;
+
+    Требует много данных.
+
+2.9. Сравнение алгоритмов
+Алгоритм	Год	Detector	Motion	Appearance	ReID	Скорость
+SORT	2016	Faster R-CNN	Kalman	Нет	Нет	260 FPS
+DeepSORT	2017	Faster R-CNN	Kalman	CNN	Да	40 FPS
+JDE	2020	YOLOv3	Нет	Joint	Да	30 FPS
+FairMOT	2021	CenterNet	Нет	Joint	Да	30 FPS
+ByteTrack	2021	YOLOX	Kalman	Нет	Нет	30 FPS
+BoT-SORT	2022	YOLOX	Kalman + CMC	ReID	Да	20 FPS
+MOTR	2021	DETR	Transformer	Нет	Да	10 FPS
+MOTRv2	2023	YOLO + DETR	Transformer	Нет	Да	15 FPS
+2.10. Пайплайн с YOLO + ByteTrack
+
+Самый популярный стек в 2024:
+text
+
+YOLOv8/v11/v26 → ByteTrack/BoT-SORT
+
+Pipeline:
+
+    Detector: YOLO на каждом кадре.
+
+    Kalman filter: предсказание положения треков.
+
+    Matching:
+
+        High detections + tracks → Hungarian по IoU;
+
+        Low detections + unmatched tracks → Hungarian по IoU.
+
+    Track management:
+
+        Новые треки для unmatched high detections;
+
+        Удаление старых треков.
+
+    Выход: треки с ID.
+
+В Ultralytics:
+python
+
+from ultralytics import YOLO
+
+model = YOLO("yolov8n.pt")
+results = model.track(source="video.mp4", tracker="bytetrack.yaml")
+
+Конфиг ByteTrack:
+yaml
+
+tracker_type: bytetrack
+track_high_thresh: 0.5
+track_low_thresh: 0.1
+new_track_thresh: 0.6
+track_buffer: 30
+match_thresh: 0.8
+
+2.11. Track management
+
+Жизненный цикл трека:
+
+    Tentative: новый трек, ждёт NN кадров подтверждения.
+
+    Confirmed: активный трек.
+
+    Lost: трек не обновлён, но ещё в буфере.
+
+    Deleted: удалён.
+
+Параметры:
+
+    track_buffer — сколько кадров хранить lost-трек;
+
+    min_hits — сколько кадров для подтверждения;
+
+    max_age — сколько кадров без обновления до удаления.
+
+Re-identification:
+
+    Если lost-трек и новая детекция похожи по appearance → восстановить ID;
+
+    Иначе — новый ID.
+
+2.12. ReID в MOT
+
+ReID-модель — отдельная сеть для эмбеддингов.
+
+Архитектуры:
+
+    OSNet — Omni-Scale Network;
+
+    ResNet-50-IBN — с instance batch norm;
+
+    TransReID — transformer;
+
+    CLIP-ReID — CLIP-based.
+
+Обучение:
+
+    Triplet loss;
+
+    ArcFace;
+
+    Contrastive loss.
+
+Датасеты:
+
+    Market-1501;
+
+    DukeMTMC;
+
+    MSMT17;
+
+    CUHK03.
+
+Использование в MOT:
+
+    Эмбеддинг для каждого bbox;
+
+    Косинусное расстояние при матчинге;
+
+    Галерея эмбеддингов для lost-треков.
+
+2.13. 3D MOT
+
+Для автономного вождения:
+
+    3D bbox;
+
+    LiDAR + камеры;
+
+    Метрики: AMOTA, AMOTP.
+
+Алгоритмы:
+
+    AB3DMOT;
+
+    CenterPoint;
+
+    SimpleTrack.
+
+Датасеты:
+
+    KITTI;
+
+    nuScenes;
+
+    Waymo.
+
+2.14. MOT в YOLO
+
+Ultralytics поддерживает:
+
+    ByteTrack;
+
+    BoT-SORT;
+
+    Собственные трекеры.
+
+Pipeline:
+python
+
+from ultralytics import YOLO
+
+model = YOLO("yolov8n.pt")
+results = model.track(
+    source="video.mp4",
+    tracker="botsort.yaml",
+    persist=True,
+    conf=0.3,
+    iou=0.5
+)
+
+Конфиг BoT-SORT:
+yaml
+
+tracker_type: botsort
+track_high_thresh: 0.5
+track_low_thresh: 0.1
+new_track_thresh: 0.6
+track_buffer: 30
+match_thresh: 0.8
+gmc_method: sparseOptFlow
+proximity_thresh: 0.5
+appearance_thresh: 0.25
+with_reid: True
+
+2.15. Что важно вынести из пункта 7
+
+    MOT: сохранение identity объектов через кадры.
+
+    Проблемы: occlusion, id-switch, re-identification.
+
+    Метрики: MOTA, IDF1, HOTA.
+
+    MOT = detector + association.
+
+    SORT: Kalman + Hungarian + IoU.
+
+    DeepSORT: SORT + appearance (ReID).
+
+    ByteTrack: low-confidence detections.
+
+    BoT-SORT: CMC + ReID + улучшенный Kalman.
+
+    JDE/FairMOT: joint detection + embedding.
+
+    Transformer-based: MOTR, MOTRv2.
+
+    Стек: YOLO + ByteTrack/BoT-SORT.
+
+    Track management: tentative, confirmed, lost, deleted.
+
+    ReID: OSNet, TransReID, CLIP-ReID.
+
+    3D MOT: AB3DMOT, CenterPoint.
+
+Следующий пункт — Depth Estimation — предсказание расстояния до камеры по одному изображению.
+Да , давай перейдём к этому разделу
+
+The user wants me to continue with the next section of the plan: Depth Estimation. Let me write a comprehensive response in Russian, following the same style as previous sections.
+8. Depth Estimation
+A. Задача в отрыве от моделей
+1.1. Постановка
+
+Depth Estimation (оценка глубины) — это задача, где модели нужно по изображению предсказать расстояние от камеры до каждой точки сцены.
+
+Формально:
+
+    Вход: изображение x∈RH×W×Cx∈RH×W×C.
+
+    Выход: карта глубины
+    D^∈RH×W
+    D^∈RH×W
+
+    где D^(u,v)D^(u,v) — расстояние до точки, спроецированной в пиксель (u,v)(u,v).
+
+Ключевое отличие от всех предыдущих задач:
+Задача	Выход
+Classification	один класс
+Detection	bbox + класс
+Segmentation	класс на пиксель
+Pose	keypoints
+Depth Estimation	непрерывное значение на пиксель
+
+Это регрессия на каждом пикселе, а не классификация.
+
+Разновидности:
+
+    Monocular Depth Estimation (MDE): по одному изображению с одной камеры.
+
+    Stereo Depth Estimation: по паре изображений (стерео).
+
+    Multi-view Depth Estimation: по нескольким видам.
+
+    RGB-D Depth Estimation: с использованием depth-сенсора как вход.
+
+    Video Depth Estimation: по последовательности кадров.
+
+В плане фокус на monocular depth estimation — самой сложной и интересной постановке.
+1.2. Почему monocular depth — ill-posed задача
+
+Фундаментальная проблема: по одному 2D-изображению невозможно однозначно восстановить 3D-структуру сцены.
+
+Причина: проецирование 3D → 2D теряет информацию. Бесконечно много 3D-сцен могут дать одно и то же 2D-изображение.
+
+Пример: маленький объект близко и большой объект далеко могут выглядеть одинаково.
+
+Формально: проекция
+π:R3→R2
+π:R3→R2
+
+не является инъективной — многие 3D-точки проецируются в один пиксель.
+
+Scale ambiguity: даже если модель восстановит относительную глубину, абсолютный масштаб неизвестен. Например, игрушечная машинка и настоящая машинка могут выглядеть одинаково, но расстояния различаются в разы.
+
+Вывод: monocular depth — принципиально ill-posed задача без дополнительных предположений.
+1.3. Почему это всё-таки возможно
+
+Модель учится на монокулярных cues — признаках, которые коррелируют с глубиной:
+Перспектива
+
+    Параллельные линии сходятся в точке схода;
+
+    Чем дальше объект, тем ближе он к точке схода;
+
+    Размер объекта на изображении обратно пропорционален расстоянию:
+    sizeimage∝1Z
+    sizeimage​∝Z1​
+
+Относительный размер
+
+    Машина обычно больше человека;
+
+    Если машина на изображении меньше человека — она дальше;
+
+    Модель учит типичные размеры объектов.
+
+Текстура
+
+    Чем дальше поверхность, тем мельче текстура;
+
+    Градиент текстуры коррелирует с глубиной.
+
+Окклюзия
+
+    Если объект A перекрывает объект B, то A ближе;
+
+    T-junctions — важный cue.
+
+Тени и освещение
+
+    Тени дают информацию о расположении объектов;
+
+    Освещение — о форме поверхностей.
+
+Defocus blur
+
+    Чем дальше объект, тем более размыт (при фиксированной фокусировке);
+
+    Глубина резкости коррелирует с глубиной.
+
+Атмосферная перспектива
+
+    Далёкие объекты более размытые и менее контрастные;
+
+    Туман, дымка.
+
+Знание сцены
+
+    Модель учит типичные сцены: дорога уходит вдаль, небо далеко, стены вертикальны;
+
+    Это semantic prior.
+
+Ключевая идея: хотя задача ill-posed математически, статистически она разрешима: модель учит p(depth∣image)p(depth∣image) на большом датасете.
+
+Ограничения:
+
+    Работает только для сцен, похожих на обучающие;
+
+    Абсолютный масштаб не восстанавливается без дополнительной информации;
+
+    Возможны систематические ошибки на нетипичных сценах.
+
+1.4. Форматы разметки
+RGB-D датасеты
+
+    NYU Depth V2: 464 сцены, indoor, Kinect;
+
+    KITTI Depth: outdoor, LiDAR;
+
+    Make3D: outdoor, лазерный сканер;
+
+    ScanNet: indoor, 1500 сцен;
+
+    iBims-1: indoor, high-quality;
+
+    ETH3D: indoor + outdoor;
+
+    Middlebury: stereo.
+
+Формат
+
+    Изображение + карта глубины (обычно 16-bit PNG или .npy);
+
+    Значения — расстояние в метрах или миллиметрах;
+
+    Или disparity (для стерео):
+    disparity=f⋅BZ
+    disparity=Zf⋅B​
+
+    где ff — фокусное расстояние, BB — база стерео.
+
+Проблемы разметки
+
+    Sparse: LiDAR даёт разреженные точки;
+
+    Шум: Kinect шумит на границах и отражающих поверхностях;
+
+    Отсутствующие значения: небо, зеркала, прозрачные объекты;
+
+    Дорого: сбор и разметка depth-данных дороже, чем classification.
+
+Синтетические датасеты
+
+    SceneNet RGB-D;
+
+    Virtual KITTI;
+
+    SUN CG;
+
+    Hypersim.
+
+Позволяют получить идеальную depth-разметку, но есть domain gap с реальными данными.
+1.5. Метрики
+
+Depth estimation — регрессионная задача, поэтому метрики отличаются от detection/segmentation.
+Absolute Relative Error (AbsRel)
+AbsRel=1N∑i=1N∣Di−D^i∣Di
+AbsRel=N1​i=1∑N​Di​∣Di​−D^i​∣​
+
+Средняя относительная ошибка. Главная метрика для indoor.
+Squared Relative Error (SqRel)
+SqRel=1N∑i=1N(Di−D^i)2Di
+SqRel=N1​i=1∑N​Di​(Di​−D^i​)2​
+RMSE (Root Mean Squared Error)
+RMSE=1N∑i=1N(Di−D^i)2
+RMSE=N1​i=1∑N​(Di​−D^i​)2
+​
+RMSE log
+RMSElog⁡=1N∑i=1N(log⁡Di−log⁡D^i)2
+RMSElog​=N1​i=1∑N​(logDi​−logD^i​)2
+​
+
+Логарифмическая версия, менее чувствительна к большим ошибкам на дальних объектах.
+δδ-accuracy
+δk=1N∑i=1N1[max⁡(DiD^i,D^iDi)<1.25k]
+δk​=N1​i=1∑N​1[max(D^i​Di​​,Di​D^i​​)<1.25k]
+
+    δ1δ1​ — доля пикселей с ошибкой < 25%;
+
+    δ2δ2​ — < 25²%;
+
+    δ3δ3​ — < 25³%.
+
+Стандартные пороги:
+
+    δ1>0.9δ1​>0.9 — хорошая модель;
+
+    δ1>0.95δ1​>0.95 — отличная.
+
+SILog (Scale-Invariant Logarithmic Error)
+
+Для оценки относительной глубины, инвариантной к масштабу:
+SILog=1N∑idi2−λN2(∑idi)2
+SILog=N1​i∑​di2​−N2λ​(i∑​di​)2
+
+где di=log⁡Di−log⁡D^idi​=logDi​−logD^i​.
+
+Смысл: штрафует ошибки в относительной глубине, игнорируя глобальный масштаб.
+Другие метрики
+
+    iRMSE — RMSE обратной глубины;
+
+    iMAE — MAE обратной глубины;
+
+    Boundary metrics — ошибки на границах объектов;
+
+    Ordinal error — ошибки в порядке глубины.
+
+Сравнение
+Метрика	Что измеряет	Когда использовать
+AbsRel	Относительная ошибка	Indoor, KITTI
+RMSE	Абсолютная ошибка	Outdoor
+RMSE log	Логарифмическая	Общая
+δkδk​	Точность	Быстрая оценка
+SILog	Относительная	Scale-invariant
+1.6. Типы depth
+Absolute depth
+
+    Абсолютное расстояние в метрах;
+
+    Требует калибровки;
+
+    Сложно для monocular.
+
+Relative depth
+
+    Порядок глубины (ближе/дальше);
+
+    Не требует масштаба;
+
+    Легче для monocular;
+
+    MiDaS работает с relative.
+
+Affine-invariant depth
+
+    Инвариантна к масштабу и сдвигу:
+    D→aD+b
+    D→aD+b
+
+    Используется в MiDaS.
+
+Disparity
+
+    Обратная глубина:
+    disparity=1Z
+    disparity=Z1​
+
+    Линейно связано со стерео;
+
+    Часто используется как промежуточное представление.
+
+B. Архитектуры
+2.1. Ранние подходы
+Stereo matching
+
+    Block matching: сравнение блоков между левым и правым изображением;
+
+    SGM (Semi-Global Matching): оптимизация по нескольким направлениям;
+
+    GC (Graph Cuts): глобальная оптимизация.
+
+Проблемы: требует стерео, плохо на текстуре-бедных областях.
+Monocular cues + MRF
+
+    Признаки (текстура, цвет) + MRF для согласованности;
+
+    Make3D (2005): первый серьёзный monocular подход.
+
+Shape-from-X
+
+    Shape from shading;
+
+    Shape from texture;
+
+    Shape from focus.
+
+Проблемы: сильные предположения, плохая генерализация.
+2.2. CNN-based (2014–2018)
+Eigen et al. (2014)
+
+Первый deep learning подход к monocular depth.
+
+Архитектура:
+
+    Two-scale:
+
+        Coarse network: глобальная структура;
+
+        Fine network: локальные детали.
+
+    VGG backbone;
+
+    Multi-scale loss.
+
+Loss:
+L=1N∑i(log⁡Di−log⁡D^i)2
+L=N1​i∑​(logDi​−logD^i​)2
+
+Значение: показал, что CNN может решать monocular depth.
+FCRN (2016)
+
+Fully Convolutional Residual Network.
+
+    ResNet-50 backbone;
+
+    Upsampling через transposed conv;
+
+    Reverse Huber loss (berHu):
+    LberHu={∣x∣∣x∣≤cx2+c22c∣x∣>c
+    LberHu​={∣x∣2cx2+c2​​∣x∣≤c∣x∣>c​
+
+Multi-scale approaches
+
+    DORN (2018): ordinal regression;
+
+    BTS (2019): local planar guidance.
+
+2.3. MiDaS (2019–2023)
+
+MiDaS — ключевая работа для monocular depth.
+
+Ключевая идея: обучение на смеси датасетов с разными типами разметки.
+
+Проблема: разные датасеты имеют разные scale и shift:
+
+    NYU Depth — метры;
+
+    KITTI — метры;
+
+    Relative depth — без масштаба.
+
+Решение: scale-invariant loss:
+LSSI=12N∑i(log⁡Di−log⁡D^i)2−12N2(∑i(log⁡Di−log⁡D^i))2
+LSSI​=2N1​i∑​(logDi​−logD^i​)2−2N21​(i∑​(logDi​−logD^i​))2
+
+Это позволяет обучать на смеси датасетов.
+
+MiDaS v1 (2019):
+
+    ResNet backbone;
+
+    Multi-scale.
+
+MiDaS v2 (2020):
+
+    EfficientNet backbone;
+
+    Multi-scale.
+
+MiDaS v3 (2023):
+
+    DPT (Dense Prediction Transformer) backbone;
+
+    ViT-based;
+
+    SOTA zero-shot.
+
+DPT (2021):
+
+    ViT encoder;
+
+    Convolutional decoder;
+
+    Reassemble + Fusion blocks;
+
+    Высокое разрешение.
+
+Архитектура DPT:
+
+    ViT encoder → tokens;
+
+    Reassemble → feature maps разных масштабов;
+
+    Fusion → объединение;
+
+    Head → depth map.
+
+Плюсы MiDaS/DPT:
+
+    Zero-shot на новых датасетах;
+
+    Хорошая генерализация;
+
+    Работает на diverse сценах.
+
+Минусы:
+
+    Не восстанавливает абсолютный масштаб;
+
+    Тяжёлые;
+
+    Медленные.
+
+2.4. Depth Anything (2024)
+
+Depth Anything — SOTA monocular depth.
+
+Идея: масштабировать обучение на огромном датасете (62M изображений).
+
+Компоненты:
+
+    Data engine:
+
+        Собрали 62M изображений;
+
+        Автоматическая разметка через SOTA-модель;
+
+        Псевдо-разметка.
+
+    Architecture:
+
+        DINOv2 encoder;
+
+        DPT decoder.
+
+    Loss:
+
+        SILog + scale-invariant.
+
+Depth Anything V2 (2024):
+
+    Обучение на синтетических данных;
+
+    Улучшенная архитектура;
+
+    Лучше на fine details.
+
+Плюсы:
+
+    SOTA zero-shot;
+
+    Очень хорошая генерализация;
+
+    Работает на diverse сценах.
+
+2.5. Self-supervised depth
+
+Идея: обучать depth без depth-разметки, используя геометрию.
+Monodepth (2017)
+
+    Обучается на стерео-парах;
+
+    Photometric loss: синтезировать правый вид из левого + depth, сравнить с настоящим;
+
+    Если depth правильная — синтез совпадёт.
+
+Photometric loss:
+Lphoto=∑p∣IL(p)−I^L(p)∣
+Lphoto​=p∑​∣IL​(p)−I^L​(p)∣
+
+где I^LI^L​ — синтезированный вид.
+Monodepth2 (2019)
+
+    Улучшения:
+
+        Minimum reprojection loss;
+
+        Auto-masking;
+
+        Multi-scale;
+
+    Работает с monocular video.
+
+Self-supervised с видео
+
+    Использование последовательности кадров;
+
+    Pose network для оценки движения;
+
+    Photometric loss между кадрами.
+
+Плюсы:
+
+    Не нужна depth-разметка;
+
+    Много данных;
+
+    Работает на видео.
+
+Минусы:
+
+    Хуже supervised;
+
+    Проблемы на динамических объектах;
+
+    Scale ambiguity.
+
+2.6. YOLO26 Depth Estimation Head
+
+YOLO26 добавил depth estimation как задачу.
+
+Архитектура:
+
+    Backbone (C2f, SPPF) → multi-scale features;
+
+    Neck (PAN-FPN) → агрегация;
+
+    Depth head:
+
+        Свёртки + upsampling;
+
+        Финальная свёртка → 1 канал depth.
+
+Особенности:
+
+    Multi-scale features;
+
+    FPN-подобный decoder;
+
+    Loss: SILog + gradient loss.
+
+Предобучение:
+
+    NYU Depth V2 (indoor);
+
+    KITTI (outdoor);
+
+    Или смесь.
+
+Loss:
+L=LSILog+λLgrad
+L=LSILog​+λLgrad​
+
+где LgradLgrad​ — штраф за несоответствие градиентов depth:
+Lgrad=1N∑i∣∇Di−∇D^i∣
+Lgrad​=N1​i∑​∣∇Di​−∇D^i​∣
+
+Плюсы:
+
+    Единый фреймворк;
+
+    Multi-task;
+
+    Быстро.
+
+Минусы:
+
+    Точность ниже специализированных моделей;
+
+    Ограниченная генерализация.
+
+2.7. Другие важные архитектуры
+AdaBins (2020)
+
+    Adaptive bins для depth;
+
+    Transformer-based;
+
+    SOTA на NYU.
+
+BinsFormer (2022)
+
+    Adaptive bins + transformer;
+
+    SOTA.
+
+NeWCRFs (2022)
+
+    Neural window fully-connected CRFs;
+
+    Transformer.
+
+ZoeDepth (2023)
+
+    Metric depth;
+
+    Комбинация relative + metric;
+
+    Zero-shot metric depth.
+
+UniDepth (2024)
+
+    Universal metric depth;
+
+    Camera-aware;
+
+    SOTA metric depth.
+
+Metric3D (2023)
+
+    Metric depth;
+
+    Camera intrinsics;
+
+    SOTA.
+
+Marigold (2023)
+
+    Diffusion-based;
+
+    Stable Diffusion backbone;
+
+    Очень хорошие детали.
+
+Depth Pro (2024)
+
+    Apple;
+
+    Sharp monocular metric depth;
+
+    SOTA.
+
+2.8. Сравнение архитектур
+Архитектура	Год	Тип	Backbone	Ключевое
+Eigen	2014	Supervised	VGG	Первый DL
+FCRN	2016	Supervised	ResNet	FCN
+Monodepth	2017	Self-sup	ResNet	Stereo
+Monodepth2	2019	Self-sup	ResNet	Video
+MiDaS	2019	Mixed	ResNet	SSI loss
+DPT	2021	Supervised	ViT	Transformer
+AdaBins	2020	Supervised	ViT	Adaptive bins
+ZoeDepth	2023	Metric	BEiT	Zero-shot metric
+Depth Anything	2024	Mixed	DINOv2	62M данных
+Marigold	2023	Diffusion	SD	Diffusion
+Depth Pro	2024	Metric	ViT	Sharp metric
+2.9. Loss-функции
+L1 / L2
+LL1=1N∑i∣Di−D^i∣
+LL1​=N1​i∑​∣Di​−D^i​∣
+LL2=1N∑i(Di−D^i)2
+LL2​=N1​i∑​(Di​−D^i​)2
+BerHu
+LberHu={∣x∣∣x∣≤cx2+c22c∣x∣>c
+LberHu​={∣x∣2cx2+c2​​∣x∣≤c∣x∣>c​
+
+Комбинация L1 и L2.
+SILog
+LSILog=1N∑idi2−λN2(∑idi)2
+LSILog​=N1​i∑​di2​−N2λ​(i∑​di​)2
+
+где di=log⁡Di−log⁡D^idi​=logDi​−logD^i​.
+
+Scale-invariant: игнорирует глобальный масштаб.
+Scale-Invariant Loss
+LSI=12N∑i(log⁡Di−log⁡D^i)2−12N2(∑i(log⁡Di−log⁡D^i))2
+LSI​=2N1​i∑​(logDi​−logD^i​)2−2N21​(i∑​(logDi​−logD^i​))2
+Gradient Loss
+Lgrad=1N∑i∣∇Di−∇D^i∣
+Lgrad​=N1​i∑​∣∇Di​−∇D^i​∣
+
+Штраф за несоответствие градиентов — важно для границ.
+Normal Loss
+Lnormal=1−cos⁡(ni,n^i)
+Lnormal​=1−cos(ni​,n^i​)
+
+где nn — нормали поверхностей, вычисленные из depth.
+Photometric Loss (self-supervised)
+Lphoto=∑p∣IL(p)−I^L(p)∣
+Lphoto​=p∑​∣IL​(p)−I^L​(p)∣
+Комбинированные
+L=LSILog+λ1Lgrad+λ2Lnormal
+L=LSILog​+λ1​Lgrad​+λ2​Lnormal​
+2.10. Post-processing
+Median scaling
+
+Для оценки relative depth на метрических датасетах:
+D^scaled=D^⋅median(D)median(D^)
+D^scaled​=D^⋅median(D^)median(D)​
+Affine alignment
+D^aligned=aD^+b
+D^aligned​=aD^+b
+
+где a,ba,b — из least squares.
+Edge-aware smoothing
+
+    Guided filter;
+
+    Bilateral filter;
+
+    Edge-aware upsampling.
+
+Test-time augmentation
+
+    Flip;
+
+    Multi-scale;
+
+    Усреднение.
+
+2.11. Применение
+
+    Автономное вождение: оценка расстояний;
+
+    Робототехника: навигация, захват;
+
+    AR/VR: окклюзии, реалистичность;
+
+    3D-реконструкция: depth как вход;
+
+    Фото: portrait mode, bokeh;
+
+    Медицина: эндоскопия;
+
+    Аэроснимки: высота объектов.
+
+2.12. Проблемы и открытые вопросы
+
+    Scale ambiguity: monocular не даёт абсолютный масштаб без калибровки.
+
+    Dynamic objects: self-supervised плохо работает с движущимися объектами.
+
+    Transparent/reflective: стекло, зеркала — depth не определена.
+
+    Fine details: тонкие структуры (волосы, провода) сложны.
+
+    Domain gap: synthetic → real.
+
+    Boundary sharpness: границы объектов часто размыты.
+
+    Metric depth: абсолютная метрика требует camera intrinsics.
+
+    Real-time: SOTA модели тяжёлые.
+
+2.13. Что важно вынести из пункта 8
+
+    Depth Estimation: расстояние до камеры на каждый пиксель.
+
+    Monocular depth — ill-posed: нет однозначного решения без предположений.
+
+    Но статистически разрешима: модель учит монокулярные cues.
+
+    Метрики: AbsRel, RMSE, RMSE log, δkδk​, SILog.
+
+    Типы: absolute, relative, affine-invariant, disparity.
+
+    Ранние: stereo matching, MRF.
+
+    CNN: Eigen, FCRN.
+
+    MiDaS/DPT: mixed datasets, scale-invariant loss, transformer.
+
+    Depth Anything: 62M данных, SOTA zero-shot.
+
+    Self-supervised: Monodepth, Monodepth2, photometric loss.
+
+    YOLO26 depth head: multi-task, SILog + gradient loss.
+
+    Loss: L1/L2, BerHu, SILog, SI, gradient, normal.
+
+    Post-processing: median scaling, affine alignment, edge-aware.
+
+Следующий пункт — Open-Vocabulary Detection — последний в плане. Он опирается на object detection и CLIP: детекция по произвольному текстовому запросу, не зафиксированному при обучении.
+Да давай перейдём к следующему разделу
+
+The user wants me to cover the next section: Open-Vocabulary Detection. This is the last section in the plan. Let me write a comprehensive, detailed explanation following the same structure as previous sections.
+
+Key topics to cover:
+
+    Task definition without models
+
+    Why it's needed
+
+    CLIP as base
+
+    YOLO-World
+
+    YOLO26 open-vocabulary version
+
+    Other approaches (Grounding DINO, GLIP, etc.)
+
+Let me structure it well.
+9. Open-Vocabulary Detection
+A. Задача в отрыве от моделей
+1.1. Постановка
+
+Open-Vocabulary Detection (OVD) — это задача detection, где модель должна находить объекты по произвольному текстовому запросу, а не только по классам, зафиксированным при обучении.
+
+Формально:
+
+    Вход:
+
+        изображение x∈RH×W×Cx∈RH×W×C;
+
+        текстовый запрос qq (например, «красная чашка», «человек в шляпе», «собака»).
+
+    Выход: множество детекций
+    D={(bi,si)}i=1M
+    D={(bi​,si​)}i=1M​
+
+    где:
+
+        bibi​ — bbox;
+
+        sisi​ — confidence;
+
+        класс не фиксирован — он определяется запросом qq.
+
+Ключевое отличие от обычного detection:
+	Closed-vocabulary	Open-vocabulary
+Классы	Фиксированы при обучении	Произвольные
+Вход	Только изображение	Изображение + текст
+Выход	Класс из KK	Соответствие запросу
+Новые классы	Нужно переобучение	Работает zero-shot
+
+Пример:
+
+    Обычный YOLO, обученный на COCO (80 классов), не найдёт «красную чашку», если такого класса не было.
+
+    Open-vocabulary модель найдёт её по текстовому запросу, даже если никогда не видела этот класс при обучении.
+
+Разновидности:
+
+    Zero-shot detection: детекция классов, не виденных при обучении.
+
+    Open-vocabulary detection: детекция по произвольному тексту.
+
+    Open-set detection: детекция + отказ от неизвестных классов.
+
+    Referring expression detection: детекция по описанию («человек слева от машины»).
+
+1.2. Зачем это нужно
+
+Проблема closed-vocabulary detection:
+
+    Фиксированный набор классов. Модель знает только те классы, на которых обучалась.
+
+    Переобучение под новые классы. Каждый раз, когда нужен новый класс, нужно:
+
+        собрать данные;
+
+        разметить;
+
+        переобучить;
+
+        это дорого и долго.
+
+    Длинный хвост. В реальном мире классов гораздо больше, чем в COCO.
+
+    Контекстные запросы. Иногда нужно найти не «собаку», а «собаку на поводке у женщины в красном».
+
+Что даёт open-vocabulary:
+
+    Гибкость. Можно задать любой класс в момент инференса.
+
+    Zero-shot. Не нужно переобучение под новые классы.
+
+    Единая модель. Одна модель для множества задач.
+
+    Интерфейс на естественном языке. Пользователь пишет запрос — модель находит.
+
+    Комбинируемость. Можно комбинировать классы, атрибуты, отношения.
+
+Применения:
+
+    Поиск по изображениям: найти все объекты по описанию;
+
+    Робототехника: найти объект по команде;
+
+    AR/VR: интеракция с объектами;
+
+    Автономное вождение: редкие объекты;
+
+    Медицина: редкие патологии;
+
+    E-commerce: поиск товаров;
+
+    Видеонаблюдение: поиск по описанию.
+
+1.3. Принципиальная идея
+
+Совмещение visual и text embedding space.
+
+Ключевая идея: если изображение и текст, описывающий его, находятся в общем пространстве эмбеддингов, то можно:
+
+    Закодировать изображение (или его часть) в вектор;
+
+    Закодировать текст в вектор;
+
+    Сравнить их (косинусное расстояние);
+
+    Если близко — объект соответствует запросу.
+
+Формально:
+sim(x,q)=fimg(x)⋅ftext(q)∥fimg(x)∥⋅∥ftext(q)∥
+sim(x,q)=∥fimg​(x)∥⋅∥ftext​(q)∥fimg​(x)⋅ftext​(q)​
+
+где:
+
+    fimgfimg​ — image encoder;
+
+    ftextftext​ — text encoder.
+
+Почему это работает:
+
+    Модель обучается на парах (изображение, текст);
+
+    Похожие по смыслу пары сближаются в пространстве;
+
+    Непохожие — отдаляются;
+
+    Это contrastive learning, тот же принцип, что в SSL.
+
+Для detection:
+
+    Нужно не просто сравнить всё изображение с текстом;
+
+    Нужно найти регионы, соответствующие тексту;
+
+    Регион → эмбеддинг → сравнение с текстовым эмбеддингом.
+
+1.4. CLIP — база для open-vocabulary
+
+CLIP (Contrastive Language-Image Pre-training, 2021) — ключевая работа, сделавшая open-vocabulary возможным.
+Архитектура
+
+    Image encoder: ResNet или ViT;
+
+    Text encoder: Transformer;
+
+    Оба проецируют в общее пространство RdRd.
+
+Формально:
+v=fimg(x)∈Rd
+v=fimg​(x)∈Rd
+t=ftext(q)∈Rd
+t=ftext​(q)∈Rd
+
+Нормализуются:
+v^=v∥v∥,t^=t∥t∥
+v^=∥v∥v​,t^=∥t∥t​
+
+Сходство:
+s=v^⊤t^
+s=v^⊤t^
+Обучение
+
+    Датасет: 400M пар (изображение, текст) из интернета;
+
+    Contrastive loss (InfoNCE):
+
+L=−1N∑i=1Nlog⁡exp⁡(sii/τ)∑j=1Nexp⁡(sij/τ)
+L=−N1​i=1∑N​log∑j=1N​exp(sij​/τ)exp(sii​/τ)​
+
+где:
+
+    siisii​ — сходство правильной пары;
+
+    sijsij​ — сходство с неправильными;
+
+    ττ — температура.
+
+Смысл: максимизировать сходство правильных пар, минимизировать — неправильных.
+Zero-shot classification
+
+Для класса cc формируется текст «a photo of a {c}». Затем:
+p(c∣x)=exp⁡(v^⊤t^c)∑c′exp⁡(v^⊤t^c′)
+p(c∣x)=∑c′​exp(v^⊤t^c′​)exp(v^⊤t^c​)​
+
+Это позволяет классифицировать по произвольным классам без обучения.
+Ограничения CLIP
+
+    Только глобальное сходство. CLIP сравнивает всё изображение с текстом, не локализует.
+
+    Нет плотного предсказания. Не работает для detection/segmentation напрямую.
+
+    Слабое пространственное понимание. Плохо с отношениями («слева от», «над»).
+
+    Чувствительность к формулировке. «Собака» и «пёс» могут дать разные результаты.
+
+    Не различает похожие классы. Тонкие различия теряются.
+
+Вывод: CLIP — база, но для detection нужны дополнительные механизмы локализации.
+1.5. Метрики
+
+OVD использует те же метрики, что и обычный detection, но с акцентом на новые классы.
+mAP на новых классах
+
+    mAP@0.5 — IoU threshold 0.5;
+
+    mAP@0.5:0.95 — COCO-style;
+
+    AP_novel — AP только на классах, не виденных при обучении;
+
+    AP_base — AP на базовых классах;
+
+    AP — общий.
+
+Ключевая метрика: AP_novel — насколько хорошо модель работает с новыми классами.
+Zero-shot evaluation
+
+    Модель обучается на base classes;
+
+    Тестируется на novel classes;
+
+    Generalized zero-shot: тест на base + novel.
+
+Датасеты для OVD
+
+    OV-COCO: base + novel split COCO;
+
+    OV-LVIS: 1203 класса;
+
+    LVIS: 1203 класса, long-tail;
+
+    Objects365: 365 классов;
+
+    OpenImages: 600 классов.
+
+Протокол:
+
+    Base classes — для обучения;
+
+    Novel classes — для теста;
+
+    Иногда: novel classes видны, но без bbox-разметки (только классы).
+
+1.6. Проблемы OVD
+
+    Локализация. CLIP не локализует — нужно добавить detection head.
+
+    Alignment. Visual и text пространства должны быть согласованы.
+
+    Fine-grained. Тонкие различия между классами.
+
+    Отношения. «Собака слева от машины» — сложно.
+
+    Атрибуты. «Красная чашка» vs «чашка».
+
+    Композициональность. «Кошка на столе» — нужно понимать и объект, и отношение.
+
+    Domain gap. CLIP обучен на интернете, не на специфичных доменах.
+
+    Скорость. Text encoder работает на инференсе.
+
+    Русский язык. Большинство моделей — на английском.
+
+B. Архитектуры
+2.1. Два подхода к OVD
+Approach 1: Region-based
+
+    Сначала генерируются region proposals;
+
+    Для каждого региона — visual embedding;
+
+    Сравнение с text embedding.
+
+Примеры: ViLD, RegionCLIP, OVR-CNN.
+Approach 2: Dense prediction
+
+    Модель предсказывает dense features;
+
+    Text embedding проецируется в то же пространство;
+
+    Сравнение на каждом пикселе/регионе.
+
+Примеры: GLIP, Grounding DINO, YOLO-World.
+2.2. ViLD (2021)
+
+Vision-Language Distillation.
+
+Идея: дистиллировать знания CLIP в detector.
+
+Архитектура:
+
+    Teacher: CLIP;
+
+    Student: detector (Mask R-CNN);
+
+    Distillation:
+
+        Region proposals → crop;
+
+        CLIP image encoder → embedding;
+
+        Student учится предсказывать тот же embedding.
+
+Loss:
+L=Ldet+λLdistill
+L=Ldet​+λLdistill​
+
+Плюсы:
+
+    Использует силу CLIP;
+
+    Работает zero-shot.
+
+Минусы:
+
+    Two-stage;
+
+    Медленно;
+
+    Зависит от quality proposals.
+
+2.3. RegionCLIP (2022)
+
+Идея: обучить region-text alignment.
+
+Компоненты:
+
+    Генерация region proposals;
+
+    Text descriptions для регионов (автоматически);
+
+    Contrastive learning между регионами и текстом.
+
+Плюсы:
+
+    Лучше alignment;
+
+    Zero-shot.
+
+Минусы:
+
+    Сложный pipeline;
+
+    Зависит от proposals.
+
+2.4. GLIP (2022)
+
+Grounded Language-Image Pre-training.
+
+Ключевая идея: объединить detection и grounding.
+
+Архитектура:
+
+    Image encoder;
+
+    Text encoder;
+
+    Fusion: deep fusion между visual и text features;
+
+    Detection head.
+
+Формально:
+
+    Text tokens → embeddings;
+
+    Image features → embeddings;
+
+    Cross-attention между ними;
+
+    Detection head предсказывает bbox + alignment score.
+
+Loss:
+L=Ldet+Lalign
+L=Ldet​+Lalign​
+
+Обучение:
+
+    На detection-датасетах;
+
+    На grounding-датасетах;
+
+    На image-text парах.
+
+Плюсы:
+
+    Хорошая локализация;
+
+    Zero-shot;
+
+    SOTA.
+
+Минусы:
+
+    Тяжёлая;
+
+    Медленная;
+
+    Нужен text encoder на инференсе.
+
+2.5. Grounding DINO (2023)
+
+Grounding DINO — SOTA open-set detection.
+
+Архитектура:
+
+    Image backbone: Swin Transformer;
+
+    Text backbone: BERT;
+
+    Feature enhancer: cross-modality fusion;
+
+    Language-guided query selection;
+
+    Cross-modality decoder;
+
+    Detection head.
+
+Ключевые идеи:
+
+    Tight fusion: deep interaction между image и text;
+
+    Language-guided queries: text помогает выбрать queries;
+
+    Contrastive loss для alignment.
+
+Формально:
+L=Lcls+Lbox+Lalign
+L=Lcls​+Lbox​+Lalign​
+
+Плюсы:
+
+    SOTA zero-shot;
+
+    Работает с произвольным текстом;
+
+    Хорошая локализация.
+
+Минусы:
+
+    Тяжёлая;
+
+    Медленная;
+
+    Не real-time.
+
+2.6. YOLO-World (2024)
+
+YOLO-World — open-vocabulary detection в YOLO-фреймворке.
+
+Ключевая идея: сделать OVD real-time.
+
+Архитектура:
+
+    YOLO detector (YOLOv8 backbone);
+
+    Text encoder (CLIP);
+
+    RepVL-PAN (Re-parameterizable Vision-Language PAN);
+
+    Detection head.
+
+Компоненты:
+Text encoder
+
+    CLIP text encoder;
+
+    Для каждого класса — текстовый эмбеддинг.
+
+RepVL-PAN
+
+    Vision-Language PAN;
+
+    Cross-attention между visual и text features;
+
+    Text-guided feature aggregation.
+
+Формально:
+Fout=RepVL-PAN(Fimg,T)
+Fout​=RepVL-PAN(Fimg​,T)
+
+где TT — text embeddings.
+Detection head
+
+    Anchor-free (как YOLOv8);
+
+    Для каждого региона — сравнение с text embeddings;
+
+    Класс = ближайший text embedding.
+
+Loss:
+L=Lbox+Lalign
+L=Lbox​+Lalign​
+
+LalignLalign​ — contrastive между region и text embeddings.
+
+Режимы:
+
+    Prompt-then-detect: текст задаётся заранее, эмбеддинги кэшируются;
+
+    Online: текст задаётся на инференсе.
+
+Prompt-then-detect:
+
+    Text embeddings кэшируются;
+
+    На инференсе — только visual forward;
+
+    Быстро (как обычный YOLO).
+
+Плюсы:
+
+    Real-time (30+ FPS);
+
+    Zero-shot;
+
+    Интегрировано в YOLO;
+
+    Кэширование text embeddings.
+
+Минусы:
+
+    Точность ниже Grounding DINO;
+
+    Ограниченная композициональность;
+
+    Зависит от CLIP.
+
+YOLO-World v2:
+
+    Улучшенная архитектура;
+
+    Лучше на LVIS;
+
+    Быстрее.
+
+2.7. YOLO26 Open-Vocabulary
+
+YOLO26 включает open-vocabulary версию.
+
+Особенности:
+
+    NMS-free;
+
+    Dual label assignment;
+
+    Интеграция с text encoder;
+
+    Multi-task (detection + OVD).
+
+Архитектура:
+
+    YOLO26 backbone;
+
+    Text encoder;
+
+    Cross-modality fusion;
+
+    Dual heads.
+
+Плюсы:
+
+    SOTA в real-time;
+
+    NMS-free;
+
+    Multi-task.
+
+2.8. Другие архитектуры
+OWL-ViT (2022)
+
+    Google;
+
+    ViT + CLIP;
+
+    Simple open-vocabulary detector;
+
+    Zero-shot.
+
+OWLv2 (2023)
+
+    Улучшение OWL-ViT;
+
+    Self-training;
+
+    SOTA zero-shot.
+
+Detic (2022)
+
+    Detect Everything with Text;
+
+    Использует image-level labels;
+
+    Расширяет словарь.
+
+DetCLIP (2022)
+
+    Concept dictionary;
+
+    Alignment.
+
+FIBER (2022)
+
+    Coarse-to-fine;
+
+    Fusion.
+
+CORA (2023)
+
+    Region-based;
+
+    CLIP + DETR.
+
+MM-Grounding-DINO (2024)
+
+    Multi-modal;
+
+    SOTA.
+
+APE (2023)
+
+    Alignment-guided;
+
+    Efficient.
+
+2.9. Сравнение архитектур
+Архитектура	Год	Подход	Backbone	Real-time	Ключевое
+ViLD	2021	Distill	Mask R-CNN	Нет	CLIP distillation
+RegionCLIP	2022	Region	ResNet	Нет	Region-text
+GLIP	2022	Fusion	Swin	Нет	Deep fusion
+Grounding DINO	2023	Fusion	Swin	Нет	SOTA zero-shot
+OWL-ViT	2022	ViT	ViT	Нет	Simple
+YOLO-World	2024	YOLO	YOLOv8	Да	Real-time
+YOLO26-OV	2025	YOLO	C2f	Да	NMS-free
+2.10. Обучение OVD
+Датасеты
+
+    Base classes: COCO, Objects365, OpenImages;
+
+    Novel classes: LVIS, OV-COCO;
+
+    Grounding: GoldG, Flickr30k, VG.
+
+Стратегии
+
+    Zero-shot: обучение только на base, тест на novel;
+
+    Few-shot: несколько примеров novel;
+
+    Generalized: тест на base + novel;
+
+    Self-training: псевдо-разметка.
+
+Loss-функции
+
+Detection loss:
+Ldet=Lcls+Lbox
+Ldet​=Lcls​+Lbox​
+
+Alignment loss:
+Lalign=−log⁡exp⁡(spos/τ)∑exp⁡(s/τ)
+Lalign​=−log∑exp(s/τ)exp(spos​/τ)​
+
+Contrastive:
+Lcontrast=−1N∑ilog⁡exp⁡(sii/τ)∑jexp⁡(sij/τ)
+Lcontrast​=−N1​i∑​log∑j​exp(sij​/τ)exp(sii​/τ)​
+
+Комбинированные:
+L=Ldet+λLalign
+L=Ldet​+λLalign​
+2.11. Промптинг
+
+Качество промпта влияет на результат.
+
+Страategies:
+
+    Простой промпт: «dog»;
+
+    Шаблон: «a photo of a dog»;
+
+    Ансамбль: несколько шаблонов, усреднение;
+
+    Описательный: «a brown dog running»;
+
+    Negative prompts: «dog, not cat».
+
+Prompt engineering:
+
+    Разные формулировки дают разные результаты;
+
+    Ансамбль промптов улучшает точность;
+
+    Для специфичных доменов — domain-specific промпты.
+
+2.12. Композициональность
+
+Проблема: OVD плохо работает с:
+
+    Атрибутами: «красная чашка»;
+
+    Отношениями: «собака слева от машины»;
+
+    Композициями: «кошка на столе».
+
+Решения:
+
+    Compositional CLIP: обучение на композициях;
+
+    Scene graph: явное моделирование отношений;
+
+    LLM + detector: LLM разбивает запрос на части;
+
+    Attribute-aware: отдельные головы для атрибутов.
+
+Пример pipeline:
+text
+
+"красная чашка на столе" → LLM → ["красная чашка", "стол"] → detector → bbox
+
+2.13. Оценка
+
+Протоколы:
+
+    Zero-shot: base → novel;
+
+    Generalized: base + novel;
+
+    Cross-dataset: обучение на COCO, тест на LVIS.
+
+Метрики:
+
+    AP_novel — главная;
+
+    AP_base — сохранение базовых;
+
+    AP — общая;
+
+    Recall@K — для retrieval.
+
+Проблемы оценки:
+
+    Разные split'ы;
+
+    Разные промпты;
+
+    Разные backbone.
+
+2.14. Применение
+
+    Поиск по видео: найти объекты по описанию;
+
+    Робототехника: команды на естественном языке;
+
+    AR: интеракция;
+
+    E-commerce: поиск товаров;
+
+    Медицина: редкие патологии;
+
+    Автономное вождение: редкие объекты;
+
+    Видеонаблюдение: поиск по описанию;
+
+    Изображения: автоматическая разметка.
+
+2.15. Открытые вопросы
+
+    Композициональность: атрибуты, отношения;
+
+    Fine-grained: тонкие различия;
+
+    Скорость: real-time OVD;
+
+    Мультиязычность: не только английский;
+
+    Domain adaptation: специфичные домены;
+
+    Uncertainty: когда модель не уверена;
+
+    Open-set: отказ от неизвестных;
+
+    3D: OVD для 3D;
+
+    Video: OVD для видео;
+
+    Efficiency: меньшие модели.
+
+2.16. Что важно вынести из пункта 9
+
+    Open-Vocabulary Detection: детекция по произвольному текстовому запросу.
+
+    Идея: совмещение visual и text embedding space.
+
+    CLIP: contrastive image-text обучение, база для OVD.
+
+    Метрики: AP_novel, AP_base, mAP.
+
+    Подходы: region-based (ViLD, RegionCLIP), dense (GLIP, Grounding DINO).
+
+    YOLO-World: real-time OVD, RepVL-PAN, prompt-then-detect.
+
+    YOLO26-OV: NMS-free, multi-task.
+
+    Обучение: base + novel, contrastive + detection loss.
+
+    Проблемы: композициональность, fine-grained, скорость.
+
+    Применения: поиск, робототехника, AR, e-commerce.
+
+Итоговая последовательность прохождения
+
+Все 9 пунктов плана пройдены:
+
+    Image Classification — фундамент: backbone, ResNet, ViT.
+
+    Object Detection — ядро: IoU, mAP, NMS, YOLO, RT-DETR.
+
+    Semantic Segmentation — попиксельная классификация: FCN, U-Net, DeepLab.
+
+    Instance Segmentation — пересечение detection и semantic: Mask R-CNN, YOLACT, YOLO-seg.
+
+    Pose Estimation — keypoints: OpenPose, HRNet, YOLO-pose.
+
+    OBB Detection — повёрнутые bbox: ProbIoU, YOLO-OBB.
+
+    Multi-Object Tracking — identity через кадры: SORT, DeepSORT, ByteTrack, BoT-SORT.
+
+    Depth Estimation — расстояние: MiDaS, DPT, Depth Anything, YOLO-depth.
+
+    Open-Vocabulary Detection — детекция по тексту: CLIP, GLIP, Grounding DINO, YOLO-World.
+
+Ключевые сквозные темы:
+
+    Backbone — общий для всех задач (ResNet, ViT, Swin, C2f).
+
+    Heads — специализированные под задачу.
+
+    Loss — cross-entropy, IoU, Dice, SILog, contrastive.
+
+    YOLO-фреймворк — unified для detection, segmentation, pose, OBB, depth, OVD.
+
+    Тренды: anchor-free → NMS-free → multi-task → open-vocabulary.
+
+    CLIP — связующее звено между vision и language.
+
+План завершён. Если хочешь углубиться в конкретную модель или тему — можем разобрать детальнее.

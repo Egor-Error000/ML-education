@@ -1,5 +1,7 @@
 # План: LLM lifecycle и обучение агентов
 
+[Подробные учебные конспекты — 10 глав](<Учебные конспекты/README.md>): весь план с формулами LaTeX, примерами и контрольными вопросами. Agentic training отмечено как дополнительный материал, а не подтверждённое прошлое обучение.
+
 Исторические заметки: [основы](../01-foundations/notes/llm-foundations.md), [адаптация](../02-adaptation/notes/llm-adaptation.md), [inference](../03-inference/notes/llm-inference.md), [приложения](../04-applications/notes/llm-applications.md); см. [реестр прогресса](../migration/PROGRESS.md). Обсуждение orchestration не засчитывается как обучение агента.
 
 [Единый маршрут](../../README.md). Этот файл связывает полный цикл и подробно раскрывает только agentic training. PEFT/SFT/alignment/distillation не дублируются: они находятся в [адаптации](../02-adaptation/%D0%9F%D0%BB%D0%B0%D0%BD%20%E2%80%94%20%D0%B0%D0%B4%D0%B0%D0%BF%D1%82%D0%B0%D1%86%D0%B8%D1%8F%20LLM.md); RAG/serving/tool execution — в [инференсе](../03-inference/%D0%9F%D0%BB%D0%B0%D0%BD%20%E2%80%94%20%D0%B8%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%81%20LLM.md). Точка входа — готовая pretrained-модель; обучение большой модели с нуля вне текущего маршрута.
