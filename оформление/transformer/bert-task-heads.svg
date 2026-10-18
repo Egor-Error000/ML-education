@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 510" role="img" aria-labelledby="t"><title id="t">Один encoder: разные головы, цели и правила ответа</title><rect width="900" height="510" rx="16" fill="#f5f8f5"/><g font-family="Segoe UI,sans-serif" fill="#213244"><text x="30" y="42" font-size="24" font-weight="600">Один encoder: разные головы, цели и правила ответа</text>
+<rect x="40" y="85" width="820" height="90" rx="9" fill="#bee3d5" stroke="#adc8bb"/>
+<text x="65" y="120" font-size="23">Contextual states: B × L × D</text>
+<text x="65" y="153" font-size="18">Вектор каждой позиции; сами по себе ещё не классы и не границы ответа.</text>
+<path d="M165 175V225" stroke="#17645e" stroke-width="3"/>
+<path d="M450 175V225" stroke="#17645e" stroke-width="3"/>
+<path d="M735 175V225" stroke="#17645e" stroke-width="3"/>
+<rect x="40" y="225" width="250" height="165" rx="9" fill="#bfdaef" stroke="#adc8bb"/>
+<text x="55" y="259" font-size="22">Classification</text>
+<text x="55" y="300" font-size="18">Pooling → B × D</text>
+<text x="55" y="331" font-size="18">Head → B × C</text>
+<text x="55" y="362" font-size="18">Метка текста; CE / BCE</text>
+<rect x="325" y="225" width="250" height="165" rx="9" fill="#bfdaef" stroke="#adc8bb"/>
+<text x="340" y="259" font-size="22">NER</text>
+<text x="340" y="300" font-size="18">Head каждой позиции</text>
+<text x="340" y="331" font-size="18">Logits → B × L × C</text>
+<text x="340" y="362" font-size="18">Labels / spans; CE / CRF</text>
+<rect x="610" y="225" width="250" height="165" rx="9" fill="#bfdaef" stroke="#adc8bb"/>
+<text x="625" y="259" font-size="22">Extractive QA</text>
+<text x="625" y="300" font-size="18">Две scalar heads</text>
+<text x="625" y="331" font-size="18">Start / end → B × L</text>
+<text x="625" y="362" font-size="18">Цель — границы span</text>
+<text x="30" y="455" font-size="17">Decoding проверяет ограничения задачи; одинаковый backbone не делает losses одинаковыми.</text>
+</g></svg>

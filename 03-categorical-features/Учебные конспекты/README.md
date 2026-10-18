@@ -23,3 +23,5 @@
 Шесть практических пунктов плана покрыты: one-hot/unknown/missing — А/З; cardinality/memory/hash — Б; десять строк target encoding — В; вложенная валидация — В/И; embeddings/crosses — Г/Е; native boosting и serialization — Д. Итоговая работа собирает один воспроизводимый pipeline и сравнивает representations на одинаковом split, с отдельными rare/unknown slices.
 
 Наличие материала не подтверждает выполненные вами experiments. API-утверждения в Д сверены с official docs; конкретный запуск фиксирует installed library/device/version. Ни один encoding не объявлен universally лучшим.
+
+А–Б дополнительно углублены: модели и геометрия encoding, идентифицируемость, unknown, память sparse matrices, статистики и механизм signed hashing. Оставшиеся семь глав ещё проходят переработку глубины. Окончательная сверка всего конспекта продолжается.

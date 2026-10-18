@@ -38,7 +38,24 @@
 11. Stereo disparity=fB/Z, а не безразмерная1/Z. Metric/relative outputs и raw/aligned eval разделены. δ_k uses1.25^k; log-scale invariance не равна affine scale+shift в произвольном domain.
 12. CLIP objective восстановлен в двух направлениях. OVD не гарантирует любые concepts/languages; scope «novel» связан с supervision protocol. Название «YOLO26-OV» не превращается в придуманный model ID: проверяются released YOLO-World/YOLOE variants.
 
-## Прогресс пользователя
+## Переработка глубины второй редакции
+
+После замечания пользователя все девять учебных глав расширены по исходному чату. Подробные объяснения встроены в соответствующие разделы. Полнота второй редакции должна проверяться по содержанию, а не только по числу глав, формул или слов.
+
+Дополнительные исправления, обнаруженные при подробном переносе:
+
+13. **Detection, 1618–2468:** восстановлен исходный пример пяти GT/восьми predictions с AP=97/120 при объявленном continuous interpolation; multi-scale YOLOv2 меняет resolution каждые десять batches, а не эпох. Original YOLOv3 не описывается CIoU-loss поздних модификаций.
+14. **Semantic, 2469–3080:** формула receptive field без множителей strides ограничена unit-stride стеком; добавлен общий recurrence. Pixel loss не означает независимой от контекста pixel-модели. Разобраны empty-target soft Dice, взвешивание границ U-Net и postprocessing.
+15. **Instance, 3081–3712:** исходной mask `[0,0,1,1,1,0,0,1,1]` соответствуют alternating counts `[2,3,2,2]`; JSON из чата кодировал другую mask. COCO column-major RLE не равен произвольным `(start,length)` tuples. YOLACT включает detection; Fast NMS и Matrix NMS не один метод. SOLO не объявляется безусловно NMS-free.
+16. **Pose, 3713–4523:** число размеченных joints не равно только v=2; skeleton edges и body/hand/face наборы различаются. Original Mask R-CNN keypoint loss использует spatial softmax CE, а не универсальную Gaussian MSE. Добавлены normalizations heatmap/SimCC, PAF grouping и continuity constant Wing.
+17. **OBB, 4524–5276:** исправлена площадь axis-aligned envelope: произведение `(|w cosθ|+|h sinθ|)` и `(|w sinθ|+|h cosθ|)`. Для square на45° factor2, для10×2 rectangle —3.6. Исходник смешивал Wasserstein с ProbIoU и задавал similarity, растущую при удалении; приведено корректное различие distance/similarity через Gaussian comparison. Angle units, ordering и anisotropic resize разобраны отдельно.
+18. **Tracking, 5277–6186:** DeepSORT cascade prioritizes recency, а не просто detector confidence. Online не равнозначно real-time. Low-score detections должны дойти до ByteTrack association; внешний score filter может удалить их заранее. Добавлены числовой trajectory split для IDF1 и пример неверного усреднения HOTA.
+19. **Depth, 6187–6969:** optical-axis Z и Euclidean range различны; SqRel по записанной формуле имеет единицы depth. Median/affine alignment использует GT и не выдаётся за самостоятельное восстановление metric scale. Уточнены berHu, inverse-depth domain, reprojection assumptions и влияние intrinsics.
+20. **OVD, 6970–7816:** сохранены дополнительные архитектурные направления и prompting; Detic не расшифровывается как «Detect Everything with Text». Negative prompt не является универсальным оператором NOT. Приведён symmetric CLIP расчёт2×2, разделены candidate-softmax и independent scores, разобрано entity binding для compositional queries.
+
+Примеры — учебные вычисления, не результаты запусков пользователя. Исходный TXT и архивная копия не изменялись.
+
+## Статусы обучения
 
 Новый источник показывает подробный охват девяти CV-задач и углублённые вопросы по backbone/ViT. Он не содержит проверяемых пользовательских training artifacts или результатов запуска. Статусы: обсуждение — найдено; самостоятельное понимание — требует проверки; практика — не подтверждена этим экспортом. Автоматический «100% освоено» не присваивается.
 

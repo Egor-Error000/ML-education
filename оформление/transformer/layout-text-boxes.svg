@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-labelledby="t"><title id="t">Layout: текст и положение должны оставаться связаны</title><rect width="900" height="500" rx="16" fill="#f5f8f5"/><g font-family="Segoe UI,sans-serif" fill="#213244"><text x="30" y="42" font-size="24" font-weight="600">Layout: текст и положение должны оставаться связаны</text>
+<rect x="50" y="90" width="160" height="320" rx="6" fill="white" stroke="#adc8bb"/>
+<rect x="66" y="154" width="64" height="32" rx="6" fill="#bee3d5" stroke="#adc8bb"/>
+<text x="70" y="176" font-size="14">Анна</text>
+<text x="42" y="445" font-size="18">Страница</text>
+<text x="35" y="474" font-size="17">1000 × 2000</text>
+<rect x="270" y="95" width="590" height="130" rx="6" fill="#bfdaef" stroke="#adc8bb"/>
+<text x="290" y="128" font-size="22">OCR слово: «Анна»</text>
+<text x="290" y="166" font-size="20">Pixel bbox: (100, 400, 500, 600)</text>
+<text x="290" y="202" font-size="20">Нормировка 0–1000: (100, 200, 500, 300)</text>
+<rect x="270" y="270" width="590" height="125" rx="6" fill="#bee3d5" stroke="#adc8bb"/>
+<text x="290" y="302" font-size="21">Token features + sequence position</text>
+<text x="290" y="337" font-size="20">+ layout features выбранной архитектуры</text>
+<text x="290" y="373" font-size="20">→ contextual states для извлечения полей</text>
+<text x="270" y="450" font-size="17">Переставляя words, нужно согласованно переставлять boxes.</text>
+</g></svg>

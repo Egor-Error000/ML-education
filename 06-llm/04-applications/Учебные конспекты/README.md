@@ -4,7 +4,7 @@
 
 [План](<../План — приложения LLM.md>) · [Общее оглавление](../../../Учебные%20конспекты.md) · [Предыдущая короткая заметка](../notes/llm-applications.md)
 
-Пять пунктов плана раскрыты в пяти главах. Основной материал восстановлен из S5/S6; подробный retrieval-разбор сохраняет ваши вопросы о BM25, embeddings и размере multi-vector базы. Формулы оформлены в LaTeX, практические snippets не выдаются за ваши результаты.
+Пять пунктов плана раскрыты в пяти главах. Основной материал восстановлен из S5/S6; все пять глав А–Д дополнительно углублены по source schemas, tool examples и state/graph/memory/coordination примерам. В В разобраны ошибки исходного кода; в А добавлен контрпример локальной GBNF grammar. В Г дополнены ingestion, chunking/overlap, corrected embeddings/ANN/RRF и multi-vector cost; подробный retrieval-разбор сохраняет ваши вопросы о BM25, embeddings и размере multi-vector базы. В Д разобраны units/qrels, macro/micro/ranking metrics, citations/coverage, oracle, retry budget, judge и paired comparisons; S3:820–918 используется с явными исправлениями. Формулы оформлены в LaTeX, практические snippets не выдаются за ваши результаты.
 
 - [А. Structured output: schema и смысл](<А — Structured output, schema и смысл результата.md>) — пункт1.
 - [Б. Tool calling: execution, errors, retries, idempotency](<Б — Tool calling, execution, ошибки и idempotency.md>) — пункт2.
@@ -14,7 +14,7 @@
 
 ## Источники и сохранённые вопросы
 
-**S5:** [chat-LLM Study Plan Status.txt](<../../../archive/study-sources/chat-LLM Study Plan Status.txt>):120–242 — structured output;1038–1817 — orchestration/chains;1821–2822 — state graph/local runtimes;2826–3041 — начало tool calling.
+**S5:** [chat-LLM Study Plan Status.txt](<../../../archive/study-sources/chat-LLM Study Plan Status.txt>):120–242 — structured output;1463–1515 — templates/parser (не автоматический constrained decoder);1038–1817 — orchestration/chains;1821–2822 — state graph/local runtimes;2826–3041 — начало tool calling.
 
 **S6:** [chat-Пункт D4.txt](<../../../archive/study-sources/chat-Пункт D4.txt>):4–178 — tools;182–833 — RAG и различие embeddings;837–1133 — BM25;1134–1373 — multi-vector storage/поиск;1377–2197 — frameworks/agent loops. Последующие deployment/scaling раскрыты в [инференсе](../../03-inference/Учебные%20конспекты/README.md).
 

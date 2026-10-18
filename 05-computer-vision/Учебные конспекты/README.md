@@ -6,7 +6,7 @@
 
 Основа — добавленный вами `chat-План изучения темы(2).txt`. Его девять задач соответствуют существующему CV-плану, поэтому параллельный повторяющийся курс не создаётся. Девять глав ниже перерабатывают диалог в самостоятельный учебный текст: задача и assumptions → механизм/формулы → ручной пример → ограничения → вопросы с ответами и практика.
 
-- [А. Классификация, backbone и математика ViT](<А — Классификация, backbone и математика ViT.md>) — пункт 1; сохранено подробное углубление patch embedding из ваших вопросов.
+- [А. Классификация, backbone и математика ViT](<А — Классификация, backbone и математика ViT.md>) — пункт 1; подробные patch embedding и attention, полный цикл обучения ViT, CLS/positions, Swin, MAE и hard/soft distillation DeiT с иллюстрациями и градиентами.
 - [Б. Detection, IoU, matching, AP, NMS и архитектуры](<Б — Detection, IoU, AP, NMS и архитектуры.md>) — пункт 2.
 - [В. Semantic segmentation, FCN, U-Net и DeepLab](<В — Semantic segmentation, FCN, U-Net и DeepLab.md>) — пункт 3.
 - [Г. Instance segmentation, RoIAlign и prototype masks](<Г — Instance segmentation, RoIAlign и prototype masks.md>) — пункт 4.

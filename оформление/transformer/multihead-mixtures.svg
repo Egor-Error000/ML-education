@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 530" role="img" aria-labelledby="t"><title id="t">Multi-head: разные смеси, затем общее представление</title><rect width="900" height="530" rx="16" fill="#f5f8f5"/><g font-family="Segoe UI,sans-serif" fill="#213244"><text x="30" y="42" font-size="24" font-weight="600">Multi-head: разные смеси, затем общее представление</text>
+<rect x="250" y="80" width="400" height="80" rx="9" fill="#ffffff" stroke="#adc8bb"/>
+<text x="266" y="110" font-size="21">Общий вход X</text>
+<text x="266" y="139" font-size="17">Те же позиции → разные Q/K/V проекции</text>
+<path d="M350 160L220 205" fill="none" stroke="#17645e" stroke-width="3"/>
+<circle cx="220" cy="205" r="4" fill="#17645e"/>
+<path d="M550 160L680 205" fill="none" stroke="#17645e" stroke-width="3"/>
+<circle cx="680" cy="205" r="4" fill="#17645e"/>
+<rect x="45" y="210" width="370" height="90" rx="9" fill="#bee3d5" stroke="#adc8bb"/>
+<text x="61" y="240" font-size="21">Голова 1</text>
+<text x="61" y="269" font-size="17">Веса: (0.75, 0.25); выход: 3</text>
+<rect x="485" y="210" width="370" height="90" rx="9" fill="#bfdaef" stroke="#adc8bb"/>
+<text x="501" y="240" font-size="21">Голова 2</text>
+<text x="501" y="269" font-size="17">Веса: (0.25, 0.75); выход: 1</text>
+<path d="M220 300L350 350" fill="none" stroke="#17645e" stroke-width="3"/>
+<circle cx="350" cy="350" r="4" fill="#17645e"/>
+<path d="M680 300L550 350" fill="none" stroke="#17645e" stroke-width="3"/>
+<circle cx="550" cy="350" r="4" fill="#17645e"/>
+<rect x="250" y="350" width="400" height="80" rx="9" fill="#ffffff" stroke="#adc8bb"/>
+<text x="266" y="380" font-size="21">Concat: [3, 1] → W_O</text>
+<text x="266" y="409" font-size="17">Смешивание каналов → [2, 7]</text>
+<text x="30" y="485" font-size="18">Головы сохраняют отдельные выходы до concat; их attention weights не усредняются.</text>
+</g></svg>

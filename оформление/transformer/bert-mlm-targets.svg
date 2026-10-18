@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 545" role="img" aria-labelledby="t"><title id="t">BERT MLM: выбор целей и замена входа — разные шаги</title><rect width="900" height="545" rx="16" fill="#f5f8f5"/><g font-family="Segoe UI,sans-serif" fill="#213244"><text x="30" y="42" font-size="24" font-weight="600">BERT MLM: выбор целей и замена входа — разные шаги</text>
+<rect x="35" y="85" width="830" height="80" rx="9" fill="#ffffff" stroke="#adc8bb"/>
+<text x="51" y="115" font-size="21">Исходная последовательность</text>
+<text x="51" y="144" font-size="17">[CLS] кот спит на мягком диване [SEP]</text>
+<rect x="35" y="190" width="830" height="80" rx="9" fill="#bee3d5" stroke="#adc8bb"/>
+<text x="51" y="220" font-size="21">Повреждённый вход encoder</text>
+<text x="51" y="249" font-size="17">[CLS] кот [MASK] на старом диване [SEP]</text>
+<rect x="35" y="295" width="830" height="80" rx="9" fill="#bfdaef" stroke="#adc8bb"/>
+<text x="51" y="325" font-size="21">Цели: исходные ID в выбранных позициях</text>
+<text x="51" y="354" font-size="17">спит; мягком; диване — включая оставленный без изменения токен</text>
+<rect x="35" y="400" width="830" height="80" rx="9" fill="#ffffff" stroke="#adc8bb"/>
+<text x="51" y="430" font-size="21">Bidirectional encoder → MLM head → loss</text>
+<text x="51" y="459" font-size="17">Все реальные токены доступны как контекст; loss только по выбранным целям</text>
+<text x="35" y="520" font-size="17">Учебный пример специально показывает три вида замены; частота выбора здесь не равна 15%.</text>
+</g></svg>

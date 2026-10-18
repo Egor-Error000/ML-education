@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 490" role="img" aria-labelledby="t d"><title id="t">Swin: сдвиг окон соединяет соседние области</title><desc id="d">Учебная сетка 6 × 6; окно 3 × 3. Справа показаны сдвинутые границы без циклической упаковки.</desc><rect width="900" height="490" fill="#f5f8f5" rx="16"/><g font-family="Segoe UI,sans-serif" fill="#213244">
+<text x="30" y="40" font-size="24" font-weight="600">Swin: сдвиг окон соединяет соседние области</text>
+<text x="60" y="88" font-size="21">Блок 1: обычные окна</text>
+<rect x="60" y="110" width="40" height="40" fill="#bee3d5" stroke="white"/>
+<rect x="102" y="110" width="40" height="40" fill="#bee3d5" stroke="white"/>
+<rect x="144" y="110" width="40" height="40" fill="#bee3d5" stroke="white"/>
+<rect x="186" y="110" width="40" height="40" fill="#f3d6ab" stroke="white"/>
+<rect x="228" y="110" width="40" height="40" fill="#f3d6ab" stroke="white"/>
+<rect x="270" y="110" width="40" height="40" fill="#f3d6ab" stroke="white"/>
+<rect x="60" y="152" width="40" height="40" fill="#bee3d5" stroke="white"/>
+<rect x="102" y="152" width="40" height="40" fill="#bee3d5" stroke="white"/>
+<rect x="144" y="152" width="40" height="40" fill="#bee3d5" stroke="white"/>
+<rect x="186" y="152" width="40" height="40" fill="#f3d6ab" stroke="white"/>
+<rect x="228" y="152" width="40" height="40" fill="#f3d6ab" stroke="white"/>
+<rect x="270" y="152" width="40" height="40" fill="#f3d6ab" stroke="white"/>
+<rect x="60" y="194" width="40" height="40" fill="#bee3d5" stroke="white"/>
+<rect x="102" y="194" width="40" height="40" fill="#bee3d5" stroke="white"/>
+<rect x="144" y="194" width="40" height="40" fill="#bee3d5" stroke="white"/>
+<rect x="186" y="194" width="40" height="40" fill="#f3d6ab" stroke="white"/>
+<rect x="228" y="194" width="40" height="40" fill="#f3d6ab" stroke="white"/>
+<rect x="270" y="194" width="40" height="40" fill="#f3d6ab" stroke="white"/>
+<rect x="60" y="236" width="40" height="40" fill="#bfdaef" stroke="white"/>
+<rect x="102" y="236" width="40" height="40" fill="#bfdaef" stroke="white"/>
+<rect x="144" y="236" width="40" height="40" fill="#bfdaef" stroke="white"/>
+<rect x="186" y="236" width="40" height="40" fill="#ddc9e9" stroke="white"/>
+<rect x="228" y="236" width="40" height="40" fill="#ddc9e9" stroke="white"/>
+<rect x="270" y="236" width="40" height="40" fill="#ddc9e9" stroke="white"/>
+<rect x="60" y="278" width="40" height="40" fill="#bfdaef" stroke="white"/>
+<rect x="102" y="278" width="40" height="40" fill="#bfdaef" stroke="white"/>
+<rect x="144" y="278" width="40" height="40" fill="#bfdaef" stroke="white"/>
+<rect x="186" y="278" width="40" height="40" fill="#ddc9e9" stroke="white"/>
+<rect x="228" y="278" width="40" height="40" fill="#ddc9e9" stroke="white"/>
+<rect x="270" y="278" width="40" height="40" fill="#ddc9e9" stroke="white"/>
+<rect x="60" y="320" width="40" height="40" fill="#bfdaef" stroke="white"/>
+<rect x="102" y="320" width="40" height="40" fill="#bfdaef" stroke="white"/>
+<rect x="144" y="320" width="40" height="40" fill="#bfdaef" stroke="white"/>
+<rect x="186" y="320" width="40" height="40" fill="#ddc9e9" stroke="white"/>
+<rect x="228" y="320" width="40" height="40" fill="#ddc9e9" stroke="white"/>
+<rect x="270" y="320" width="40" height="40" fill="#ddc9e9" stroke="white"/>
+<path d="M60 110V362M60 110H312" stroke="#172d3b" stroke-width="3"/>
+<path d="M186 110V362M60 236H312" stroke="#172d3b" stroke-width="3"/>
+<path d="M312 110V362M60 362H312" stroke="#172d3b" stroke-width="3"/>
+<text x="60" y="397" font-size="16">Цвет — старое окно; линии — текущее.</text>
+<text x="510" y="88" font-size="21">Блок 2: сдвиг на 1</text>
+<rect x="510" y="110" width="40" height="40" fill="#bee3d5" stroke="white"/>
+<rect x="552" y="110" width="40" height="40" fill="#bee3d5" stroke="white"/>
+<rect x="594" y="110" width="40" height="40" fill="#bee3d5" stroke="white"/>
+<rect x="636" y="110" width="40" height="40" fill="#f3d6ab" stroke="white"/>
+<rect x="678" y="110" width="40" height="40" fill="#f3d6ab" stroke="white"/>
+<rect x="720" y="110" width="40" height="40" fill="#f3d6ab" stroke="white"/>
+<rect x="510" y="152" width="40" height="40" fill="#bee3d5" stroke="white"/>
+<rect x="552" y="152" width="40" height="40" fill="#bee3d5" stroke="white"/>
+<rect x="594" y="152" width="40" height="40" fill="#bee3d5" stroke="white"/>
+<rect x="636" y="152" width="40" height="40" fill="#f3d6ab" stroke="white"/>
+<rect x="678" y="152" width="40" height="40" fill="#f3d6ab" stroke="white"/>
+<rect x="720" y="152" width="40" height="40" fill="#f3d6ab" stroke="white"/>
+<rect x="510" y="194" width="40" height="40" fill="#bee3d5" stroke="white"/>
+<rect x="552" y="194" width="40" height="40" fill="#bee3d5" stroke="white"/>
+<rect x="594" y="194" width="40" height="40" fill="#bee3d5" stroke="white"/>
+<rect x="636" y="194" width="40" height="40" fill="#f3d6ab" stroke="white"/>
+<rect x="678" y="194" width="40" height="40" fill="#f3d6ab" stroke="white"/>
+<rect x="720" y="194" width="40" height="40" fill="#f3d6ab" stroke="white"/>
+<rect x="510" y="236" width="40" height="40" fill="#bfdaef" stroke="white"/>
+<rect x="552" y="236" width="40" height="40" fill="#bfdaef" stroke="white"/>
+<rect x="594" y="236" width="40" height="40" fill="#bfdaef" stroke="white"/>
+<rect x="636" y="236" width="40" height="40" fill="#ddc9e9" stroke="white"/>
+<rect x="678" y="236" width="40" height="40" fill="#ddc9e9" stroke="white"/>
+<rect x="720" y="236" width="40" height="40" fill="#ddc9e9" stroke="white"/>
+<rect x="510" y="278" width="40" height="40" fill="#bfdaef" stroke="white"/>
+<rect x="552" y="278" width="40" height="40" fill="#bfdaef" stroke="white"/>
+<rect x="594" y="278" width="40" height="40" fill="#bfdaef" stroke="white"/>
+<rect x="636" y="278" width="40" height="40" fill="#ddc9e9" stroke="white"/>
+<rect x="678" y="278" width="40" height="40" fill="#ddc9e9" stroke="white"/>
+<rect x="720" y="278" width="40" height="40" fill="#ddc9e9" stroke="white"/>
+<rect x="510" y="320" width="40" height="40" fill="#bfdaef" stroke="white"/>
+<rect x="552" y="320" width="40" height="40" fill="#bfdaef" stroke="white"/>
+<rect x="594" y="320" width="40" height="40" fill="#bfdaef" stroke="white"/>
+<rect x="636" y="320" width="40" height="40" fill="#ddc9e9" stroke="white"/>
+<rect x="678" y="320" width="40" height="40" fill="#ddc9e9" stroke="white"/>
+<rect x="720" y="320" width="40" height="40" fill="#ddc9e9" stroke="white"/>
+<path d="M510 110V362M510 110H762" stroke="#172d3b" stroke-width="3"/>
+<path d="M552 110V362M510 152H762" stroke="#172d3b" stroke-width="3"/>
+<path d="M678 110V362M510 278H762" stroke="#172d3b" stroke-width="3"/>
+<path d="M762 110V362M510 362H762" stroke="#172d3b" stroke-width="3"/>
+<text x="510" y="397" font-size="16">Цвет — старое окно; линии — текущее.</text>
+<text x="30" y="450" font-size="19">Новое центральное окно объединяет токены из четырёх прежних окон.</text>
+</g></svg>

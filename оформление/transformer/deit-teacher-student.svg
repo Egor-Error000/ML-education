@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 625" role="img" aria-labelledby="t"><title id="t">DeiT: два сигнала обучают общий student Transformer</title><rect width="900" height="625" rx="16" fill="#f5f8f5"/><g font-family="Segoe UI,sans-serif" fill="#213244"><text x="30" y="42" font-size="24" font-weight="600">DeiT: два сигнала обучают общий student Transformer</text>
+<rect x="280" y="80" width="340" height="80" rx="9" fill="white" stroke="#adc8bb"/>
+<text x="296" y="111" font-size="21">Одна картинка x</text>
+<text x="296" y="141" font-size="17">Истинная метка y хранится отдельно</text>
+<path d="M350 160L210 205M550 160L650 205" stroke="#17645e" stroke-width="3" fill="none"/>
+<rect x="40" y="205" width="330" height="90" rx="9" fill="#bee3d5" stroke="#adc8bb"/>
+<text x="56" y="236" font-size="21">Teacher: например CNN</text>
+<text x="56" y="266" font-size="17">Forward без обновления teacher</text>
+<rect x="440" y="205" width="420" height="90" rx="9" fill="#bfdaef" stroke="#adc8bb"/>
+<text x="456" y="236" font-size="21">Student: ViT encoder</text>
+<text x="456" y="266" font-size="17">Patches + CLS + DIST; общий attention</text>
+<path d="M205 295V335M545 295V335M755 295V335" stroke="#17645e" stroke-width="3" fill="none"/>
+<rect x="40" y="335" width="330" height="85" rx="9" fill="white" stroke="#adc8bb"/>
+<text x="56" y="366" font-size="21">Teacher target</text>
+<text x="56" y="396" font-size="17">Класс y_T или soft probabilities</text>
+<rect x="440" y="335" width="195" height="85" rx="9" fill="white" stroke="#adc8bb"/>
+<text x="456" y="366" font-size="21">CLS head</text>
+<text x="456" y="396" font-size="17">Цель: метка y</text>
+<rect x="665" y="335" width="195" height="85" rx="9" fill="white" stroke="#adc8bb"/>
+<text x="681" y="366" font-size="21">DIST head</text>
+<text x="681" y="396" font-size="17">Цель: teacher</text>
+<path d="M205 420V545H275M535 420V505M755 420V505" stroke="#17645e" stroke-width="3" fill="none"/>
+<rect x="275" y="505" width="585" height="80" rx="9" fill="white" stroke="#adc8bb"/>
+<text x="291" y="536" font-size="21">Loss → gradient student</text>
+<text x="291" y="566" font-size="17">Обе головы → общие блоки → patch projection</text>
+<text x="30" y="612" font-size="17">Teacher не нужен при inference distilled student.</text>
+</g></svg>

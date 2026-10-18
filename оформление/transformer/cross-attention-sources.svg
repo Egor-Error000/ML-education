@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" role="img" aria-labelledby="t"><title id="t">Cross-attention: запросы decoder к памяти encoder</title><rect width="900" height="550" rx="16" fill="#f5f8f5"/><g font-family="Segoe UI,sans-serif" fill="#213244"><text x="30" y="42" font-size="24" font-weight="600">Cross-attention: запросы decoder к памяти encoder</text>
+<rect x="40" y="90" width="360" height="90" rx="9" fill="#bee3d5" stroke="#adc8bb"/>
+<text x="56" y="120" font-size="21">Encoder states: S × D_enc</text>
+<text x="56" y="149" font-size="17">Весь наблюдаемый исходный текст</text>
+<rect x="500" y="90" width="360" height="90" rx="9" fill="#bfdaef" stroke="#adc8bb"/>
+<text x="516" y="120" font-size="21">Decoder states: T × D_dec</text>
+<text x="516" y="149" font-size="17">Результат causal self-attention</text>
+<path d="M220 180L220 230" fill="none" stroke="#17645e" stroke-width="3"/>
+<circle cx="220" cy="230" r="4" fill="#17645e"/>
+<path d="M680 180L680 230" fill="none" stroke="#17645e" stroke-width="3"/>
+<circle cx="680" cy="230" r="4" fill="#17645e"/>
+<rect x="40" y="235" width="360" height="80" rx="9" fill="#ffffff" stroke="#adc8bb"/>
+<text x="56" y="265" font-size="21">K, V из encoder</text>
+<text x="56" y="294" font-size="17">Проекции исходной памяти</text>
+<rect x="500" y="235" width="360" height="80" rx="9" fill="#ffffff" stroke="#adc8bb"/>
+<text x="516" y="265" font-size="21">Q из decoder</text>
+<text x="516" y="294" font-size="17">Запрос целевой позиции</text>
+<path d="M220 315L350 360" fill="none" stroke="#17645e" stroke-width="3"/>
+<circle cx="350" cy="360" r="4" fill="#17645e"/>
+<path d="M680 315L550 360" fill="none" stroke="#17645e" stroke-width="3"/>
+<circle cx="550" cy="360" r="4" fill="#17645e"/>
+<rect x="170" y="365" width="560" height="85" rx="9" fill="#ffffff" stroke="#adc8bb"/>
+<text x="186" y="395" font-size="21">Scores: T × S → softmax по S → смесь V</text>
+<text x="186" y="424" font-size="17">Каждая строка decoder выбирает источники encoder</text>
+<text x="30" y="510" font-size="17">Causal mask закрывает будущее в decoder; source padding mask закрывает PAD encoder.</text>
+</g></svg>
