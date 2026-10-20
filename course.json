@@ -1,0 +1,3433 @@
+{
+  "version": 2,
+  "date": "2026-10-20",
+  "modules": [
+    {
+      "id": "data",
+      "path": "01-data-features",
+      "title": "Данные и признаки",
+      "sections": [
+        {
+          "id": "reliability",
+          "path": "01-reliability",
+          "title": "Достоверность эксперимента"
+        },
+        {
+          "id": "features",
+          "path": "02-features",
+          "title": "Представление и создание признаков"
+        },
+        {
+          "id": "modalities",
+          "path": "03-modalities",
+          "title": "Изображения и текст"
+        }
+      ]
+    },
+    {
+      "id": "reg",
+      "path": "02-regularization",
+      "title": "Регуляризация",
+      "sections": [
+        {
+          "id": "main",
+          "path": "",
+          "title": "Механизмы и выбор"
+        }
+      ]
+    },
+    {
+      "id": "cluster",
+      "path": "03-clustering",
+      "title": "Кластеризация",
+      "sections": [
+        {
+          "id": "main",
+          "path": "",
+          "title": "Геометрия, алгоритмы и применение"
+        }
+      ]
+    },
+    {
+      "id": "cv",
+      "path": "04-computer-vision",
+      "title": "Компьютерное зрение",
+      "sections": [
+        {
+          "id": "main",
+          "path": "",
+          "title": "Основы и задачи"
+        }
+      ]
+    },
+    {
+      "id": "lm",
+      "path": "05-language-models",
+      "title": "LLM и языковые модели",
+      "sections": [
+        {
+          "id": "found",
+          "path": "01-foundations",
+          "title": "Основы"
+        },
+        {
+          "id": "bert",
+          "path": "02-bert-encoders",
+          "title": "BERT и encoder-модели"
+        },
+        {
+          "id": "adapt",
+          "path": "03-adaptation",
+          "title": "Адаптация"
+        },
+        {
+          "id": "infer",
+          "path": "04-inference",
+          "title": "Инференс"
+        },
+        {
+          "id": "app",
+          "path": "05-applications",
+          "title": "Приложения"
+        },
+        {
+          "id": "agent",
+          "path": "06-agent-learning",
+          "title": "Обучение агентов"
+        }
+      ]
+    }
+  ],
+  "chapters": [
+    {
+      "id": "df-task",
+      "module": "data",
+      "section": "reliability",
+      "title": "Постановка задачи и паспорт данных",
+      "question": "Что является независимым объектом и какая информация доступна в момент прогноза?",
+      "prerequisites": [],
+      "level": "общее ядро",
+      "path": "01-data-features/01-reliability/df-task.md",
+      "source": "data-А",
+      "used_by": [
+        "df-split",
+        "df-quality",
+        "df-metrics",
+        "df-augmentation",
+        "df-loading",
+        "feat-types",
+        "df-images",
+        "df-text",
+        "reg-diagnosis",
+        "cl-geometry",
+        "app-structured"
+      ],
+      "source_files": [
+        "01-data/Учебные конспекты/А — Постановка задачи и паспорт данных.md"
+      ],
+      "figures": [
+        "оформление/course/df-task.svg"
+      ]
+    },
+    {
+      "id": "df-split",
+      "module": "data",
+      "section": "reliability",
+      "title": "Split, cross-validation и утечки",
+      "question": "Как разделить данные так, чтобы оценить именно будущий сценарий применения?",
+      "prerequisites": [
+        "df-task"
+      ],
+      "level": "общее ядро",
+      "path": "01-data-features/01-reliability/df-split.md",
+      "source": "data-Б",
+      "used_by": [
+        "df-quality",
+        "df-metrics",
+        "df-augmentation",
+        "df-loading",
+        "df-drift",
+        "feat-types",
+        "feat-numeric",
+        "feat-hashing",
+        "feat-target",
+        "feat-embeddings",
+        "feat-time",
+        "feat-geography",
+        "feat-selection",
+        "feat-reduction",
+        "feat-pipeline",
+        "df-images",
+        "df-text",
+        "reg-diagnosis",
+        "cl-geometry",
+        "bert-interface",
+        "adapt-choice",
+        "app-rag"
+      ],
+      "source_files": [
+        "01-data/Учебные конспекты/Б — Split, cross-validation и утечки.md"
+      ],
+      "figures": [
+        "оформление/course/df-split.svg"
+      ]
+    },
+    {
+      "id": "df-quality",
+      "module": "data",
+      "section": "reliability",
+      "title": "Качество данных, пропуски, выбросы и разметка",
+      "question": "Как отличить ошибку данных от редкого корректного наблюдения?",
+      "prerequisites": [
+        "df-task",
+        "df-split"
+      ],
+      "level": "общее ядро",
+      "path": "01-data-features/01-reliability/df-quality.md",
+      "source": "data-В",
+      "used_by": [
+        "feat-missing"
+      ],
+      "source_files": [
+        "01-data/Учебные конспекты/В — Пропуски, выбросы и качество разметки.md"
+      ],
+      "figures": [
+        "оформление/course/df-quality.svg"
+      ]
+    },
+    {
+      "id": "df-metrics",
+      "module": "data",
+      "section": "reliability",
+      "title": "Дисбаланс, метрики, порог и калибровка",
+      "question": "Как связать ошибки, вероятности и цену решения?",
+      "prerequisites": [
+        "df-task",
+        "df-split"
+      ],
+      "level": "общее ядро",
+      "path": "01-data-features/01-reliability/df-metrics.md",
+      "source": "data-Г",
+      "used_by": [
+        "df-augmentation",
+        "df-drift",
+        "feat-target",
+        "reg-diagnosis"
+      ],
+      "source_files": [
+        "01-data/Учебные конспекты/Г — Дисбаланс, метрики, порог и калибровка.md"
+      ],
+      "figures": [
+        "оформление/course/df-metrics.svg"
+      ]
+    },
+    {
+      "id": "df-augmentation",
+      "module": "data",
+      "section": "reliability",
+      "title": "Дубликаты, аугментации и синтетика",
+      "question": "Как расширять выборку, сохраняя смысл метки и независимость оценки?",
+      "prerequisites": [
+        "df-task",
+        "df-split",
+        "df-metrics"
+      ],
+      "level": "общее ядро",
+      "path": "01-data-features/01-reliability/df-augmentation.md",
+      "source": "data-Д",
+      "used_by": [],
+      "source_files": [
+        "01-data/Учебные конспекты/Д — Аугментации, синтетика и дедупликация.md"
+      ],
+      "figures": [
+        "оформление/course/df-augmentation.svg"
+      ]
+    },
+    {
+      "id": "df-loading",
+      "module": "data",
+      "section": "reliability",
+      "title": "Dataset, batching и воспроизводимость",
+      "question": "Как проследить путь одного примера от хранилища до функции потерь?",
+      "prerequisites": [
+        "df-task",
+        "df-split"
+      ],
+      "level": "общее ядро",
+      "path": "01-data-features/01-reliability/df-loading.md",
+      "source": "data-Е",
+      "used_by": [
+        "df-images",
+        "df-text"
+      ],
+      "source_files": [
+        "01-data/Учебные конспекты/Е — Dataset, batching, загрузка и воспроизводимость.md"
+      ],
+      "figures": [
+        "оформление/course/df-loading.svg"
+      ]
+    },
+    {
+      "id": "df-drift",
+      "module": "data",
+      "section": "reliability",
+      "title": "Drift и надёжность оценки",
+      "question": "Как отличить изменение данных от доказанного изменения качества?",
+      "prerequisites": [
+        "df-split",
+        "df-metrics"
+      ],
+      "level": "основа ветки",
+      "path": "01-data-features/01-reliability/df-drift.md",
+      "source": "data-И",
+      "used_by": [],
+      "source_files": [
+        "01-data/Учебные конспекты/И — Drift, интервалы и достоверность вывода.md"
+      ],
+      "figures": [
+        "оформление/course/df-drift.svg"
+      ]
+    },
+    {
+      "id": "feat-types",
+      "module": "data",
+      "section": "features",
+      "title": "Типы признаков и контракты представлений",
+      "question": "Почему одинаковый dtype требует разных преобразований?",
+      "prerequisites": [
+        "df-task",
+        "df-split"
+      ],
+      "level": "общее ядро",
+      "path": "01-data-features/02-features/feat-types.md",
+      "source": null,
+      "used_by": [
+        "feat-numeric",
+        "feat-missing",
+        "feat-categorical",
+        "feat-time",
+        "feat-geography"
+      ],
+      "source_files": [],
+      "figures": [
+        "оформление/course/feat-types.svg"
+      ]
+    },
+    {
+      "id": "feat-numeric",
+      "module": "data",
+      "section": "features",
+      "title": "Числовые преобразования и масштабирование",
+      "question": "Как преобразование меняет единицы, расстояния и поведение нового объекта?",
+      "prerequisites": [
+        "feat-types",
+        "df-split"
+      ],
+      "level": "общее ядро",
+      "path": "01-data-features/02-features/feat-numeric.md",
+      "source": null,
+      "used_by": [
+        "feat-geography",
+        "feat-selection",
+        "feat-reduction",
+        "feat-pipeline",
+        "reg-penalties",
+        "cl-projection"
+      ],
+      "source_files": [
+        "01-data/Учебные конспекты/Б — Split, cross-validation и утечки.md"
+      ],
+      "figures": [
+        "оформление/course/feat-numeric.svg"
+      ]
+    },
+    {
+      "id": "feat-missing",
+      "module": "data",
+      "section": "features",
+      "title": "Missing, unknown, rare и стабильный словарь",
+      "question": "Как различать отсутствие значения, новую категорию и редкую известную категорию?",
+      "prerequisites": [
+        "feat-types",
+        "df-quality"
+      ],
+      "level": "общее ядро",
+      "path": "01-data-features/02-features/feat-missing.md",
+      "source": "cat-З",
+      "used_by": [
+        "feat-categorical",
+        "feat-pipeline"
+      ],
+      "source_files": [
+        "03-categorical-features/Учебные конспекты/З — Missing, unknown, rare и стабильный словарь.md"
+      ],
+      "figures": [
+        "оформление/course/feat-missing.svg"
+      ]
+    },
+    {
+      "id": "feat-categorical",
+      "module": "data",
+      "section": "features",
+      "title": "Nominal, ordinal, one-hot и dummy encoding",
+      "question": "Как представить категорию, не приписав ей ложный числовой порядок?",
+      "prerequisites": [
+        "feat-types",
+        "feat-missing"
+      ],
+      "level": "общее ядро",
+      "path": "01-data-features/02-features/feat-categorical.md",
+      "source": "cat-А",
+      "used_by": [
+        "feat-hashing",
+        "feat-target",
+        "feat-embeddings",
+        "feat-native",
+        "feat-interactions",
+        "feat-sets",
+        "feat-selection",
+        "feat-pipeline"
+      ],
+      "source_files": [
+        "03-categorical-features/Учебные конспекты/А — Nominal, ordinal, one-hot и dummy encoding.md"
+      ],
+      "figures": [
+        "оформление/course/feat-categorical.svg"
+      ]
+    },
+    {
+      "id": "feat-hashing",
+      "module": "data",
+      "section": "features",
+      "title": "Кардинальность, частотные кодировки и hashing",
+      "question": "Как ограничить размер представления и измерить цену столкновений?",
+      "prerequisites": [
+        "feat-categorical",
+        "df-split"
+      ],
+      "level": "общее ядро",
+      "path": "01-data-features/02-features/feat-hashing.md",
+      "source": "cat-Б",
+      "used_by": [],
+      "source_files": [
+        "03-categorical-features/Учебные конспекты/Б — Кардинальность, frequency и feature hashing.md"
+      ],
+      "figures": [
+        "оформление/course/feat-hashing.svg"
+      ]
+    },
+    {
+      "id": "feat-target",
+      "module": "data",
+      "section": "features",
+      "title": "Target statistics, smoothing, cross-fitting и WoE",
+      "question": "Как использовать целевую статистику, не раскрывая собственную метку?",
+      "prerequisites": [
+        "feat-categorical",
+        "df-split",
+        "df-metrics"
+      ],
+      "level": "общее ядро",
+      "path": "01-data-features/02-features/feat-target.md",
+      "source": "cat-В",
+      "used_by": [
+        "feat-native",
+        "feat-pipeline"
+      ],
+      "source_files": [
+        "03-categorical-features/Учебные конспекты/В — Target encoding, cross-fitting, smoothing и WoE.md"
+      ],
+      "figures": [
+        "оформление/course/feat-target.svg"
+      ]
+    },
+    {
+      "id": "feat-embeddings",
+      "module": "data",
+      "section": "features",
+      "title": "Обучаемые embeddings и перенос представлений",
+      "question": "Как обучается вектор объекта и при каких условиях его можно использовать в другой задаче?",
+      "prerequisites": [
+        "feat-categorical",
+        "df-split"
+      ],
+      "level": "основа ветки",
+      "path": "01-data-features/02-features/feat-embeddings.md",
+      "source": "cat-Г",
+      "used_by": [
+        "feat-interactions",
+        "feat-sets"
+      ],
+      "source_files": [
+        "03-categorical-features/Учебные конспекты/Г — Embeddings, gradients и перенос между задачами.md"
+      ],
+      "figures": [
+        "оформление/course/feat-embeddings.svg"
+      ]
+    },
+    {
+      "id": "feat-native",
+      "module": "data",
+      "section": "features",
+      "title": "Нативные категории в бустинге",
+      "question": "Как модель выбирает разбиение категорий и что входит в сохранённый контракт?",
+      "prerequisites": [
+        "feat-categorical",
+        "feat-target"
+      ],
+      "level": "общее ядро",
+      "path": "01-data-features/02-features/feat-native.md",
+      "source": "cat-Д",
+      "used_by": [],
+      "source_files": [
+        "03-categorical-features/Учебные конспекты/Д — Нативные категории в LightGBM, CatBoost и XGBoost.md"
+      ],
+      "figures": [
+        "оформление/course/feat-native.svg"
+      ]
+    },
+    {
+      "id": "feat-interactions",
+      "module": "data",
+      "section": "features",
+      "title": "Взаимодействия признаков, FM и FFM",
+      "question": "Когда эффект признака зависит от другого поля и как это представить?",
+      "prerequisites": [
+        "feat-categorical",
+        "feat-embeddings"
+      ],
+      "level": "основа ветки",
+      "path": "01-data-features/02-features/feat-interactions.md",
+      "source": "cat-Е",
+      "used_by": [],
+      "source_files": [
+        "03-categorical-features/Учебные конспекты/Е — Feature crosses, FM и field-aware взаимодействия.md"
+      ],
+      "figures": [
+        "оформление/course/feat-interactions.svg"
+      ]
+    },
+    {
+      "id": "feat-sets",
+      "module": "data",
+      "section": "features",
+      "title": "Наборы категорий и pooling",
+      "question": "Как отличить множество от последовательности и что теряет агрегирование?",
+      "prerequisites": [
+        "feat-categorical",
+        "feat-embeddings"
+      ],
+      "level": "основа ветки",
+      "path": "01-data-features/02-features/feat-sets.md",
+      "source": "cat-Ж",
+      "used_by": [],
+      "source_files": [
+        "03-categorical-features/Учебные конспекты/Ж — Multi-hot, counts и pooling наборов категорий.md"
+      ],
+      "figures": [
+        "оформление/course/feat-sets.svg"
+      ]
+    },
+    {
+      "id": "feat-time",
+      "module": "data",
+      "section": "features",
+      "title": "Временные признаки и доступность метки",
+      "question": "Как вычислить признак на исторический момент с учётом задержки данных?",
+      "prerequisites": [
+        "df-split",
+        "feat-types"
+      ],
+      "level": "основа ветки",
+      "path": "01-data-features/02-features/feat-time.md",
+      "source": "cat-И",
+      "used_by": [
+        "feat-autofe"
+      ],
+      "source_files": [
+        "03-categorical-features/Учебные конспекты/И — Временные статистики и доступность метки.md"
+      ],
+      "figures": [
+        "оформление/course/feat-time.svg"
+      ]
+    },
+    {
+      "id": "feat-geography",
+      "module": "data",
+      "section": "features",
+      "title": "Географические признаки и пространственная валидация",
+      "question": "Как измерять близость на сфере и проверять перенос на новые территории?",
+      "prerequisites": [
+        "feat-types",
+        "df-split",
+        "feat-numeric"
+      ],
+      "level": "основа ветки",
+      "path": "01-data-features/02-features/feat-geography.md",
+      "source": null,
+      "used_by": [],
+      "source_files": [],
+      "figures": [
+        "оформление/course/feat-geography.svg"
+      ]
+    },
+    {
+      "id": "feat-selection",
+      "module": "data",
+      "section": "features",
+      "title": "Отбор признаков и устойчивость выбора",
+      "question": "Как оценить пользу отбора вместе со всей процедурой настройки?",
+      "prerequisites": [
+        "df-split",
+        "feat-numeric",
+        "feat-categorical"
+      ],
+      "level": "основа ветки",
+      "path": "01-data-features/02-features/feat-selection.md",
+      "source": null,
+      "used_by": [
+        "feat-autofe"
+      ],
+      "source_files": [
+        "01-data/Учебные конспекты/Б — Split, cross-validation и утечки.md"
+      ],
+      "figures": [
+        "оформление/course/feat-selection.svg"
+      ]
+    },
+    {
+      "id": "feat-reduction",
+      "module": "data",
+      "section": "features",
+      "title": "Сокращение размерности: PCA и SVD",
+      "question": "Чем новая координата отличается от выбранного исходного признака?",
+      "prerequisites": [
+        "feat-numeric",
+        "df-split"
+      ],
+      "level": "основа ветки",
+      "path": "01-data-features/02-features/feat-reduction.md",
+      "source": null,
+      "used_by": [],
+      "source_files": [],
+      "figures": [
+        "оформление/course/feat-reduction.svg"
+      ]
+    },
+    {
+      "id": "feat-autofe",
+      "module": "data",
+      "section": "features",
+      "title": "Автоматическая генерация признаков",
+      "question": "Как искать признаки, контролируя время доступности и переобучение на validation?",
+      "prerequisites": [
+        "feat-time",
+        "feat-selection"
+      ],
+      "level": "углубление",
+      "path": "01-data-features/02-features/feat-autofe.md",
+      "source": null,
+      "used_by": [],
+      "source_files": [],
+      "figures": [
+        "оформление/course/feat-autofe.svg"
+      ]
+    },
+    {
+      "id": "feat-pipeline",
+      "module": "data",
+      "section": "features",
+      "title": "Единый pipeline и применение к новым объектам",
+      "question": "Какие состояния сохраняются после fit и как доказать одинаковое преобразование при обучении и применении?",
+      "prerequisites": [
+        "df-split",
+        "feat-numeric",
+        "feat-missing",
+        "feat-categorical",
+        "feat-target"
+      ],
+      "level": "общее ядро",
+      "path": "01-data-features/02-features/feat-pipeline.md",
+      "source": null,
+      "used_by": [],
+      "source_files": [],
+      "figures": [
+        "оформление/course/feat-pipeline.svg"
+      ]
+    },
+    {
+      "id": "df-images",
+      "module": "data",
+      "section": "modalities",
+      "title": "Изображения, аннотации и синхронные преобразования",
+      "question": "Как преобразовать изображение и все его пространственные метки согласованно?",
+      "prerequisites": [
+        "df-task",
+        "df-split",
+        "df-loading"
+      ],
+      "level": "основа ветки",
+      "path": "01-data-features/03-modalities/df-images.md",
+      "source": "data-Ж",
+      "used_by": [
+        "cv-input"
+      ],
+      "source_files": [
+        "01-data/Учебные конспекты/Ж — CV-данные, координаты и синхронные transforms.md"
+      ],
+      "figures": [
+        "оформление/course/df-images.svg"
+      ]
+    },
+    {
+      "id": "df-text",
+      "module": "data",
+      "section": "modalities",
+      "title": "Текст, токенизация и разбиение документов",
+      "question": "Как сохранить происхождение, границы документов и правильные targets?",
+      "prerequisites": [
+        "df-task",
+        "df-split",
+        "df-loading"
+      ],
+      "level": "основа ветки",
+      "path": "01-data-features/03-modalities/df-text.md",
+      "source": "data-З",
+      "used_by": [
+        "bert-interface",
+        "adapt-choice",
+        "app-rag"
+      ],
+      "source_files": [
+        "01-data/Учебные конспекты/З — Текстовые данные, токенизация и chunking.md"
+      ],
+      "figures": [
+        "оформление/course/df-text.svg"
+      ]
+    },
+    {
+      "id": "reg-diagnosis",
+      "module": "reg",
+      "section": "main",
+      "title": "Обобщение, диагностика и границы теории",
+      "question": "Какой разрыв между обучением и будущей ошибкой требует вмешательства?",
+      "prerequisites": [
+        "df-task",
+        "df-split",
+        "df-metrics"
+      ],
+      "level": "общее ядро",
+      "path": "02-regularization/reg-diagnosis.md",
+      "source": "reg-А",
+      "used_by": [
+        "reg-penalties",
+        "reg-training",
+        "reg-stochastic",
+        "reg-normalization",
+        "reg-augmentation",
+        "reg-robustness",
+        "reg-structure",
+        "reg-sequences",
+        "reg-theory",
+        "reg-selection"
+      ],
+      "source_files": [
+        "02-regularization/Учебные конспекты/А — Обобщение, bias-variance и ограничения теории.md"
+      ],
+      "figures": [
+        "оформление/course/reg-diagnosis.svg"
+      ]
+    },
+    {
+      "id": "reg-penalties",
+      "module": "reg",
+      "section": "main",
+      "title": "Штрафы, ограничения, L1/L2 и AdamW",
+      "question": "Как штраф изменяет оптимальное решение и зависит от масштаба признаков?",
+      "prerequisites": [
+        "reg-diagnosis",
+        "feat-numeric"
+      ],
+      "level": "общее ядро",
+      "path": "02-regularization/reg-penalties.md",
+      "source": "reg-Б",
+      "used_by": [
+        "reg-selection"
+      ],
+      "source_files": [
+        "02-regularization/Учебные конспекты/Б — L1, L2, группы и AdamW.md"
+      ],
+      "figures": [
+        "оформление/course/reg-penalties.svg"
+      ]
+    },
+    {
+      "id": "reg-training",
+      "module": "reg",
+      "section": "main",
+      "title": "Early stopping, learning rate, SWA и EMA",
+      "question": "Как траектория обучения и выбор checkpoint меняют итоговую модель?",
+      "prerequisites": [
+        "reg-diagnosis"
+      ],
+      "level": "общее ядро",
+      "path": "02-regularization/reg-training.md",
+      "source": "reg-В",
+      "used_by": [
+        "reg-selection"
+      ],
+      "source_files": [
+        "02-regularization/Учебные конспекты/В — Early stopping, learning rate и усреднение весов.md"
+      ],
+      "figures": [
+        "оформление/course/reg-training.svg"
+      ]
+    },
+    {
+      "id": "reg-stochastic",
+      "module": "reg",
+      "section": "main",
+      "title": "Dropout, DropConnect, DropBlock и случайные ветви",
+      "question": "Как структура случайной маски меняет вычисление и objective?",
+      "prerequisites": [
+        "reg-diagnosis"
+      ],
+      "level": "общее ядро",
+      "path": "02-regularization/reg-stochastic.md",
+      "source": "reg-Г",
+      "used_by": [
+        "reg-selection"
+      ],
+      "source_files": [
+        "02-regularization/Учебные конспекты/Г — Dropout, DropConnect, DropBlock и случайные ветви.md"
+      ],
+      "figures": [
+        "оформление/course/reg-stochastic.svg"
+      ]
+    },
+    {
+      "id": "reg-normalization",
+      "module": "reg",
+      "section": "main",
+      "title": "Нормализации и состояния train/eval",
+      "question": "По каким осям вычисляются статистики и какие из них сохраняются?",
+      "prerequisites": [
+        "reg-diagnosis"
+      ],
+      "level": "общее ядро",
+      "path": "02-regularization/reg-normalization.md",
+      "source": "reg-Д",
+      "used_by": [],
+      "source_files": [
+        "02-regularization/Учебные конспекты/Д — Нормализации, оси и train-eval statistics.md"
+      ],
+      "figures": [
+        "оформление/course/reg-normalization.svg"
+      ]
+    },
+    {
+      "id": "reg-augmentation",
+      "module": "reg",
+      "section": "main",
+      "title": "Label smoothing, MixUp, CutMix и аугментации",
+      "question": "Как изменения inputs и targets задают предположения о задаче?",
+      "prerequisites": [
+        "reg-diagnosis"
+      ],
+      "level": "общее ядро",
+      "path": "02-regularization/reg-augmentation.md",
+      "source": "reg-Ж",
+      "used_by": [],
+      "source_files": [
+        "02-regularization/Учебные конспекты/Ж — Label smoothing, MixUp и CV-аугментации.md"
+      ],
+      "figures": [
+        "оформление/course/reg-augmentation.svg"
+      ]
+    },
+    {
+      "id": "reg-robustness",
+      "module": "reg",
+      "section": "main",
+      "title": "Adversarial training, consistency и spectral norm",
+      "question": "Относительно каких допустимых изменений требуется устойчивость?",
+      "prerequisites": [
+        "reg-diagnosis"
+      ],
+      "level": "общее ядро",
+      "path": "02-regularization/reg-robustness.md",
+      "source": "reg-Е",
+      "used_by": [],
+      "source_files": [
+        "02-regularization/Учебные конспекты/Е — Adversarial training, consistency и spectral norm.md"
+      ],
+      "figures": [
+        "оформление/course/reg-robustness.svg"
+      ]
+    },
+    {
+      "id": "reg-structure",
+      "module": "reg",
+      "section": "main",
+      "title": "Структурные ограничения: время, графы, физика и ранг",
+      "question": "Как выразить известную структуру задачи в допустимых решениях?",
+      "prerequisites": [
+        "reg-diagnosis"
+      ],
+      "level": "углубление",
+      "path": "02-regularization/reg-structure.md",
+      "source": "reg-И",
+      "used_by": [],
+      "source_files": [
+        "02-regularization/Учебные конспекты/И — Структурные prior, графы, физика и PEFT.md"
+      ],
+      "figures": [
+        "оформление/course/reg-structure.svg"
+      ]
+    },
+    {
+      "id": "reg-sequences",
+      "module": "reg",
+      "section": "main",
+      "title": "Регуляризация последовательностей, NLP и RL",
+      "question": "Чем различаются шум представлений, entropy и ограничение обновления политики?",
+      "prerequisites": [
+        "reg-diagnosis"
+      ],
+      "level": "углубление",
+      "path": "02-regularization/reg-sequences.md",
+      "source": "reg-З",
+      "used_by": [],
+      "source_files": [
+        "02-regularization/Учебные конспекты/З — NLP, R-Drop и ограничения политики в RL.md"
+      ],
+      "figures": [
+        "оформление/course/reg-sequences.svg"
+      ]
+    },
+    {
+      "id": "reg-theory",
+      "module": "reg",
+      "section": "main",
+      "title": "Углубление: VC, Rademacher и PAC-Bayes",
+      "question": "При каких предпосылках оценка сложности ограничивает риск?",
+      "prerequisites": [
+        "reg-diagnosis"
+      ],
+      "level": "углубление",
+      "path": "02-regularization/reg-theory.md",
+      "source": null,
+      "used_by": [],
+      "source_files": [
+        "02-regularization/Учебные конспекты/А — Обобщение, bias-variance и ограничения теории.md"
+      ],
+      "figures": [
+        "оформление/course/reg-theory.svg"
+      ]
+    },
+    {
+      "id": "reg-selection",
+      "module": "reg",
+      "section": "main",
+      "title": "SAM, Lookahead и итоговый выбор метода",
+      "question": "Как проверить гипотезу о регуляризации при фиксированном бюджете настройки?",
+      "prerequisites": [
+        "reg-diagnosis",
+        "reg-penalties",
+        "reg-training",
+        "reg-stochastic"
+      ],
+      "level": "общее ядро",
+      "path": "02-regularization/reg-selection.md",
+      "source": "reg-К",
+      "used_by": [],
+      "source_files": [
+        "02-regularization/Учебные конспекты/К — SAM, Lookahead и протокол выбора регуляризации.md"
+      ],
+      "figures": [
+        "оформление/course/reg-selection.svg"
+      ]
+    },
+    {
+      "id": "cl-geometry",
+      "module": "cluster",
+      "section": "main",
+      "title": "Похожесть, расстояния и постановка кластеризации",
+      "question": "Какую структуру данных мы называем кластером и почему это зависит от представления?",
+      "prerequisites": [
+        "df-task",
+        "df-split"
+      ],
+      "level": "общее ядро",
+      "path": "03-clustering/cl-geometry.md",
+      "source": "cluster-А",
+      "used_by": [
+        "cl-projection",
+        "cl-kmeans",
+        "cl-hierarchy",
+        "cl-density",
+        "cl-gmm"
+      ],
+      "source_files": [
+        "04-clustering/Учебные конспекты/А — Похожесть, расстояния и постановка кластеризации.md"
+      ],
+      "figures": [
+        "оформление/course/cl-geometry.svg"
+      ]
+    },
+    {
+      "id": "cl-projection",
+      "module": "cluster",
+      "section": "main",
+      "title": "Масштабирование, PCA, t-SNE и UMAP",
+      "question": "Какие отношения сохраняет проекция и как проверить искажения?",
+      "prerequisites": [
+        "cl-geometry",
+        "feat-numeric"
+      ],
+      "level": "общее ядро",
+      "path": "03-clustering/cl-projection.md",
+      "source": "cluster-З",
+      "used_by": [
+        "cl-kmeans",
+        "cl-hierarchy",
+        "cl-density",
+        "cl-gmm"
+      ],
+      "source_files": [
+        "04-clustering/Учебные конспекты/З — PCA, t-SNE, UMAP и геометрия проекции.md"
+      ],
+      "figures": [
+        "оформление/course/cl-projection.svg"
+      ]
+    },
+    {
+      "id": "cl-kmeans",
+      "module": "cluster",
+      "section": "main",
+      "title": "Центроидные методы: K-Means и K-Means++",
+      "question": "Как assignment и обновление центров уменьшают один objective?",
+      "prerequisites": [
+        "cl-geometry",
+        "cl-projection"
+      ],
+      "level": "общее ядро",
+      "path": "03-clustering/cl-kmeans.md",
+      "source": null,
+      "used_by": [
+        "cl-metrics"
+      ],
+      "source_files": [
+        "04-clustering/Учебные конспекты/Б — K-Means, иерархии, плотность и GMM.md"
+      ],
+      "figures": [
+        "оформление/course/cl-kmeans.svg"
+      ]
+    },
+    {
+      "id": "cl-hierarchy",
+      "module": "cluster",
+      "section": "main",
+      "title": "Иерархическая кластеризация",
+      "question": "Что определяет последовательность слияний и смысл среза дендрограммы?",
+      "prerequisites": [
+        "cl-geometry",
+        "cl-projection"
+      ],
+      "level": "общее ядро",
+      "path": "03-clustering/cl-hierarchy.md",
+      "source": null,
+      "used_by": [
+        "cl-metrics"
+      ],
+      "source_files": [
+        "04-clustering/Учебные конспекты/Б — K-Means, иерархии, плотность и GMM.md"
+      ],
+      "figures": [
+        "оформление/course/cl-hierarchy.svg"
+      ]
+    },
+    {
+      "id": "cl-density",
+      "module": "cluster",
+      "section": "main",
+      "title": "Плотностные методы: DBSCAN и HDBSCAN",
+      "question": "Как связность плотных областей отличается от близости к центру?",
+      "prerequisites": [
+        "cl-geometry",
+        "cl-projection"
+      ],
+      "level": "общее ядро",
+      "path": "03-clustering/cl-density.md",
+      "source": null,
+      "used_by": [
+        "cl-metrics"
+      ],
+      "source_files": [
+        "04-clustering/Учебные конспекты/Б — K-Means, иерархии, плотность и GMM.md"
+      ],
+      "figures": [
+        "оформление/course/cl-density.svg"
+      ]
+    },
+    {
+      "id": "cl-gmm",
+      "module": "cluster",
+      "section": "main",
+      "title": "Вероятностные смеси и EM",
+      "question": "Как мягкая принадлежность и обновление параметров повышают likelihood?",
+      "prerequisites": [
+        "cl-geometry",
+        "cl-projection"
+      ],
+      "level": "общее ядро",
+      "path": "03-clustering/cl-gmm.md",
+      "source": null,
+      "used_by": [
+        "cl-metrics"
+      ],
+      "source_files": [
+        "04-clustering/Учебные конспекты/Б — K-Means, иерархии, плотность и GMM.md"
+      ],
+      "figures": [
+        "оформление/course/cl-gmm.svg"
+      ]
+    },
+    {
+      "id": "cl-metrics",
+      "module": "cluster",
+      "section": "main",
+      "title": "Качество разбиения: внутренние и внешние метрики",
+      "question": "Что измеряет метрика и как noise/coverage меняют сравнение?",
+      "prerequisites": [
+        "cl-kmeans",
+        "cl-hierarchy",
+        "cl-density",
+        "cl-gmm"
+      ],
+      "level": "общее ядро",
+      "path": "03-clustering/cl-metrics.md",
+      "source": "cluster-Г",
+      "used_by": [
+        "cl-stability",
+        "cl-frozen",
+        "cl-systems"
+      ],
+      "source_files": [
+        "04-clustering/Учебные конспекты/Б — K-Means, иерархии, плотность и GMM.md",
+        "04-clustering/Учебные конспекты/Г — Purity, ARI, NMI и внутренние метрики.md"
+      ],
+      "figures": [
+        "оформление/course/cl-metrics.svg"
+      ]
+    },
+    {
+      "id": "cl-stability",
+      "module": "cluster",
+      "section": "main",
+      "title": "Выбор числа кластеров и устойчивость",
+      "question": "Как выбрать разрешение разбиения без универсального оптимального K?",
+      "prerequisites": [
+        "cl-metrics"
+      ],
+      "level": "общее ядро",
+      "path": "03-clustering/cl-stability.md",
+      "source": "cluster-В",
+      "used_by": [
+        "cl-frozen",
+        "cl-systems"
+      ],
+      "source_files": [
+        "04-clustering/Учебные конспекты/В — Выбор K, gap statistic и устойчивость.md"
+      ],
+      "figures": [
+        "оформление/course/cl-stability.svg"
+      ]
+    },
+    {
+      "id": "cl-frozen",
+      "module": "cluster",
+      "section": "main",
+      "title": "Кластеризация замороженных представлений",
+      "question": "Как разделить качество представления и качество алгоритма группировки?",
+      "prerequisites": [
+        "cl-metrics",
+        "cl-stability"
+      ],
+      "level": "основа ветки",
+      "path": "03-clustering/cl-frozen.md",
+      "source": null,
+      "used_by": [
+        "cl-deep",
+        "cl-images",
+        "cl-text"
+      ],
+      "source_files": [
+        "04-clustering/Учебные конспекты/Д — Frozen embeddings, DEC и IDEC.md"
+      ],
+      "figures": [
+        "оформление/course/cl-frozen.svg"
+      ]
+    },
+    {
+      "id": "cl-deep",
+      "module": "cluster",
+      "section": "main",
+      "title": "Совместное обучение: DEC и IDEC",
+      "question": "Как self-training изменяет представление и когда усиливает собственные ошибки?",
+      "prerequisites": [
+        "cl-frozen"
+      ],
+      "level": "углубление",
+      "path": "03-clustering/cl-deep.md",
+      "source": null,
+      "used_by": [],
+      "source_files": [
+        "04-clustering/Учебные конспекты/Д — Frozen embeddings, DEC и IDEC.md"
+      ],
+      "figures": [
+        "оформление/course/cl-deep.svg"
+      ]
+    },
+    {
+      "id": "cl-images",
+      "module": "cluster",
+      "section": "main",
+      "title": "Кластеризация изображений и superpixels",
+      "question": "Как различаются группировка изображений и группировка пикселей?",
+      "prerequisites": [
+        "cl-frozen"
+      ],
+      "level": "основа ветки",
+      "path": "03-clustering/cl-images.md",
+      "source": "cluster-Е",
+      "used_by": [],
+      "source_files": [
+        "04-clustering/Учебные конспекты/Е — Image clustering, superpixels и поток новых объектов.md"
+      ],
+      "figures": [
+        "оформление/course/cl-images.svg"
+      ]
+    },
+    {
+      "id": "cl-text",
+      "module": "cluster",
+      "section": "main",
+      "title": "Текстовые представления, LDA, NMF и Top2Vec",
+      "question": "Как различать тему документа, embedding и кластер?",
+      "prerequisites": [
+        "cl-frozen"
+      ],
+      "level": "основа ветки",
+      "path": "03-clustering/cl-text.md",
+      "source": "cluster-Ж",
+      "used_by": [],
+      "source_files": [
+        "04-clustering/Учебные конспекты/Ж — Текстовые representations, LDA, NMF и Top2Vec.md"
+      ],
+      "figures": [
+        "оформление/course/cl-text.svg"
+      ]
+    },
+    {
+      "id": "cl-systems",
+      "module": "cluster",
+      "section": "main",
+      "title": "Аномалии, псевдометки, потоки и IVF",
+      "question": "Как использовать кластеризацию как компонент системы и обрабатывать новый объект?",
+      "prerequisites": [
+        "cl-metrics",
+        "cl-stability"
+      ],
+      "level": "основа ветки",
+      "path": "03-clustering/cl-systems.md",
+      "source": "cluster-И",
+      "used_by": [],
+      "source_files": [
+        "04-clustering/Учебные конспекты/И — Аномалии, псевдометки, IVF и итоговый pipeline.md"
+      ],
+      "figures": [
+        "оформление/course/cl-systems.svg"
+      ]
+    },
+    {
+      "id": "cv-input",
+      "module": "cv",
+      "section": "main",
+      "title": "Изображение, карты признаков и блоки модели",
+      "question": "Как меняются форма, разрешение и рецептивное поле по пути изображения?",
+      "prerequisites": [
+        "df-images"
+      ],
+      "level": "общее ядро",
+      "path": "04-computer-vision/cv-input.md",
+      "source": "cv-00",
+      "used_by": [
+        "cv-classification",
+        "cv-vit",
+        "cv-detection",
+        "cv-semantic",
+        "cv-instance",
+        "cv-pose",
+        "cv-obb",
+        "cv-tracking",
+        "cv-depth",
+        "cv-open-vocabulary"
+      ],
+      "source_files": [
+        "05-computer-vision/Учебные конспекты/00 — Изображение, тензоры и общий путь модели.md"
+      ],
+      "figures": [
+        "оформление/course/cv-input.svg"
+      ]
+    },
+    {
+      "id": "cv-classification",
+      "module": "cv",
+      "section": "main",
+      "title": "Классификация, CNN и residual learning",
+      "question": "Как изображение превращается в logits класса и что меняет backbone?",
+      "prerequisites": [
+        "cv-input"
+      ],
+      "level": "общее ядро",
+      "path": "04-computer-vision/cv-classification.md",
+      "source": "cv-А",
+      "used_by": [
+        "cv-vit",
+        "cv-detection",
+        "cv-semantic",
+        "cv-instance",
+        "cv-pose",
+        "cv-obb",
+        "cv-tracking",
+        "cv-depth",
+        "cv-open-vocabulary"
+      ],
+      "source_files": [
+        "05-computer-vision/Учебные конспекты/А — Классификация, backbone и математика ViT.md"
+      ],
+      "figures": [
+        "оформление/course/cv-classification.svg",
+        "оформление/course/arch-resnet.svg"
+      ]
+    },
+    {
+      "id": "cv-vit",
+      "module": "cv",
+      "section": "main",
+      "title": "Vision Transformer: patches, attention и обучение",
+      "question": "Как patch projection, позиции и attention преобразуют изображение?",
+      "prerequisites": [
+        "cv-input",
+        "cv-classification"
+      ],
+      "level": "основа ветки",
+      "path": "04-computer-vision/cv-vit.md",
+      "source": null,
+      "used_by": [
+        "cv-hierarchy",
+        "cv-pretraining"
+      ],
+      "source_files": [
+        "05-computer-vision/Учебные конспекты/А — Классификация, backbone и математика ViT.md"
+      ],
+      "figures": [
+        "оформление/course/cv-vit.svg",
+        "оформление/course/arch-vit.svg"
+      ]
+    },
+    {
+      "id": "cv-hierarchy",
+      "module": "cv",
+      "section": "main",
+      "title": "Углубление: Swin и иерархические представления",
+      "question": "Как окна и patch merging создают пространственную иерархию?",
+      "prerequisites": [
+        "cv-vit"
+      ],
+      "level": "углубление",
+      "path": "04-computer-vision/cv-hierarchy.md",
+      "source": null,
+      "used_by": [],
+      "source_files": [
+        "05-computer-vision/Учебные конспекты/А — Классификация, backbone и математика ViT.md"
+      ],
+      "figures": [
+        "оформление/course/cv-hierarchy.svg",
+        "оформление/course/arch-swin.svg"
+      ]
+    },
+    {
+      "id": "cv-pretraining",
+      "module": "cv",
+      "section": "main",
+      "title": "Углубление: SSL, MAE, DeiT и DINOv3",
+      "question": "Как получить и проверить представление без полного набора task labels?",
+      "prerequisites": [
+        "cv-vit"
+      ],
+      "level": "углубление",
+      "path": "04-computer-vision/cv-pretraining.md",
+      "source": null,
+      "used_by": [],
+      "source_files": [
+        "05-computer-vision/Учебные конспекты/А — Классификация, backbone и математика ViT.md"
+      ],
+      "figures": [
+        "оформление/course/cv-pretraining.svg",
+        "оформление/course/arch-mae.svg",
+        "оформление/course/arch-deit.svg",
+        "оформление/course/arch-dinov3.svg"
+      ]
+    },
+    {
+      "id": "cv-detection",
+      "module": "cv",
+      "section": "main",
+      "title": "Detection: множества объектов, IoU, AP и архитектуры",
+      "question": "Как получить множество рамок и оценить его с учётом matching?",
+      "prerequisites": [
+        "cv-input",
+        "cv-classification"
+      ],
+      "level": "общее ядро",
+      "path": "04-computer-vision/cv-detection.md",
+      "source": "cv-Б",
+      "used_by": [
+        "cv-instance",
+        "cv-obb",
+        "cv-tracking",
+        "cv-open-vocabulary"
+      ],
+      "source_files": [
+        "05-computer-vision/Учебные конспекты/Б — Detection, IoU, AP, NMS и архитектуры.md"
+      ],
+      "figures": [
+        "оформление/course/cv-detection.svg",
+        "оформление/course/arch-fpn.svg",
+        "оформление/course/arch-faster-rcnn.svg",
+        "оформление/course/arch-ssd.svg",
+        "оформление/course/arch-retinanet.svg",
+        "оформление/course/arch-yolo.svg",
+        "оформление/course/arch-detr.svg",
+        "оформление/course/arch-yolov1.svg",
+        "оформление/course/arch-yolov2.svg",
+        "оформление/course/arch-yolov3.svg",
+        "оформление/course/arch-rtdetr.svg"
+      ]
+    },
+    {
+      "id": "cv-semantic",
+      "module": "cv",
+      "section": "main",
+      "title": "Semantic segmentation: FCN, U-Net и DeepLab",
+      "question": "Как предсказывать класс пикселя и восстанавливать пространственную сетку?",
+      "prerequisites": [
+        "cv-input",
+        "cv-classification"
+      ],
+      "level": "общее ядро",
+      "path": "04-computer-vision/cv-semantic.md",
+      "source": "cv-В",
+      "used_by": [
+        "cv-instance"
+      ],
+      "source_files": [
+        "05-computer-vision/Учебные конспекты/В — Semantic segmentation, FCN, U-Net и DeepLab.md"
+      ],
+      "figures": [
+        "оформление/course/cv-semantic.svg",
+        "оформление/course/arch-fcn.svg",
+        "оформление/course/arch-unet.svg",
+        "оформление/course/arch-deeplab.svg",
+        "оформление/course/arch-segnet.svg",
+        "оформление/course/arch-pspnet.svg",
+        "оформление/course/arch-hrnet.svg",
+        "оформление/course/arch-segformer.svg",
+        "оформление/course/arch-mask2former.svg"
+      ]
+    },
+    {
+      "id": "cv-instance",
+      "module": "cv",
+      "section": "main",
+      "title": "Instance segmentation: Mask R-CNN и prototype masks",
+      "question": "Как отличить экземпляры одного класса и получить маску каждого?",
+      "prerequisites": [
+        "cv-input",
+        "cv-classification",
+        "cv-detection",
+        "cv-semantic"
+      ],
+      "level": "общее ядро",
+      "path": "04-computer-vision/cv-instance.md",
+      "source": "cv-Г",
+      "used_by": [],
+      "source_files": [
+        "05-computer-vision/Учебные конспекты/Г — Instance segmentation, RoIAlign и prototype masks.md"
+      ],
+      "figures": [
+        "оформление/course/cv-instance.svg",
+        "оформление/course/arch-mask-rcnn.svg",
+        "оформление/course/arch-yolact.svg",
+        "оформление/course/arch-solo.svg",
+        "оформление/course/arch-solov2.svg",
+        "оформление/course/arch-deepmask.svg",
+        "оформление/course/arch-pointrend.svg",
+        "оформление/course/arch-sam.svg",
+        "оформление/course/arch-sam3.svg",
+        "оформление/course/arch-mask2former.svg"
+      ]
+    },
+    {
+      "id": "cv-pose",
+      "module": "cv",
+      "section": "main",
+      "title": "Pose: keypoints, heatmaps и группировка",
+      "question": "Как связать положение ключевых точек с конкретным объектом?",
+      "prerequisites": [
+        "cv-input",
+        "cv-classification"
+      ],
+      "level": "основа ветки",
+      "path": "04-computer-vision/cv-pose.md",
+      "source": "cv-Д",
+      "used_by": [],
+      "source_files": [
+        "05-computer-vision/Учебные конспекты/Д — Pose, heatmaps, OKS и группировка keypoints.md"
+      ],
+      "figures": [
+        "оформление/course/cv-pose.svg",
+        "оформление/course/arch-pose-topdown.svg",
+        "оформление/course/arch-pose-bottomup.svg",
+        "оформление/course/arch-pose-onestage.svg",
+        "оформление/course/arch-simplebaseline.svg",
+        "оформление/course/arch-higherhrnet.svg",
+        "оформление/course/arch-vitpose.svg",
+        "оформление/course/arch-rtmpose.svg",
+        "оформление/course/arch-blazepose.svg",
+        "оформление/course/arch-hrnet.svg"
+      ]
+    },
+    {
+      "id": "cv-obb",
+      "module": "cv",
+      "section": "main",
+      "title": "Ориентированные рамки и периодичность угла",
+      "question": "Как сравнивать геометрически одинаковые рамки с разными параметрами?",
+      "prerequisites": [
+        "cv-input",
+        "cv-classification",
+        "cv-detection"
+      ],
+      "level": "основа ветки",
+      "path": "04-computer-vision/cv-obb.md",
+      "source": "cv-Е",
+      "used_by": [],
+      "source_files": [
+        "05-computer-vision/Учебные конспекты/Е — OBB, поворот, periodicity и rotated IoU.md"
+      ],
+      "figures": [
+        "оформление/course/cv-obb.svg",
+        "оформление/course/arch-obb.svg"
+      ]
+    },
+    {
+      "id": "cv-tracking",
+      "module": "cv",
+      "section": "main",
+      "title": "Tracking: Kalman, association и идентичность",
+      "question": "Как сохранить идентичность объекта между кадрами?",
+      "prerequisites": [
+        "cv-input",
+        "cv-classification",
+        "cv-detection"
+      ],
+      "level": "основа ветки",
+      "path": "04-computer-vision/cv-tracking.md",
+      "source": "cv-Ж",
+      "used_by": [],
+      "source_files": [
+        "05-computer-vision/Учебные конспекты/Ж — Tracking, Kalman, association, MOTA, IDF1 и HOTA.md"
+      ],
+      "figures": [
+        "оформление/course/cv-tracking.svg",
+        "оформление/course/arch-sort.svg",
+        "оформление/course/arch-deepsort.svg",
+        "оформление/course/arch-bytetrack.svg",
+        "оформление/course/arch-botsort.svg",
+        "оформление/course/arch-sam31.svg"
+      ]
+    },
+    {
+      "id": "cv-depth",
+      "module": "cv",
+      "section": "main",
+      "title": "Depth: геометрия, масштаб и DPT",
+      "question": "Что можно восстановить из одного изображения и какие допущения нужны для масштаба?",
+      "prerequisites": [
+        "cv-input",
+        "cv-classification"
+      ],
+      "level": "основа ветки",
+      "path": "04-computer-vision/cv-depth.md",
+      "source": "cv-З",
+      "used_by": [],
+      "source_files": [
+        "05-computer-vision/Учебные конспекты/З — Depth, scale ambiguity, DPT и метрики.md"
+      ],
+      "figures": [
+        "оформление/course/cv-depth.svg",
+        "оформление/course/arch-dpt.svg",
+        "оформление/course/arch-midas.svg",
+        "оформление/course/arch-depth-anything.svg"
+      ]
+    },
+    {
+      "id": "cv-open-vocabulary",
+      "module": "cv",
+      "section": "main",
+      "title": "CLIP, открытый словарь и YOLO-World",
+      "question": "Как связать текстовое название с локализованным объектом?",
+      "prerequisites": [
+        "cv-input",
+        "cv-classification",
+        "cv-detection"
+      ],
+      "level": "основа ветки",
+      "path": "04-computer-vision/cv-open-vocabulary.md",
+      "source": "cv-И",
+      "used_by": [],
+      "source_files": [
+        "05-computer-vision/Учебные конспекты/И — CLIP, open-vocabulary detection и YOLO-World.md"
+      ],
+      "figures": [
+        "оформление/course/cv-open-vocabulary.svg",
+        "оформление/course/arch-clip.svg",
+        "оформление/course/arch-yolo-world.svg",
+        "оформление/course/arch-vild.svg",
+        "оформление/course/arch-regionclip.svg",
+        "оформление/course/arch-glip.svg",
+        "оформление/course/arch-grounding-dino.svg",
+        "оформление/course/arch-owlvit.svg",
+        "оформление/course/arch-owlv2.svg",
+        "оформление/course/arch-detic.svg",
+        "оформление/course/arch-sam3.svg"
+      ]
+    },
+    {
+      "id": "lm-task",
+      "module": "lm",
+      "section": "found",
+      "title": "Языковая модель и её задачи",
+      "question": "Что моделирует вероятность последовательности и какие задачи используют это распределение?",
+      "prerequisites": [],
+      "level": "общее ядро",
+      "path": "05-language-models/01-foundations/lm-task.md",
+      "source": null,
+      "used_by": [
+        "lm-tokenizer"
+      ],
+      "source_files": [],
+      "figures": [
+        "оформление/course/lm-task.svg"
+      ]
+    },
+    {
+      "id": "lm-tokenizer",
+      "module": "lm",
+      "section": "found",
+      "title": "Токенизация: от текста к индексам",
+      "question": "Как строка становится последовательностью ID и где заканчивается токенизатор?",
+      "prerequisites": [
+        "lm-task"
+      ],
+      "level": "общее ядро",
+      "path": "05-language-models/01-foundations/lm-tokenizer.md",
+      "source": null,
+      "used_by": [
+        "lm-states"
+      ],
+      "source_files": [
+        "06-llm/01-foundations/Учебные конспекты/А — Токены, embeddings и обучение следующему токену.md"
+      ],
+      "figures": [
+        "оформление/course/lm-tokenizer.svg"
+      ]
+    },
+    {
+      "id": "lm-states",
+      "module": "lm",
+      "section": "found",
+      "title": "Embeddings и контекстные состояния",
+      "question": "Чем различаются ID, embedding и скрытое состояние?",
+      "prerequisites": [
+        "lm-tokenizer"
+      ],
+      "level": "общее ядро",
+      "path": "05-language-models/01-foundations/lm-states.md",
+      "source": null,
+      "used_by": [
+        "lm-attention",
+        "lm-position",
+        "lm-rnn",
+        "lm-interpretation"
+      ],
+      "source_files": [
+        "06-llm/01-foundations/Учебные конспекты/А — Токены, embeddings и обучение следующему токену.md",
+        "06-llm/01-foundations/Учебные конспекты/Д — Hidden states, LM head и границы интерпретации.md"
+      ],
+      "figures": [
+        "оформление/course/lm-states.svg"
+      ]
+    },
+    {
+      "id": "lm-attention",
+      "module": "lm",
+      "section": "found",
+      "title": "Attention, Q/K/V и несколько голов",
+      "question": "Как одна позиция получает взвешенную информацию от других?",
+      "prerequisites": [
+        "lm-states"
+      ],
+      "level": "общее ядро",
+      "path": "05-language-models/01-foundations/lm-attention.md",
+      "source": null,
+      "used_by": [
+        "lm-position",
+        "lm-backward"
+      ],
+      "source_files": [
+        "06-llm/01-foundations/Учебные конспекты/Г — QKV, multi-head attention и точный backward.md"
+      ],
+      "figures": [
+        "оформление/course/lm-attention.svg",
+        "оформление/course/arch-attention.svg"
+      ]
+    },
+    {
+      "id": "lm-position",
+      "module": "lm",
+      "section": "found",
+      "title": "Позиции, causal mask и padding",
+      "question": "Как независимо задать порядок токенов и доступ к информации?",
+      "prerequisites": [
+        "lm-states",
+        "lm-attention"
+      ],
+      "level": "общее ядро",
+      "path": "05-language-models/01-foundations/lm-position.md",
+      "source": null,
+      "used_by": [
+        "lm-transformer"
+      ],
+      "source_files": [
+        "06-llm/01-foundations/Учебные конспекты/А — Токены, embeddings и обучение следующему токену.md",
+        "06-llm/01-foundations/Учебные конспекты/В — Transformer, causal mask и устройство блока.md"
+      ],
+      "figures": [
+        "оформление/course/lm-position.svg"
+      ]
+    },
+    {
+      "id": "lm-transformer",
+      "module": "lm",
+      "section": "found",
+      "title": "Transformer-блок: residual, normalization и MLP",
+      "question": "Как attention, MLP и остаточные связи образуют повторяемый блок?",
+      "prerequisites": [
+        "lm-position"
+      ],
+      "level": "общее ядро",
+      "path": "05-language-models/01-foundations/lm-transformer.md",
+      "source": null,
+      "used_by": [
+        "lm-families",
+        "adapt-lora"
+      ],
+      "source_files": [
+        "06-llm/01-foundations/Учебные конспекты/В — Transformer, causal mask и устройство блока.md"
+      ],
+      "figures": [
+        "оформление/course/lm-transformer.svg",
+        "оформление/course/arch-transformer.svg"
+      ]
+    },
+    {
+      "id": "lm-families",
+      "module": "lm",
+      "section": "found",
+      "title": "Encoder, decoder-only и encoder–decoder",
+      "question": "Как допустимые связи и источник Q/K/V различают семейства архитектур?",
+      "prerequisites": [
+        "lm-transformer"
+      ],
+      "level": "общее ядро",
+      "path": "05-language-models/01-foundations/lm-families.md",
+      "source": null,
+      "used_by": [
+        "lm-output",
+        "lm-bert"
+      ],
+      "source_files": [
+        "06-llm/01-foundations/Учебные конспекты/В — Transformer, causal mask и устройство блока.md",
+        "06-llm/01-foundations/Учебные конспекты/Г — QKV, multi-head attention и точный backward.md"
+      ],
+      "figures": [
+        "оформление/course/lm-families.svg",
+        "оформление/course/arch-encoder-decoder.svg"
+      ]
+    },
+    {
+      "id": "lm-output",
+      "module": "lm",
+      "section": "found",
+      "title": "Выход модели: LM head, logits и вероятности",
+      "question": "Как скрытое состояние превращается в распределение следующего токена?",
+      "prerequisites": [
+        "lm-families"
+      ],
+      "level": "общее ядро",
+      "path": "05-language-models/01-foundations/lm-output.md",
+      "source": null,
+      "used_by": [
+        "lm-training",
+        "lm-interpretation"
+      ],
+      "source_files": [
+        "06-llm/01-foundations/Учебные конспекты/Д — Hidden states, LM head и границы интерпретации.md"
+      ],
+      "figures": [
+        "оформление/course/lm-output.svg"
+      ]
+    },
+    {
+      "id": "lm-training",
+      "module": "lm",
+      "section": "found",
+      "title": "Обучение: targets, loss и обновление весов",
+      "question": "Как построить targets и проследить путь ошибки до обучаемых параметров?",
+      "prerequisites": [
+        "lm-output"
+      ],
+      "level": "общее ядро",
+      "path": "05-language-models/01-foundations/lm-training.md",
+      "source": null,
+      "used_by": [
+        "lm-generation",
+        "lm-bert",
+        "lm-rnn",
+        "lm-backward",
+        "lm-interpretation",
+        "adapt-choice"
+      ],
+      "source_files": [
+        "06-llm/01-foundations/Учебные конспекты/А — Токены, embeddings и обучение следующему токену.md",
+        "06-llm/01-foundations/Учебные конспекты/В — Transformer, causal mask и устройство блока.md",
+        "06-llm/01-foundations/Учебные конспекты/Д — Hidden states, LM head и границы интерпретации.md"
+      ],
+      "figures": [
+        "оформление/course/lm-training.svg"
+      ]
+    },
+    {
+      "id": "lm-generation",
+      "module": "lm",
+      "section": "found",
+      "title": "Обычная генерация по одному токену",
+      "question": "Как распределение превращается в продолжение и почему обучение отличается от применения?",
+      "prerequisites": [
+        "lm-training"
+      ],
+      "level": "общее ядро",
+      "path": "05-language-models/01-foundations/lm-generation.md",
+      "source": null,
+      "used_by": [
+        "adapt-choice",
+        "infer-generation",
+        "app-structured"
+      ],
+      "source_files": [
+        "06-llm/01-foundations/Учебные конспекты/А — Токены, embeddings и обучение следующему токену.md",
+        "06-llm/01-foundations/Учебные конспекты/Д — Hidden states, LM head и границы интерпретации.md"
+      ],
+      "figures": [
+        "оформление/course/lm-generation.svg"
+      ]
+    },
+    {
+      "id": "lm-bert",
+      "module": "lm",
+      "section": "found",
+      "title": "BERT в общем ядре: encoder, MLM и задачи",
+      "question": "Как двунаправленный encoder обучается на скрытых позициях и используется в задачах?",
+      "prerequisites": [
+        "lm-families",
+        "lm-training"
+      ],
+      "level": "общее ядро",
+      "path": "05-language-models/01-foundations/lm-bert.md",
+      "source": null,
+      "used_by": [
+        "bert-interface"
+      ],
+      "source_files": [
+        "06-llm/01-foundations/Учебные конспекты/В — Transformer, causal mask и устройство блока.md"
+      ],
+      "figures": [
+        "оформление/course/lm-bert.svg",
+        "оформление/course/arch-bert.svg"
+      ]
+    },
+    {
+      "id": "lm-rnn",
+      "module": "lm",
+      "section": "found",
+      "title": "Углубление: RNN и рекуррентное состояние",
+      "question": "Как одна и та же ячейка связывает состояния и градиенты во времени?",
+      "prerequisites": [
+        "lm-states",
+        "lm-training"
+      ],
+      "level": "углубление",
+      "path": "05-language-models/01-foundations/lm-rnn.md",
+      "source": "found-Б",
+      "used_by": [],
+      "source_files": [
+        "06-llm/01-foundations/Учебные конспекты/Б — RNN и ограничения рекуррентного состояния.md"
+      ],
+      "figures": [
+        "оформление/course/lm-rnn.svg"
+      ]
+    },
+    {
+      "id": "lm-backward",
+      "module": "lm",
+      "section": "found",
+      "title": "Углубление: точный backward attention",
+      "question": "Как производные проходят через softmax, Q/K/V и общие параметры?",
+      "prerequisites": [
+        "lm-attention",
+        "lm-training"
+      ],
+      "level": "углубление",
+      "path": "05-language-models/01-foundations/lm-backward.md",
+      "source": null,
+      "used_by": [],
+      "source_files": [
+        "06-llm/01-foundations/Учебные конспекты/А — Токены, embeddings и обучение следующему токену.md",
+        "06-llm/01-foundations/Учебные конспекты/В — Transformer, causal mask и устройство блока.md",
+        "06-llm/01-foundations/Учебные конспекты/Г — QKV, multi-head attention и точный backward.md"
+      ],
+      "figures": [
+        "оформление/course/lm-backward.svg",
+        "оформление/course/arch-attention-backward.svg"
+      ]
+    },
+    {
+      "id": "lm-interpretation",
+      "module": "lm",
+      "section": "found",
+      "title": "Углубление: интерпретация представлений",
+      "question": "Какие проверки нужны для утверждения о смысле слоя или embedding?",
+      "prerequisites": [
+        "lm-states",
+        "lm-output",
+        "lm-training"
+      ],
+      "level": "углубление",
+      "path": "05-language-models/01-foundations/lm-interpretation.md",
+      "source": null,
+      "used_by": [],
+      "source_files": [
+        "06-llm/01-foundations/Учебные конспекты/Д — Hidden states, LM head и границы интерпретации.md"
+      ],
+      "figures": [
+        "оформление/course/lm-interpretation.svg"
+      ]
+    },
+    {
+      "id": "bert-interface",
+      "module": "lm",
+      "section": "bert",
+      "title": "Encoder, tokenizer, attention и pooling",
+      "question": "Как получить состояния и корректно агрегировать их в представление текста?",
+      "prerequisites": [
+        "lm-bert",
+        "df-split",
+        "df-text"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/02-bert-encoders/bert-interface.md",
+      "source": "bert-А",
+      "used_by": [
+        "bert-objectives",
+        "bert-adaptation",
+        "bert-tasks",
+        "bert-embeddings",
+        "bert-retrieval",
+        "bert-domains",
+        "bert-evaluation",
+        "bert-operations"
+      ],
+      "source_files": [
+        "07-bert/Учебные конспекты/А — Encoder, tokenizer, attention и pooling.md"
+      ],
+      "figures": [
+        "оформление/course/bert-interface.svg",
+        "оформление/course/arch-bert.svg"
+      ]
+    },
+    {
+      "id": "bert-objectives",
+      "module": "lm",
+      "section": "bert",
+      "title": "MLM, альтернативные objectives и семейства encoder",
+      "question": "Какие позиции дают loss и как цель обучения меняет представления?",
+      "prerequisites": [
+        "bert-interface"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/02-bert-encoders/bert-objectives.md",
+      "source": "bert-Б",
+      "used_by": [
+        "bert-adaptation"
+      ],
+      "source_files": [
+        "07-bert/Учебные конспекты/Б — MLM, objectives и эволюция encoder-моделей.md"
+      ],
+      "figures": [
+        "оформление/course/bert-objectives.svg"
+      ]
+    },
+    {
+      "id": "bert-adaptation",
+      "module": "lm",
+      "section": "bert",
+      "title": "Данные, task heads, fine-tuning и DAPT",
+      "question": "Как согласовать разметку, форму выхода и objective encoder?",
+      "prerequisites": [
+        "bert-interface",
+        "bert-objectives"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/02-bert-encoders/bert-adaptation.md",
+      "source": "bert-В",
+      "used_by": [
+        "bert-tasks",
+        "bert-embeddings",
+        "bert-domains",
+        "bert-evaluation"
+      ],
+      "source_files": [
+        "07-bert/Учебные конспекты/В — Данные, головы, fine-tuning и DAPT.md"
+      ],
+      "figures": [
+        "оформление/course/bert-adaptation.svg"
+      ]
+    },
+    {
+      "id": "bert-tasks",
+      "module": "lm",
+      "section": "bert",
+      "title": "Classification, NER, spans и extractive QA",
+      "question": "Как преобразовать текстовую задачу в targets и восстановить ответ в исходных координатах?",
+      "prerequisites": [
+        "bert-interface",
+        "bert-adaptation"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/02-bert-encoders/bert-tasks.md",
+      "source": "bert-Г",
+      "used_by": [],
+      "source_files": [
+        "07-bert/Учебные конспекты/Г — Classification, NER, spans, пары и extractive QA.md",
+        "07-bert/План — BERT и encoder-модели для NLP.md"
+      ],
+      "figures": [
+        "оформление/course/bert-tasks.svg"
+      ]
+    },
+    {
+      "id": "bert-embeddings",
+      "module": "lm",
+      "section": "bert",
+      "title": "Sentence embeddings и contrastive learning",
+      "question": "Как обучить пространство, где близость полезна для конкретной задачи?",
+      "prerequisites": [
+        "bert-interface",
+        "bert-adaptation"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/02-bert-encoders/bert-embeddings.md",
+      "source": "bert-Д",
+      "used_by": [
+        "bert-retrieval"
+      ],
+      "source_files": [
+        "07-bert/Учебные конспекты/Д — Sentence embeddings, contrastive loss и геометрия.md"
+      ],
+      "figures": [
+        "оформление/course/bert-embeddings.svg"
+      ]
+    },
+    {
+      "id": "bert-retrieval",
+      "module": "lm",
+      "section": "bert",
+      "title": "Dense retrieval, cross-encoder, SPLADE и ColBERT",
+      "question": "Как выбрать место взаимодействия query и document и оценить полный budget?",
+      "prerequisites": [
+        "bert-interface",
+        "bert-embeddings"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/02-bert-encoders/bert-retrieval.md",
+      "source": "bert-Е",
+      "used_by": [],
+      "source_files": [
+        "07-bert/Учебные конспекты/Е — Dense, cross-encoder, SPLADE и ColBERT retrieval.md",
+        "07-bert/План — BERT и encoder-модели для NLP.md"
+      ],
+      "figures": [
+        "оформление/course/bert-retrieval.svg"
+      ]
+    },
+    {
+      "id": "bert-domains",
+      "module": "lm",
+      "section": "bert",
+      "title": "Языки, длинные документы, домены и layout",
+      "question": "Какие части контракта меняются при переносе на новый язык или тип документа?",
+      "prerequisites": [
+        "bert-interface",
+        "bert-adaptation"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/02-bert-encoders/bert-domains.md",
+      "source": "bert-Ж",
+      "used_by": [],
+      "source_files": [
+        "07-bert/Учебные конспекты/Ж — Языки, длинные документы, домены и layout.md",
+        "07-bert/План — BERT и encoder-модели для NLP.md"
+      ],
+      "figures": [
+        "оформление/course/bert-domains.svg"
+      ]
+    },
+    {
+      "id": "bert-evaluation",
+      "module": "lm",
+      "section": "bert",
+      "title": "Метрики, калибровка, OOD и интерпретация",
+      "question": "Как оценить encoder на правильной единице задачи и проверить отказ?",
+      "prerequisites": [
+        "bert-interface",
+        "bert-adaptation"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/02-bert-encoders/bert-evaluation.md",
+      "source": "bert-З",
+      "used_by": [
+        "bert-operations"
+      ],
+      "source_files": [
+        "07-bert/Учебные конспекты/З — Метрики, калибровка, OOD и интерпретация.md",
+        "07-bert/План — BERT и encoder-модели для NLP.md"
+      ],
+      "figures": [
+        "оформление/course/bert-evaluation.svg"
+      ]
+    },
+    {
+      "id": "bert-operations",
+      "module": "lm",
+      "section": "bert",
+      "title": "Сжатие, сервис encoder и жизненный цикл индекса",
+      "question": "Как обновить encoder и индекс, сохраняя согласованность представлений?",
+      "prerequisites": [
+        "bert-interface",
+        "bert-evaluation"
+      ],
+      "level": "углубление",
+      "path": "05-language-models/02-bert-encoders/bert-operations.md",
+      "source": "bert-И",
+      "used_by": [],
+      "source_files": [
+        "07-bert/Учебные конспекты/И — Compression, encoder service и жизненный цикл индекса.md",
+        "07-bert/План — BERT и encoder-модели для NLP.md"
+      ],
+      "figures": [
+        "оформление/course/bert-operations.svg"
+      ]
+    },
+    {
+      "id": "adapt-choice",
+      "module": "lm",
+      "section": "adapt",
+      "title": "Задача адаптации, baseline и выбор вмешательства",
+      "question": "Как отличить нехватку знаний, ошибку поведения и проблему исполнения?",
+      "prerequisites": [
+        "lm-training",
+        "lm-generation",
+        "df-split",
+        "df-text"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/03-adaptation/adapt-choice.md",
+      "source": "adapt-А",
+      "used_by": [
+        "adapt-sft",
+        "adapt-regimes",
+        "adapt-lora",
+        "adapt-variants",
+        "adapt-alternatives",
+        "adapt-preference",
+        "adapt-merging",
+        "adapt-distillation",
+        "adapt-continual",
+        "adapt-evaluation"
+      ],
+      "source_files": [
+        "06-llm/02-adaptation/Учебные конспекты/А — Выбор адаптации, PEFT и память обучения.md"
+      ],
+      "figures": [
+        "оформление/course/adapt-choice.svg"
+      ]
+    },
+    {
+      "id": "adapt-sft",
+      "module": "lm",
+      "section": "adapt",
+      "title": "SFT: данные, шаблоны, masks и objective",
+      "question": "Какие позиции становятся целями supervised fine-tuning?",
+      "prerequisites": [
+        "adapt-choice"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/03-adaptation/adapt-sft.md",
+      "source": "adapt-Д",
+      "used_by": [
+        "adapt-regimes",
+        "adapt-lora",
+        "adapt-variants",
+        "adapt-alternatives",
+        "adapt-preference",
+        "adapt-merging",
+        "adapt-distillation",
+        "adapt-continual",
+        "adapt-evaluation",
+        "agent-demonstrations"
+      ],
+      "source_files": [
+        "06-llm/02-adaptation/Учебные конспекты/Д — SFT, данные из книг, masks и training objective.md"
+      ],
+      "figures": [
+        "оформление/course/adapt-sft.svg"
+      ]
+    },
+    {
+      "id": "adapt-regimes",
+      "module": "lm",
+      "section": "adapt",
+      "title": "Полное обучение или PEFT",
+      "question": "Какие параметры обновляются и почему это не меняет смысл SFT?",
+      "prerequisites": [
+        "adapt-choice",
+        "adapt-sft"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/03-adaptation/adapt-regimes.md",
+      "source": null,
+      "used_by": [
+        "adapt-lora"
+      ],
+      "source_files": [],
+      "figures": [
+        "оформление/course/adapt-regimes.svg"
+      ]
+    },
+    {
+      "id": "adapt-lora",
+      "module": "lm",
+      "section": "adapt",
+      "title": "LoRA: low-rank обновление и градиенты",
+      "question": "Как low-rank ветвь обновляет конкретную линейную проекцию?",
+      "prerequisites": [
+        "adapt-choice",
+        "adapt-sft",
+        "adapt-regimes",
+        "lm-transformer"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/03-adaptation/adapt-lora.md",
+      "source": "adapt-Б",
+      "used_by": [
+        "adapt-variants"
+      ],
+      "source_files": [
+        "06-llm/02-adaptation/Учебные конспекты/Б — LoRA, target modules и два шага обучения.md"
+      ],
+      "figures": [
+        "оформление/course/adapt-lora.svg"
+      ]
+    },
+    {
+      "id": "adapt-variants",
+      "module": "lm",
+      "section": "adapt",
+      "title": "DoRA, AdaLoRA, LoRA+ и QLoRA",
+      "question": "Как различаются изменяемый объект, бюджет ранга и формат хранения базы?",
+      "prerequisites": [
+        "adapt-choice",
+        "adapt-sft",
+        "adapt-lora"
+      ],
+      "level": "углубление",
+      "path": "05-language-models/03-adaptation/adapt-variants.md",
+      "source": "adapt-В",
+      "used_by": [],
+      "source_files": [
+        "06-llm/02-adaptation/Учебные конспекты/В — DoRA, AdaLoRA, LoRA+ и QLoRA.md"
+      ],
+      "figures": [
+        "оформление/course/adapt-variants.svg"
+      ]
+    },
+    {
+      "id": "adapt-alternatives",
+      "module": "lm",
+      "section": "adapt",
+      "title": "Adapters, prefix tuning, soft prompts и BitFit",
+      "question": "Где добавляются обучаемые параметры и что меняется при inference?",
+      "prerequisites": [
+        "adapt-choice",
+        "adapt-sft"
+      ],
+      "level": "углубление",
+      "path": "05-language-models/03-adaptation/adapt-alternatives.md",
+      "source": "adapt-Г",
+      "used_by": [],
+      "source_files": [
+        "06-llm/02-adaptation/Учебные конспекты/Г — Adapters, prefix tuning, soft prompts и BitFit.md"
+      ],
+      "figures": [
+        "оформление/course/adapt-alternatives.svg"
+      ]
+    },
+    {
+      "id": "adapt-preference",
+      "module": "lm",
+      "section": "adapt",
+      "title": "RLHF, PPO, DPO, IPO, KTO и ORPO",
+      "question": "Как предпочтения превращаются в objective и каких данных он требует?",
+      "prerequisites": [
+        "adapt-choice",
+        "adapt-sft"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/03-adaptation/adapt-preference.md",
+      "source": "adapt-Е",
+      "used_by": [
+        "adapt-continual"
+      ],
+      "source_files": [
+        "06-llm/02-adaptation/Учебные конспекты/Е — RLHF, PPO, DPO, IPO, KTO и ORPO.md"
+      ],
+      "figures": [
+        "оформление/course/adapt-preference.svg"
+      ]
+    },
+    {
+      "id": "adapt-merging",
+      "module": "lm",
+      "section": "adapt",
+      "title": "Model soup, TIES, DARE и переключение адаптеров",
+      "question": "Когда операции над весами совместимы и как проверить итоговую функцию?",
+      "prerequisites": [
+        "adapt-choice",
+        "adapt-sft"
+      ],
+      "level": "углубление",
+      "path": "05-language-models/03-adaptation/adapt-merging.md",
+      "source": "adapt-Ж",
+      "used_by": [],
+      "source_files": [
+        "06-llm/02-adaptation/Учебные конспекты/Ж — Model soup, TIES, DARE, merge и switching.md"
+      ],
+      "figures": [
+        "оформление/course/adapt-merging.svg"
+      ]
+    },
+    {
+      "id": "adapt-distillation",
+      "module": "lm",
+      "section": "adapt",
+      "title": "Дистилляция и обучение на траекториях",
+      "question": "Какой сигнал teacher передаёт student и как проверить перенос?",
+      "prerequisites": [
+        "adapt-choice",
+        "adapt-sft"
+      ],
+      "level": "углубление",
+      "path": "05-language-models/03-adaptation/adapt-distillation.md",
+      "source": "adapt-К",
+      "used_by": [],
+      "source_files": [
+        "06-llm/02-adaptation/Учебные конспекты/К — Дистилляция, teacher annealing и обучение на своих траекториях.md"
+      ],
+      "figures": [
+        "оформление/course/adapt-distillation.svg"
+      ]
+    },
+    {
+      "id": "adapt-continual",
+      "module": "lm",
+      "section": "adapt",
+      "title": "AI feedback и continual learning",
+      "question": "Как обновлять поведение, контролируя источник feedback и забывание?",
+      "prerequisites": [
+        "adapt-choice",
+        "adapt-sft",
+        "adapt-preference"
+      ],
+      "level": "углубление",
+      "path": "05-language-models/03-adaptation/adapt-continual.md",
+      "source": "adapt-И",
+      "used_by": [],
+      "source_files": [
+        "06-llm/02-adaptation/Учебные конспекты/И — AI feedback, несколько целей и continual learning.md"
+      ],
+      "figures": [
+        "оформление/course/adapt-continual.svg"
+      ]
+    },
+    {
+      "id": "adapt-evaluation",
+      "module": "lm",
+      "section": "adapt",
+      "title": "Оценка, perplexity, judge и экспорт",
+      "question": "Как сравнить candidate с baseline и подтвердить сохранение поведения после экспорта?",
+      "prerequisites": [
+        "adapt-choice",
+        "adapt-sft"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/03-adaptation/adapt-evaluation.md",
+      "source": "adapt-З",
+      "used_by": [],
+      "source_files": [
+        "06-llm/02-adaptation/Учебные конспекты/З — Evaluation, perplexity, judge и экспорт.md"
+      ],
+      "figures": [
+        "оформление/course/adapt-evaluation.svg"
+      ]
+    },
+    {
+      "id": "infer-generation",
+      "module": "lm",
+      "section": "infer",
+      "title": "От prompt к обычному циклу генерации",
+      "question": "Какие состояния меняются при генерации и какие веса остаются фиксированными?",
+      "prerequisites": [
+        "lm-generation"
+      ],
+      "level": "общее ядро",
+      "path": "05-language-models/04-inference/infer-generation.md",
+      "source": null,
+      "used_by": [
+        "infer-kv",
+        "infer-context",
+        "infer-decoding",
+        "infer-serving",
+        "infer-speculative",
+        "infer-quantization",
+        "infer-pruning",
+        "infer-deployment",
+        "infer-monitoring"
+      ],
+      "source_files": [
+        "06-llm/03-inference/Учебные конспекты/Е — Greedy, temperature, top-p, beam и constrained decoding.md"
+      ],
+      "figures": [
+        "оформление/course/infer-generation.svg"
+      ]
+    },
+    {
+      "id": "infer-kv",
+      "module": "lm",
+      "section": "infer",
+      "title": "Prefill, decode, KV-cache, MQA и GQA",
+      "question": "Какие вычисления и тензоры можно повторно использовать?",
+      "prerequisites": [
+        "infer-generation"
+      ],
+      "level": "общее ядро",
+      "path": "05-language-models/04-inference/infer-kv.md",
+      "source": "infer-В",
+      "used_by": [
+        "infer-context",
+        "infer-decoding",
+        "infer-serving",
+        "infer-speculative",
+        "infer-quantization",
+        "infer-pruning",
+        "infer-deployment",
+        "infer-monitoring"
+      ],
+      "source_files": [
+        "06-llm/01-foundations/Учебные конспекты/Д — Hidden states, LM head и границы интерпретации.md",
+        "06-llm/03-inference/Учебные конспекты/В — KV-cache, prefill, decode, MQA и GQA.md"
+      ],
+      "figures": [
+        "оформление/course/infer-kv.svg"
+      ]
+    },
+    {
+      "id": "infer-context",
+      "module": "lm",
+      "section": "infer",
+      "title": "Контекст, sliding window и prefix caching",
+      "question": "Что меняется при ограничении истории и повторном использовании prefix?",
+      "prerequisites": [
+        "infer-generation",
+        "infer-kv"
+      ],
+      "level": "общее ядро",
+      "path": "05-language-models/04-inference/infer-context.md",
+      "source": "infer-Ж",
+      "used_by": [],
+      "source_files": [
+        "06-llm/03-inference/Учебные конспекты/Ж — Длинный контекст, sliding window и prompt caching.md"
+      ],
+      "figures": [
+        "оформление/course/infer-context.svg"
+      ]
+    },
+    {
+      "id": "infer-decoding",
+      "module": "lm",
+      "section": "infer",
+      "title": "Greedy, temperature, top-p, beam и ограничения",
+      "question": "Как decoding policy выбирает токен из logits?",
+      "prerequisites": [
+        "infer-generation",
+        "infer-kv"
+      ],
+      "level": "общее ядро",
+      "path": "05-language-models/04-inference/infer-decoding.md",
+      "source": "infer-Е",
+      "used_by": [
+        "infer-speculative"
+      ],
+      "source_files": [
+        "06-llm/03-inference/Учебные конспекты/Е — Greedy, temperature, top-p, beam и constrained decoding.md"
+      ],
+      "figures": [
+        "оформление/course/infer-decoding.svg"
+      ]
+    },
+    {
+      "id": "infer-serving",
+      "module": "lm",
+      "section": "infer",
+      "title": "Serving, batching и PagedAttention",
+      "question": "Как совместно обслуживать запросы при ограничениях памяти и задержки?",
+      "prerequisites": [
+        "infer-generation",
+        "infer-kv"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/04-inference/infer-serving.md",
+      "source": "infer-Г",
+      "used_by": [
+        "infer-deployment",
+        "infer-monitoring"
+      ],
+      "source_files": [
+        "06-llm/03-inference/Учебные конспекты/Г — Serving, continuous batching и PagedAttention.md"
+      ],
+      "figures": [
+        "оформление/course/infer-serving.svg"
+      ]
+    },
+    {
+      "id": "infer-speculative",
+      "module": "lm",
+      "section": "infer",
+      "title": "Speculative decoding и rejection sampling",
+      "question": "Почему проверка draft сохраняет заданное распределение?",
+      "prerequisites": [
+        "infer-generation",
+        "infer-kv",
+        "infer-decoding"
+      ],
+      "level": "углубление",
+      "path": "05-language-models/04-inference/infer-speculative.md",
+      "source": "infer-Д",
+      "used_by": [],
+      "source_files": [
+        "06-llm/03-inference/Учебные конспекты/Д — Speculative decoding, rejection sampling и beam search.md"
+      ],
+      "figures": [
+        "оформление/course/infer-speculative.svg"
+      ]
+    },
+    {
+      "id": "infer-quantization",
+      "module": "lm",
+      "section": "infer",
+      "title": "Квантизация: PTQ, QAT, GPTQ и AWQ",
+      "question": "Какие массивы и ошибки меняются при сокращении precision?",
+      "prerequisites": [
+        "infer-generation",
+        "infer-kv"
+      ],
+      "level": "углубление",
+      "path": "05-language-models/04-inference/infer-quantization.md",
+      "source": "infer-А",
+      "used_by": [],
+      "source_files": [
+        "06-llm/03-inference/Учебные конспекты/А — Квантизация, активации, PTQ, QAT, GPTQ и AWQ.md"
+      ],
+      "figures": [
+        "оформление/course/infer-quantization.svg"
+      ]
+    },
+    {
+      "id": "infer-pruning",
+      "module": "lm",
+      "section": "infer",
+      "title": "Pruning и границы сжатия",
+      "question": "Как удаление структуры связано с реальным ускорением?",
+      "prerequisites": [
+        "infer-generation",
+        "infer-kv"
+      ],
+      "level": "углубление",
+      "path": "05-language-models/04-inference/infer-pruning.md",
+      "source": "infer-Б",
+      "used_by": [],
+      "source_files": [
+        "06-llm/03-inference/Учебные конспекты/Б — Pruning и граница с дистилляцией.md"
+      ],
+      "figures": [
+        "оформление/course/infer-pruning.svg"
+      ]
+    },
+    {
+      "id": "infer-deployment",
+      "module": "lm",
+      "section": "infer",
+      "title": "Deployment, cold start, очереди и масштабирование",
+      "question": "Как согласовать admission, startup и воспроизводимый rollout?",
+      "prerequisites": [
+        "infer-generation",
+        "infer-kv",
+        "infer-serving"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/04-inference/infer-deployment.md",
+      "source": "infer-И",
+      "used_by": [],
+      "source_files": [
+        "06-llm/03-inference/Учебные конспекты/И — Deployment, cold start, очереди и масштабирование.md"
+      ],
+      "figures": [
+        "оформление/course/infer-deployment.svg"
+      ]
+    },
+    {
+      "id": "infer-monitoring",
+      "module": "lm",
+      "section": "infer",
+      "title": "Кэш ответов, monitoring и качество",
+      "question": "Как доказать допустимость reuse и заметить регрессию качества?",
+      "prerequisites": [
+        "infer-generation",
+        "infer-kv",
+        "infer-serving"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/04-inference/infer-monitoring.md",
+      "source": "infer-К",
+      "used_by": [],
+      "source_files": [
+        "06-llm/03-inference/Учебные конспекты/К — Кэш ответов, semantic cache, мониторинг и качество.md"
+      ],
+      "figures": [
+        "оформление/course/infer-monitoring.svg"
+      ]
+    },
+    {
+      "id": "app-structured",
+      "module": "lm",
+      "section": "app",
+      "title": "Structured output: schema и смысл результата",
+      "question": "Что гарантирует синтаксис результата и что ещё должно проверить приложение?",
+      "prerequisites": [
+        "lm-generation",
+        "df-task"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/05-applications/app-structured.md",
+      "source": "app-А",
+      "used_by": [
+        "app-tools"
+      ],
+      "source_files": [
+        "06-llm/04-applications/Учебные конспекты/А — Structured output, schema и смысл результата.md"
+      ],
+      "figures": [
+        "оформление/course/app-structured.svg"
+      ]
+    },
+    {
+      "id": "app-tools",
+      "module": "lm",
+      "section": "app",
+      "title": "Вызов инструментов и исполнение",
+      "question": "Где заканчивается выбор модели и начинается действие приложения?",
+      "prerequisites": [
+        "app-structured"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/05-applications/app-tools.md",
+      "source": "app-Б",
+      "used_by": [
+        "app-state"
+      ],
+      "source_files": [
+        "06-llm/03-inference/Учебные конспекты/З — Orchestration, tools, RAG и границы runtime.md",
+        "06-llm/04-applications/Учебные конспекты/Б — Tool calling, execution, ошибки и idempotency.md"
+      ],
+      "figures": [
+        "оформление/course/app-tools.svg"
+      ]
+    },
+    {
+      "id": "app-state",
+      "module": "lm",
+      "section": "app",
+      "title": "Состояние, orchestration и граф управления",
+      "question": "Какие данные и переходы нужны для остановки, восстановления и повторного исполнения?",
+      "prerequisites": [
+        "app-tools"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/05-applications/app-state.md",
+      "source": "app-В",
+      "used_by": [
+        "app-rag",
+        "agent-task"
+      ],
+      "source_files": [
+        "06-llm/03-inference/Учебные конспекты/З — Orchestration, tools, RAG и границы runtime.md",
+        "06-llm/04-applications/Учебные конспекты/В — State, orchestration, графы и участники агента.md"
+      ],
+      "figures": [
+        "оформление/course/app-state.svg"
+      ]
+    },
+    {
+      "id": "app-rag",
+      "module": "lm",
+      "section": "app",
+      "title": "RAG: BM25, dense, hybrid и multi-vector retrieval",
+      "question": "Как найти evidence и связать его с ответом без обучения собственного retriever?",
+      "prerequisites": [
+        "app-state",
+        "df-split",
+        "df-text"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/05-applications/app-rag.md",
+      "source": "app-Г",
+      "used_by": [
+        "app-evaluation"
+      ],
+      "source_files": [
+        "06-llm/03-inference/Учебные конспекты/З — Orchestration, tools, RAG и границы runtime.md",
+        "06-llm/04-applications/Учебные конспекты/Г — RAG, BM25, dense, hybrid и multi-vector retrieval.md"
+      ],
+      "figures": [
+        "оформление/course/app-rag.svg"
+      ]
+    },
+    {
+      "id": "app-evaluation",
+      "module": "lm",
+      "section": "app",
+      "title": "Оценка retrieval, ответов и task success",
+      "question": "Как локализовать ошибку приложения и измерить стоимость успешной задачи?",
+      "prerequisites": [
+        "app-rag"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/05-applications/app-evaluation.md",
+      "source": "app-Д",
+      "used_by": [
+        "agent-task"
+      ],
+      "source_files": [
+        "06-llm/03-inference/Учебные конспекты/З — Orchestration, tools, RAG и границы runtime.md",
+        "06-llm/04-applications/Учебные конспекты/Д — Evaluation retrieval, ответов, citations и task success.md"
+      ],
+      "figures": [
+        "оформление/course/app-evaluation.svg"
+      ]
+    },
+    {
+      "id": "agent-task",
+      "module": "lm",
+      "section": "agent",
+      "title": "Постановка обучения агента и baseline",
+      "question": "Как выбрать вмешательство по измеренному типу ошибки?",
+      "prerequisites": [
+        "app-state",
+        "app-evaluation"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/06-agent-learning/agent-task.md",
+      "source": "agent-А",
+      "used_by": [
+        "agent-environment"
+      ],
+      "source_files": [
+        "06-llm/05-lifecycle/Учебные конспекты/А — Lifecycle и выбор следующего вмешательства.md"
+      ],
+      "figures": [
+        "оформление/course/agent-task.svg"
+      ]
+    },
+    {
+      "id": "agent-environment",
+      "module": "lm",
+      "section": "agent",
+      "title": "Среда, observations, actions и horizon",
+      "question": "Как описать доступную агенту информацию и последствия действия?",
+      "prerequisites": [
+        "agent-task"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/06-agent-learning/agent-environment.md",
+      "source": "agent-Б",
+      "used_by": [
+        "agent-evaluation"
+      ],
+      "source_files": [
+        "06-llm/05-lifecycle/Учебные конспекты/Б — Среда, observations, actions, reward и horizon.md"
+      ],
+      "figures": [
+        "оформление/course/agent-environment.svg"
+      ]
+    },
+    {
+      "id": "agent-evaluation",
+      "module": "lm",
+      "section": "agent",
+      "title": "Оценка траекторий и воспроизводимость",
+      "question": "Что считать успехом целой попытки и как учитывать retries и стоимость?",
+      "prerequisites": [
+        "agent-environment"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/06-agent-learning/agent-evaluation.md",
+      "source": "agent-К",
+      "used_by": [
+        "agent-demonstrations",
+        "agent-recovery",
+        "agent-rl",
+        "agent-reasoning",
+        "agent-memory",
+        "agent-preferences",
+        "agent-coordination"
+      ],
+      "source_files": [
+        "06-llm/05-lifecycle/Учебные конспекты/К — Оценка траекторий, стоимость и воспроизводимость.md"
+      ],
+      "figures": [
+        "оформление/course/agent-evaluation.svg"
+      ]
+    },
+    {
+      "id": "agent-demonstrations",
+      "module": "lm",
+      "section": "agent",
+      "title": "Behavior cloning и SFT на демонстрациях",
+      "question": "Как из траектории получить targets для обучения политики?",
+      "prerequisites": [
+        "agent-evaluation",
+        "adapt-sft"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/06-agent-learning/agent-demonstrations.md",
+      "source": "agent-В",
+      "used_by": [
+        "agent-recovery"
+      ],
+      "source_files": [
+        "06-llm/05-lifecycle/Учебные конспекты/В — Behavior cloning и SFT на tool trajectories.md"
+      ],
+      "figures": [
+        "оформление/course/agent-demonstrations.svg"
+      ]
+    },
+    {
+      "id": "agent-recovery",
+      "module": "lm",
+      "section": "agent",
+      "title": "Distribution shift, recovery и DAgger",
+      "question": "Как научиться действовать в состояниях, порождённых собственными ошибками?",
+      "prerequisites": [
+        "agent-evaluation",
+        "agent-demonstrations"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/06-agent-learning/agent-recovery.md",
+      "source": "agent-Г",
+      "used_by": [
+        "agent-rl"
+      ],
+      "source_files": [
+        "06-llm/05-lifecycle/Учебные конспекты/Г — Distribution shift, recovery и DAgger.md"
+      ],
+      "figures": [
+        "оформление/course/agent-recovery.svg"
+      ]
+    },
+    {
+      "id": "agent-rl",
+      "module": "lm",
+      "section": "agent",
+      "title": "Обучение через взаимодействие: PPO и GRPO",
+      "question": "Как отложенный reward меняет вероятность последовательности действий?",
+      "prerequisites": [
+        "agent-evaluation",
+        "agent-recovery"
+      ],
+      "level": "основа ветки",
+      "path": "05-language-models/06-agent-learning/agent-rl.md",
+      "source": "agent-Е",
+      "used_by": [],
+      "source_files": [
+        "06-llm/05-lifecycle/Учебные конспекты/Е — RL, credit assignment, PPO и GRPO.md"
+      ],
+      "figures": [
+        "оформление/course/agent-rl.svg"
+      ]
+    },
+    {
+      "id": "agent-reasoning",
+      "module": "lm",
+      "section": "agent",
+      "title": "Углубление: reasoning и верификация",
+      "question": "Когда дополнительный поиск и проверка улучшают результат?",
+      "prerequisites": [
+        "agent-evaluation"
+      ],
+      "level": "углубление",
+      "path": "05-language-models/06-agent-learning/agent-reasoning.md",
+      "source": "agent-Д",
+      "used_by": [],
+      "source_files": [
+        "06-llm/05-lifecycle/Учебные конспекты/Д — Reasoning, верификация и test-time compute.md"
+      ],
+      "figures": [
+        "оформление/course/agent-reasoning.svg"
+      ]
+    },
+    {
+      "id": "agent-memory",
+      "module": "lm",
+      "section": "agent",
+      "title": "Углубление: память и длинный горизонт",
+      "question": "Какую информацию сохранить и как измерить её полезность?",
+      "prerequisites": [
+        "agent-evaluation"
+      ],
+      "level": "углубление",
+      "path": "05-language-models/06-agent-learning/agent-memory.md",
+      "source": "agent-Ж",
+      "used_by": [],
+      "source_files": [
+        "06-llm/05-lifecycle/Учебные конспекты/Ж — Память, summary и длинный горизонт.md"
+      ],
+      "figures": [
+        "оформление/course/agent-memory.svg"
+      ]
+    },
+    {
+      "id": "agent-preferences",
+      "module": "lm",
+      "section": "agent",
+      "title": "Углубление: предпочтения траекторий",
+      "question": "Как сравнивать полные попытки с разным бюджетом и исходом?",
+      "prerequisites": [
+        "agent-evaluation"
+      ],
+      "level": "углубление",
+      "path": "05-language-models/06-agent-learning/agent-preferences.md",
+      "source": "agent-З",
+      "used_by": [],
+      "source_files": [
+        "06-llm/05-lifecycle/Учебные конспекты/З — Предпочтения между полными траекториями.md"
+      ],
+      "figures": [
+        "оформление/course/agent-preferences.svg"
+      ]
+    },
+    {
+      "id": "agent-coordination",
+      "module": "lm",
+      "section": "agent",
+      "title": "Углубление: роли и обучение координации",
+      "question": "При каких условиях несколько участников дают измеримый выигрыш?",
+      "prerequisites": [
+        "agent-evaluation"
+      ],
+      "level": "углубление",
+      "path": "05-language-models/06-agent-learning/agent-coordination.md",
+      "source": "agent-И",
+      "used_by": [],
+      "source_files": [
+        "06-llm/05-lifecycle/Учебные конспекты/И — Multi-agent, роли и обучение координации.md"
+      ],
+      "figures": [
+        "оформление/course/agent-coordination.svg"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "tabular",
+      "title": "Табличные задачи",
+      "chapters": [
+        "df-task",
+        "df-split",
+        "df-quality",
+        "df-metrics",
+        "feat-types",
+        "feat-numeric",
+        "feat-missing",
+        "feat-categorical",
+        "feat-hashing",
+        "feat-target",
+        "feat-native",
+        "feat-pipeline"
+      ]
+    },
+    {
+      "id": "clustering",
+      "title": "Кластеризация без Transformer",
+      "chapters": [
+        "df-task",
+        "df-split",
+        "feat-types",
+        "feat-numeric",
+        "cl-geometry",
+        "cl-projection",
+        "cl-kmeans",
+        "cl-hierarchy",
+        "cl-density",
+        "cl-gmm",
+        "cl-metrics",
+        "cl-stability",
+        "cl-systems"
+      ]
+    },
+    {
+      "id": "vision",
+      "title": "CV без LLM",
+      "chapters": [
+        "df-task",
+        "df-split",
+        "df-loading",
+        "df-images",
+        "cv-input",
+        "cv-classification",
+        "cv-detection",
+        "cv-semantic",
+        "cv-instance"
+      ]
+    },
+    {
+      "id": "language-core",
+      "title": "Общее ядро языковых моделей",
+      "chapters": [
+        "lm-task",
+        "lm-tokenizer",
+        "lm-states",
+        "lm-attention",
+        "lm-position",
+        "lm-transformer",
+        "lm-families",
+        "lm-output",
+        "lm-training",
+        "lm-generation",
+        "lm-bert"
+      ]
+    },
+    {
+      "id": "encoder",
+      "title": "BERT без генеративной адаптации",
+      "chapters": [
+        "df-task",
+        "df-split",
+        "df-loading",
+        "df-text",
+        "lm-task",
+        "lm-tokenizer",
+        "lm-states",
+        "lm-attention",
+        "lm-position",
+        "lm-transformer",
+        "lm-families",
+        "lm-output",
+        "lm-training",
+        "lm-bert",
+        "bert-interface",
+        "bert-objectives",
+        "bert-adaptation",
+        "bert-tasks",
+        "bert-evaluation"
+      ]
+    },
+    {
+      "id": "application",
+      "title": "Приложение без LoRA и обучения retrieval",
+      "chapters": [
+        "df-task",
+        "df-split",
+        "df-loading",
+        "df-text",
+        "lm-task",
+        "lm-tokenizer",
+        "lm-states",
+        "lm-attention",
+        "lm-position",
+        "lm-transformer",
+        "lm-families",
+        "lm-output",
+        "lm-training",
+        "lm-generation",
+        "app-structured",
+        "app-tools",
+        "app-state",
+        "app-rag",
+        "app-evaluation"
+      ]
+    },
+    {
+      "id": "adaptation",
+      "title": "SFT перед LoRA",
+      "chapters": [
+        "df-task",
+        "df-split",
+        "df-loading",
+        "df-text",
+        "lm-task",
+        "lm-tokenizer",
+        "lm-states",
+        "lm-attention",
+        "lm-position",
+        "lm-transformer",
+        "lm-families",
+        "lm-output",
+        "lm-training",
+        "lm-generation",
+        "adapt-choice",
+        "adapt-sft",
+        "adapt-regimes",
+        "adapt-lora",
+        "adapt-evaluation"
+      ]
+    },
+    {
+      "id": "inference",
+      "title": "От генерации к serving",
+      "chapters": [
+        "lm-task",
+        "lm-tokenizer",
+        "lm-states",
+        "lm-attention",
+        "lm-position",
+        "lm-transformer",
+        "lm-families",
+        "lm-output",
+        "lm-training",
+        "lm-generation",
+        "infer-generation",
+        "infer-kv",
+        "infer-context",
+        "infer-decoding",
+        "infer-serving",
+        "infer-deployment",
+        "infer-monitoring"
+      ]
+    },
+    {
+      "id": "agents",
+      "title": "Оценка агента перед обучением",
+      "chapters": [
+        "agent-task",
+        "agent-environment",
+        "agent-evaluation",
+        "agent-demonstrations",
+        "agent-recovery",
+        "agent-rl"
+      ],
+      "entry": [
+        "app-state",
+        "app-evaluation",
+        "adapt-sft"
+      ]
+    }
+  ],
+  "legacy_aliases": {
+    "course-1-0": "module-data",
+    "course-1-1": "df-task",
+    "course-1-2": "df-split",
+    "course-1-3": "df-quality",
+    "course-1-4": "df-metrics",
+    "course-1-5": "df-augmentation",
+    "course-1-6": "df-loading",
+    "course-1-7": "df-images",
+    "course-1-8": "df-text",
+    "course-1-9": "df-drift",
+    "course-2-0": "module-reg",
+    "course-2-1": "reg-diagnosis",
+    "course-2-2": "reg-penalties",
+    "course-2-3": "reg-training",
+    "course-2-4": "reg-stochastic",
+    "course-2-5": "reg-normalization",
+    "course-2-6": "reg-robustness",
+    "course-2-7": "reg-augmentation",
+    "course-2-8": "reg-sequences",
+    "course-2-9": "reg-structure",
+    "course-2-10": "reg-selection",
+    "course-3-0": "module-data",
+    "course-3-1": "feat-categorical",
+    "course-3-2": "feat-hashing",
+    "course-3-3": "feat-target",
+    "course-3-4": "feat-embeddings",
+    "course-3-5": "feat-native",
+    "course-3-6": "feat-interactions",
+    "course-3-7": "feat-sets",
+    "course-3-8": "feat-missing",
+    "course-3-9": "feat-time",
+    "course-4-0": "module-cluster",
+    "course-4-1": "cl-geometry",
+    "course-4-2": "cl-kmeans",
+    "course-4-3": "cl-stability",
+    "course-4-4": "cl-metrics",
+    "course-4-5": "cl-frozen",
+    "course-4-6": "cl-images",
+    "course-4-7": "cl-text",
+    "course-4-8": "cl-projection",
+    "course-4-9": "cl-systems",
+    "course-5-0": "module-cv",
+    "course-5-1": "cv-classification",
+    "course-5-2": "cv-detection",
+    "course-5-3": "cv-semantic",
+    "course-5-4": "cv-instance",
+    "course-5-5": "cv-pose",
+    "course-5-6": "cv-obb",
+    "course-5-7": "cv-tracking",
+    "course-5-8": "cv-depth",
+    "course-5-9": "cv-open-vocabulary",
+    "course-5-10": "cv-input",
+    "course-6-0": "section-found",
+    "course-6-1": "lm-tokenizer",
+    "course-6-2": "lm-rnn",
+    "course-6-3": "lm-transformer",
+    "course-6-4": "lm-attention",
+    "course-6-5": "lm-states",
+    "course-7-0": "section-adapt",
+    "course-7-1": "adapt-choice",
+    "course-7-2": "adapt-lora",
+    "course-7-3": "adapt-variants",
+    "course-7-4": "adapt-alternatives",
+    "course-7-5": "adapt-sft",
+    "course-7-6": "adapt-preference",
+    "course-7-7": "adapt-merging",
+    "course-7-8": "adapt-evaluation",
+    "course-7-9": "adapt-continual",
+    "course-7-10": "adapt-distillation",
+    "course-8-0": "section-infer",
+    "course-8-1": "infer-quantization",
+    "course-8-2": "infer-pruning",
+    "course-8-3": "infer-kv",
+    "course-8-4": "infer-serving",
+    "course-8-5": "infer-speculative",
+    "course-8-6": "infer-generation",
+    "course-8-7": "infer-context",
+    "course-8-8": "app-state",
+    "course-8-9": "infer-deployment",
+    "course-8-10": "infer-monitoring",
+    "course-9-0": "section-app",
+    "course-9-1": "app-structured",
+    "course-9-2": "app-tools",
+    "course-9-3": "app-state",
+    "course-9-4": "app-rag",
+    "course-9-5": "app-evaluation",
+    "course-10-0": "section-agent",
+    "course-10-1": "agent-task",
+    "course-10-2": "agent-environment",
+    "course-10-3": "agent-demonstrations",
+    "course-10-4": "agent-recovery",
+    "course-10-5": "agent-reasoning",
+    "course-10-6": "agent-rl",
+    "course-10-7": "agent-memory",
+    "course-10-8": "agent-preferences",
+    "course-10-9": "agent-coordination",
+    "course-10-10": "agent-evaluation",
+    "course-11-0": "section-bert",
+    "course-11-1": "bert-interface",
+    "course-11-2": "bert-objectives",
+    "course-11-3": "bert-adaptation",
+    "course-11-4": "bert-tasks",
+    "course-11-5": "bert-embeddings",
+    "course-11-6": "bert-retrieval",
+    "course-11-7": "bert-domains",
+    "course-11-8": "bert-evaluation",
+    "course-11-9": "bert-operations"
+  },
+  "legacy_files": {
+    "01-data/Учебные конспекты/А — Постановка задачи и паспорт данных.md": "df-task",
+    "01-data/Учебные конспекты/Б — Split, cross-validation и утечки.md": "df-split",
+    "01-data/Учебные конспекты/В — Пропуски, выбросы и качество разметки.md": "df-quality",
+    "01-data/Учебные конспекты/Г — Дисбаланс, метрики, порог и калибровка.md": "df-metrics",
+    "01-data/Учебные конспекты/Д — Аугментации, синтетика и дедупликация.md": "df-augmentation",
+    "01-data/Учебные конспекты/Е — Dataset, batching, загрузка и воспроизводимость.md": "df-loading",
+    "01-data/Учебные конспекты/Ж — CV-данные, координаты и синхронные transforms.md": "df-images",
+    "01-data/Учебные конспекты/З — Текстовые данные, токенизация и chunking.md": "df-text",
+    "01-data/Учебные конспекты/И — Drift, интервалы и достоверность вывода.md": "df-drift",
+    "02-regularization/Учебные конспекты/А — Обобщение, bias-variance и ограничения теории.md": "reg-diagnosis",
+    "02-regularization/Учебные конспекты/Б — L1, L2, группы и AdamW.md": "reg-penalties",
+    "02-regularization/Учебные конспекты/В — Early stopping, learning rate и усреднение весов.md": "reg-training",
+    "02-regularization/Учебные конспекты/Г — Dropout, DropConnect, DropBlock и случайные ветви.md": "reg-stochastic",
+    "02-regularization/Учебные конспекты/Д — Нормализации, оси и train-eval statistics.md": "reg-normalization",
+    "02-regularization/Учебные конспекты/Е — Adversarial training, consistency и spectral norm.md": "reg-robustness",
+    "02-regularization/Учебные конспекты/Ж — Label smoothing, MixUp и CV-аугментации.md": "reg-augmentation",
+    "02-regularization/Учебные конспекты/З — NLP, R-Drop и ограничения политики в RL.md": "reg-sequences",
+    "02-regularization/Учебные конспекты/И — Структурные prior, графы, физика и PEFT.md": "reg-structure",
+    "02-regularization/Учебные конспекты/К — SAM, Lookahead и протокол выбора регуляризации.md": "reg-selection",
+    "03-categorical-features/Учебные конспекты/А — Nominal, ordinal, one-hot и dummy encoding.md": "feat-categorical",
+    "03-categorical-features/Учебные конспекты/Б — Кардинальность, frequency и feature hashing.md": "feat-hashing",
+    "03-categorical-features/Учебные конспекты/В — Target encoding, cross-fitting, smoothing и WoE.md": "feat-target",
+    "03-categorical-features/Учебные конспекты/Г — Embeddings, gradients и перенос между задачами.md": "feat-embeddings",
+    "03-categorical-features/Учебные конспекты/Д — Нативные категории в LightGBM, CatBoost и XGBoost.md": "feat-native",
+    "03-categorical-features/Учебные конспекты/Е — Feature crosses, FM и field-aware взаимодействия.md": "feat-interactions",
+    "03-categorical-features/Учебные конспекты/Ж — Multi-hot, counts и pooling наборов категорий.md": "feat-sets",
+    "03-categorical-features/Учебные конспекты/З — Missing, unknown, rare и стабильный словарь.md": "feat-missing",
+    "03-categorical-features/Учебные конспекты/И — Временные статистики и доступность метки.md": "feat-time",
+    "04-clustering/Учебные конспекты/А — Похожесть, расстояния и постановка кластеризации.md": "cl-geometry",
+    "04-clustering/Учебные конспекты/Б — K-Means, иерархии, плотность и GMM.md": "cl-kmeans",
+    "04-clustering/Учебные конспекты/В — Выбор K, gap statistic и устойчивость.md": "cl-stability",
+    "04-clustering/Учебные конспекты/Г — Purity, ARI, NMI и внутренние метрики.md": "cl-metrics",
+    "04-clustering/Учебные конспекты/Д — Frozen embeddings, DEC и IDEC.md": "cl-frozen",
+    "04-clustering/Учебные конспекты/Е — Image clustering, superpixels и поток новых объектов.md": "cl-images",
+    "04-clustering/Учебные конспекты/Ж — Текстовые representations, LDA, NMF и Top2Vec.md": "cl-text",
+    "04-clustering/Учебные конспекты/З — PCA, t-SNE, UMAP и геометрия проекции.md": "cl-projection",
+    "04-clustering/Учебные конспекты/И — Аномалии, псевдометки, IVF и итоговый pipeline.md": "cl-systems",
+    "05-computer-vision/Учебные конспекты/00 — Изображение, тензоры и общий путь модели.md": "cv-input",
+    "05-computer-vision/Учебные конспекты/А — Классификация, backbone и математика ViT.md": "cv-classification",
+    "05-computer-vision/Учебные конспекты/Б — Detection, IoU, AP, NMS и архитектуры.md": "cv-detection",
+    "05-computer-vision/Учебные конспекты/В — Semantic segmentation, FCN, U-Net и DeepLab.md": "cv-semantic",
+    "05-computer-vision/Учебные конспекты/Г — Instance segmentation, RoIAlign и prototype masks.md": "cv-instance",
+    "05-computer-vision/Учебные конспекты/Д — Pose, heatmaps, OKS и группировка keypoints.md": "cv-pose",
+    "05-computer-vision/Учебные конспекты/Е — OBB, поворот, periodicity и rotated IoU.md": "cv-obb",
+    "05-computer-vision/Учебные конспекты/Ж — Tracking, Kalman, association, MOTA, IDF1 и HOTA.md": "cv-tracking",
+    "05-computer-vision/Учебные конспекты/З — Depth, scale ambiguity, DPT и метрики.md": "cv-depth",
+    "05-computer-vision/Учебные конспекты/И — CLIP, open-vocabulary detection и YOLO-World.md": "cv-open-vocabulary",
+    "06-llm/01-foundations/Учебные конспекты/А — Токены, embeddings и обучение следующему токену.md": "lm-tokenizer",
+    "06-llm/01-foundations/Учебные конспекты/Б — RNN и ограничения рекуррентного состояния.md": "lm-rnn",
+    "06-llm/01-foundations/Учебные конспекты/В — Transformer, causal mask и устройство блока.md": "lm-transformer",
+    "06-llm/01-foundations/Учебные конспекты/Г — QKV, multi-head attention и точный backward.md": "lm-attention",
+    "06-llm/01-foundations/Учебные конспекты/Д — Hidden states, LM head и границы интерпретации.md": "lm-states",
+    "06-llm/02-adaptation/Учебные конспекты/А — Выбор адаптации, PEFT и память обучения.md": "adapt-choice",
+    "06-llm/02-adaptation/Учебные конспекты/Б — LoRA, target modules и два шага обучения.md": "adapt-lora",
+    "06-llm/02-adaptation/Учебные конспекты/В — DoRA, AdaLoRA, LoRA+ и QLoRA.md": "adapt-variants",
+    "06-llm/02-adaptation/Учебные конспекты/Г — Adapters, prefix tuning, soft prompts и BitFit.md": "adapt-alternatives",
+    "06-llm/02-adaptation/Учебные конспекты/Д — SFT, данные из книг, masks и training objective.md": "adapt-sft",
+    "06-llm/02-adaptation/Учебные конспекты/Е — RLHF, PPO, DPO, IPO, KTO и ORPO.md": "adapt-preference",
+    "06-llm/02-adaptation/Учебные конспекты/Ж — Model soup, TIES, DARE, merge и switching.md": "adapt-merging",
+    "06-llm/02-adaptation/Учебные конспекты/З — Evaluation, perplexity, judge и экспорт.md": "adapt-evaluation",
+    "06-llm/02-adaptation/Учебные конспекты/И — AI feedback, несколько целей и continual learning.md": "adapt-continual",
+    "06-llm/02-adaptation/Учебные конспекты/К — Дистилляция, teacher annealing и обучение на своих траекториях.md": "adapt-distillation",
+    "06-llm/03-inference/Учебные конспекты/А — Квантизация, активации, PTQ, QAT, GPTQ и AWQ.md": "infer-quantization",
+    "06-llm/03-inference/Учебные конспекты/Б — Pruning и граница с дистилляцией.md": "infer-pruning",
+    "06-llm/03-inference/Учебные конспекты/В — KV-cache, prefill, decode, MQA и GQA.md": "infer-kv",
+    "06-llm/03-inference/Учебные конспекты/Г — Serving, continuous batching и PagedAttention.md": "infer-serving",
+    "06-llm/03-inference/Учебные конспекты/Д — Speculative decoding, rejection sampling и beam search.md": "infer-speculative",
+    "06-llm/03-inference/Учебные конспекты/Е — Greedy, temperature, top-p, beam и constrained decoding.md": "infer-generation",
+    "06-llm/03-inference/Учебные конспекты/Ж — Длинный контекст, sliding window и prompt caching.md": "infer-context",
+    "06-llm/03-inference/Учебные конспекты/З — Orchestration, tools, RAG и границы runtime.md": "app-state",
+    "06-llm/03-inference/Учебные конспекты/И — Deployment, cold start, очереди и масштабирование.md": "infer-deployment",
+    "06-llm/03-inference/Учебные конспекты/К — Кэш ответов, semantic cache, мониторинг и качество.md": "infer-monitoring",
+    "06-llm/04-applications/Учебные конспекты/А — Structured output, schema и смысл результата.md": "app-structured",
+    "06-llm/04-applications/Учебные конспекты/Б — Tool calling, execution, ошибки и idempotency.md": "app-tools",
+    "06-llm/04-applications/Учебные конспекты/В — State, orchestration, графы и участники агента.md": "app-state",
+    "06-llm/04-applications/Учебные конспекты/Г — RAG, BM25, dense, hybrid и multi-vector retrieval.md": "app-rag",
+    "06-llm/04-applications/Учебные конспекты/Д — Evaluation retrieval, ответов, citations и task success.md": "app-evaluation",
+    "06-llm/05-lifecycle/Учебные конспекты/А — Lifecycle и выбор следующего вмешательства.md": "agent-task",
+    "06-llm/05-lifecycle/Учебные конспекты/Б — Среда, observations, actions, reward и horizon.md": "agent-environment",
+    "06-llm/05-lifecycle/Учебные конспекты/В — Behavior cloning и SFT на tool trajectories.md": "agent-demonstrations",
+    "06-llm/05-lifecycle/Учебные конспекты/Г — Distribution shift, recovery и DAgger.md": "agent-recovery",
+    "06-llm/05-lifecycle/Учебные конспекты/Д — Reasoning, верификация и test-time compute.md": "agent-reasoning",
+    "06-llm/05-lifecycle/Учебные конспекты/Е — RL, credit assignment, PPO и GRPO.md": "agent-rl",
+    "06-llm/05-lifecycle/Учебные конспекты/Ж — Память, summary и длинный горизонт.md": "agent-memory",
+    "06-llm/05-lifecycle/Учебные конспекты/З — Предпочтения между полными траекториями.md": "agent-preferences",
+    "06-llm/05-lifecycle/Учебные конспекты/И — Multi-agent, роли и обучение координации.md": "agent-coordination",
+    "06-llm/05-lifecycle/Учебные конспекты/К — Оценка траекторий, стоимость и воспроизводимость.md": "agent-evaluation",
+    "07-bert/Учебные конспекты/А — Encoder, tokenizer, attention и pooling.md": "bert-interface",
+    "07-bert/Учебные конспекты/Б — MLM, objectives и эволюция encoder-моделей.md": "bert-objectives",
+    "07-bert/Учебные конспекты/В — Данные, головы, fine-tuning и DAPT.md": "bert-adaptation",
+    "07-bert/Учебные конспекты/Г — Classification, NER, spans, пары и extractive QA.md": "bert-tasks",
+    "07-bert/Учебные конспекты/Д — Sentence embeddings, contrastive loss и геометрия.md": "bert-embeddings",
+    "07-bert/Учебные конспекты/Е — Dense, cross-encoder, SPLADE и ColBERT retrieval.md": "bert-retrieval",
+    "07-bert/Учебные конспекты/Ж — Языки, длинные документы, домены и layout.md": "bert-domains",
+    "07-bert/Учебные конспекты/З — Метрики, калибровка, OOD и интерпретация.md": "bert-evaluation",
+    "07-bert/Учебные конспекты/И — Compression, encoder service и жизненный цикл индекса.md": "bert-operations"
+  },
+  "projects": [
+    {
+      "id": "P1",
+      "title": "P1. Классификация обращений — минимальный практический проект",
+      "chapter": "bert-tasks",
+      "anchor": "u-99bcd89231dba8f250"
+    },
+    {
+      "id": "P2",
+      "title": "P2. NER и structured extraction — следующая ступень",
+      "chapter": "bert-tasks",
+      "anchor": "u-9b1d2c67a46c142f66"
+    },
+    {
+      "id": "P3",
+      "title": "P3. Поиск по документам — основная retrieval-практика",
+      "chapter": "bert-retrieval",
+      "anchor": "u-a5d70d09aa7c4a04ca"
+    },
+    {
+      "id": "P4",
+      "title": "P4. Вопросы по русским документам — композиция задач",
+      "chapter": "bert-tasks",
+      "anchor": "u-7c7173126907038e85"
+    },
+    {
+      "id": "P5",
+      "title": "P5. Малый бюджет разметки и domain shift — углубление",
+      "chapter": "bert-domains",
+      "anchor": "u-9ed65ac48814aaa902"
+    },
+    {
+      "id": "P6",
+      "title": "P6. Компактный encoder service — системная ветка",
+      "chapter": "bert-operations",
+      "anchor": "u-10c22e85c88da64062"
+    }
+  ]
+}

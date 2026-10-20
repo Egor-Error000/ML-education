@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" role="img" aria-labelledby="t"><title id="t">ColBERT MaxSim: максимум по document tokens</title><rect width="900" height="430" rx="16" fill="#f5f8f5"/><g font-family="Segoe UI,sans-serif" fill="#213244"><text x="30" y="42" font-size="24" font-weight="600">ColBERT MaxSim: максимум по document tokens</text>
+<text x="145" y="100" font-size="21">d1</text>
+<text x="245" y="100" font-size="21">d2</text>
+<text x="345" y="100" font-size="21">d3</text>
+<text x="40" y="160" font-size="21">q1</text>
+<rect x="115" y="120" width="92" height="70" rx="5" fill="#bee3d5"/>
+<text x="150" y="163" font-size="24">1</text>
+<rect x="215" y="120" width="92" height="70" rx="5" fill="#e1e6e8"/>
+<text x="250" y="163" font-size="24">0</text>
+<rect x="315" y="120" width="92" height="70" rx="5" fill="#e1e6e8"/>
+<text x="350" y="163" font-size="24">-1</text>
+<text x="470" y="163" font-size="23">→ row max = 1</text>
+<text x="40" y="245" font-size="21">q2</text>
+<rect x="115" y="205" width="92" height="70" rx="5" fill="#e1e6e8"/>
+<text x="150" y="248" font-size="24">0</text>
+<rect x="215" y="205" width="92" height="70" rx="5" fill="#bee3d5"/>
+<text x="250" y="248" font-size="24">1</text>
+<rect x="315" y="205" width="92" height="70" rx="5" fill="#e1e6e8"/>
+<text x="350" y="248" font-size="24">0</text>
+<text x="470" y="248" font-size="23">→ row max = 1</text>
+<text x="40" y="335" font-size="20">Итог: 1 + 1 = 2. Разные query tokens могут выбрать один источник.</text>
+<text x="40" y="387" font-size="17">Зелёные клетки получают прямой gradient этой MaxSim-ветви при уникальном max.</text>
+</g></svg>

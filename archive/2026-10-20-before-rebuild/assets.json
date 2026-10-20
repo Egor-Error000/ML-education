@@ -1,0 +1,218 @@
+[
+  {
+    "path": "оформление/katex/katex.min.css",
+    "sha256": "864f909fc1f3da0f140321d0e277ac0a444d8909e072cdbf174bcea93b95c089"
+  },
+  {
+    "path": "оформление/katex/LICENSE",
+    "sha256": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3"
+  },
+  {
+    "path": "оформление/transformer/attention-masks.svg",
+    "sha256": "604422594a1c13a50e1b011819abca1f8cf1e3f89084e198901b392a44e7b689"
+  },
+  {
+    "path": "оформление/transformer/bert-mlm-targets.svg",
+    "sha256": "cb5d9f0f937217050269edb451a50635ffa4be891c6eedc222b8b541910fdff2"
+  },
+  {
+    "path": "оформление/transformer/bert-task-heads.svg",
+    "sha256": "6b4db685bde19a3bd0dde4553f0a8111f26228accc2e6b14fb7a6c9358ddd188"
+  },
+  {
+    "path": "оформление/transformer/colbert-maxsim.svg",
+    "sha256": "0e289e9192283fb6a51e29a2b5cdb24c82721160ef43c56b5d25b0a8f2dd9625"
+  },
+  {
+    "path": "оформление/transformer/contrastive-positive-matrix.svg",
+    "sha256": "89b2155ed6dcddd1939969358f3a40baf564891fb2657c19cb759945bc9deb96"
+  },
+  {
+    "path": "оформление/transformer/cross-attention-sources.svg",
+    "sha256": "b23d447e7fcb20fe538b0e6d883608a936a6bd673dccf57b103c74642fdf1224"
+  },
+  {
+    "path": "оформление/transformer/deit-teacher-student.svg",
+    "sha256": "fc0eafc10343e30974cb4bda4bf41f806468f5b3ba8020321d0c08504c027316"
+  },
+  {
+    "path": "оформление/transformer/encoder-local-global.svg",
+    "sha256": "5431d0e7628b209216c1b6c660f3d1e34acaf56e65cc446db62a1e1d05e59a72"
+  },
+  {
+    "path": "оформление/transformer/layout-text-boxes.svg",
+    "sha256": "b366ad5b7a8c4a2128a85e26735a956187a5191b7a1903a4128a94774142b464"
+  },
+  {
+    "path": "оформление/transformer/mae-visible-hidden.svg",
+    "sha256": "2a838a4f884543b3128c623ba672f06692f952e463af7c9fd0b440551d2c170e"
+  },
+  {
+    "path": "оформление/transformer/multihead-mixtures.svg",
+    "sha256": "5deba4c9643117e3a142574642facb2844e1e581ac1e72a4d3a8f30d09b0e1ca"
+  },
+  {
+    "path": "оформление/transformer/nlp-training.svg",
+    "sha256": "0aba8b91e00d0893e5dfcea525b52a64265a55d7b288006d2b0dcbefc23d2f34"
+  },
+  {
+    "path": "оформление/transformer/patch-to-tokens.svg",
+    "sha256": "1c9a568e653ffda39fddc71860ccb27070eee9f9f7568d5a417e089a62f71244"
+  },
+  {
+    "path": "оформление/transformer/rope-rotation.svg",
+    "sha256": "b85055989cf146ad3d227634cbca7248fd6a2564d16d7bb55570fc7d4a01f27e"
+  },
+  {
+    "path": "оформление/transformer/swin-shift.svg",
+    "sha256": "0833903eaf494e44d5ef99453afe7c54b38cdbcc205d1b6a45e64edb30e2de0d"
+  },
+  {
+    "path": "оформление/transformer/vit-pipeline.svg",
+    "sha256": "83f89bbec28864effec320a4ac6ff881d37e220c39dc23243df7344d5dbf8933"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_AMS-Regular.woff2",
+    "sha256": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_Caligraphic-Bold.woff2",
+    "sha256": "de7701e42cf1f4cf0b766c03fb27977207eee2f4fd5d76fa82188406da43ea4c"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_Caligraphic-Regular.woff2",
+    "sha256": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_Fraktur-Bold.woff2",
+    "sha256": "74444efd593c005e3f4573b44524704c0af0a937fe911cca9e94068d0d140d3f"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_Fraktur-Regular.woff2",
+    "sha256": "51814d270d06ff0255dba0799994fa4d8c84d11f09951d47595f4abb1f3602dc"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_Main-Bold.woff2",
+    "sha256": "0f60d1b897938ec918c8ce073092411baf9438f6739465693ff18b0f9d20b021"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_Main-BoldItalic.woff2",
+    "sha256": "99cd42a3c072d918f2f44984a807cf7aa16e13545fd0875fc07c6c65f99e715b"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_Main-Italic.woff2",
+    "sha256": "97479ca6cce906abc961ecac96faa5f9ca2e61b8e7670d475826bcdee9a7c267"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_Main-Regular.woff2",
+    "sha256": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_Math-BoldItalic.woff2",
+    "sha256": "dc47344dbb6cb5b655c8460d561f4df5f501b90c804ad3c6cec65fe322351ab1"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_Math-Italic.woff2",
+    "sha256": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_SansSerif-Bold.woff2",
+    "sha256": "e99ae51144bf1232efcc1bfe5add36262c6866b0faab24fa75740e1b98577a62"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_SansSerif-Italic.woff2",
+    "sha256": "00b26ac825e2095056396e0553b8ac26d3f8ad158c3826e28b4c45b385c4714a"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_SansSerif-Regular.woff2",
+    "sha256": "68e8c73ef42afd3ccec58bf0fba302cce448938e7fc020a5e31f8a952eee1342"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_Script-Regular.woff2",
+    "sha256": "036d4e95149b69ff9bcc0cd55771efeb25ffa3947293e69acd78d5ac328c684b"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_Size1-Regular.woff2",
+    "sha256": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_Size2-Regular.woff2",
+    "sha256": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_Size3-Regular.woff2",
+    "sha256": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_Size4-Regular.woff2",
+    "sha256": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0"
+  },
+  {
+    "path": "оформление/katex/fonts/KaTeX_Typewriter-Regular.woff2",
+    "sha256": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b"
+  },
+  {
+    "path": "archive/2026-10-12/Categorical_features_topics_and_examples.md",
+    "sha256": "3b64c66532364826826d60d16409a5acfe1dcc9269124c90c8cb34f1368af7e9"
+  },
+  {
+    "path": "archive/2026-10-12/Clustering_topics_and_examples.md",
+    "sha256": "58bda6c646602d1f92c9e2cf2ce3fd4cf234e5ab611df081e4e06dc6163e1298"
+  },
+  {
+    "path": "archive/2026-10-12/CV task and examples.md",
+    "sha256": "2b12ea916162b8481711dd240fac9a23504b55676a4f119a0a042066726e61f8"
+  },
+  {
+    "path": "archive/2026-10-12/Data topics.md",
+    "sha256": "897c2eb26a0a0c0cc9fe6359d2f09820713e7bc8601b1eca6fb05dbe8c53eab0"
+  },
+  {
+    "path": "archive/2026-10-12/LLM_finetuning_topics_and_examples.md",
+    "sha256": "24998f78a7add25d0b1ffa977f325d2b72abe3d3639d816500173a117f4feeeb"
+  },
+  {
+    "path": "archive/2026-10-12/LLM_full_lifecycle_topics_and_examples.md",
+    "sha256": "ef08eb1674673d1287a9c87425cd2ca08e4c469d0be0560329a2c0fb507f79f9"
+  },
+  {
+    "path": "archive/2026-10-12/llm_inference_plan.md",
+    "sha256": "5637833b599de2998e1ec0c3454b4e0ef7fce60d9863812bbe836faf6777637f"
+  },
+  {
+    "path": "archive/2026-10-12/Regularization_topics_and_examples.md",
+    "sha256": "6d419e486ce704cf1e2e94f4001c561806b72ad4ba786c59381c3887541b4c29"
+  },
+  {
+    "path": "archive/2026-10-17/План CV из нового чата.md",
+    "sha256": "8ba047ad0c50c24b7aa56501f02f93deb698111685faab28799c82bada522b36"
+  },
+  {
+    "path": "archive/study-sources/blank.pdf",
+    "sha256": "90034eab6edbfdf24a3094bc4dc5b0c732a07f7cfb7d213bd8b3cec1abdb56a6"
+  },
+  {
+    "path": "archive/study-sources/chat-LLM Study Plan Status.txt",
+    "sha256": "4bafe9f5e9e9ad7bc4795d2562b1b59e25a01e62092c4c255de23565819a8510"
+  },
+  {
+    "path": "archive/study-sources/chat-Изучение Fine-tuning LLM.txt",
+    "sha256": "c316f05e6186d52fa65a83126c9776c6cc036eccc7a44513776326561f4fb81b"
+  },
+  {
+    "path": "archive/study-sources/chat-План изучения темы(1).txt",
+    "sha256": "89c7e64e40ae96baa840dde9ac9b9845717fdd80fa1276b73acb35d949c680c6"
+  },
+  {
+    "path": "archive/study-sources/chat-План изучения темы(2).txt",
+    "sha256": "0375527447b080efba74d67131e47136e468a4d588ec88f117ef0fc87afccf6a"
+  },
+  {
+    "path": "archive/study-sources/chat-План изучения темы.txt",
+    "sha256": "10b305e4825e96b4e401d5b320917abfaa03d19d48e8f53dec1043735c3b56bf"
+  },
+  {
+    "path": "archive/study-sources/chat-Пункт D4.txt",
+    "sha256": "08faa6604f0ecef8c1dc4ba2d44646d928ea27dcb3bc2eb42cc45beb1efc1ac3"
+  }
+]

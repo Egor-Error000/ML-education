@@ -1,0 +1,29 @@
+# Источники и границы современных дополнений
+
+Проверка при перестройке: **20 октября 2026**. Дата относится к редакционному реестру. В учебных объяснениях остаются первичные ссылки и ограничения утверждений; рейтинг по дате выпуска не используется.
+
+## Включённые примеры
+
+- **BERT:** Devlin et al., [BERT: Pre-training of Deep Bidirectional Transformers](https://arxiv.org/abs/1810.04805), arXiv v2, 24.05.2019. Используется для определения bidirectional encoder и MLM recipe. Исторические benchmark results не переносятся на современный произвольный dataset. Место: `lm-bert`, `bert-objectives`.
+- **ModernBERT:** Warner et al., [Smarter, Better, Faster, Longer](https://arxiv.org/abs/2412.13663), v2, 19.12.2024. Место: `bert-objectives`. Сопоставляются context, training recipe и runtime; результаты относятся к evaluation авторов.
+- **NeoBERT:** Le Breton et al., [NeoBERT](https://arxiv.org/abs/2502.19587), v2, 06.06.2025. Место: `bert-objectives`. Проверена авторская страница; универсальное превосходство над другими encoder не утверждается.
+- **Ettin:** Weller et al., [Seq vs Seq: An Open Suite of Paired Encoders and Decoders](https://arxiv.org/abs/2507.11412), v2, 12.03.2026. Место: `bert-objectives`. Используется как пример контролируемого сравнения encoder/decoder. **Исправление реестра:** прежний общий план ссылался на `2507.15864`, другую работу о NER; неверная ссылка сохранена только в архивном срезе.
+- **TabPFN-3.5:** Prior Labs, [technical report](https://priorlabs.ai/technical-reports/tabpfn-3-5), 15.09.2026. Место: `df-task`, сравнение baseline. Источник — отчёт разработчика; TabArena/BeyondArena ranks ограничены его протоколами. Variant, license, API/local режим, стоимость и hardware являются условиями воспроизводимого применения.
+- **DINOv3:** Meta, [официальный проект](https://ai.meta.com/research/dinov3/). Место: `cv-pretraining`, frozen-feature case. Backbone, readout и downstream evaluation разделены. Dense features не означают готовые boxes или masks без task head.
+- **SAM 3:** Meta, [Segment Anything with Concepts](https://ai.meta.com/research/publications/sam-3-segment-anything-with-concepts/), 19.11.2025; [репозиторий авторов](https://github.com/facebookresearch/sam3). Места: `cv-instance`, `cv-open-vocabulary`. Интерфейс concept prompt и SA-Co отделены от closed-set COCO mask AP.
+- **SAM 3.1:** Meta, [официальное обновление](https://ai.meta.com/blog/segment-anything-model-3/), 27.03.2026. Место: `cv-tracking`. Object multiplexing и приведённые H100 FPS — author-reported implementation results для объявленной нагрузки. Установка checkpoints и model execution этой редакцией не выполняются.
+- **YOLO26 task heads:** [официальная документация Ultralytics](https://docs.ultralytics.com/models/yolo26/), динамическая документация, срез проверки указан выше. Таблица перечисляет отдельные semantic/depth/pose/OBB variants. Наличие detector checkpoint не означает наличие всех голов в одном forward. Места: `cv-detection`, `cv-semantic`, `cv-depth`.
+- **AgentGym-RL:** Xi et al., [авторская статья](https://arxiv.org/abs/2509.08755), 10.09.2025. Место: `agent-rl`. Проверены interactive training, модульная среда и staged interaction horizon. OpenReview PDF при повторном открытии потребовал browser verification; доступная первичная arXiv-ссылка подтверждает механизм, но не используется для вывода о статусе площадки.
+- **TRAJECT-Bench:** [репозиторий авторов](https://github.com/PengfeiHePower/TRAJECT-Bench), начальный release 21.08.2025. Место: `agent-evaluation`. Различаются tool inclusion, parameterization, order/dependency, execution accuracy и judge-based trajectory scores. OpenReview PDF при повторном открытии потребовал verification; код является доступным первичным подтверждением metric definitions.
+- **ACEBench:** Chen et al., [ACL Anthology](https://aclanthology.org/2025.findings-emnlp.697/), Findings of EMNLP 2025. Место: `agent-evaluation`. Benchmark scenarios и tool contracts ограничивают область вывода.
+
+## Исследовательские кандидаты
+
+Поведение нативных категорий дополнительно сверено с [XGBoost 3.4.2 categorical tutorial](https://xgboost.readthedocs.io/en/stable/tutorials/categorical.html), [LightGBM Advanced Topics](https://lightgbm.readthedocs.io/en/latest/Advanced-Topics.html) (ветка документации 4.7.0.99) и [CatBoost categorical features](https://catboost.ai/docs/en/features/categorical-features). Проверялись partitioning/vector leaves, recoding/serialization и missing/ordered-category conventions. Эти версии относятся к страницам документации, а не к установленным и запущенным библиотекам.
+
+- Weng et al., [Clustering Properties of Self-Supervised Learning](https://proceedings.mlr.press/v267/weng25a.html), ICML/PMLR 267, 2025. Проверены название, авторы и площадка. Кандидат расширения `cl-frozen`/`cl-deep`; не объявлен обязательной заменой базовых алгоритмов.
+- Ghriss, Monteleoni, [Deep Clustering via Probabilistic Ratio-Cut Optimization](https://proceedings.mlr.press/v258/ghriss25a.html), AISTATS/PMLR 258, 2025. Проверена первичная страница. Graph objective требует отдельного сценария; название не включено в ядро вместо объяснения.
+- Uziel et al., [Clustering via Self-Supervised Diffusion](https://proceedings.mlr.press/v267/uziel25a.html), ICML/PMLR 267, 2025. Проверена первичная страница; оставлен исследовательским направлением.
+- [SAMAR](https://arxiv.org/abs/2412.16854), arXiv, 22.12.2024. Проверено соответствие названия адаптивной регуляризации SAM. Статус за пределами проверенной страницы и воспроизводимость не утверждаются. Обязательная глава подробно объясняет исходный SAM.
+
+Прочие прежние research-кандидаты сохраняются в [исходном пакете планов](<../archive/2026-10-20-before-rebuild/root/План подготовки курса.md>). Они не объявлены проверенными рекомендациями новой редакции. Включение требует механизма, условий сравнения, первичного источника и содержательной проверки.

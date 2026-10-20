@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "browser": "Chromium / Edge headless",
+  "chaptersVisited": 121,
+  "projectsVisited": 6,
+  "topModules": 5,
+  "languageSubsections": 6,
+  "legacyBookmarks": [
+    "course-11-1",
+    "course-5-1",
+    "course-5-10"
+  ],
+  "sourceAnchors": true,
+  "skipAdvanced": true,
+  "selectedRoute": true,
+  "offline": true,
+  "mobile": true,
+  "networkRequests": [],
+  "pageErrors": [],
+  "screenshots": [
+    "bert-architecture.png",
+    "bert-core.png",
+    "geography.png",
+    "home-desktop.png",
+    "home-mobile.png",
+    "unet-skip.png"
+  ]
+}

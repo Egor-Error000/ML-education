@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 465" role="img" aria-labelledby="t"><title id="t">Contrastive batch: какие документы считаются ответами</title><rect width="900" height="465" rx="16" fill="#f5f8f5"/><g font-family="Segoe UI,sans-serif" fill="#213244"><text x="30" y="42" font-size="24" font-weight="600">Contrastive batch: какие документы считаются ответами</text>
+<text x="120" y="103" font-size="21">d1</text>
+<text x="208" y="103" font-size="21">d2</text>
+<text x="296" y="103" font-size="21">d3</text>
+<text x="45" y="159" font-size="21">q1</text>
+<rect x="95" y="120" width="80" height="64" rx="9" fill="#bee3d5" stroke="#adc8bb"/>
+<text x="126" y="160" font-size="24">+</text>
+<rect x="183" y="120" width="80" height="64" rx="9" fill="#f3d6ab" stroke="#adc8bb"/>
+<text x="214" y="160" font-size="24">?</text>
+<rect x="271" y="120" width="80" height="64" rx="9" fill="#e1e6e8" stroke="#adc8bb"/>
+<text x="302" y="160" font-size="24">−</text>
+<text x="45" y="231" font-size="21">q2</text>
+<rect x="95" y="192" width="80" height="64" rx="9" fill="#e1e6e8" stroke="#adc8bb"/>
+<text x="126" y="232" font-size="24">−</text>
+<rect x="183" y="192" width="80" height="64" rx="9" fill="#bee3d5" stroke="#adc8bb"/>
+<text x="214" y="232" font-size="24">+</text>
+<rect x="271" y="192" width="80" height="64" rx="9" fill="#e1e6e8" stroke="#adc8bb"/>
+<text x="302" y="232" font-size="24">−</text>
+<text x="45" y="303" font-size="21">q3</text>
+<rect x="95" y="264" width="80" height="64" rx="9" fill="#e1e6e8" stroke="#adc8bb"/>
+<text x="126" y="304" font-size="24">−</text>
+<rect x="183" y="264" width="80" height="64" rx="9" fill="#e1e6e8" stroke="#adc8bb"/>
+<text x="214" y="304" font-size="24">−</text>
+<rect x="271" y="264" width="80" height="64" rx="9" fill="#bee3d5" stroke="#adc8bb"/>
+<text x="302" y="304" font-size="24">+</text>
+<text x="430" y="155" font-size="20">Зелёный: объявленный positive</text>
+<text x="430" y="200" font-size="20">Серый: in-batch negative</text>
+<text x="430" y="245" font-size="20">Оранжевый: возможный</text>
+<text x="430" y="275" font-size="20">false negative — нужно проверить</text>
+<text x="30" y="390" font-size="19">Каждая query сравнивается со всеми candidates своего negative pool.</text>
+<text x="30" y="425" font-size="17">Gradient accumulation отдельных losses не добавляет отсутствующие cross-batch пары.</text>
+</g></svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" role="img" aria-labelledby="t d"><title id="t">RoPE: позиция поворачивает Q и K</title><desc id="d">Одна пара координат вращается без изменения длины. При разных позициях dot product зависит от разности углов.</desc><rect width="900" height="460" fill="#f5f8f5" rx="16"/><g font-family="Segoe UI,sans-serif" fill="#213244">
+<text x="30" y="40" font-size="24" font-weight="600">RoPE: позиция поворачивает Q и K</text>
+<circle cx="210" cy="225" r="105" fill="white" stroke="#b3c7bf"/><path d="M85 225H335M210 350V100" stroke="#8a9eaa"/>
+<path d="M210 225L300.93 172.50" stroke="#17645e" stroke-width="5"/><circle cx="300.93" cy="172.50" r="5" fill="#17645e"/>
+<text x="120" y="80" font-size="21">Query: позиция i</text>
+<text x="110" y="380" font-size="19">длина сохраняется</text>
+<circle cx="620" cy="225" r="105" fill="white" stroke="#b3c7bf"/><path d="M495 225H745M620 350V100" stroke="#8a9eaa"/>
+<path d="M620 225L601.77 121.60" stroke="#17645e" stroke-width="5"/><circle cx="601.77" cy="121.60" r="5" fill="#17645e"/>
+<text x="530" y="80" font-size="21">Key: позиция j</text>
+<text x="520" y="380" font-size="19">длина сохраняется</text>
+<text x="30" y="425" font-size="17">Разные пары координат используют разные частоты; рисунок показывает только одну пару.</text>
+</g></svg>

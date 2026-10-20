@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "counts": {
+    "snapshot_files_verified": 153,
+    "source_lessons": 96,
+    "mapped_blocks": 7412,
+    "mapping_actions": {
+      "сохранить происхождение": 334,
+      "перенести с обновлением ссылок и изложения": 6936,
+      "объединить заголовки одной темы": 116,
+      "объединить точный повтор": 1,
+      "перенести полный протокол проекта": 25
+    },
+    "legacy_bookmarks": 107,
+    "html_internal_links": 2046,
+    "chapters": 121,
+    "modules": 5,
+    "routes": 9,
+    "figures": 184,
+    "local_links_checked": 16889,
+    "new_numerical_checks": 10
+  },
+  "errors": []
+}

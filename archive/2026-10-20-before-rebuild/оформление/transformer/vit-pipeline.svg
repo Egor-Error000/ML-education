@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 842" role="img" aria-labelledby="title desc"><title id="title">Vision Transformer: от картинки до ошибки</title><desc id="desc">Учебная конфигурация: 224 × 224 RGB, patch 16, D = 768</desc><rect width="900" height="842" fill="#f5f8f5" rx="18"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10" fill="#17645e"/></marker></defs>
+<text x="36" y="43" font-family="Segoe UI, sans-serif" font-size="25" font-weight="600" fill="#172d3b">Vision Transformer: от картинки до ошибки</text>
+<text x="36" y="76" font-family="Segoe UI, sans-serif" font-size="17" fill="#526575">Учебная конфигурация: 224 × 224 RGB, patch 16, D = 768</text>
+<rect x="36" y="100" width="828" height="88" rx="10" fill="white" stroke="#adc8bb"/>
+<text x="56" y="128" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600" fill="#17645e">1. Разрезаем изображение на сетку</text>
+<text x="56" y="153" font-family="Segoe UI, sans-serif" font-size="18" fill="#213244">14 × 14 = 196 patches; каждый содержит 16 × 16 × 3 = 768 чисел</text>
+<text x="56" y="175" font-family="Segoe UI, sans-serif" font-size="16" fill="#526575">Порядок обхода сетки должен совпадать с позиционными векторами.</text>
+<path d="M450 189V211" stroke="#17645e" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="36" y="216" width="828" height="88" rx="10" fill="white" stroke="#adc8bb"/>
+<text x="56" y="244" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600" fill="#17645e">2. Проецируем и добавляем позиции</text>
+<text x="56" y="269" font-family="Segoe UI, sans-serif" font-size="18" fill="#213244">196 × 768 → patch projection → 196 × 768; + CLS → 197 × 768</text>
+<text x="56" y="291" font-family="Segoe UI, sans-serif" font-size="16" fill="#526575">Совпадение входной ширины patch и D здесь случай выбора архитектуры.</text>
+<path d="M450 305V327" stroke="#17645e" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="36" y="332" width="828" height="88" rx="10" fill="white" stroke="#adc8bb"/>
+<text x="56" y="360" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600" fill="#17645e">3. Смешиваем информацию между patches</text>
+<text x="56" y="385" font-family="Segoe UI, sans-serif" font-size="18" fill="#213244">12 heads: Q, K, V имеют 197 × 64 на одну голову</text>
+<text x="56" y="407" font-family="Segoe UI, sans-serif" font-size="16" fill="#526575">Attention 197 × 197 включает CLS; causal mask не нужна.</text>
+<path d="M450 421V443" stroke="#17645e" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="36" y="448" width="828" height="88" rx="10" fill="white" stroke="#adc8bb"/>
+<text x="56" y="476" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600" fill="#17645e">4. Повторяем encoder-блоки</text>
+<text x="56" y="501" font-family="Segoe UI, sans-serif" font-size="18" fill="#213244">Attention меняет связи между позициями; MLP — признаки позиции</text>
+<text x="56" y="523" font-family="Segoe UI, sans-serif" font-size="16" fill="#526575">Residual сохраняет путь сигнала; norm работает по признакам токена.</text>
+<path d="M450 537V559" stroke="#17645e" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="36" y="564" width="828" height="88" rx="10" fill="white" stroke="#adc8bb"/>
+<text x="56" y="592" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600" fill="#17645e">5. Предсказываем класс</text>
+<text x="56" y="617" font-family="Segoe UI, sans-serif" font-size="18" fill="#213244">Итоговый CLS: 768 → linear head → K logits</text>
+<text x="56" y="639" font-family="Segoe UI, sans-serif" font-size="16" fill="#526575">Softmax + метка изображения → cross-entropy.</text>
+<path d="M450 653V675" stroke="#17645e" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="36" y="680" width="828" height="88" rx="10" fill="white" stroke="#adc8bb"/>
+<text x="56" y="708" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600" fill="#17645e">6. Обучаем весь путь</text>
+<text x="56" y="733" font-family="Segoe UI, sans-serif" font-size="18" fill="#213244">Loss → CLS → attention → patch states → patch projection</text>
+<text x="56" y="755" font-family="Segoe UI, sans-serif" font-size="16" fill="#526575">Метка нужна для изображения; отдельная метка каждого patch не нужна.</text>
+</svg>

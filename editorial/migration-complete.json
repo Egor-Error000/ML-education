@@ -1,0 +1,19 @@
+{
+  "edition": "course-rebuild-v2",
+  "status": "accepted",
+  "source_of_truth": [
+    "course.json",
+    "module Markdown",
+    "SVG assets"
+  ],
+  "baseline_reader_file_sha256": "1d44b40be6862911940fbb74999ba1b3c72c96fdfd648389d9b1651934015b65",
+  "baseline_manifest_sha256": "e1181800a1e8aa69a2deeb74637c93d57d4a31e04d88b9fcf0584a62916d5feb",
+  "coverage_sha256": "7588765a36655b9d3250398aff2a0c05a9ed78caa3b9a4fc36e3e425df79d0c3",
+  "acceptance_report": "editorial/acceptance.md",
+  "audit_sha256": "7bf30f80c6f8156ec034d2f70a2e16b5d0928f0c41a920d18fbf46ff348f4a8e",
+  "browser_audit_sha256": "662c29137b0afe52512e05a3f01d652b49ef1c4395ce64c01ec51733ce768c1f",
+  "modules": 5,
+  "chapters": 121,
+  "projects": 6,
+  "one_time_migration_locked": true
+}

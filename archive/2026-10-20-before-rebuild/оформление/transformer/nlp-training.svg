@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 842" role="img" aria-labelledby="title desc"><title id="title">NLP Transformer: один шаг обучения</title><desc id="desc">B — batch, T — длина, D — ширина, V — словарь</desc><rect width="900" height="842" fill="#f5f8f5" rx="18"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10" fill="#17645e"/></marker></defs>
+<text x="36" y="43" font-family="Segoe UI, sans-serif" font-size="25" font-weight="600" fill="#172d3b">NLP Transformer: один шаг обучения</text>
+<text x="36" y="76" font-family="Segoe UI, sans-serif" font-size="17" fill="#526575">B — batch, T — длина, D — ширина, V — словарь</text>
+<rect x="36" y="100" width="828" height="88" rx="10" fill="white" stroke="#adc8bb"/>
+<text x="56" y="128" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600" fill="#17645e">1. Разделяем вход и цель</text>
+<text x="56" y="153" font-family="Segoe UI, sans-serif" font-size="18" fill="#213244">Вход: [BOS, кот, спит] → цель: [кот, спит, EOS]</text>
+<text x="56" y="175" font-family="Segoe UI, sans-serif" font-size="16" fill="#526575">Одна строка logits предсказывает следующий токен, а не свой вход.</text>
+<path d="M450 189V211" stroke="#17645e" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="36" y="216" width="828" height="88" rx="10" fill="white" stroke="#adc8bb"/>
+<text x="56" y="244" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600" fill="#17645e">2. Строим представления</text>
+<text x="56" y="269" font-family="Segoe UI, sans-serif" font-size="18" fill="#213244">Token embeddings + позиции → X: B × T × D</text>
+<text x="56" y="291" font-family="Segoe UI, sans-serif" font-size="16" fill="#526575">Обучаемые веса общие для всех примеров batch.</text>
+<path d="M450 305V327" stroke="#17645e" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="36" y="332" width="828" height="88" rx="10" fill="white" stroke="#adc8bb"/>
+<text x="56" y="360" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600" fill="#17645e">3. Повторяем Transformer-блоки</text>
+<text x="56" y="385" font-family="Segoe UI, sans-serif" font-size="18" fill="#213244">Norm → causal attention → residual → Norm → MLP → residual</text>
+<text x="56" y="407" font-family="Segoe UI, sans-serif" font-size="16" fill="#526575">Маска запрещает будущие ключи во всех слоях.</text>
+<path d="M450 421V443" stroke="#17645e" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="36" y="448" width="828" height="88" rx="10" fill="white" stroke="#adc8bb"/>
+<text x="56" y="476" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600" fill="#17645e">4. Получаем вероятности и loss</text>
+<text x="56" y="501" font-family="Segoe UI, sans-serif" font-size="18" fill="#213244">Final norm → LM head: B × T × V → cross-entropy</text>
+<text x="56" y="523" font-family="Segoe UI, sans-serif" font-size="16" fill="#526575">Все разрешённые цели обучаются за один teacher-forcing forward.</text>
+<path d="M450 537V559" stroke="#17645e" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="36" y="564" width="828" height="88" rx="10" fill="white" stroke="#adc8bb"/>
+<text x="56" y="592" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600" fill="#17645e">5. Возвращаем производные</text>
+<text x="56" y="617" font-family="Segoe UI, sans-serif" font-size="18" fill="#213244">Loss → head → блоки → Q/K/V, MLP → embeddings</text>
+<text x="56" y="639" font-family="Segoe UI, sans-serif" font-size="16" fill="#526575">Backward проходит по непрерывным операциям; sampling не требуется.</text>
+<path d="M450 653V675" stroke="#17645e" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="36" y="680" width="828" height="88" rx="10" fill="white" stroke="#adc8bb"/>
+<text x="56" y="708" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600" fill="#17645e">6. Обновляем параметры</text>
+<text x="56" y="733" font-family="Segoe UI, sans-serif" font-size="18" fill="#213244">Градиенты → clipping при необходимости → optimizer.step</text>
+<text x="56" y="755" font-family="Segoe UI, sans-serif" font-size="16" fill="#526575">Следующий forward использует новые веса; inference их не обновляет.</text>
+</svg>
