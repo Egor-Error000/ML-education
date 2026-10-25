@@ -1,0 +1,32 @@
+name: Course reproducibility
+on: [push, pull_request]
+jobs:
+  portable-build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: node tools/build_course.cjs --check
+      - run: python -X utf8 tools/audit_course.py --output-dir .qa-results
+      - run: python -X utf8 tools/test_portability.py
+      - run: python -X utf8 tools/test_worked_examples.py
+      - run: node tools/build_course.cjs
+      - run: node tools/build_course.cjs
+      - run: git diff --exit-code
+      - run: python -X utf8 tools/check_portable_checkout.py
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tools/check_reader.cjs --output-dir .qa-results
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: course-checks-${{ matrix.os }}
+          path: .qa-results

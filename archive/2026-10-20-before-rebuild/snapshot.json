@@ -4,779 +4,1087 @@
   "files": [
     {
       "path": "01-data/notes/README.md",
+      "original_sha256": "5615884b4d82d7a297938dd9d4f32f207880e1933a6a6841410a6e1399ceea28",
       "sha256": "5615884b4d82d7a297938dd9d4f32f207880e1933a6a6841410a6e1399ceea28",
-      "bytes": 689
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 689
     },
     {
       "path": "01-data/План — данные и качество ML-эксперимента.md",
+      "original_sha256": "68022c74101a44916d1007e30262a3f47cacec231940370652d381e2a521686e",
       "sha256": "68022c74101a44916d1007e30262a3f47cacec231940370652d381e2a521686e",
-      "bytes": 11929
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 11929
     },
     {
       "path": "01-data/Учебные конспекты/README.md",
-      "sha256": "6b5ede2378bbab8338cbb959113c8210c6fb676dde60b92341e2b4810949fab5",
-      "bytes": 6117
+      "original_sha256": "6b5ede2378bbab8338cbb959113c8210c6fb676dde60b92341e2b4810949fab5",
+      "sha256": "bad2c4ac8ba678f86f3f5fafd7a983a703ea14d9ef02df1830ba25bb3e388fd7",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 6117
     },
     {
       "path": "01-data/Учебные конспекты/А — Постановка задачи и паспорт данных.md",
-      "sha256": "51344a8f7b51f07755d04609e2a3c942eaeecf81c00625bdce24bc0827a77728",
-      "bytes": 32825
+      "original_sha256": "51344a8f7b51f07755d04609e2a3c942eaeecf81c00625bdce24bc0827a77728",
+      "sha256": "019b2c2ca72414448faea636a45dee5d36a53bc91c922efcadb9b2e77660c545",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 32825
     },
     {
       "path": "01-data/Учебные конспекты/Б — Split, cross-validation и утечки.md",
-      "sha256": "7c19d8bfa6274c00f5ca63be87519d05bbc4befc3e33a3e2ca32fd79228a06cb",
-      "bytes": 32303
+      "original_sha256": "7c19d8bfa6274c00f5ca63be87519d05bbc4befc3e33a3e2ca32fd79228a06cb",
+      "sha256": "bd977e644b83279c561cb3e08c318da4664df5d908afa55503e1d2654b88d5be",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 32303
     },
     {
       "path": "01-data/Учебные конспекты/В — Пропуски, выбросы и качество разметки.md",
-      "sha256": "f09e447fee906d970146694cd159b00edc0149fd2c37cf6c185aa63482847aca",
-      "bytes": 22955
+      "original_sha256": "f09e447fee906d970146694cd159b00edc0149fd2c37cf6c185aa63482847aca",
+      "sha256": "9495bd333a7bf82e96d38e5b3d1a4fb0e30fe737769f2eef09ae4fc69131cc1b",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 22955
     },
     {
       "path": "01-data/Учебные конспекты/Г — Дисбаланс, метрики, порог и калибровка.md",
-      "sha256": "1c3206978328e2d1e0546114f521134dbc82018c428452b71e3b0baa713992b5",
-      "bytes": 39330
+      "original_sha256": "1c3206978328e2d1e0546114f521134dbc82018c428452b71e3b0baa713992b5",
+      "sha256": "647cbc0e42bb6319fede071eca27ac0ada247091fc0bca08819a4b22c4ec5e8f",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 39330
     },
     {
       "path": "01-data/Учебные конспекты/Д — Аугментации, синтетика и дедупликация.md",
-      "sha256": "360ed25d48b4de586c9f84969255c07f0845e1a2a771c4b016ce1ec66b4c99e3",
-      "bytes": 36467
+      "original_sha256": "360ed25d48b4de586c9f84969255c07f0845e1a2a771c4b016ce1ec66b4c99e3",
+      "sha256": "10ba436796759bebb58927cef87d90116b32804a18c2d728e6fa37753eb66339",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 36467
     },
     {
       "path": "01-data/Учебные конспекты/Е — Dataset, batching, загрузка и воспроизводимость.md",
-      "sha256": "8562aa8f737c6411dc5cd866904905569b2cd885dbfd5276ec7dbfb1e2f16c15",
-      "bytes": 35759
+      "original_sha256": "8562aa8f737c6411dc5cd866904905569b2cd885dbfd5276ec7dbfb1e2f16c15",
+      "sha256": "3434454e338b20f343aa297ac18db4be4d16e08740fabde8567b74e8e5b5ca45",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 35759
     },
     {
       "path": "01-data/Учебные конспекты/Ж — CV-данные, координаты и синхронные transforms.md",
-      "sha256": "45364e11531a2cf0771b9a258dbc8dac6186710c2fe40fadc9334325afa17476",
-      "bytes": 36893
+      "original_sha256": "45364e11531a2cf0771b9a258dbc8dac6186710c2fe40fadc9334325afa17476",
+      "sha256": "cdf520498185241d643618f597d45010c3e14ebc71ab6c6e46413181ab221b78",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 36893
     },
     {
       "path": "01-data/Учебные конспекты/З — Текстовые данные, токенизация и chunking.md",
-      "sha256": "f721f7f300463436ed66ddfeb39e3a5e7c3943f001a1845266bcadf88d3f666e",
-      "bytes": 38305
+      "original_sha256": "f721f7f300463436ed66ddfeb39e3a5e7c3943f001a1845266bcadf88d3f666e",
+      "sha256": "e60728687a6ba9fec6fe91abe288bb022f9b31d11cf7186e4e7467229ea22626",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 38305
     },
     {
       "path": "01-data/Учебные конспекты/И — Drift, интервалы и достоверность вывода.md",
-      "sha256": "b18d75621ca1a7f11ee8c4489f80578199a610859567fdc1252cd7f0416a2211",
-      "bytes": 36418
+      "original_sha256": "b18d75621ca1a7f11ee8c4489f80578199a610859567fdc1252cd7f0416a2211",
+      "sha256": "fa5a0ae19777cf3e4b13bde0e8f7934e13ad2ce260f55ff32d6498176a181498",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 36418
     },
     {
       "path": "02-regularization/notes/README.md",
+      "original_sha256": "fc9ba151db7003e74b4c71c6375676cc2d1892eed946dee50a2773ac827d65b3",
       "sha256": "fc9ba151db7003e74b4c71c6375676cc2d1892eed946dee50a2773ac827d65b3",
-      "bytes": 681
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 681
     },
     {
       "path": "02-regularization/План — регуляризация.md",
-      "sha256": "d019868c7f62b72a76a1df1ec2db51797176d143dbbad3731fac60bcafa4f016",
-      "bytes": 26396
+      "original_sha256": "d019868c7f62b72a76a1df1ec2db51797176d143dbbad3731fac60bcafa4f016",
+      "sha256": "46410452c271114445fa0acc658b53849e4c56045f466ea4842b8676c0ac8453",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 26396
     },
     {
       "path": "02-regularization/Учебные конспекты/README.md",
-      "sha256": "c3b6ab1f1226ee806f959bf6ee1b4363d70ff8ef53e977215d56879b049363fd",
-      "bytes": 6048
+      "original_sha256": "c3b6ab1f1226ee806f959bf6ee1b4363d70ff8ef53e977215d56879b049363fd",
+      "sha256": "d79b684e4d658f6e0d5c6ceeb41e68dae792eeeac9ce0ae577276f98873ec309",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 6048
     },
     {
       "path": "02-regularization/Учебные конспекты/А — Обобщение, bias-variance и ограничения теории.md",
-      "sha256": "45e6fd982098fdf7c0179940aa5bebeff99dbc85f98790eec9526423639757c0",
-      "bytes": 31739
+      "original_sha256": "45e6fd982098fdf7c0179940aa5bebeff99dbc85f98790eec9526423639757c0",
+      "sha256": "442b5c8df921384f8767bf7be679fd458a9cae98ecc2e42df2c02d8b5ec75860",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 31739
     },
     {
       "path": "02-regularization/Учебные конспекты/Б — L1, L2, группы и AdamW.md",
-      "sha256": "deb286ded2c5f5eff71e55e57dcc645a0e6310b3c44a30b1383ec8b2cd2fc151",
-      "bytes": 28816
+      "original_sha256": "deb286ded2c5f5eff71e55e57dcc645a0e6310b3c44a30b1383ec8b2cd2fc151",
+      "sha256": "67deefc04112dac9e1f458d591bfa33f04dcc66d613d9b0c8f164f203661d4c3",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 28816
     },
     {
       "path": "02-regularization/Учебные конспекты/В — Early stopping, learning rate и усреднение весов.md",
-      "sha256": "6d826814e1825cf07e823b04078e2f08f78dacab04d2c028080bb0149eda9ed3",
-      "bytes": 27400
+      "original_sha256": "6d826814e1825cf07e823b04078e2f08f78dacab04d2c028080bb0149eda9ed3",
+      "sha256": "1ab313ce174fb1eaffc8c1aae78503434f044cc59c1e75fe2028f02898ad8d3a",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 27400
     },
     {
       "path": "02-regularization/Учебные конспекты/Г — Dropout, DropConnect, DropBlock и случайные ветви.md",
-      "sha256": "4ff245e209a1e9b12c053716b43bb46056f25026e7814836a73f52d962a592b0",
-      "bytes": 28245
+      "original_sha256": "4ff245e209a1e9b12c053716b43bb46056f25026e7814836a73f52d962a592b0",
+      "sha256": "84c6f7871a6cfd08f9f5fd54bcfabffbc9db9421e183ada4c138a3a9bb82f40c",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 28245
     },
     {
       "path": "02-regularization/Учебные конспекты/Д — Нормализации, оси и train-eval statistics.md",
-      "sha256": "94596ec4a7025b0920634081a5eb993a3d9526b69f9f2e8efe6879b34aba4579",
-      "bytes": 25397
+      "original_sha256": "94596ec4a7025b0920634081a5eb993a3d9526b69f9f2e8efe6879b34aba4579",
+      "sha256": "fd435e5a9d7fbd84516cd7c767bd07e522ee605e2d6c039c71e47c0a2249d23b",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 25397
     },
     {
       "path": "02-regularization/Учебные конспекты/Е — Adversarial training, consistency и spectral norm.md",
-      "sha256": "164c2a2008306f64d1cd927eec64f315d5a65890f48ddfd2ef4834b6171e518b",
-      "bytes": 28668
+      "original_sha256": "164c2a2008306f64d1cd927eec64f315d5a65890f48ddfd2ef4834b6171e518b",
+      "sha256": "98ed464ceb51beb51d04751cc937f267b95c8925f6f85d9e868c799a16bfc72f",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 28668
     },
     {
       "path": "02-regularization/Учебные конспекты/Ж — Label smoothing, MixUp и CV-аугментации.md",
-      "sha256": "d58589130f799df40534b8ad4747fc43867dd7497d67dfd9ca444b5018ab7959",
-      "bytes": 26504
+      "original_sha256": "d58589130f799df40534b8ad4747fc43867dd7497d67dfd9ca444b5018ab7959",
+      "sha256": "581c310aa5d16f209ec8714c1d4bf76848869ad71904fba81cf70cfa9335caf2",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 26504
     },
     {
       "path": "02-regularization/Учебные конспекты/З — NLP, R-Drop и ограничения политики в RL.md",
-      "sha256": "63b1e2c1736ca0eb4bcc127d10e3f2b908d326b4a8f5db934846c852aae6baa8",
-      "bytes": 27631
+      "original_sha256": "63b1e2c1736ca0eb4bcc127d10e3f2b908d326b4a8f5db934846c852aae6baa8",
+      "sha256": "2e4c64e0070ee95622b869e212a85db3ed17b2cfb73e925a928f80914f1e38f9",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 27631
     },
     {
       "path": "02-regularization/Учебные конспекты/И — Структурные prior, графы, физика и PEFT.md",
-      "sha256": "bbe9a04da717b1cdf9128cb3f95bc4d0ade404f5ef15911ed0375b72ea74263d",
-      "bytes": 28441
+      "original_sha256": "bbe9a04da717b1cdf9128cb3f95bc4d0ade404f5ef15911ed0375b72ea74263d",
+      "sha256": "a1716a79c8a5d8a307def5dacc5d047e85ca00ddedf29b2dcd996d4b58a3758c",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 28441
     },
     {
       "path": "02-regularization/Учебные конспекты/К — SAM, Lookahead и протокол выбора регуляризации.md",
-      "sha256": "23b29720bc06ece6047fd1ad4be2cf0b1cc32c7b4fbae01f505c294ba7418fa1",
-      "bytes": 27587
+      "original_sha256": "23b29720bc06ece6047fd1ad4be2cf0b1cc32c7b4fbae01f505c294ba7418fa1",
+      "sha256": "7888cd30e75b7b280ab898816c00d7eb120a16d6ee2d55d746123ee7af6921be",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 27587
     },
     {
       "path": "03-categorical-features/notes/README.md",
+      "original_sha256": "cdaf6bbb343a5485694dde9160df0c9699f0bd2e0be4dbeba2cc23f068dfb100",
       "sha256": "cdaf6bbb343a5485694dde9160df0c9699f0bd2e0be4dbeba2cc23f068dfb100",
-      "bytes": 758
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 758
     },
     {
       "path": "03-categorical-features/План — категориальные признаки.md",
-      "sha256": "b624ac217e4d206040105557a162d7b9af392d49cfbba971f65a6f995ec30f8e",
-      "bytes": 20219
+      "original_sha256": "b624ac217e4d206040105557a162d7b9af392d49cfbba971f65a6f995ec30f8e",
+      "sha256": "f5519f9d9a2fc621d1fbfad06453123f732c66237b7536483db6cb9034dc8dbd",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 20219
     },
     {
       "path": "03-categorical-features/Учебные конспекты/README.md",
-      "sha256": "f73e6859244dc9f5d8cfddc5b3ddc0eaa9c6319c4f62a06b3eea6b9a4645a446",
-      "bytes": 5870
+      "original_sha256": "f73e6859244dc9f5d8cfddc5b3ddc0eaa9c6319c4f62a06b3eea6b9a4645a446",
+      "sha256": "3fb5d1914b761b91219cd24027547938c3e2bb6ac354757481ae6fc6c2faaad6",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 5870
     },
     {
       "path": "03-categorical-features/Учебные конспекты/А — Nominal, ordinal, one-hot и dummy encoding.md",
-      "sha256": "f756b6c6ee72334354f01f3a35874bcf1fb323a45b2a73ba173011725657dc9a",
-      "bytes": 25256
+      "original_sha256": "f756b6c6ee72334354f01f3a35874bcf1fb323a45b2a73ba173011725657dc9a",
+      "sha256": "14c69b7ba10164192a5163ecd9102c76efb16bb85c9156ec70a9c9651bb7fccc",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 25256
     },
     {
       "path": "03-categorical-features/Учебные конспекты/Б — Кардинальность, frequency и feature hashing.md",
-      "sha256": "5d401ec57627ec19745e33e313c431507b4c5df978deb0e1cb5b76e22bbb842a",
-      "bytes": 25135
+      "original_sha256": "5d401ec57627ec19745e33e313c431507b4c5df978deb0e1cb5b76e22bbb842a",
+      "sha256": "a7dfc2a3f92d9cd0a3c90f89a0e87dce142e0d1c4bdfaf22d8efbcc38d93a560",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 25135
     },
     {
       "path": "03-categorical-features/Учебные конспекты/В — Target encoding, cross-fitting, smoothing и WoE.md",
-      "sha256": "cd1807adcf91958b5c84d4471d888a19833d0bc5a3ffd58a3d9a8f58fb013a0c",
-      "bytes": 29359
+      "original_sha256": "cd1807adcf91958b5c84d4471d888a19833d0bc5a3ffd58a3d9a8f58fb013a0c",
+      "sha256": "127002233d0ee28da003a413df1005be46c09ad8d55a645efaecd35a826751db",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 29359
     },
     {
       "path": "03-categorical-features/Учебные конспекты/Г — Embeddings, gradients и перенос между задачами.md",
-      "sha256": "e08595cc19b33e7e2ea8cafef5fafde7695cbfd331095d0d65d343a4d11d9e9e",
-      "bytes": 30955
+      "original_sha256": "e08595cc19b33e7e2ea8cafef5fafde7695cbfd331095d0d65d343a4d11d9e9e",
+      "sha256": "b96bc2d6903e4f498586b427897aef023a77ad75214f6104e02bcecf77f7e21d",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 30955
     },
     {
       "path": "03-categorical-features/Учебные конспекты/Д — Нативные категории в LightGBM, CatBoost и XGBoost.md",
-      "sha256": "6c19ab5c556d5131e3b236fd475856b2a211f7ba9d992a77887408458d408c6e",
-      "bytes": 24665
+      "original_sha256": "6c19ab5c556d5131e3b236fd475856b2a211f7ba9d992a77887408458d408c6e",
+      "sha256": "3f5cd9be1034f127eb40632d8407991705d924a8ccacf802994765f57f36de47",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 24665
     },
     {
       "path": "03-categorical-features/Учебные конспекты/Е — Feature crosses, FM и field-aware взаимодействия.md",
-      "sha256": "1ecd1e7aa3e938b02598c9c22c93cc75ca6ad6dc5a0c92c83db50fdce4274ea8",
-      "bytes": 23430
+      "original_sha256": "1ecd1e7aa3e938b02598c9c22c93cc75ca6ad6dc5a0c92c83db50fdce4274ea8",
+      "sha256": "92a2f5d1db4a4599431453709ccf3548670a57a5d5db3134e0b7b7204abd8f4d",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 23430
     },
     {
       "path": "03-categorical-features/Учебные конспекты/Ж — Multi-hot, counts и pooling наборов категорий.md",
-      "sha256": "c46a4f3ffca279c0bde5d0fcf618c23865a1a6c523f3f5d108fb88d4f9c2c6ef",
-      "bytes": 6609
+      "original_sha256": "c46a4f3ffca279c0bde5d0fcf618c23865a1a6c523f3f5d108fb88d4f9c2c6ef",
+      "sha256": "da7ddd9eea7e2409a8cde04dd537bc00fce333cb744537ae3ab2eedb9e024768",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 6609
     },
     {
       "path": "03-categorical-features/Учебные конспекты/З — Missing, unknown, rare и стабильный словарь.md",
-      "sha256": "8859d791dfa1d3e1a3f3b2e8bcdc567f9316440b9c22da6037b0f3c09e97e95a",
-      "bytes": 7414
+      "original_sha256": "8859d791dfa1d3e1a3f3b2e8bcdc567f9316440b9c22da6037b0f3c09e97e95a",
+      "sha256": "7abe417ab685bb20d69d616189a92e2c351d17fe90ed69e76233d745d203ecc1",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 7414
     },
     {
       "path": "03-categorical-features/Учебные конспекты/И — Временные статистики и доступность метки.md",
-      "sha256": "d84fb21a9c8a5fe46c36b85f9e54986fe0b32c0b88fcb0546b2a300c688f8906",
-      "bytes": 7923
+      "original_sha256": "d84fb21a9c8a5fe46c36b85f9e54986fe0b32c0b88fcb0546b2a300c688f8906",
+      "sha256": "3a966107c782a1e3d70e74488acecb1004ae4cf78e3d10fcafd7c26438ce7847",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 7923
     },
     {
       "path": "04-clustering/notes/README.md",
+      "original_sha256": "e15204eb53942843c91362e9961ab6affb4cb6dedac2b40805d33918212a90a6",
       "sha256": "e15204eb53942843c91362e9961ab6affb4cb6dedac2b40805d33918212a90a6",
-      "bytes": 721
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 721
     },
     {
       "path": "04-clustering/План — кластеризация.md",
+      "original_sha256": "75b4f672c048afb64dabae91c538c573552edbd7d054cc6b3328b36ccd229158",
       "sha256": "75b4f672c048afb64dabae91c538c573552edbd7d054cc6b3328b36ccd229158",
-      "bytes": 21051
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 21051
     },
     {
       "path": "04-clustering/Учебные конспекты/README.md",
+      "original_sha256": "6cdeb051a5dfb148d56ed8fbf2318acd432344cc02ae2d6c4cf737864609c445",
       "sha256": "6cdeb051a5dfb148d56ed8fbf2318acd432344cc02ae2d6c4cf737864609c445",
-      "bytes": 4409
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 4409
     },
     {
       "path": "04-clustering/Учебные конспекты/А — Похожесть, расстояния и постановка кластеризации.md",
-      "sha256": "b50f74a7a1cf907efc68434a2e7b1298978c7990a3136b6827469eeb1011e9e6",
-      "bytes": 8298
+      "original_sha256": "b50f74a7a1cf907efc68434a2e7b1298978c7990a3136b6827469eeb1011e9e6",
+      "sha256": "a6919baf36375acf88ebd6456229fffa305fde6fb8b53056beb9e47c36cda290",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 8298
     },
     {
       "path": "04-clustering/Учебные конспекты/Б — K-Means, иерархии, плотность и GMM.md",
-      "sha256": "c13d0a96f702ad8849544c4f12837ad4df8c66ef0e3725c6f920c760d4efd5a4",
-      "bytes": 9004
+      "original_sha256": "c13d0a96f702ad8849544c4f12837ad4df8c66ef0e3725c6f920c760d4efd5a4",
+      "sha256": "eb018dfe390264cdcf11ec9aa5d94fafcbdf7eed2e41a9a0e85094433f4fb431",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 9004
     },
     {
       "path": "04-clustering/Учебные конспекты/В — Выбор K, gap statistic и устойчивость.md",
-      "sha256": "124cde00877124054d5032800a674e28f6e03240a00ad4a9ca56b3d12421b2f0",
-      "bytes": 7877
+      "original_sha256": "124cde00877124054d5032800a674e28f6e03240a00ad4a9ca56b3d12421b2f0",
+      "sha256": "9d72411a2df16781568b00d527d9f64229ceac63b7024d1ce818edd42c75f9a1",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 7877
     },
     {
       "path": "04-clustering/Учебные конспекты/Г — Purity, ARI, NMI и внутренние метрики.md",
-      "sha256": "a89fba7b169385ef462191441113f09fe913fbba5053b678a729301fe7161721",
-      "bytes": 6983
+      "original_sha256": "a89fba7b169385ef462191441113f09fe913fbba5053b678a729301fe7161721",
+      "sha256": "bc0b13f4904721c88336b6447003d89a52de100bf948a2d26d5ccca79f002f55",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 6983
     },
     {
       "path": "04-clustering/Учебные конспекты/Д — Frozen embeddings, DEC и IDEC.md",
-      "sha256": "77efb6c922cd74c084081074f3d2139c099f3e12cecdfd0127df0dcc7316bbe8",
-      "bytes": 7837
+      "original_sha256": "77efb6c922cd74c084081074f3d2139c099f3e12cecdfd0127df0dcc7316bbe8",
+      "sha256": "d3a3dd312fc37357d7122fea3c9942e0cc34748077ce041fc301061890fdc08a",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 7837
     },
     {
       "path": "04-clustering/Учебные конспекты/Е — Image clustering, superpixels и поток новых объектов.md",
-      "sha256": "5d0cf7dad4ce5a5bf525ad28b1eaad78200ff32dbbe3db6405cfd5daad4bf9f9",
-      "bytes": 8027
+      "original_sha256": "5d0cf7dad4ce5a5bf525ad28b1eaad78200ff32dbbe3db6405cfd5daad4bf9f9",
+      "sha256": "38e31ab3803774dfda755976291bc15f48c199f2c057c0c353bbd95bb2f76a47",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 8027
     },
     {
       "path": "04-clustering/Учебные конспекты/Ж — Текстовые representations, LDA, NMF и Top2Vec.md",
-      "sha256": "a35ee99f716ab821c61fb283a0781c0a7c8ddaaf7c78a318241c3024eb3b9f74",
-      "bytes": 8960
+      "original_sha256": "a35ee99f716ab821c61fb283a0781c0a7c8ddaaf7c78a318241c3024eb3b9f74",
+      "sha256": "2851704aae271383fc9d824254a163d4615ed0f5e567b4d3f8488519e2a967d1",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 8960
     },
     {
       "path": "04-clustering/Учебные конспекты/З — PCA, t-SNE, UMAP и геометрия проекции.md",
-      "sha256": "b307e8ca57104e87195261c357bf07382431a6ac4c7efcf9fb86be8ff2fd2de5",
-      "bytes": 7600
+      "original_sha256": "b307e8ca57104e87195261c357bf07382431a6ac4c7efcf9fb86be8ff2fd2de5",
+      "sha256": "51340bd23cc8050b431c92821a03c1cf09e110462892d710effc66c434752447",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 7600
     },
     {
       "path": "04-clustering/Учебные конспекты/И — Аномалии, псевдометки, IVF и итоговый pipeline.md",
-      "sha256": "6f50b094b4a847b1ac1da58c8e5445a8ffe2287b1f2eb778713ba2a746278287",
-      "bytes": 8008
+      "original_sha256": "6f50b094b4a847b1ac1da58c8e5445a8ffe2287b1f2eb778713ba2a746278287",
+      "sha256": "c6d179ba1e20cb647165b05c10d857a9cb724cbe07b8d9f01eb3eb624f396ab6",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 8008
     },
     {
       "path": "05-computer-vision/notes/README.md",
+      "original_sha256": "4b29e07d64cd42d462b45983878d334ddff95f6505fd96bd982eaefc94027214",
       "sha256": "4b29e07d64cd42d462b45983878d334ddff95f6505fd96bd982eaefc94027214",
-      "bytes": 1059
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 1059
     },
     {
       "path": "05-computer-vision/notes/Интеграция CV-чата S7.md",
+      "original_sha256": "4a84ac797a2d8e6f52d499f4d092bc4db09bc8a8d026cc6355f061c0f9d23eab",
       "sha256": "4a84ac797a2d8e6f52d499f4d092bc4db09bc8a8d026cc6355f061c0f9d23eab",
-      "bytes": 10834
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 10834
     },
     {
       "path": "05-computer-vision/План — компьютерное зрение.md",
+      "original_sha256": "b45b3159f4c15bdccf7946f9c17226b12e59d607f82857aa46dbb63dfaf7cf79",
       "sha256": "b45b3159f4c15bdccf7946f9c17226b12e59d607f82857aa46dbb63dfaf7cf79",
-      "bytes": 17885
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 17885
     },
     {
       "path": "05-computer-vision/Учебные конспекты/00 — Изображение, тензоры и общий путь модели.md",
+      "original_sha256": "393dea8794429c9be4aaaf0e762c7fd1cac36232a0bf26d9fababc7805bf47c1",
       "sha256": "393dea8794429c9be4aaaf0e762c7fd1cac36232a0bf26d9fababc7805bf47c1",
-      "bytes": 11395
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 11395
     },
     {
       "path": "05-computer-vision/Учебные конспекты/README.md",
+      "original_sha256": "9d150b7a69d3436e7a77bcbe9ce14535c0391d819dd0c98c49abb05c83f39c13",
       "sha256": "9d150b7a69d3436e7a77bcbe9ce14535c0391d819dd0c98c49abb05c83f39c13",
-      "bytes": 5810
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 5810
     },
     {
       "path": "05-computer-vision/Учебные конспекты/А — Классификация, backbone и математика ViT.md",
-      "sha256": "dab05acde56f8369e23e1eb9e1a987a34c4131060b8e0db4700e63878d9d463a",
-      "bytes": 91554
+      "original_sha256": "dab05acde56f8369e23e1eb9e1a987a34c4131060b8e0db4700e63878d9d463a",
+      "sha256": "120672e291473a2fbb6de4dc631ee25e8f016dde995df8d78f59d0b3dc13a064",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 91554
     },
     {
       "path": "05-computer-vision/Учебные конспекты/Б — Detection, IoU, AP, NMS и архитектуры.md",
-      "sha256": "e498a5ca37af7d76c50e5ae4e0faa81677aa5881e225673189b542c4518de737",
-      "bytes": 35036
+      "original_sha256": "e498a5ca37af7d76c50e5ae4e0faa81677aa5881e225673189b542c4518de737",
+      "sha256": "e86dad7ef7f6a19b69abf16fc659745593a2a670d55ab549ed64ed7f971ae654",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 35036
     },
     {
       "path": "05-computer-vision/Учебные конспекты/В — Semantic segmentation, FCN, U-Net и DeepLab.md",
-      "sha256": "df122762f7fb1f7bdac3875ea813aa519110d2a241d9bfbf1a68b946ac01b851",
-      "bytes": 31886
+      "original_sha256": "df122762f7fb1f7bdac3875ea813aa519110d2a241d9bfbf1a68b946ac01b851",
+      "sha256": "a33577a1d7ac284bee62a3bb6855b845f967b4cc56397d151967343a6a488222",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 31886
     },
     {
       "path": "05-computer-vision/Учебные конспекты/Г — Instance segmentation, RoIAlign и prototype masks.md",
-      "sha256": "364913799e335b9e0e271cdddde37c7e4a2ae723ef586e10fdcb5e45476f2557",
-      "bytes": 28123
+      "original_sha256": "364913799e335b9e0e271cdddde37c7e4a2ae723ef586e10fdcb5e45476f2557",
+      "sha256": "c5c43bbe4d2263dad5bec0a7542f1a5e7bdddc6f50ac2ea55bfd4c03cfb917a0",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 28123
     },
     {
       "path": "05-computer-vision/Учебные конспекты/Д — Pose, heatmaps, OKS и группировка keypoints.md",
-      "sha256": "8ba526bb65b8150d3b9117e431e532c3b77f0d0e0172fb771b9941e1c309c05c",
-      "bytes": 25028
+      "original_sha256": "8ba526bb65b8150d3b9117e431e532c3b77f0d0e0172fb771b9941e1c309c05c",
+      "sha256": "db0a545d90f6b05ee183d87bba561d6274b543ffbc2c0d3c0de1251683ad5303",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 25028
     },
     {
       "path": "05-computer-vision/Учебные конспекты/Е — OBB, поворот, periodicity и rotated IoU.md",
-      "sha256": "e3bdd67a92967a956f6b5f1bebe8552f4978672558eb6c15c0cd84ac0a7f0eb7",
-      "bytes": 24934
+      "original_sha256": "e3bdd67a92967a956f6b5f1bebe8552f4978672558eb6c15c0cd84ac0a7f0eb7",
+      "sha256": "eabd25984a1521bb42a79e9b330b0e9b56906016ea623e2b1dff586e5a8c18fc",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 24934
     },
     {
       "path": "05-computer-vision/Учебные конспекты/Ж — Tracking, Kalman, association, MOTA, IDF1 и HOTA.md",
-      "sha256": "bfd51d733d66d57b8ec03c91787ede469008f2d20c36d3f869e207224d323fff",
-      "bytes": 28071
+      "original_sha256": "bfd51d733d66d57b8ec03c91787ede469008f2d20c36d3f869e207224d323fff",
+      "sha256": "1c5ac78b8695f7a97a9fa6f52ae1ead24ad8f6bdcb3f1299b1d38d7c2940d91b",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 28071
     },
     {
       "path": "05-computer-vision/Учебные конспекты/З — Depth, scale ambiguity, DPT и метрики.md",
-      "sha256": "ccbccd8ea1452e88ff4664900728305853cf36814e5a3c2ece7b7c3978db1491",
-      "bytes": 25455
+      "original_sha256": "ccbccd8ea1452e88ff4664900728305853cf36814e5a3c2ece7b7c3978db1491",
+      "sha256": "43a5aa12f67fdcf959f4acca378d56ee48c342f68696f88de463183a932de021",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 25455
     },
     {
       "path": "05-computer-vision/Учебные конспекты/И — CLIP, open-vocabulary detection и YOLO-World.md",
-      "sha256": "ce3d784a085028377a18d22c5503a70668f59542c35d95debeeb769bbe4b8c7b",
-      "bytes": 30942
+      "original_sha256": "ce3d784a085028377a18d22c5503a70668f59542c35d95debeeb769bbe4b8c7b",
+      "sha256": "749a1a915778d9c2845a04c098a945781bc62ffb2f4cd5b1133f83dc1817382a",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 30942
     },
     {
       "path": "06-llm/01-foundations/notes/llm-foundations.md",
+      "original_sha256": "6bed4be2426aa0b031b11a23a97df9a872069ce402c31a2b5c11e556416b75b6",
       "sha256": "6bed4be2426aa0b031b11a23a97df9a872069ce402c31a2b5c11e556416b75b6",
-      "bytes": 7039
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 7039
     },
     {
       "path": "06-llm/01-foundations/notes/README.md",
+      "original_sha256": "684ca0b943737ad20c91273e3a5045f94289bdf1a947956c1366c86435ad01f9",
       "sha256": "684ca0b943737ad20c91273e3a5045f94289bdf1a947956c1366c86435ad01f9",
-      "bytes": 495
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 495
     },
     {
       "path": "06-llm/01-foundations/План — основы LLM.md",
+      "original_sha256": "f73cd664ffea80682d7a3354985dfb1533d4c37133097eb5564947afc1570371",
       "sha256": "f73cd664ffea80682d7a3354985dfb1533d4c37133097eb5564947afc1570371",
-      "bytes": 1368
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 1368
     },
     {
       "path": "06-llm/01-foundations/Учебные конспекты/README.md",
-      "sha256": "0b96dfe261d5a7ed1f77d90299428ab54dd44ee19b5f45b525669cbbbc26ee34",
-      "bytes": 4426
+      "original_sha256": "0b96dfe261d5a7ed1f77d90299428ab54dd44ee19b5f45b525669cbbbc26ee34",
+      "sha256": "3cc5eaa0712ee41799759b6d763e0dc81372de3acaa16e07d000705d0f3c33c5",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 4426
     },
     {
       "path": "06-llm/01-foundations/Учебные конспекты/А — Токены, embeddings и обучение следующему токену.md",
-      "sha256": "9c4802f3a45c4f24d4063612929f4e5679b3eee5b29ddc2980c2ca3394b0ecb2",
-      "bytes": 24601
+      "original_sha256": "9c4802f3a45c4f24d4063612929f4e5679b3eee5b29ddc2980c2ca3394b0ecb2",
+      "sha256": "6fb39f16564e5379aaaaa36d0e2fa6ae96fac2dce0d6e242eaf8a7d121a80137",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 24601
     },
     {
       "path": "06-llm/01-foundations/Учебные конспекты/Б — RNN и ограничения рекуррентного состояния.md",
-      "sha256": "69454b20bc2739bc4c821d3cfa9c2f296c7e477f13dbadd8ee8fb36634aedd4f",
-      "bytes": 21216
+      "original_sha256": "69454b20bc2739bc4c821d3cfa9c2f296c7e477f13dbadd8ee8fb36634aedd4f",
+      "sha256": "e741d4c0290289ea89c4dfb646c6ec62a120f5747f930b9e30bb8bf35d592bbf",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 21216
     },
     {
       "path": "06-llm/01-foundations/Учебные конспекты/В — Transformer, causal mask и устройство блока.md",
-      "sha256": "9ee147815f2a415a7dd3318839216856ae1cc5f45fcdc22ad5872833b78fcdab",
-      "bytes": 57667
+      "original_sha256": "9ee147815f2a415a7dd3318839216856ae1cc5f45fcdc22ad5872833b78fcdab",
+      "sha256": "335d62b4cf8b566e41ba71ba3a1b1dbc032b5812fc98bcaf0fadc9727791cfcb",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 57667
     },
     {
       "path": "06-llm/01-foundations/Учебные конспекты/Г — QKV, multi-head attention и точный backward.md",
-      "sha256": "b3ab1902fb19119db70f1551299048ff6bf1004604c50f23b0865546e1222378",
-      "bytes": 36092
+      "original_sha256": "b3ab1902fb19119db70f1551299048ff6bf1004604c50f23b0865546e1222378",
+      "sha256": "6961c88005dc0e6cd8d03e42062aa6163ac2c186fb2ecdebc229cbd2b862f354",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 36092
     },
     {
       "path": "06-llm/01-foundations/Учебные конспекты/Д — Hidden states, LM head и границы интерпретации.md",
-      "sha256": "360c6e41e02fc5aa507c037a99917c4dc5c8ee77b4d5e034847f08549763a6ca",
-      "bytes": 27811
+      "original_sha256": "360c6e41e02fc5aa507c037a99917c4dc5c8ee77b4d5e034847f08549763a6ca",
+      "sha256": "6be453b7b7573cd4bfd18539f99cdbce6c6d2ac247d543f452130e7cbab0a869",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 27811
     },
     {
       "path": "06-llm/02-adaptation/notes/llm-adaptation.md",
+      "original_sha256": "42fdda841bf10b5be1f16e144e191fd5f5844cbbd17032808471cb20108ee765",
       "sha256": "42fdda841bf10b5be1f16e144e191fd5f5844cbbd17032808471cb20108ee765",
-      "bytes": 11932
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 11932
     },
     {
       "path": "06-llm/02-adaptation/notes/README.md",
+      "original_sha256": "0d0258e4fb330b27c55a9bc539d51f010c59dad040f1c6d3ab03868761c96aa3",
       "sha256": "0d0258e4fb330b27c55a9bc539d51f010c59dad040f1c6d3ab03868761c96aa3",
-      "bytes": 524
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 524
     },
     {
       "path": "06-llm/02-adaptation/План — адаптация LLM.md",
+      "original_sha256": "73aa390dc09c8399d95c68531142523ef2dd3931d1e7c01e8d3efad00f07a78e",
       "sha256": "73aa390dc09c8399d95c68531142523ef2dd3931d1e7c01e8d3efad00f07a78e",
-      "bytes": 28709
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 28709
     },
     {
       "path": "06-llm/02-adaptation/Учебные конспекты/README.md",
-      "sha256": "d776e9a03fa5ea97f8ae0e37b4f3f595f45e2523e2cdd4c6c8562105b0bbf733",
-      "bytes": 5241
+      "original_sha256": "d776e9a03fa5ea97f8ae0e37b4f3f595f45e2523e2cdd4c6c8562105b0bbf733",
+      "sha256": "49911c7b20124c08619ffea28a69b0f28f31243549e281ae208d10b81692cf32",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 5241
     },
     {
       "path": "06-llm/02-adaptation/Учебные конспекты/А — Выбор адаптации, PEFT и память обучения.md",
-      "sha256": "dcf635e73992f0ada4262edd1fd10a2964407cd3563ce344038b08ae95628259",
-      "bytes": 24030
+      "original_sha256": "dcf635e73992f0ada4262edd1fd10a2964407cd3563ce344038b08ae95628259",
+      "sha256": "3359de5a10e235f99c0eac1dd76a89f5eab385f893ee8e4dff819f628335dab7",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 24030
     },
     {
       "path": "06-llm/02-adaptation/Учебные конспекты/Б — LoRA, target modules и два шага обучения.md",
-      "sha256": "6810ecff66dfa235d8e7a88728f252ac7a75b217bf2e364766db481d3d8b637b",
-      "bytes": 30286
+      "original_sha256": "6810ecff66dfa235d8e7a88728f252ac7a75b217bf2e364766db481d3d8b637b",
+      "sha256": "ff7bcec9b8540090a1e66576cd9c1cef67f5c325c249d0717a0d600d9cb700fc",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 30286
     },
     {
       "path": "06-llm/02-adaptation/Учебные конспекты/В — DoRA, AdaLoRA, LoRA+ и QLoRA.md",
-      "sha256": "0971e3019fb2c04e7c5a12aa23b8465321aabd43ec7b3d69aa3430416fa0950d",
-      "bytes": 44279
+      "original_sha256": "0971e3019fb2c04e7c5a12aa23b8465321aabd43ec7b3d69aa3430416fa0950d",
+      "sha256": "2f27b879cfe4646053623c45a7027ea3f1fb923d9399ba519dd5d7a87500eb89",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 44279
     },
     {
       "path": "06-llm/02-adaptation/Учебные конспекты/Г — Adapters, prefix tuning, soft prompts и BitFit.md",
-      "sha256": "69bb64c0d280f37763ac103198bdfde4c603672c95f3f3bab447899c8a7537f3",
-      "bytes": 23370
+      "original_sha256": "69bb64c0d280f37763ac103198bdfde4c603672c95f3f3bab447899c8a7537f3",
+      "sha256": "28b97a3ef0a501de18ce67920198b347cc4656c45ac2b70c0dcd42a580ae93f1",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 23370
     },
     {
       "path": "06-llm/02-adaptation/Учебные конспекты/Д — SFT, данные из книг, masks и training objective.md",
-      "sha256": "34633813e1c0b5945735433ca90ec9f40b35b1faa3571757537c0f975d6ecfa0",
-      "bytes": 25508
+      "original_sha256": "34633813e1c0b5945735433ca90ec9f40b35b1faa3571757537c0f975d6ecfa0",
+      "sha256": "51c7029ad85eb47c7d71e91900116c01687932aef3f90bb4cae3f7d053555015",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 25508
     },
     {
       "path": "06-llm/02-adaptation/Учебные конспекты/Е — RLHF, PPO, DPO, IPO, KTO и ORPO.md",
-      "sha256": "3d8a21e71a84803b6e64904d676b6a4a7462aa2edaff316bfeaee94f8b77353a",
-      "bytes": 28489
+      "original_sha256": "3d8a21e71a84803b6e64904d676b6a4a7462aa2edaff316bfeaee94f8b77353a",
+      "sha256": "00f599fae07b3918fdc75a55b5d7572ea8eef79575a35b2c02ce27a874ff6151",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 28489
     },
     {
       "path": "06-llm/02-adaptation/Учебные конспекты/Ж — Model soup, TIES, DARE, merge и switching.md",
-      "sha256": "17edad5ecfaeb9f40f6008c8db4b3ca4afc7e979bc91decc43eb6b8515e399b0",
-      "bytes": 21605
+      "original_sha256": "17edad5ecfaeb9f40f6008c8db4b3ca4afc7e979bc91decc43eb6b8515e399b0",
+      "sha256": "d744cca5b7ff44a9a9588ffc72bc5545683c918e65a5616683c405c8a41bc8ca",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 21605
     },
     {
       "path": "06-llm/02-adaptation/Учебные конспекты/З — Evaluation, perplexity, judge и экспорт.md",
-      "sha256": "071056e73b66448128674cbaea2ea4b08c1910239358e01504a66842884ee526",
-      "bytes": 22360
+      "original_sha256": "071056e73b66448128674cbaea2ea4b08c1910239358e01504a66842884ee526",
+      "sha256": "32865d5bbb96224169baa31bfbdcef43325fb06c32785389ba7a0c0e180f387a",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 22360
     },
     {
       "path": "06-llm/02-adaptation/Учебные конспекты/И — AI feedback, несколько целей и continual learning.md",
-      "sha256": "887032647867038987459d464837e527c953b885228b9ee8f1306ef825d08abc",
-      "bytes": 22584
+      "original_sha256": "887032647867038987459d464837e527c953b885228b9ee8f1306ef825d08abc",
+      "sha256": "feb4d936639ff92a0fd4afb1c5087629dbb9709a0403a764d76f0ee526c38180",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 22584
     },
     {
       "path": "06-llm/02-adaptation/Учебные конспекты/К — Дистилляция, teacher annealing и обучение на своих траекториях.md",
-      "sha256": "e8f8909f8ef1850e7ee7892f62c37a13e4c8a51b0bf2ddabdc1efc4a2407f615",
-      "bytes": 26332
+      "original_sha256": "e8f8909f8ef1850e7ee7892f62c37a13e4c8a51b0bf2ddabdc1efc4a2407f615",
+      "sha256": "fef5eda0f239473bbe61c48d901523e7f2e1fbad39c4181c0082fe27e0f0f5ef",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 26332
     },
     {
       "path": "06-llm/03-inference/notes/llm-inference-research.md",
+      "original_sha256": "b9ef8214dbf9b23050f0bed270a8750552489a646dc8b5fe4fe88c765146aac0",
       "sha256": "b9ef8214dbf9b23050f0bed270a8750552489a646dc8b5fe4fe88c765146aac0",
-      "bytes": 2623
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 2623
     },
     {
       "path": "06-llm/03-inference/notes/llm-inference.md",
+      "original_sha256": "92c5f2426e2aaaefd684b0e46b665db6385bd004536cf2c3f69d48f18df6c003",
       "sha256": "92c5f2426e2aaaefd684b0e46b665db6385bd004536cf2c3f69d48f18df6c003",
-      "bytes": 8761
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 8761
     },
     {
       "path": "06-llm/03-inference/notes/README.md",
+      "original_sha256": "272579e3f660decf5713c63e4b78946190a44dfd257c21015907ec2a88b9bb99",
       "sha256": "272579e3f660decf5713c63e4b78946190a44dfd257c21015907ec2a88b9bb99",
-      "bytes": 587
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 587
     },
     {
       "path": "06-llm/03-inference/План — инференс LLM.md",
+      "original_sha256": "6cbbd74f7d9c2a5768fe185b0440dd2ea11d725e9ef206ea5829c6e3c4f153c7",
       "sha256": "6cbbd74f7d9c2a5768fe185b0440dd2ea11d725e9ef206ea5829c6e3c4f153c7",
-      "bytes": 27267
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 27267
     },
     {
       "path": "06-llm/03-inference/Учебные конспекты/README.md",
+      "original_sha256": "1b9a8809c4277a2ab15b22ec16edd24ea4e14f5f96f3a1810f994d73ec0dae39",
       "sha256": "1b9a8809c4277a2ab15b22ec16edd24ea4e14f5f96f3a1810f994d73ec0dae39",
-      "bytes": 6277
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 6277
     },
     {
       "path": "06-llm/03-inference/Учебные конспекты/А — Квантизация, активации, PTQ, QAT, GPTQ и AWQ.md",
-      "sha256": "2b252eacc518a58e2576b1991daf4b1fd8b544ef6f345e4118dd248bef617db5",
-      "bytes": 61125
+      "original_sha256": "2b252eacc518a58e2576b1991daf4b1fd8b544ef6f345e4118dd248bef617db5",
+      "sha256": "2c3a18d5444e3c3aee0569ceb52948b1fb356c36454a655097547d542bf319f5",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 61125
     },
     {
       "path": "06-llm/03-inference/Учебные конспекты/Б — Pruning и граница с дистилляцией.md",
-      "sha256": "1295bfc7ee1ef63372ff106a79da810f8c8d7b44094efa96187ebb717727ea67",
-      "bytes": 32846
+      "original_sha256": "1295bfc7ee1ef63372ff106a79da810f8c8d7b44094efa96187ebb717727ea67",
+      "sha256": "a345ee25c83c39d7c3ffd37796b6784f11d9a6ae7ad59a6563f280153a1c820d",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 32846
     },
     {
       "path": "06-llm/03-inference/Учебные конспекты/В — KV-cache, prefill, decode, MQA и GQA.md",
-      "sha256": "65c9a318549948662cc1ed884000b5e68ffba491c9dbd4c0e656a773bf74e583",
-      "bytes": 23075
+      "original_sha256": "65c9a318549948662cc1ed884000b5e68ffba491c9dbd4c0e656a773bf74e583",
+      "sha256": "e7be8cde24a934850016d9aaf4462874edfd6e202cb9304c109e0fe3a50adc54",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 23075
     },
     {
       "path": "06-llm/03-inference/Учебные конспекты/Г — Serving, continuous batching и PagedAttention.md",
-      "sha256": "a1b7fbce061b09c0fe322fbb2c004c7221647dd388ee88da1d145fc583fbc498",
-      "bytes": 41553
+      "original_sha256": "a1b7fbce061b09c0fe322fbb2c004c7221647dd388ee88da1d145fc583fbc498",
+      "sha256": "623737fa3660266e13ff260e48dee592b25f8f7f0c3baca14d9c806a01c5d062",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 41553
     },
     {
       "path": "06-llm/03-inference/Учебные конспекты/Д — Speculative decoding, rejection sampling и beam search.md",
-      "sha256": "483335c8a0ee55202b14970b26050c16b8d3d7e80b918c67abd83f4da6a21352",
-      "bytes": 41159
+      "original_sha256": "483335c8a0ee55202b14970b26050c16b8d3d7e80b918c67abd83f4da6a21352",
+      "sha256": "e041464d70e94fd82a76b94dfa0a6af3ab628e87fff5ea38d3cce6fd44d47b80",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 41159
     },
     {
       "path": "06-llm/03-inference/Учебные конспекты/Е — Greedy, temperature, top-p, beam и constrained decoding.md",
-      "sha256": "d480851491f11816a057bc3bfd32683d9ce88713f641ea6dfc4a1d2093e11803",
-      "bytes": 35691
+      "original_sha256": "d480851491f11816a057bc3bfd32683d9ce88713f641ea6dfc4a1d2093e11803",
+      "sha256": "8e433b7ce7e6e3582d443bacd42e91dc5420ed8905c98b67a5c9b8563014f0eb",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 35691
     },
     {
       "path": "06-llm/03-inference/Учебные конспекты/Ж — Длинный контекст, sliding window и prompt caching.md",
-      "sha256": "14763f2460939c208064009626ca4ab8a387fe782c772bd5d382254bb6d181ad",
-      "bytes": 31703
+      "original_sha256": "14763f2460939c208064009626ca4ab8a387fe782c772bd5d382254bb6d181ad",
+      "sha256": "37fe725864404a56b312fdfad2c0f3eda909bc7a237c12a8743f71626cb5328a",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 31703
     },
     {
       "path": "06-llm/03-inference/Учебные конспекты/З — Orchestration, tools, RAG и границы runtime.md",
-      "sha256": "736c426365e0f77575e1971ac63450cb0a060493c8ed966667e9bb93879d4c53",
-      "bytes": 48639
+      "original_sha256": "736c426365e0f77575e1971ac63450cb0a060493c8ed966667e9bb93879d4c53",
+      "sha256": "64dc6bf26fe887fb9c7baa664a5296be86be5aba0c98da9148dfafa4baba862d",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 48639
     },
     {
       "path": "06-llm/03-inference/Учебные конспекты/И — Deployment, cold start, очереди и масштабирование.md",
-      "sha256": "ddb26644c0786253962c23b4dd2d0fb230ad73e8d064aadd696e4176e3fe4c6d",
-      "bytes": 50125
+      "original_sha256": "ddb26644c0786253962c23b4dd2d0fb230ad73e8d064aadd696e4176e3fe4c6d",
+      "sha256": "31634cbce3eacbbc4effe26c35a20b07d121e7bdd47bab89c055b49de11a27ae",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 50125
     },
     {
       "path": "06-llm/03-inference/Учебные конспекты/К — Кэш ответов, semantic cache, мониторинг и качество.md",
-      "sha256": "219978e51e780751b9af6e5199f8d84fd1b659803b25e3e958ea802f297191b2",
-      "bytes": 45854
+      "original_sha256": "219978e51e780751b9af6e5199f8d84fd1b659803b25e3e958ea802f297191b2",
+      "sha256": "c85c42d7ed217ad8aa123c190b5531fd81519848b0e7ec786d8a800d244c4e3a",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 45854
     },
     {
       "path": "06-llm/04-applications/notes/llm-applications.md",
+      "original_sha256": "0af729873c217582dd50fb8fd13a69876740c2243b3e628ec961086fb77d1666",
       "sha256": "0af729873c217582dd50fb8fd13a69876740c2243b3e628ec961086fb77d1666",
-      "bytes": 7690
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 7690
     },
     {
       "path": "06-llm/04-applications/notes/README.md",
+      "original_sha256": "b54072d8146c909869355285fa531b93a6ad2d897c67a271a00104006f4cd51b",
       "sha256": "b54072d8146c909869355285fa531b93a6ad2d897c67a271a00104006f4cd51b",
-      "bytes": 643
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 643
     },
     {
       "path": "06-llm/04-applications/План — приложения LLM.md",
+      "original_sha256": "ce0274346d88985bdb9184e3ecbe084655cb3aac589fedbb31a07a4955131cd7",
       "sha256": "ce0274346d88985bdb9184e3ecbe084655cb3aac589fedbb31a07a4955131cd7",
-      "bytes": 1930
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 1930
     },
     {
       "path": "06-llm/04-applications/Учебные конспекты/README.md",
-      "sha256": "40f2a5f3750be833204dbe3241038b5f81c37942307b5a5869732a9e2e94b6ec",
-      "bytes": 4854
+      "original_sha256": "40f2a5f3750be833204dbe3241038b5f81c37942307b5a5869732a9e2e94b6ec",
+      "sha256": "8db2f7529ab9574095176cac5be5a2c524ff4e4af23af8c4d2068b6981d543b6",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 4854
     },
     {
       "path": "06-llm/04-applications/Учебные конспекты/А — Structured output, schema и смысл результата.md",
-      "sha256": "753f9379bb461c598196cedd6207049935cadadb6546f9e20f5f231ad6055b92",
-      "bytes": 39359
+      "original_sha256": "753f9379bb461c598196cedd6207049935cadadb6546f9e20f5f231ad6055b92",
+      "sha256": "9253cb046aec1bde48d61a1469591a82421fbf18aeda11c23280273a3749526b",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 39359
     },
     {
       "path": "06-llm/04-applications/Учебные конспекты/Б — Tool calling, execution, ошибки и idempotency.md",
-      "sha256": "d08e99b02e280adec45e4261d5eca2cffb962ca1417500f891e8261dab5f205e",
-      "bytes": 35706
+      "original_sha256": "d08e99b02e280adec45e4261d5eca2cffb962ca1417500f891e8261dab5f205e",
+      "sha256": "f7435321abec1ffa5c92b26605af242d033f06d132eebc8c7c07f215ecfc9e01",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 35706
     },
     {
       "path": "06-llm/04-applications/Учебные конспекты/В — State, orchestration, графы и участники агента.md",
-      "sha256": "a323b81d61f7a45a646804d46ab09e2b73fe244426ca703a04480cc8afd7f8e2",
-      "bytes": 56091
+      "original_sha256": "a323b81d61f7a45a646804d46ab09e2b73fe244426ca703a04480cc8afd7f8e2",
+      "sha256": "7fd55dc90f5a8803970cc3ed25b1e4c5c2ff8cb03b55be6d5b062b5eb6164162",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 56091
     },
     {
       "path": "06-llm/04-applications/Учебные конспекты/Г — RAG, BM25, dense, hybrid и multi-vector retrieval.md",
-      "sha256": "152fc3df101c52be3bdcd46f9c0e89fad6cd18ebcf833c7a7ed9b7b58f55a7c1",
-      "bytes": 59368
+      "original_sha256": "152fc3df101c52be3bdcd46f9c0e89fad6cd18ebcf833c7a7ed9b7b58f55a7c1",
+      "sha256": "7ba6f89fbfd4cc4735615d1f91b4db899e79f1f05000f46874292137ea2cc5d4",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 59368
     },
     {
       "path": "06-llm/04-applications/Учебные конспекты/Д — Evaluation retrieval, ответов, citations и task success.md",
-      "sha256": "29bc0017076b1f91e2704a269320b6ba6927bb6e9dce0761a5ae6c3fe0b0f3e1",
-      "bytes": 46510
+      "original_sha256": "29bc0017076b1f91e2704a269320b6ba6927bb6e9dce0761a5ae6c3fe0b0f3e1",
+      "sha256": "a5041135f3faf35dd4dfcf338248fc318fa7c0754fc063957a0e67d0e88d46aa",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 46510
     },
     {
       "path": "06-llm/05-lifecycle/notes/README.md",
+      "original_sha256": "55792f8d3ca57565a0406559816d1f8761c605a70a94005e8ea1db1f42aabe19",
       "sha256": "55792f8d3ca57565a0406559816d1f8761c605a70a94005e8ea1db1f42aabe19",
-      "bytes": 943
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 943
     },
     {
       "path": "06-llm/05-lifecycle/План — жизненный цикл LLM и обучение агентов.md",
+      "original_sha256": "969434d0e794cb9cdab494d2af1abf8908f32d17e8fcfcebad2169774266bf24",
       "sha256": "969434d0e794cb9cdab494d2af1abf8908f32d17e8fcfcebad2169774266bf24",
-      "bytes": 15523
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 15523
     },
     {
       "path": "06-llm/05-lifecycle/Учебные конспекты/README.md",
-      "sha256": "f737b076e535baabb4b1cb7b5d5015f552f2bc3d84aadb5bbe13ed55680860c6",
-      "bytes": 7424
+      "original_sha256": "f737b076e535baabb4b1cb7b5d5015f552f2bc3d84aadb5bbe13ed55680860c6",
+      "sha256": "bbe17cdeaf690c066e81572f1a0778cae81fd5aec0de7ddfa2e774534e720274",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 7424
     },
     {
       "path": "06-llm/05-lifecycle/Учебные конспекты/А — Lifecycle и выбор следующего вмешательства.md",
-      "sha256": "2593033fb368ed83ac55496ff7e4126dd3afa1f0f3ada26571da78020b6510b5",
-      "bytes": 35767
+      "original_sha256": "2593033fb368ed83ac55496ff7e4126dd3afa1f0f3ada26571da78020b6510b5",
+      "sha256": "f32cea558f73b34f45d68cfbaed774a6b775e39f739e5775a3c7c3472de92bc2",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 35767
     },
     {
       "path": "06-llm/05-lifecycle/Учебные конспекты/Б — Среда, observations, actions, reward и horizon.md",
-      "sha256": "bd5e15ae8a87d950264bccb21d4e5aadc55d913213e58576aa1af510a1d3178c",
-      "bytes": 33151
+      "original_sha256": "bd5e15ae8a87d950264bccb21d4e5aadc55d913213e58576aa1af510a1d3178c",
+      "sha256": "2c15654bebab6f1d6615bb85cccd51744c51d4d84e5421063b43065a314d78a1",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 33151
     },
     {
       "path": "06-llm/05-lifecycle/Учебные конспекты/В — Behavior cloning и SFT на tool trajectories.md",
-      "sha256": "39688a38cb2cfbfd6bbe3b35c9781cd56c6facf199f11c475f1c16160adef1c6",
-      "bytes": 33015
+      "original_sha256": "39688a38cb2cfbfd6bbe3b35c9781cd56c6facf199f11c475f1c16160adef1c6",
+      "sha256": "4da6d07e94b2bba192fd2ad765e345844623b07691da3dbc0b8d4d230e11e579",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 33015
     },
     {
       "path": "06-llm/05-lifecycle/Учебные конспекты/Г — Distribution shift, recovery и DAgger.md",
-      "sha256": "a312cc366701009cc3255dfa71a2a1eb6827d6a0963210e6592f14fe5f929219",
-      "bytes": 30737
+      "original_sha256": "a312cc366701009cc3255dfa71a2a1eb6827d6a0963210e6592f14fe5f929219",
+      "sha256": "67275cac887c90f521e24929c901a2760f0fcf6fad208933f0488f9bb63044e4",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 30737
     },
     {
       "path": "06-llm/05-lifecycle/Учебные конспекты/Д — Reasoning, верификация и test-time compute.md",
-      "sha256": "d0f26d3bee9b922c1aa0ddf8ca779b0957ce73655aa5723ab34072d2c62a3dd2",
-      "bytes": 32489
+      "original_sha256": "d0f26d3bee9b922c1aa0ddf8ca779b0957ce73655aa5723ab34072d2c62a3dd2",
+      "sha256": "e4dfcf96004ecec5bc7e9e0c7754fa56a2af15dc65363b591f5e75fa98a133a6",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 32489
     },
     {
       "path": "06-llm/05-lifecycle/Учебные конспекты/Е — RL, credit assignment, PPO и GRPO.md",
-      "sha256": "46a3e5077a575648a8a00ba871cb37d880624edf987af205f0db9456160e0547",
-      "bytes": 35254
+      "original_sha256": "46a3e5077a575648a8a00ba871cb37d880624edf987af205f0db9456160e0547",
+      "sha256": "9759ebb5df82541db8e79ba4c1755169bc61f8606da1b8241d021f4dc2c4c4e5",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 35254
     },
     {
       "path": "06-llm/05-lifecycle/Учебные конспекты/Ж — Память, summary и длинный горизонт.md",
-      "sha256": "20e010dec9fdbfc9232aba2e9fcac5bde5fe3bd4b7af07fafb98f8214d478203",
-      "bytes": 32035
+      "original_sha256": "20e010dec9fdbfc9232aba2e9fcac5bde5fe3bd4b7af07fafb98f8214d478203",
+      "sha256": "9aed0e3feee96ed9e94cddd54e0692a4cda6ad9e1483ee6a2f784fac63f5bc1c",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 32035
     },
     {
       "path": "06-llm/05-lifecycle/Учебные конспекты/З — Предпочтения между полными траекториями.md",
-      "sha256": "bd89a17fa718cd47929e2f42c7d7e4d0d764c4648d21cf2fdd68d9a198077c5e",
-      "bytes": 24877
+      "original_sha256": "bd89a17fa718cd47929e2f42c7d7e4d0d764c4648d21cf2fdd68d9a198077c5e",
+      "sha256": "91bfc4c17d732b1b901c87f563d801d5707e931ee2f7776792960e76ab3b6dab",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 24877
     },
     {
       "path": "06-llm/05-lifecycle/Учебные конспекты/И — Multi-agent, роли и обучение координации.md",
-      "sha256": "b6ad7303f5a627bebe63b98762b61656323df458517fb5cbc63fb9330e99a9c7",
-      "bytes": 28400
+      "original_sha256": "b6ad7303f5a627bebe63b98762b61656323df458517fb5cbc63fb9330e99a9c7",
+      "sha256": "ed317936823e1297bb3185a7a6847fcaef014604bf0b8e6dad16fd62467c34d7",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 28400
     },
     {
       "path": "06-llm/05-lifecycle/Учебные конспекты/К — Оценка траекторий, стоимость и воспроизводимость.md",
-      "sha256": "a78aa2149337718e124e956e9c8f775a5dca9c944412c4a6ad7da633a6fde2d5",
-      "bytes": 24462
+      "original_sha256": "a78aa2149337718e124e956e9c8f775a5dca9c944412c4a6ad7da633a6fde2d5",
+      "sha256": "503a28c53ec12b0bf043c1efe74450d858f3b4f650d516afa1cb6ea182ac56a1",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 24462
     },
     {
       "path": "06-llm/migration/CONTINUATION.md",
+      "original_sha256": "e953ee9dc062be9352e84d66b4ad1a1d9c4f3e74a677e2938b2f700ed84b39d6",
       "sha256": "e953ee9dc062be9352e84d66b4ad1a1d9c4f3e74a677e2938b2f700ed84b39d6",
-      "bytes": 4304
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 4304
     },
     {
       "path": "06-llm/migration/CORRECTIONS.md",
-      "sha256": "1a88a100d2ea96a60e6f94861b4926110efb3e58b7323a51a91e6d48ef14abac",
-      "bytes": 144481
+      "original_sha256": "1a88a100d2ea96a60e6f94861b4926110efb3e58b7323a51a91e6d48ef14abac",
+      "sha256": "0a5e851af81dffadc9a6188ef7e6b3dab104e8ebac4f509b661ebad53eb65fa6",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 144481
     },
     {
       "path": "06-llm/migration/MIGRATION_PLAN.md",
+      "original_sha256": "3a8b55fafb28bdfdc4c6bd37ae0032aa444ca6616b23433a66566f76d4398a87",
       "sha256": "3a8b55fafb28bdfdc4c6bd37ae0032aa444ca6616b23433a66566f76d4398a87",
-      "bytes": 24361
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 24361
     },
     {
       "path": "06-llm/migration/PROGRESS.md",
+      "original_sha256": "e38fe8bc51c71b62da1f65db1cab899960deb5abeccf57ff09e4d3e5e602fd73",
       "sha256": "e38fe8bc51c71b62da1f65db1cab899960deb5abeccf57ff09e4d3e5e602fd73",
-      "bytes": 12217
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 12217
     },
     {
       "path": "06-llm/migration/source_manifest.json",
+      "original_sha256": "62409e9cf0951af6a811fda0f7e6e84ec8f0dbdf184dd9d3e84113285b1cb9c6",
       "sha256": "62409e9cf0951af6a811fda0f7e6e84ec8f0dbdf184dd9d3e84113285b1cb9c6",
-      "bytes": 1744
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 1744
     },
     {
       "path": "06-llm/README.md",
+      "original_sha256": "364946a4b820b499e5ca21336174c2729c69496f01cfd66325beffd3fd354d93",
       "sha256": "364946a4b820b499e5ca21336174c2729c69496f01cfd66325beffd3fd354d93",
-      "bytes": 2287
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 2287
     },
     {
       "path": "07-bert/notes/README.md",
+      "original_sha256": "c3967fb88b0127aa9ad1c960e342bbda3c0144a49864a96516735547edd9de30",
       "sha256": "c3967fb88b0127aa9ad1c960e342bbda3c0144a49864a96516735547edd9de30",
-      "bytes": 1325
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 1325
     },
     {
       "path": "07-bert/notes/Источники и современные encoder-модели.md",
+      "original_sha256": "e9a0d67f5bd19303045a3daac5500e87127f37aabc411f7561acbd11e3b84691",
       "sha256": "e9a0d67f5bd19303045a3daac5500e87127f37aabc411f7561acbd11e3b84691",
-      "bytes": 11652
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 11652
     },
     {
       "path": "07-bert/План — BERT и encoder-модели для NLP.md",
+      "original_sha256": "616948d78cc12680abe45e313e610bd9788fb62f4fc8aa5d862b4d4b56c8fb1f",
       "sha256": "616948d78cc12680abe45e313e610bd9788fb62f4fc8aa5d862b4d4b56c8fb1f",
-      "bytes": 79922
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 79922
     },
     {
       "path": "07-bert/Учебные конспекты/README.md",
+      "original_sha256": "5e9a90b5f9115caab93f8d99be31934ce58fddb8d3efb744be5cd88ffa4c63d5",
       "sha256": "5e9a90b5f9115caab93f8d99be31934ce58fddb8d3efb744be5cd88ffa4c63d5",
-      "bytes": 8591
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 8591
     },
     {
       "path": "07-bert/Учебные конспекты/А — Encoder, tokenizer, attention и pooling.md",
-      "sha256": "bc18e1bbb971b7eddd88200fbe3d1f0b7a0111106cd3f65139c970ff4973b838",
-      "bytes": 32388
+      "original_sha256": "bc18e1bbb971b7eddd88200fbe3d1f0b7a0111106cd3f65139c970ff4973b838",
+      "sha256": "89e9f79b3766e8fac2c8212e69fb0b268b4dc7afabeb87a996b45bf9a2cf74c2",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 32388
     },
     {
       "path": "07-bert/Учебные конспекты/Б — MLM, objectives и эволюция encoder-моделей.md",
-      "sha256": "1b044e113f32d0ea535f39e55b2db9125c70490b3a8569bba2ce8208c0adbcc1",
-      "bytes": 27589
+      "original_sha256": "1b044e113f32d0ea535f39e55b2db9125c70490b3a8569bba2ce8208c0adbcc1",
+      "sha256": "06ba1e513a2f347194b6f6509b6d2342d8f66da23589b2ebe43e49d295420374",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 27589
     },
     {
       "path": "07-bert/Учебные конспекты/В — Данные, головы, fine-tuning и DAPT.md",
-      "sha256": "2bd8ca1513a16cbe6d31b6ce46dfc78a5408d1ee6f260920df0795b81efdd8eb",
-      "bytes": 33394
+      "original_sha256": "2bd8ca1513a16cbe6d31b6ce46dfc78a5408d1ee6f260920df0795b81efdd8eb",
+      "sha256": "b227136e6d1985d1026e35fdce1cd8a386b851663be9ace257da04c61be4f073",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 33394
     },
     {
       "path": "07-bert/Учебные конспекты/Г — Classification, NER, spans, пары и extractive QA.md",
-      "sha256": "ac9a385a65c2be52d98b3ee3065e927b6802fbf5e385c256820f01b77f0001d0",
-      "bytes": 38169
+      "original_sha256": "ac9a385a65c2be52d98b3ee3065e927b6802fbf5e385c256820f01b77f0001d0",
+      "sha256": "8a6d08567eb74db1943ab8c0bf86bcac0c416645141f627c899438385c122a54",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 38169
     },
     {
       "path": "07-bert/Учебные конспекты/Д — Sentence embeddings, contrastive loss и геометрия.md",
-      "sha256": "3dbd3202cd96c0b16aa84db97d22439132b758e0765122c9a901556ca988198f",
-      "bytes": 33410
+      "original_sha256": "3dbd3202cd96c0b16aa84db97d22439132b758e0765122c9a901556ca988198f",
+      "sha256": "03cdee28c4bea09b4e8f4a0068ebabbe063ad9add09fd7fe0e7be5999f5ea95a",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 33410
     },
     {
       "path": "07-bert/Учебные конспекты/Е — Dense, cross-encoder, SPLADE и ColBERT retrieval.md",
-      "sha256": "e293acd12a851e66780c1cbb18f4092bad0db81c17b549c7a8f659ebac069734",
-      "bytes": 34330
+      "original_sha256": "e293acd12a851e66780c1cbb18f4092bad0db81c17b549c7a8f659ebac069734",
+      "sha256": "e0616144211b832fc2ef06e5d924edf68b9f72bb76c3d3c703d7c91c283d05df",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 34330
     },
     {
       "path": "07-bert/Учебные конспекты/Ж — Языки, длинные документы, домены и layout.md",
-      "sha256": "d98ad08bf0c96ddce70ecbe247e1f268086e9c9b0fbcdd7fbcfb7e6a965d6b49",
-      "bytes": 30010
+      "original_sha256": "d98ad08bf0c96ddce70ecbe247e1f268086e9c9b0fbcdd7fbcfb7e6a965d6b49",
+      "sha256": "a01ef16cfa6707bd679d865844e271cd5c1f20ecba0cc0efa8c57d5a6e33185a",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 30010
     },
     {
       "path": "07-bert/Учебные конспекты/З — Метрики, калибровка, OOD и интерпретация.md",
-      "sha256": "d4225ad12286f018fbee3f11e3ad238ccf8bc429c38f645ba69527dc7af56c17",
-      "bytes": 24288
+      "original_sha256": "d4225ad12286f018fbee3f11e3ad238ccf8bc429c38f645ba69527dc7af56c17",
+      "sha256": "d22e87cd6bd312565ec2884251b941454bb7acb79581544a254d7d82709e05a9",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 24288
     },
     {
       "path": "07-bert/Учебные конспекты/И — Compression, encoder service и жизненный цикл индекса.md",
-      "sha256": "c8fb336082f70961b03288b9f342f32f0819b47fc91bf2620eb5b3fad8aed966",
-      "bytes": 29726
+      "original_sha256": "c8fb336082f70961b03288b9f342f32f0819b47fc91bf2620eb5b3fad8aed966",
+      "sha256": "ea8bfc30556fa6ea2059a0b747eeba29472d881adbf860e6aacea8596ee3ff21",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 29726
     },
     {
       "path": "README.md",
       "snapshot": "root/README.md",
+      "original_sha256": "c94b7af95a80e3f6fe2c43c48adbd2dab2c56adde4c7b8f892ff90d6a1e7c82d",
       "sha256": "c94b7af95a80e3f6fe2c43c48adbd2dab2c56adde4c7b8f892ff90d6a1e7c82d",
-      "bytes": 18429
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 18429
     },
     {
       "path": "КОНСПЕКТЫ — ход работы.md",
       "snapshot": "root/КОНСПЕКТЫ — ход работы.md",
-      "sha256": "41aed4e4219a3c29028d0db1c67444c43b5f95a9d3c98d23c83eb6886adf23b9",
-      "bytes": 36906
+      "original_sha256": "41aed4e4219a3c29028d0db1c67444c43b5f95a9d3c98d23c83eb6886adf23b9",
+      "sha256": "da3fa02c66372203e21bd0fcaeb5b03df8fcef2b7fe5ff18685387e41361e2cd",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 36906
     },
     {
       "path": "План подготовки курса.md",
       "snapshot": "root/План подготовки курса.md",
+      "original_sha256": "56a8b9fe52e6e192e407a28384352310eaafdb22229ef381ab08a400fb484505",
       "sha256": "56a8b9fe52e6e192e407a28384352310eaafdb22229ef381ab08a400fb484505",
-      "bytes": 12630
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 12630
     },
     {
       "path": "План — LLM и языковые модели.md",
       "snapshot": "root/План — LLM и языковые модели.md",
+      "original_sha256": "dc6fce8f6fb7eb7c830308592ecc6dfb95e79afea0a241ec02686912cb610980",
       "sha256": "dc6fce8f6fb7eb7c830308592ecc6dfb95e79afea0a241ec02686912cb610980",
-      "bytes": 43114
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 43114
     },
     {
       "path": "План — данные и признаки.md",
       "snapshot": "root/План — данные и признаки.md",
+      "original_sha256": "513db40fafc2f90289dfd9120d86a5fb5a03d7eb82afe1a9d21bac7bdf5e514a",
       "sha256": "513db40fafc2f90289dfd9120d86a5fb5a03d7eb82afe1a9d21bac7bdf5e514a",
-      "bytes": 24056
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 24056
     },
     {
       "path": "План — кластеризация.md",
       "snapshot": "root/План — кластеризация.md",
+      "original_sha256": "d1ebba9115265358e39c2d70a723ce96433b8eb92a66e5f671d2fc544b9245f3",
       "sha256": "d1ebba9115265358e39c2d70a723ce96433b8eb92a66e5f671d2fc544b9245f3",
-      "bytes": 10909
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 10909
     },
     {
       "path": "План — компьютерное зрение.md",
       "snapshot": "root/План — компьютерное зрение.md",
+      "original_sha256": "432894355784e5b7bdf214bef8eea525fb3fecea36c8ab38441f41c276ef3981",
       "sha256": "432894355784e5b7bdf214bef8eea525fb3fecea36c8ab38441f41c276ef3981",
-      "bytes": 11956
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 11956
     },
     {
       "path": "План — регуляризация.md",
       "snapshot": "root/План — регуляризация.md",
+      "original_sha256": "3ffa3140cca986f2bf377a00b07b37b77d0efe38d3976bd7fc133d9cb0eb97c5",
       "sha256": "3ffa3140cca986f2bf377a00b07b37b77d0efe38d3976bd7fc133d9cb0eb97c5",
-      "bytes": 13372
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 13372
     },
     {
       "path": "Редакционная карта курса.md",
       "snapshot": "root/Редакционная карта курса.md",
+      "original_sha256": "9931894b66cccaa71129c833d494204fb6ca85fd973d2dfd195ca15bdc1abec8",
       "sha256": "9931894b66cccaa71129c833d494204fb6ca85fd973d2dfd195ca15bdc1abec8",
-      "bytes": 18952
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 18952
     },
     {
       "path": "Учебные конспекты.md",
       "snapshot": "root/Учебные конспекты.md",
+      "original_sha256": "b5c6c7a7f241f51b85526b4c1956ac87393a462ec25e9b74356255d4275311d3",
       "sha256": "b5c6c7a7f241f51b85526b4c1956ac87393a462ec25e9b74356255d4275311d3",
-      "bytes": 4972
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 4972
     },
     {
       "path": "Читать конспекты.html",
       "snapshot": "root/Читать конспекты.html",
-      "sha256": "2b0f303f0d071319dbc4f3b766c577f217cd1e1512ad95f5a657b13f3a83d2c2",
-      "bytes": 9158154
+      "original_sha256": "2b0f303f0d071319dbc4f3b766c577f217cd1e1512ad95f5a657b13f3a83d2c2",
+      "sha256": "cfdcd8a1368127d4177e83fe33e398e0f851737964b1d3810886f1508c55a6f5",
+      "hash_mode": "crlf-to-lf",
+      "original_bytes": 9158154
     }
-  ]
+  ],
+  "version": 2,
+  "normalization": "CRLF -> LF only; BOM and all other bytes preserved"
 }

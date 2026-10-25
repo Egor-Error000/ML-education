@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1050" role="img" aria-labelledby="title desc"><title id="title">ModernBERT: блок и чередование областей внимания</title><desc id="desc">Показан один повторяемый блок: две преобразующие ветви и два остаточных обхода. Стек сохраняет длину и ширину состояний; обучающая голова и её цели обозначены отдельно.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1280" height="1050" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">ModernBERT: блок и чередование областей внимания</tspan></text>
+<rect x="35" y="100" width="360" height="120" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="49" dy="0">ID → представления</tspan><tspan x="49" dy="25">Стек: локальные слои</tspan><tspan x="49" dy="25">и глобальные слои</tspan></text>
+<rect x="530" y="100" width="690" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="544" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="544" dy="0">Вход блока H [B,L,D]</tspan><tspan x="544" dy="25">Повторить N блоков; параметры по конфигурации</tspan></text>
+<path d="M395,160 L530,160" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="530" y="300" width="690" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="544" y="327" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="544" dy="0">LayerNorm → Q/K с RoPE, V → внимание → проекция</tspan><tspan x="544" dy="25">Локальный слой: окно; глобальный: вся последовательность</tspan></text>
+<rect x="530" y="490" width="690" height="75" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="544" y="517" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#173644"><tspan x="544" dy="0">Сложить с H → Y</tspan></text>
+<rect x="530" y="650" width="690" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="544" y="677" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="544" dy="0">LayerNorm → GeGLU: две проекции, GELU, произведение</tspan><tspan x="544" dy="25">Выходная проекция F→D</tspan></text>
+<rect x="530" y="835" width="690" height="75" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="544" y="862" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#173644"><tspan x="544" dy="0">Сложить с Y → выход блока</tspan></text>
+<path d="M875,190 L875,300" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M875,400 L875,490" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M875,565 L875,650" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M875,750 L875,835" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M530,145 L465,145 L465,528 L530,528" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M530,528 L425,528 L425,872 L530,872" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="340" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="35" dy="0">H: обход преобразования</tspan></text>
+<text x="35" y="700" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="35" dy="0">Y: второй обход</tspan></text>
+<rect x="35" y="800" width="360" height="110" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="49" y="827" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="49" dy="0">Выбранные состояния → MLM</tspan><tspan x="49" dy="24">При адаптации — голова задачи</tspan><tspan x="49" dy="24">Выходные состояния [B,L,D]</tspan></text>
+<path d="M875,910 L875,945 L215,945 L215,910" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="985" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="35" dy="0">Две остаточные ветви показаны развёрнуто; предельная длина не измеряет качество далёкой связи.</tspan></text>
+<text x="35" y="1020" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="35" dy="0">N и ширины выбираются конфигурацией; исходная поддерживаемая длина — 8192 токена.</tspan></text></svg>

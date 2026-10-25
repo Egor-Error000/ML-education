@@ -1,0 +1,25 @@
+{
+  "id": "lm-batch-01",
+  "status": "complete",
+  "chapters": [
+    "lm-tokenizer",
+    "lm-states",
+    "lm-position",
+    "bert-adaptation",
+    "bert-tasks",
+    "bert-embeddings",
+    "bert-retrieval",
+    "bert-domains",
+    "bert-evaluation",
+    "bert-operations"
+  ],
+  "acceptance": "editorial/batch01-acceptance.md",
+  "reviewed_on": "2026-10-25",
+  "source_units": 645,
+  "review": "editorial/batch01-review.md",
+  "remaining": [],
+  "accepted_on": "2026-10-25",
+  "limitations": [
+    "Linux CI не подтверждён; приёмка остальных 136 карточек продолжается."
+  ]
+}

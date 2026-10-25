@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 720" role="img" aria-labelledby="title desc"><title id="title">QLoRA: малобитная база и обычные обучаемые факторы</title><desc id="desc">Коды базы фиксированы; деквантизация может выполняться по блокам в ядре. Производная по входу остаётся нужна ранним адаптерам.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="720" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">QLoRA: малобитная база и обычные обучаемые факторы</tspan></text>
+<rect x="40" y="100" width="420" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Wq + метаданные (fixed)</tspan></text>
+<rect x="40" y="230" width="420" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="257" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Восстановить блок → Ŵx</tspan></text>
+<path d="M250.0,190 L250.0,230" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="650" y="100" width="420" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="664" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">A,B (trainable)</tspan></text>
+<rect x="650" y="230" width="420" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="664" y="257" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">sB(Ax) → поправка</tspan></text>
+<path d="M860.0,190 L860.0,230" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="340" y="390" width="450" height="85" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="354" y="417" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="354" dy="0">Сумма Ŵx + sB(Ax) → целевая задача</tspan></text>
+<path d="M250,320 L250,432 L340,432" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M860,320 L860,432 L790,432" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="180" y="540" width="760" height="100" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="194" y="567" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="194" dy="0">Loss → производные по A/B и по входу x.</tspan><tspan x="194" dy="24">Коды Wq фиксированы; ранним адаптерам нужен путь через Ŵᵀ.</tspan><tspan x="194" dy="24">Сравнить base / quant / adapter / export.</tspan></text>
+<path d="M560,475 L560,540" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/></svg>

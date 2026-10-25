@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 740" role="img" aria-labelledby="title desc"><title id="title">Поиск: bi-encoder и cross-encoder</title><desc id="desc">Bi-encoder отдельно кодирует запрос и документ, позволяя заранее индексировать документы. Cross-encoder совместно обрабатывает пару и выдаёт оценку.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="740" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Поиск: bi-encoder и cross-encoder</tspan></text>
+<text x="40" y="90" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#173644"><tspan x="40" dy="0">Bi-encoder: независимые пути</tspan></text>
+<rect x="40" y="120" width="340" height="70" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="147" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Запрос q → encoder</tspan></text>
+<rect x="40" y="230" width="340" height="70" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="54" y="257" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Вектор q [d]</tspan></text>
+<path d="M210,190 L210,230" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="440" y="120" width="340" height="70" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="454" y="147" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="454" dy="0">Документ d → encoder</tspan></text>
+<rect x="440" y="230" width="340" height="70" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="454" y="257" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="454" dy="0">Вектор d [d] → индекс</tspan></text>
+<path d="M610,190 L610,230" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="840" y="180" width="240" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="854" y="207" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="854" dy="0">dot / cosine</tspan><tspan x="854" dy="24">поиск кандидатов</tspan><tspan x="854" dy="24">и top-k</tspan></text>
+<path d="M380,265 L410,265 L410,330 L820,330 L820,250 L840,250" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M780,265 L800,265 L800,215 L840,215" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="40" y="410" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#173644"><tspan x="40" dy="0">Cross-encoder: совместный контекст пары</tspan></text>
+<rect x="40" y="450" width="350" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="477" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">[CLS] запрос [SEP]</tspan><tspan x="54" dy="24">документ [SEP]</tspan></text>
+<rect x="450" y="450" width="330" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="464" y="477" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="464" dy="0">Общий encoder</tspan><tspan x="464" dy="24">внимание между частями</tspan></text>
+<rect x="840" y="450" width="240" height="85" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="854" y="477" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="854" dy="0">Голова → score</tspan><tspan x="854" dy="24">для этой пары</tspan></text>
+<path d="M390,493 L450,493" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M780,493 L840,493" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="40" y="620" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="40" dy="0">Верхний путь допускает предварительный расчёт документов при фиксированном encoder.</tspan><tspan x="40" dy="24">Нижний путь зависит от запроса: один независимый вектор документа его не воспроизводит.</tspan></text></svg>

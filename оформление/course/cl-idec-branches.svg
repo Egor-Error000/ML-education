@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1040" role="img" aria-labelledby="title desc"><title id="title">IDEC: одно представление и две обучающие ветви</title><desc id="desc">Скрытое состояние идёт в декодер для восстановления входа и в кластерную ветвь. Обе ошибки обновляют кодировщик; декодер получает сигнал восстановления, центры — кластерный сигнал.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1280" height="1040" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">IDEC: одно представление и две обучающие ветви</tspan></text>
+<rect x="35" y="105" width="300" height="95" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="132" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="49" dy="0">Исходный x [D]</tspan><tspan x="49" dy="24">Цель восстановления</tspan></text>
+<rect x="425" y="105" width="310" height="95" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="439" y="132" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="439" dy="0">Кодировщик fθ</tspan><tspan x="439" dy="24">D → d</tspan></text>
+<rect x="850" y="105" width="370" height="95" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="864" y="132" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="864" dy="0">Общее представление z [d]</tspan></text>
+<path d="M335,152 L425,152" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M735,152 L850,152" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="35" y="355" width="340" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="382" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="49" dy="0">Декодер gφ: d → D</tspan><tspan x="49" dy="24">Восстановление x̂ [D]</tspan></text>
+<rect x="850" y="355" width="370" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="864" y="382" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="864" dy="0">Ядро по z и обучаемым центрам μ</tspan><tspan x="864" dy="24">Назначения q [n,K]</tspan></text>
+<path d="M1035,200 L1035,270 L205,270 L205,355" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1035,270 L1035,355" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="35" y="575" width="340" height="110" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="602" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="49" dy="0">Ошибка восстановления</tspan><tspan x="49" dy="24">L_recon = среднее ||x−x̂||²</tspan></text>
+<path d="M205,455 L205,575" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M35,152 L20,152 L20,630 L35,630" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="425" y="575" width="310" height="110" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="439" y="602" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="439" dy="0">Периодически получить p из q</tspan><tspan x="439" dy="23">p фиксировано при обновлении</tspan></text>
+<path d="M850,405 L800,405 L800,515 L580,515 L580,575" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="850" y="575" width="370" height="110" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="864" y="602" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="864" dy="0">Кластерная ошибка KL(p || q)</tspan><tspan x="864" dy="24">Производная по текущему q</tspan></text>
+<path d="M1035,455 L1035,575" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M735,630 L850,630" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="425" y="845" width="795" height="110" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="439" y="872" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#173644"><tspan x="439" dy="0">L = L_recon + γ L_cluster</tspan><tspan x="439" dy="26">Обновить θ, φ и μ; сохранить согласованную нормировку ошибок</tspan></text>
+<path d="M205,685 L205,900 L425,900" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1035,685 L1035,845" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="1015" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="35" dy="0">Обе ошибки влияют на θ; φ обучается через восстановление, μ — через кластерную часть.</tspan></text></svg>

@@ -1,26 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 490" role="img" aria-labelledby="title desc">
-<title id="title">Совместное обучение: DEC и IDEC</title><desc id="desc">Читайте схему по направлению стрелок: первый блок задаёт вход, средние — преобразования и их состояние, последний — результат и способ проверки. Сравните формы и смысл каждого перехода с формулами главы. Выход преобразования и доказательство его качества — разные объекты: последняя проверка использует отдельный протокол оценки.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1040" role="img" aria-labelledby="title desc"><title id="title">DEC: предобучение и основная кластерная фаза</title><desc id="desc">Автокодировщик сначала обучается восстанавливать вход. Затем декодер удаляется из пути ошибки: кодировщик и центры обучаются по KL к периодически обновляемой фиксированной цели.</desc>
 <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
-<rect width="1120" height="490" rx="16" fill="#f5f8f5"/>
-<text x="28" y="36" font-family="Segoe UI,sans-serif" font-size="22" fill="#173644">Совместное обучение: DEC и IDEC</text>
-<path d="M295,136 L410,136" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M670,136 L785,136" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M915,182 L915,265" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M785,311 L670,311" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M410,311 L295,311" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="35" y="90" width="260" height="92" rx="10" fill="#e9eef1" stroke="#9bb6b0"/>
-<text x="165" y="136.0" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">objects / pretrained states</text>
-<rect x="410" y="90" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="540" y="136.0" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">encoder fθ + centroids</text>
-<rect x="785" y="90" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="915" y="126.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">soft q → target p</text>
-<text x="915" y="145.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">self-generated labels</text>
-<rect x="785" y="265" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="915" y="311.0" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">KL + optional reconstruction</text>
-<rect x="410" y="265" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="540" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">update θ and centroids</text>
-<text x="540" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">не независимая truth</text>
-<rect x="35" y="265" width="260" height="92" rx="10" fill="#e9eef1" stroke="#9bb6b0"/>
-<text x="165" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">external check</text>
-<text x="165" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">сравнить frozen baseline</text>
-<text x="28" y="470" font-family="Segoe UI,sans-serif" font-size="13" fill="#526b75">Зелёный: модель / преобразование; серый: вход, состояние или результат. Пунктир: обход / управление.</text></svg>
+<rect width="1280" height="1040" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">DEC: предобучение и основная кластерная фаза</tspan></text>
+<text x="35" y="82" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#173644"><tspan x="35" dy="0">1. Инициализация: автокодировщик и центры</tspan></text>
+<rect x="35" y="115" width="210" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="142" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="49" dy="0">Вход x</tspan><tspan x="49" dy="23">[D]</tspan></text>
+<rect x="285" y="115" width="210" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="299" y="142" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="299" dy="0">Кодировщик fθ</tspan><tspan x="299" dy="23">D → d</tspan></text>
+<path d="M245,165 L285,165" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="535" y="115" width="210" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="549" y="142" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="549" dy="0">Скрытый z</tspan><tspan x="549" dy="23">[d]</tspan></text>
+<path d="M495,165 L535,165" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="785" y="115" width="210" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="799" y="142" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="799" dy="0">Декодер gφ</tspan><tspan x="799" dy="23">d → D</tspan></text>
+<path d="M745,165 L785,165" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1035" y="115" width="210" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="1049" y="142" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="1049" dy="0">Восстановление x̂</tspan><tspan x="1049" dy="23">[D]</tspan></text>
+<path d="M995,165 L1035,165" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="535" y="280" width="710" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="549" y="307" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="549" dy="0">Ошибка восстановления обучает θ и φ</tspan><tspan x="549" dy="24">После предобучения: z всех объектов → K-Means → начальные μ</tspan></text>
+<path d="M140,215 L140,325 L535,325" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1140,215 L1140,280" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="440" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#173644"><tspan x="35" dy="0">2. Кластерная фаза DEC: декодер и ошибка восстановления не участвуют</tspan></text>
+<rect x="35" y="490" width="210" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="517" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="49" dy="0">Вход x</tspan><tspan x="49" dy="23">[D]</tspan></text>
+<rect x="285" y="490" width="210" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="299" y="517" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="299" dy="0">Кодировщик fθ</tspan><tspan x="299" dy="23">D → d</tspan></text>
+<path d="M245,540 L285,540" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="535" y="490" width="210" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="549" y="517" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="549" dy="0">Скрытый z</tspan><tspan x="549" dy="23">[d]</tspan></text>
+<path d="M495,540 L535,540" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="785" y="490" width="210" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="799" y="517" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="799" dy="0">Ядро Стьюдента</tspan><tspan x="799" dy="23">по z и центрам μ</tspan></text>
+<path d="M745,540 L785,540" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1035" y="490" width="210" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="1049" y="517" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="1049" dy="0">Назначения q</tspan><tspan x="1049" dy="23">для n объектов</tspan><tspan x="1049" dy="23">[n,K]</tspan></text>
+<path d="M995,540 L1035,540" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="785" y="650" width="210" height="80" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="799" y="677" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#173644"><tspan x="799" dy="0">Центры μ [K,d]</tspan><tspan x="799" dy="22">Обучаемые параметры</tspan></text>
+<path d="M890,650 L890,590" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1035" y="685" width="210" height="110" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="1049" y="712" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#173644"><tspan x="1049" dy="0">Периодически: p ∝ q²/f</tspan><tspan x="1049" dy="21">Нормировать строки</tspan><tspan x="1049" dy="21">p фиксировано в шаге</tspan></text>
+<path d="M1140,590 L1140,685" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="535" y="825" width="460" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="549" y="852" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="549" dy="0">Кластерная ошибка KL(p || q)</tspan><tspan x="549" dy="25">Производная через текущий q</tspan></text>
+<path d="M1035,540 L1015,540 L1015,770 L765,770 L765,825" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1140,795 L1140,870 L995,870" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="35" y="825" width="420" height="90" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="49" y="852" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="49" dy="0">Обновить θ и μ</tspan><tspan x="49" dy="25">φ в этой фазе не обучается</tspan></text>
+<path d="M535,870 L455,870" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="995" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="35" dy="0">Повторяется прямой путь с новыми θ и μ; p пересчитывается по объявленному расписанию, а не через градиент.</tspan></text></svg>

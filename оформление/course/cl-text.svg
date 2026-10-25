@@ -1,28 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 490" role="img" aria-labelledby="title desc">
-<title id="title">Текстовые представления, LDA, NMF и Top2Vec</title><desc id="desc">Читайте схему по направлению стрелок: первый блок задаёт вход, средние — преобразования и их состояние, последний — результат и способ проверки. Сравните формы и смысл каждого перехода с формулами главы. Выход преобразования и доказательство его качества — разные объекты: последняя проверка использует отдельный протокол оценки.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1210" role="img" aria-labelledby="title desc"><title id="title">Текст: три разных механизма и смысла выхода</title><desc id="desc">LDA порождает слово через скрытую тему и смесь документа. NMF обучает неотрицательные множители по восстановлению матрицы. Top2Vec группирует документы и описывает темы в исходном совместном пространстве слов и документов.</desc>
 <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
-<rect width="1120" height="490" rx="16" fill="#f5f8f5"/>
-<text x="28" y="36" font-family="Segoe UI,sans-serif" font-size="22" fill="#173644">Текстовые представления, LDA, NMF и Top2Vec</text>
-<path d="M295,136 L410,136" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M670,136 L785,136" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M915,182 L915,265" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M785,311 L670,311" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M410,311 L295,311" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="35" y="90" width="260" height="92" rx="10" fill="#e9eef1" stroke="#9bb6b0"/>
-<text x="165" y="136.0" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">objects + representation</text>
-<rect x="410" y="90" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="540" y="126.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">train-only transform</text>
-<text x="540" y="145.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">масштаб / basis</text>
-<rect x="785" y="90" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="915" y="126.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">geometry / algorithm</text>
-<text x="915" y="145.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">предположения главы</text>
-<rect x="785" y="265" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="915" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">partition / coordinates</text>
-<text x="915" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">или probabilities</text>
-<rect x="410" y="265" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="540" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">original-space checks</text>
-<text x="540" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">метрики и stability</text>
-<rect x="35" y="265" width="260" height="92" rx="10" fill="#e9eef1" stroke="#9bb6b0"/>
-<text x="165" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">new objects / system</text>
-<text x="165" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">явная граница применения</text>
-<text x="28" y="470" font-family="Segoe UI,sans-serif" font-size="13" fill="#526b75">Зелёный: модель / преобразование; серый: вход, состояние или результат. Пунктир: обход / управление.</text></svg>
+<rect width="1280" height="1210" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Текст: три разных механизма и смысла выхода</tspan></text>
+<text x="35" y="85" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#173644"><tspan x="35" dy="0">LDA: направление порождения слова; обучение восстанавливает скрытые величины</tspan></text>
+<rect x="35" y="125" width="275" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="152" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="49" dy="0">Параметры α</tspan><tspan x="49" dy="23">Распределение Дирихле</tspan></text>
+<rect x="350" y="125" width="275" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="364" y="152" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="364" dy="0">Смесь документа θ_d [K]</tspan><tspan x="364" dy="23">Неотрицательная, Σθ=1</tspan></text>
+<path d="M310,175 L350,175" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="665" y="125" width="275" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="679" y="152" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="679" dy="0">Тема позиции z_dn</tspan><tspan x="679" dy="23">Выбор по θ_d</tspan></text>
+<path d="M625,175 L665,175" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="980" y="125" width="275" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="994" y="152" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="994" dy="0">Слово w_dn</tspan><tspan x="994" dy="23">Выбор по φ_z [V]</tspan></text>
+<path d="M940,175 L980,175" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="980" y="285" width="275" height="75" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="994" y="312" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="994" dy="0">Общие темы φ [K,V]</tspan><tspan x="994" dy="23">Каждая строка: Σφ=1</tspan></text>
+<path d="M1117,285 L1117,225" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="390" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="35" dy="0">Выход для документа: смесь нескольких тем; argmax добавляет жёсткое назначение.</tspan></text>
+<text x="35" y="475" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#173644"><tspan x="35" dy="0">NMF: обучение множителей по ошибке восстановления</tspan></text>
+<rect x="35" y="525" width="275" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="552" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="49" dy="0">Данные X [n,V]</tspan><tspan x="49" dy="24">Неотрицательные веса</tspan></text>
+<rect x="350" y="525" width="275" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="364" y="552" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="364" dy="0">W [n,K] ≥ 0</tspan><tspan x="364" dy="24">Веса компонент документа</tspan></text>
+<rect x="665" y="525" width="275" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="679" y="552" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="679" dy="0">H [K,V] ≥ 0</tspan><tspan x="679" dy="24">Веса слов компонент</tspan></text>
+<rect x="980" y="525" width="275" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="994" y="552" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="994" dy="0">Произведение WH</tspan><tspan x="994" dy="24">Восстановление [n,V]</tspan></text>
+<path d="M625,575 L665,575" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="631" y="567" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#173644"><tspan x="631" dy="0">×</tspan></text>
+<path d="M940,575 L980,575" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="665" y="685" width="590" height="80" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="679" y="712" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="679" dy="0">½ ||X−WH||²_F → обновить W и H</tspan><tspan x="679" dy="25">Неотрицательность не задаёт суммы строк 1</tspan></text>
+<path d="M170,625 L170,725 L665,725" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1117,625 L1117,685" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="845" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#173644"><tspan x="35" dy="0">Top2Vec: группировка и описание в двух пространствах</tspan></text>
+<rect x="35" y="895" width="275" height="120" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="922" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="49" dy="0">Документы и слова</tspan><tspan x="49" dy="23">Совместные векторы</tspan><tspan x="49" dy="23">Исходное пространство</tspan></text>
+<rect x="350" y="895" width="275" height="120" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="364" y="922" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="364" dy="0">Векторы документов</tspan><tspan x="364" dy="23">Проекция UMAP</tspan><tspan x="364" dy="23">→ HDBSCAN</tspan></text>
+<path d="M310,955 L350,955" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="665" y="895" width="275" height="120" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="679" y="922" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="679" dy="0">Документы группы</tspan><tspan x="679" dy="23">→ вектор темы</tspan><tspan x="679" dy="23">в исходном пространстве</tspan></text>
+<path d="M625,955 L665,955" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="980" y="895" width="275" height="120" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="994" y="922" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="994" dy="0">Ближайшие слова</tspan><tspan x="994" dy="23">к вектору темы</tspan><tspan x="994" dy="23">+ просмотр документов</tspan></text>
+<path d="M940,955 L980,955" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M170,1015 L170,1080 L1117,1080 L1117,1015" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="176" y="1007" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#173644"><tspan x="176" dy="0">Исходные векторы слов для описания темы</tspan></text>
+<text x="35" y="1170" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="35" dy="0">Общий контроль: читать документы, проверять языковые и временные срезы, устойчивость и пользу.</tspan></text></svg>

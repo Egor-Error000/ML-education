@@ -1,0 +1,2383 @@
+{
+  "version": 1,
+  "checked_on": "2026-10-25",
+  "note": "Открытая карточка не становится закрытой от успешной сборки или наличия сценария.",
+  "chapters": {
+    "df-task": {
+      "path": "01-data-features/01-reliability/df-task.md",
+      "text_sha256": "209a8ac328cd80e7b9c0ccc712e1ae3955b8feaa236b62c6f513ed2994ceb426",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 78,
+      "source_units_pending_semantic_review": 21,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "df-split": {
+      "path": "01-data-features/01-reliability/df-split.md",
+      "text_sha256": "8fdd4ffd83aa8b58ef86b0aa453225a1e7a26d8fee188c20512f75e511e4c113",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 60,
+      "source_units_pending_semantic_review": 19,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "df-quality": {
+      "path": "01-data-features/01-reliability/df-quality.md",
+      "text_sha256": "cac63102653f4a2087a692ff6ca34b743fb5f57c9fd3965fc380a0f0e45a7b4e",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 62,
+      "source_units_pending_semantic_review": 10,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "df-metrics": {
+      "path": "01-data-features/01-reliability/df-metrics.md",
+      "text_sha256": "a9d54e76528c39b969fa32b9f334f026a029d3df3e1fe94c45e94fb37c7f940f",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 92,
+      "source_units_pending_semantic_review": 15,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "df-augmentation": {
+      "path": "01-data-features/01-reliability/df-augmentation.md",
+      "text_sha256": "296701f40b923d88ff8a4430d9860033e7d76ec9d1ca9483ac39373c5404a7a9",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 76,
+      "source_units_pending_semantic_review": 17,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "df-loading": {
+      "path": "01-data-features/01-reliability/df-loading.md",
+      "text_sha256": "e6dd672c255ff3ce4b2472623b46a3dbdd53663b865496117ca899fedc9c0ad5",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 74,
+      "source_units_pending_semantic_review": 18,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "df-drift": {
+      "path": "01-data-features/01-reliability/df-drift.md",
+      "text_sha256": "69054b4da947a21080daa1b99d1d6e21860cbb4284f569a571158ce7037e3e25",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 83,
+      "source_units_pending_semantic_review": 11,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "feat-types": {
+      "path": "01-data-features/02-features/feat-types.md",
+      "text_sha256": "37ea5bf3ae4f70e4048e373913cfef0ebff08328a27117a0e5fc0634fec030d2",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 0,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "feat-numeric": {
+      "path": "01-data-features/02-features/feat-numeric.md",
+      "text_sha256": "43650144a980e92efae5853960c26836682fe2bcc435616550c2d7b86c14a1a3",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 5,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#numeric-selection"
+      ],
+      "remaining": []
+    },
+    "feat-missing": {
+      "path": "01-data-features/02-features/feat-missing.md",
+      "text_sha256": "9ce61d589861b495ed6ca624dfa17ef5667e3766059e972c2bf3125e2aafac25",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 22,
+      "source_units_pending_semantic_review": 9,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "feat-categorical": {
+      "path": "01-data-features/02-features/feat-categorical.md",
+      "text_sha256": "a0d4a284f8d9b1312d69f86ebcbd77348bfd9bcae452df1b7155becb0aaea2b5",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 69,
+      "source_units_pending_semantic_review": 10,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "feat-hashing": {
+      "path": "01-data-features/02-features/feat-hashing.md",
+      "text_sha256": "e8f2f3779a78f98f95e998d41e4a09109c5847d18589bcc604613533322bc118",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 71,
+      "source_units_pending_semantic_review": 14,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "feat-target": {
+      "path": "01-data-features/02-features/feat-target.md",
+      "text_sha256": "0c0c71df8cb59667f1c6bbb5ee0d93299c864f8e033c4c93a5137438e00dde64",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 84,
+      "source_units_pending_semantic_review": 17,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "feat-embeddings": {
+      "path": "01-data-features/02-features/feat-embeddings.md",
+      "text_sha256": "fa002eaf05531833624390fdc340075661e2025b6da6b02ea18fda7abbcb6abe",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 79,
+      "source_units_pending_semantic_review": 28,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "feat-native": {
+      "path": "01-data-features/02-features/feat-native.md",
+      "text_sha256": "b8e310103269259db7a76aa8362bee29b79b1e889bb6155cc82cd5e3730f6ba8",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 62,
+      "source_units_pending_semantic_review": 20,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "feat-interactions": {
+      "path": "01-data-features/02-features/feat-interactions.md",
+      "text_sha256": "a92d9eb8f6738b68e1201f9b1e8816ccb2bc497236d1f1405fdc11f0b6e12b3c",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 70,
+      "source_units_pending_semantic_review": 21,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "feat-sets": {
+      "path": "01-data-features/02-features/feat-sets.md",
+      "text_sha256": "03237b0261bf0f8964be2da024f35a5b7797e2f3a789f8d80622faa8943dad44",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 22,
+      "source_units_pending_semantic_review": 9,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "feat-time": {
+      "path": "01-data-features/02-features/feat-time.md",
+      "text_sha256": "01c62f2e27687dce45b1d04d8b8518dc9a45842539e803e31780469dddb7aec0",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 25,
+      "source_units_pending_semantic_review": 12,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "feat-geography": {
+      "path": "01-data-features/02-features/feat-geography.md",
+      "text_sha256": "f91d028f648fc5ce6f9b4c01c6762b0b0d0c0872d648719140eef5a9c665277b",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 0,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "feat-selection": {
+      "path": "01-data-features/02-features/feat-selection.md",
+      "text_sha256": "990335ca615b6cabb638606d1f5cdd6df7f9a788a393d6e4c765344080f9e206",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 6,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#numeric-selection"
+      ],
+      "remaining": []
+    },
+    "feat-reduction": {
+      "path": "01-data-features/02-features/feat-reduction.md",
+      "text_sha256": "dffa56a88df84e18a75771ba5f710df3f2c6130fbb72f9b4712c1a52de8254c2",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 0,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "feat-autofe": {
+      "path": "01-data-features/02-features/feat-autofe.md",
+      "text_sha256": "40524c0b408ecbe3fee40a5024a8b0aa425f6ef8a8babaf8207de2428d515f4c",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 0,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "feat-pipeline": {
+      "path": "01-data-features/02-features/feat-pipeline.md",
+      "text_sha256": "9dfeb40f4a990a4bdbf1ef070315b04d6117d29b0b4155e733683af2ad6315d1",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 0,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "df-images": {
+      "path": "01-data-features/03-modalities/df-images.md",
+      "text_sha256": "40046d674545ac47d5a3a0483d7c1922e4ec7a16a428dfe3a72b3ef3aaec6e5c",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 81,
+      "source_units_pending_semantic_review": 14,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "df-text": {
+      "path": "01-data-features/03-modalities/df-text.md",
+      "text_sha256": "a808e320a09e7a52d93d5ed33c8c4ae629de55d66ed2f7cbc7c9ed4ea1ea848b",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 78,
+      "source_units_pending_semantic_review": 29,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "reg-diagnosis": {
+      "path": "02-regularization/reg-diagnosis.md",
+      "text_sha256": "48ea0631b76f47260e10145166e20b4ff066f1b4400e2827d8a7176d502be129",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 61,
+      "source_units_pending_semantic_review": 13,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "reg-penalties": {
+      "path": "02-regularization/reg-penalties.md",
+      "text_sha256": "24e073a96935fde5574993bf908fd57c3b74ab126e9de88e6388e529c08404d1",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 87,
+      "source_units_pending_semantic_review": 15,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "reg-training": {
+      "path": "02-regularization/reg-training.md",
+      "text_sha256": "23aa3744f344cec1798be4c3941f218071cd04f44dbe5f912902db390d2f5d5b",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 75,
+      "source_units_pending_semantic_review": 17,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "reg-stochastic": {
+      "path": "02-regularization/reg-stochastic.md",
+      "text_sha256": "e125bdea5d92758286d2977636804652c929dc22decdebd817d7d983d5c40f03",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 79,
+      "source_units_pending_semantic_review": 18,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "reg-normalization": {
+      "path": "02-regularization/reg-normalization.md",
+      "text_sha256": "968a2d8ebd9fb2ca2b69fee11146b25852154aaa8a7108625c47d78dd1b1c600",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 70,
+      "source_units_pending_semantic_review": 16,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "reg-augmentation": {
+      "path": "02-regularization/reg-augmentation.md",
+      "text_sha256": "55294a0b74ed611ef92f86d5ac88ddb0ecbb9155dad9f5e52f29fe19d890d6f0",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 73,
+      "source_units_pending_semantic_review": 14,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "reg-robustness": {
+      "path": "02-regularization/reg-robustness.md",
+      "text_sha256": "4980375bf037a9bb9c41c3ff1720ff96dbe98fddba1add7ed0ed55b90305d11d",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 83,
+      "source_units_pending_semantic_review": 15,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "reg-structure": {
+      "path": "02-regularization/reg-structure.md",
+      "text_sha256": "fbb25915d6fdff25b578e0c21faf2cd9f577d1d41086fe2884d2d7d264ab477d",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 81,
+      "source_units_pending_semantic_review": 14,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "reg-sequences": {
+      "path": "02-regularization/reg-sequences.md",
+      "text_sha256": "1b061a6630002d4f10c1857950a7a65ac4b04fb71425c69b046ff9371ea12fde",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 82,
+      "source_units_pending_semantic_review": 28,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "reg-theory": {
+      "path": "02-regularization/reg-theory.md",
+      "text_sha256": "b52e10f8dbf7fddae6128509e6828c36e0bbd965ff327112f8851dd9ff189093",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 21,
+      "source_units_pending_semantic_review": 3,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "reg-selection": {
+      "path": "02-regularization/reg-selection.md",
+      "text_sha256": "a4c086e1d6e1d4e2401d182ebc18610d26b9f6ca00f11faed06a08bf34c89eba",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 81,
+      "source_units_pending_semantic_review": 21,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "cl-geometry": {
+      "path": "03-clustering/cl-geometry.md",
+      "text_sha256": "4442b63aba8fc32bcd1e166c6bba45b22b6ebead8a7362643265b2a109687bda",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 31,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#geometry-projection"
+      ],
+      "remaining": []
+    },
+    "cl-projection": {
+      "path": "03-clustering/cl-projection.md",
+      "text_sha256": "7be6dc672cdbf143f2173e985ad1455eff08c24a988d5360241f5b23848a8fa9",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 25,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#geometry-projection"
+      ],
+      "remaining": []
+    },
+    "cl-kmeans": {
+      "path": "03-clustering/cl-kmeans.md",
+      "text_sha256": "1b37964aab56e4d21df6b1781fd0919cc210cc6bd26486f09aa92416bd9b8f74",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 7,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#cluster-algorithms"
+      ],
+      "remaining": []
+    },
+    "cl-hierarchy": {
+      "path": "03-clustering/cl-hierarchy.md",
+      "text_sha256": "25ed7dd13cc55bf79cdbeb0783e028413dba24dc7f85d952da378d3fa2939937",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 5,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#cluster-algorithms"
+      ],
+      "remaining": []
+    },
+    "cl-density": {
+      "path": "03-clustering/cl-density.md",
+      "text_sha256": "48324934c21295391ae881871ca52d35af61f1555d7dcbc448ec3ee827b95f51",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 9,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#cluster-algorithms"
+      ],
+      "remaining": []
+    },
+    "cl-gmm": {
+      "path": "03-clustering/cl-gmm.md",
+      "text_sha256": "1f6d7a2daffa7ff85eb737f764bc1f8fac5e924064010d7ed18122b3234e8976",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 10,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#cluster-algorithms"
+      ],
+      "remaining": []
+    },
+    "cl-metrics": {
+      "path": "03-clustering/cl-metrics.md",
+      "text_sha256": "f340072d8b0ca44606cade3af4034e9ae0223ab60a0b54f555c3353afec916ca",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 34,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#cluster-metrics"
+      ],
+      "remaining": []
+    },
+    "cl-stability": {
+      "path": "03-clustering/cl-stability.md",
+      "text_sha256": "8946ce4b1217920b1bd98b5fe43cfb509a42ba2cc93f57157040023d82a42f4e",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 26,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#cluster-stability"
+      ],
+      "remaining": []
+    },
+    "cl-frozen": {
+      "path": "03-clustering/cl-frozen.md",
+      "text_sha256": "14e70404522aa7b40eb0716c2e3242feb1aae91cb75b7c5dac014fc120a4c0f9",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 8,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#frozen"
+      ],
+      "remaining": []
+    },
+    "cl-deep": {
+      "path": "03-clustering/cl-deep.md",
+      "text_sha256": "15d33c75245278dc96bc1c7ad95fa2c45061cec340666efce953fc82f263c7d8",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 21,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#deep-clustering"
+      ],
+      "remaining": []
+    },
+    "cl-images": {
+      "path": "03-clustering/cl-images.md",
+      "text_sha256": "647541df108f61f54a6b0380113280839bc911ad3d01da87b6dd7ae8cc6c1a00",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 25,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#image-clustering"
+      ],
+      "remaining": []
+    },
+    "cl-text": {
+      "path": "03-clustering/cl-text.md",
+      "text_sha256": "ccea0c5e55036af728a619dba17bcacb55aa564320da028214f308ba41ce69bd",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 28,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#text-systems-clustering"
+      ],
+      "remaining": []
+    },
+    "cl-systems": {
+      "path": "03-clustering/cl-systems.md",
+      "text_sha256": "206b0297ec5e9d8bec607cc41a288bb0ef9e1f25b621e93e9c04f6fb89b88e17",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 24,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#text-systems-clustering"
+      ],
+      "remaining": []
+    },
+    "cv-input": {
+      "path": "04-computer-vision/cv-input.md",
+      "text_sha256": "80179b3bf899f0f9f9ceb0907ea7b9b6d17e2abfc3e713aabc5a61a701b4bbdf",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "source_units": 27,
+      "source_units_pending_semantic_review": 10,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "remaining": [],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-classification": {
+      "path": "04-computer-vision/cv-classification.md",
+      "text_sha256": "897476c703db716b8932183a1373baa097e36fdb1f8a73081ca8f3c41f5ba597",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "source_units": 32,
+      "source_units_pending_semantic_review": 15,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "remaining": [],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-vit": {
+      "path": "04-computer-vision/cv-vit.md",
+      "text_sha256": "cf3e1891793a131487422f90c4ee5df8e3f5c876e95467bbfaa27d351ff573b0",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "source_units": 89,
+      "source_units_pending_semantic_review": 28,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "remaining": [],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-hierarchy": {
+      "path": "04-computer-vision/cv-hierarchy.md",
+      "text_sha256": "edb9d84467c38df26ed77da24d8c3d6b1aa5edae964ccc6565b101fcca2ee6a5",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "source_units": 17,
+      "source_units_pending_semantic_review": 8,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "remaining": [],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-pretraining": {
+      "path": "04-computer-vision/cv-pretraining.md",
+      "text_sha256": "0b80a4e841290532510d3c84e888839c546ffe373aa5e56026e7bb83d2dbac35",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "source_units": 57,
+      "source_units_pending_semantic_review": 21,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "remaining": [],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-detection": {
+      "path": "04-computer-vision/cv-detection.md",
+      "text_sha256": "651f292fefa55907f313b57a0d0517de26933155e82c983ed9bb55f23cb63018",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "source_units": 83,
+      "source_units_pending_semantic_review": 20,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "remaining": [],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-semantic": {
+      "path": "04-computer-vision/cv-semantic.md",
+      "text_sha256": "5c03cb9f7646343521427d91792458d5e34a7c02dbff7eee0726c66d689c4b52",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "source_units": 78,
+      "source_units_pending_semantic_review": 23,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "remaining": [],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-instance": {
+      "path": "04-computer-vision/cv-instance.md",
+      "text_sha256": "a8dedee1e754e6e8a656577619db60dbd51f85ca003b1d5ca33df6d3b4ecb5d8",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "source_units": 66,
+      "source_units_pending_semantic_review": 17,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "remaining": [],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-pose": {
+      "path": "04-computer-vision/cv-pose.md",
+      "text_sha256": "e7bea1cb0977317f6e0e2046bb5f8241ccf6d57d4efc2daefd09e907789e7fa3",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "source_units": 65,
+      "source_units_pending_semantic_review": 14,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "remaining": [],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-obb": {
+      "path": "04-computer-vision/cv-obb.md",
+      "text_sha256": "c905ea9f16f4e5f1102536598e737d1aecdbd8e291ac1c293d627b9494df4c28",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "source_units": 68,
+      "source_units_pending_semantic_review": 12,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "remaining": [],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-tracking": {
+      "path": "04-computer-vision/cv-tracking.md",
+      "text_sha256": "15bb4039f5e6a5653d4f42570c5fd16338939283a0f97a8337cb1c7b83d497fc",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "source_units": 69,
+      "source_units_pending_semantic_review": 16,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "remaining": [],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-depth": {
+      "path": "04-computer-vision/cv-depth.md",
+      "text_sha256": "45da4452b277922ccc83b2a97ae546b769c99b232d1ba0c8ca666dfb5880db4f",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "source_units": 68,
+      "source_units_pending_semantic_review": 18,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "remaining": [],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-open-vocabulary": {
+      "path": "04-computer-vision/cv-open-vocabulary.md",
+      "text_sha256": "b6055e5964ebd972a176a6d274b13556be5db909a7d53f34f240ecee5b13d95f",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "source_units": 73,
+      "source_units_pending_semantic_review": 22,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "remaining": [],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "lm-task": {
+      "path": "05-language-models/01-foundations/lm-task.md",
+      "text_sha256": "b05de39d787f6a5ee2f1cf6670c0468d1834d9e68635999f6b7fb84bd2528016",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 0,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "lm-tokenizer": {
+      "path": "05-language-models/01-foundations/lm-tokenizer.md",
+      "text_sha256": "f238ec184545e8a139eaad529525ed0c9ee98b12a3976634fce12077bb0dbfa0",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 7,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch01-review.md#lm-tokenizer"
+      ],
+      "remaining": [],
+      "reviewed_on": "2026-10-25"
+    },
+    "lm-states": {
+      "path": "05-language-models/01-foundations/lm-states.md",
+      "text_sha256": "e254c839f0f03918dfa07ab48b2815a4f8761535c276d268e1b9dc751ab2d48c",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 19,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch01-review.md#lm-states"
+      ],
+      "remaining": [],
+      "reviewed_on": "2026-10-25"
+    },
+    "lm-attention": {
+      "path": "05-language-models/01-foundations/lm-attention.md",
+      "text_sha256": "be0c769e4f901981ec5911d71830e0cb1e10676059597273d21b733daaf0bb30",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 44,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#attention"
+      ],
+      "remaining": []
+    },
+    "lm-position": {
+      "path": "05-language-models/01-foundations/lm-position.md",
+      "text_sha256": "47e804ae1ba7c4075a6029f43868156b40d8a414196b4b5e087eaeba813dd535",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 47,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch01-review.md#lm-position"
+      ],
+      "remaining": [],
+      "reviewed_on": "2026-10-25"
+    },
+    "lm-transformer": {
+      "path": "05-language-models/01-foundations/lm-transformer.md",
+      "text_sha256": "f951307d4a96bf5f299b73d0c809e82247b2d4814b6d761d409aa323089c7ecf",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 44,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#transformer"
+      ],
+      "remaining": []
+    },
+    "lm-families": {
+      "path": "05-language-models/01-foundations/lm-families.md",
+      "text_sha256": "42d8395f1b0e0d390d0069ee713b5445f89020de8b8abe7a1bccffc082f0dd40",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 23,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#families"
+      ],
+      "remaining": []
+    },
+    "lm-output": {
+      "path": "05-language-models/01-foundations/lm-output.md",
+      "text_sha256": "dd9f9771c6a6d3cb25e1a374c7fed0bf8b30bbfa36e70e754c76edc837b35664",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 14,
+      "source_units_pending_semantic_review": 14,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "lm-training": {
+      "path": "05-language-models/01-foundations/lm-training.md",
+      "text_sha256": "eef7035d35dc47db9d32687e556b10eb01cc9654af616d219dd6c117fb11441c",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 53,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#training"
+      ],
+      "remaining": []
+    },
+    "lm-generation": {
+      "path": "05-language-models/01-foundations/lm-generation.md",
+      "text_sha256": "9ff267112e5cf5d7eb792702f99a9c291a5f354d070cc075ea801801643b7270",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 9,
+      "source_units_pending_semantic_review": 9,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "lm-bert": {
+      "path": "05-language-models/01-foundations/lm-bert.md",
+      "text_sha256": "93a2463eff94b356009c68f8c594fa71ad0fe53dabfd2ac500677d09f4809295",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 2,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#bert-core"
+      ],
+      "remaining": []
+    },
+    "lm-rnn": {
+      "path": "05-language-models/01-foundations/lm-rnn.md",
+      "text_sha256": "a53ad64e6f9784d8a0089fff812532b8dc0c3addc71908d41d1f61c54139b76d",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 49,
+      "source_units_pending_semantic_review": 10,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "lm-backward": {
+      "path": "05-language-models/01-foundations/lm-backward.md",
+      "text_sha256": "61e115bf049aba1217b652c816233bc36ae98d37b692c1aae998a9cdd3e10bdf",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 58,
+      "source_units_pending_semantic_review": 16,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "lm-interpretation": {
+      "path": "05-language-models/01-foundations/lm-interpretation.md",
+      "text_sha256": "85de10c512eaecacacfaf21803bd3d38426f592ce6a74f9cbebca465ca7bc617",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 22,
+      "source_units_pending_semantic_review": 13,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "bert-interface": {
+      "path": "05-language-models/02-bert-encoders/bert-interface.md",
+      "text_sha256": "075dae8627d9f8c0c90bfc794a68818e409720bb107a17e0d766b8a95830bca6",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 77,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#bert-interface"
+      ],
+      "remaining": []
+    },
+    "bert-objectives": {
+      "path": "05-language-models/02-bert-encoders/bert-objectives.md",
+      "text_sha256": "57b8edbb53af1d5cf61613c515e7acd078037eb2ba782eef8da0b16fd848a35e",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 64,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/review-evidence.md#bert-objectives"
+      ],
+      "remaining": []
+    },
+    "bert-adaptation": {
+      "path": "05-language-models/02-bert-encoders/bert-adaptation.md",
+      "text_sha256": "393a6107724ec2126e7c208169dc5554311ff1f847921be595fc73a5c6350951",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 76,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch01-review.md#bert-adaptation"
+      ],
+      "remaining": [],
+      "reviewed_on": "2026-10-25"
+    },
+    "bert-tasks": {
+      "path": "05-language-models/02-bert-encoders/bert-tasks.md",
+      "text_sha256": "c6ca5f4bed2b7fb6a8f2aa2382d151e1fd1e4a6a3338bf57b9a7cd23d45589a7",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 96,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch01-review.md#bert-tasks"
+      ],
+      "remaining": [],
+      "reviewed_on": "2026-10-25"
+    },
+    "bert-embeddings": {
+      "path": "05-language-models/02-bert-encoders/bert-embeddings.md",
+      "text_sha256": "fe5aac74cdf932d3b144e0293f790ddf380351cfb220a029f75544405b2d1bf5",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 83,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch01-review.md#bert-embeddings"
+      ],
+      "remaining": [],
+      "reviewed_on": "2026-10-25"
+    },
+    "bert-retrieval": {
+      "path": "05-language-models/02-bert-encoders/bert-retrieval.md",
+      "text_sha256": "ff40b8033ce1a7f0a08d555a0cd2a7b0515d0e837e7e355fa61bb4ce7fff19a5",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 89,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch01-review.md#bert-retrieval"
+      ],
+      "remaining": [],
+      "reviewed_on": "2026-10-25"
+    },
+    "bert-domains": {
+      "path": "05-language-models/02-bert-encoders/bert-domains.md",
+      "text_sha256": "e26a7a91478efa46f6125c7756189c7d42473ccbeb61b7dad9f973d2c09022b2",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 69,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch01-review.md#bert-domains"
+      ],
+      "remaining": [],
+      "reviewed_on": "2026-10-25"
+    },
+    "bert-evaluation": {
+      "path": "05-language-models/02-bert-encoders/bert-evaluation.md",
+      "text_sha256": "9353abd41255dc4da705013b896d0685a2587b301d7820562304c2b721c057cb",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 80,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch01-review.md#bert-evaluation"
+      ],
+      "remaining": [],
+      "reviewed_on": "2026-10-25"
+    },
+    "bert-operations": {
+      "path": "05-language-models/02-bert-encoders/bert-operations.md",
+      "text_sha256": "9e4fa12788a50a45d4b8409b0ba355e9b0c619c2cbb05654e408ba3910b6f8fe",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 79,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch01-review.md#bert-operations"
+      ],
+      "remaining": [],
+      "reviewed_on": "2026-10-25"
+    },
+    "adapt-choice": {
+      "path": "05-language-models/03-adaptation/adapt-choice.md",
+      "text_sha256": "9e63f0c908233b5e0221703ed7ac2196074f8eb17993eac91554f9f37d245dea",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 52,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#adapt-choice"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "adapt-sft": {
+      "path": "05-language-models/03-adaptation/adapt-sft.md",
+      "text_sha256": "7c4833d27a7320194e922e39dc9274c19723445361d1bc71d6e263c97859a085",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 58,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#adapt-sft"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "adapt-regimes": {
+      "path": "05-language-models/03-adaptation/adapt-regimes.md",
+      "text_sha256": "c8aa7dee30234c7f7bfba95da383cb041ee6aaf260a4e70800381a4d85ff9af2",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 0,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#adapt-regimes"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "adapt-lora": {
+      "path": "05-language-models/03-adaptation/adapt-lora.md",
+      "text_sha256": "97ba79ce2e15b67d96a4760eeda17eb774edef7438356db3c28c48776a61ddf1",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 80,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#adapt-lora"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "adapt-variants": {
+      "path": "05-language-models/03-adaptation/adapt-variants.md",
+      "text_sha256": "562c9c3b319172de49c054c93a1a869b659f602b5893382f0fd66eb0425d670b",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 100,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#adapt-variants"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "adapt-alternatives": {
+      "path": "05-language-models/03-adaptation/adapt-alternatives.md",
+      "text_sha256": "3557263b5fe3c757bd998852babf6b4444659c474e8209406a4fe83f266f291a",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 54,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#adapt-alternatives"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "adapt-preference": {
+      "path": "05-language-models/03-adaptation/adapt-preference.md",
+      "text_sha256": "3cb630398a916cf5648d3ace7eac87a37f5e961c940bcd95a7e909eb024e5ac8",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 69,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#adapt-preference"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "adapt-merging": {
+      "path": "05-language-models/03-adaptation/adapt-merging.md",
+      "text_sha256": "3d6211314042b15a1269a7154d7d0654e9f1329ed9a73c9f383e04d4601fa0a1",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 54,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#adapt-merging"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "adapt-distillation": {
+      "path": "05-language-models/03-adaptation/adapt-distillation.md",
+      "text_sha256": "2bd83b15976ecc432972234eea0d75990b971fb523d9309a2c8e555d8231c1f5",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 59,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#adapt-distillation"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "adapt-continual": {
+      "path": "05-language-models/03-adaptation/adapt-continual.md",
+      "text_sha256": "cd7adcda1ba414b59ecb59938bf591bbb5ae34dad74952b5fae3edb947a50b26",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 46,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#adapt-continual"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "adapt-evaluation": {
+      "path": "05-language-models/03-adaptation/adapt-evaluation.md",
+      "text_sha256": "816d635e5be4f4ff9c474af3cfd4902c8f26221ce73d1899fbe733a3cd22413a",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 49,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#adapt-evaluation"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "infer-generation": {
+      "path": "05-language-models/04-inference/infer-generation.md",
+      "text_sha256": "7f6397dc4a62005b0de7eae33f723c2216c010af23b3382a941fd188b9ebbb2f",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 3,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#infer-generation"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "infer-kv": {
+      "path": "05-language-models/04-inference/infer-kv.md",
+      "text_sha256": "f1ea957d24cabdaa3e30c52210dcc0107a2727a29207e8d78e05a8250ad18e91",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 63,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#infer-kv"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "infer-context": {
+      "path": "05-language-models/04-inference/infer-context.md",
+      "text_sha256": "2aae394778b6241bbecd696564066a83e805e78c1e12194060f08136d489d020",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 73,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#infer-context"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "infer-decoding": {
+      "path": "05-language-models/04-inference/infer-decoding.md",
+      "text_sha256": "7a55625fd41d3fbdeae25cb19b949f6fc3ec4ddf453f75686142780c8bd1e2ef",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 79,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#infer-decoding"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "infer-serving": {
+      "path": "05-language-models/04-inference/infer-serving.md",
+      "text_sha256": "9f3a539948ddd9f84101cc9e544016616f0c27d7cb2d18bccc0690d390c0589b",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 88,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#infer-serving"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "infer-speculative": {
+      "path": "05-language-models/04-inference/infer-speculative.md",
+      "text_sha256": "69fb5f0c5650d3907e7914ec9020921ee481d17303fb477534800b3883a64c31",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 89,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#infer-speculative"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "infer-quantization": {
+      "path": "05-language-models/04-inference/infer-quantization.md",
+      "text_sha256": "84f34f608b2a72a76930221143a6d3a5fbb41f5b5535e2d46cced124b03abf97",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 119,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#infer-quantization"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "infer-pruning": {
+      "path": "05-language-models/04-inference/infer-pruning.md",
+      "text_sha256": "4687fb666489d224e06a4eeaa0a18be05713ecca379031c134d789b0d65ae91b",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 63,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#infer-pruning"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "infer-deployment": {
+      "path": "05-language-models/04-inference/infer-deployment.md",
+      "text_sha256": "b23045ee9b0fa3ea816d90b794659133859ba16c82ec98928fb846c7cc649ae7",
+      "scenario": "authored",
+      "prose": "rewritten",
+      "source_units": 114,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "closed",
+      "evidence": [
+        "editorial/batch02-review.md#infer-deployment"
+      ],
+      "remaining": [],
+      "acceptance_basis": "authored-content-review",
+      "reviewed_on": "2026-10-25"
+    },
+    "infer-monitoring": {
+      "path": "05-language-models/04-inference/infer-monitoring.md",
+      "text_sha256": "1d71b6244a410459e52e4ca075bbe82ba8cf5d71422632a45cd260698e9516ab",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 107,
+      "source_units_pending_semantic_review": 24,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "app-structured": {
+      "path": "05-language-models/05-applications/app-structured.md",
+      "text_sha256": "160df32a6e94b08724741ca3a3d682e3dcdf90e0e47ec5910612655fe0454f58",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 85,
+      "source_units_pending_semantic_review": 21,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "app-tools": {
+      "path": "05-language-models/05-applications/app-tools.md",
+      "text_sha256": "310621563770313a7682e1fc498d236f0418b5272324806b23eef9f5a631de28",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 109,
+      "source_units_pending_semantic_review": 27,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "app-state": {
+      "path": "05-language-models/05-applications/app-state.md",
+      "text_sha256": "9dd41cd241a8e4077308b219819c45bf08fe4fa3db3e30d261a3ee39d4296572",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 158,
+      "source_units_pending_semantic_review": 36,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "app-rag": {
+      "path": "05-language-models/05-applications/app-rag.md",
+      "text_sha256": "8a7aa524e05afffb6e207b5bfac609744a645185b63d0050c1a9d607e8b7241c",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 159,
+      "source_units_pending_semantic_review": 30,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "app-evaluation": {
+      "path": "05-language-models/05-applications/app-evaluation.md",
+      "text_sha256": "46945b764bb3501648584cc7e24a344651a25e6ce60463878466448e3c57ef0c",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 126,
+      "source_units_pending_semantic_review": 32,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "agent-task": {
+      "path": "05-language-models/06-agent-learning/agent-task.md",
+      "text_sha256": "2a5e98181c31f7e05e78b8983c2c8436eea12897401da916359b70219be78220",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 80,
+      "source_units_pending_semantic_review": 31,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "agent-environment": {
+      "path": "05-language-models/06-agent-learning/agent-environment.md",
+      "text_sha256": "9c89d5cc82197b83fb516567e0c2bafad9f16a982455fd4a5b4c02a1ecf99b64",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 87,
+      "source_units_pending_semantic_review": 19,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "agent-evaluation": {
+      "path": "05-language-models/06-agent-learning/agent-evaluation.md",
+      "text_sha256": "2b53525f9cb3c0a54e5583ff75e1b572972c0abee00c3dcded59b76e6155339e",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 71,
+      "source_units_pending_semantic_review": 16,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "agent-demonstrations": {
+      "path": "05-language-models/06-agent-learning/agent-demonstrations.md",
+      "text_sha256": "1ab6ebcd53fa59d4968fddc7a173e8ce3080e80d6b3a396d02130ec89698d3a3",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 83,
+      "source_units_pending_semantic_review": 32,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "agent-recovery": {
+      "path": "05-language-models/06-agent-learning/agent-recovery.md",
+      "text_sha256": "28d741c3983717cd94f5444153f5f089993c83bcd63335708d305dba01c7cf35",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 72,
+      "source_units_pending_semantic_review": 20,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "agent-rl": {
+      "path": "05-language-models/06-agent-learning/agent-rl.md",
+      "text_sha256": "f3a1657e65e371d9e48e76877fb2070b3c1e19ed844dc6595284648395674e2a",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 91,
+      "source_units_pending_semantic_review": 21,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "agent-reasoning": {
+      "path": "05-language-models/06-agent-learning/agent-reasoning.md",
+      "text_sha256": "c0b2af5625b784c1a046f82a3b09b7bd26e20390170c16de7bc45fe8daade752",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 78,
+      "source_units_pending_semantic_review": 25,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "agent-memory": {
+      "path": "05-language-models/06-agent-learning/agent-memory.md",
+      "text_sha256": "0de26382fbc53234e0d6f7d7dd0157ec3fd040c68be69be6764f57bece05936c",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 76,
+      "source_units_pending_semantic_review": 21,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "agent-preferences": {
+      "path": "05-language-models/06-agent-learning/agent-preferences.md",
+      "text_sha256": "3681bc4f7e06ffff743f83651e8ffdef4cdc022cef68545c2b4252ab5691d3cd",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 64,
+      "source_units_pending_semantic_review": 17,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "agent-coordination": {
+      "path": "05-language-models/06-agent-learning/agent-coordination.md",
+      "text_sha256": "1f79d91dbf74ebc74606ee3495127ca3976857da19f205ae58c7204316b1de25",
+      "scenario": "authored",
+      "prose": "terminology-and-context-pass",
+      "source_units": 69,
+      "source_units_pending_semantic_review": 17,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Сверить назначения различных исходных случаев, не только хэши.",
+        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+      ]
+    },
+    "cv-classical": {
+      "path": "04-computer-vision/cv-classical.md",
+      "text_sha256": "c899325d745956ce8f121e8b674a80af2577695af8565656872b4f4d7509f668",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-resnet": {
+      "path": "04-computer-vision/cv-resnet.md",
+      "text_sha256": "c68afffe432b4b6c2f724d83864ece608bea6e2ce7181a46353f01846a5de881",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-efficient": {
+      "path": "04-computer-vision/cv-efficient.md",
+      "text_sha256": "7fbb22c066180b2d902f5aa98ec353423126eff2ecb8e3f01968da0db090b271",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-convnext": {
+      "path": "04-computer-vision/cv-convnext.md",
+      "text_sha256": "8a050551ff1058f1213ab9ab701b1cce36968083e7654be28dc50213e77ae6da",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-transfer": {
+      "path": "04-computer-vision/cv-transfer.md",
+      "text_sha256": "17f41e85b77f5659f27bb1cc7d8d4c5208e18a6a260c8619ea24550eb91f237f",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-losses": {
+      "path": "04-computer-vision/cv-losses.md",
+      "text_sha256": "5f4f19c4d51b01d09a3fb3905f4f5d2522fb9dcbc4299a50d28fa905de8bf94c",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-pyramids": {
+      "path": "04-computer-vision/cv-pyramids.md",
+      "text_sha256": "9db3ec773ca02c668cc186b904874e2e2f7c3ea24145e8701ebf36a550a07306",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-contrastive": {
+      "path": "04-computer-vision/cv-contrastive.md",
+      "text_sha256": "97c13e2f17dfc9d3fa004dc2c648b91fd91c12b50fb0648a0baf520d4ca7db27",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-dino": {
+      "path": "04-computer-vision/cv-dino.md",
+      "text_sha256": "cf2b13ca748bedc1b62fdac5a61095d47632b3bfb76615df713ac92efc03599b",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-retrieval": {
+      "path": "04-computer-vision/cv-retrieval.md",
+      "text_sha256": "fc95ce854464d38b1fff950f5376eddf0b939162abdbc151f9034b51cb84fe6d",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-faster-rcnn": {
+      "path": "04-computer-vision/cv-faster-rcnn.md",
+      "text_sha256": "00d9418d190e17f569dd71e2c0a4ed44f960ca8dd7fcfc8fa19530df1fff557d",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-dense-detectors": {
+      "path": "04-computer-vision/cv-dense-detectors.md",
+      "text_sha256": "57370b5b2aeac0b4655ba05183fb76873041c854758ff48fd7f5d5a1d9aef228",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-yolo": {
+      "path": "04-computer-vision/cv-yolo.md",
+      "text_sha256": "2bdcb857278461635a68b230234e15f3e7a178db85f0c9a5574715e1b5ae09fd",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-detr": {
+      "path": "04-computer-vision/cv-detr.md",
+      "text_sha256": "99c4c973773a9b3149ee0eb61a6a763e24f7af6304a8751ab579bade87d7bd0f",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-deformable": {
+      "path": "04-computer-vision/cv-deformable.md",
+      "text_sha256": "5a4db8678448178c8f7e296b8b3582e05e9865bd004a7b7013cb87e16a60e8c6",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-unet": {
+      "path": "04-computer-vision/cv-unet.md",
+      "text_sha256": "ddf3ac43a933d2304bee7ad022afa487d97818dda37023d90a538e6f45b655e7",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-segformers": {
+      "path": "04-computer-vision/cv-segformers.md",
+      "text_sha256": "b0885e83e5a14c592d9f51f30dc30bfe5dd2ac47bafc9beb14959981e24cc78c",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-prototypes": {
+      "path": "04-computer-vision/cv-prototypes.md",
+      "text_sha256": "4fc4fa01ba669db895a601ae2d3b294e97eddeb52ba071ed260a705ec8747a04",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-mask2former": {
+      "path": "04-computer-vision/cv-mask2former.md",
+      "text_sha256": "5fdd2772ca2f9cc90ea69b7eb66522aff71a377af7c8fd7af9666cebeec6fec5",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-pose-models": {
+      "path": "04-computer-vision/cv-pose-models.md",
+      "text_sha256": "2600ef01df6325eaca8a36b1363a36aea199b4890d88a45157a68aebd2840884",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-tracking-models": {
+      "path": "04-computer-vision/cv-tracking-models.md",
+      "text_sha256": "f067cc30acd2f0a7683b471ff6f494ec020ac960dfef4d1a1d753912de2fb76c",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-flow": {
+      "path": "04-computer-vision/cv-flow.md",
+      "text_sha256": "8a4fe2a389229414797f82c3e120c40ea8074b5ab207732bf777e0a79701e5c5",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-video": {
+      "path": "04-computer-vision/cv-video.md",
+      "text_sha256": "c7eef8b7ee18c675b78a56957ec209f31669e71ed69730797c13e3174dd9b074",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-camera": {
+      "path": "04-computer-vision/cv-camera.md",
+      "text_sha256": "463fb1f3c707574a5f3030ca20e060c69b8943d2b28b94ea227c3914aecb5519",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-stereo": {
+      "path": "04-computer-vision/cv-stereo.md",
+      "text_sha256": "fdaca615cdba4eb32659f54df95068202b0ef6bec57b10677256bc4eb3d04e69",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-sfm": {
+      "path": "04-computer-vision/cv-sfm.md",
+      "text_sha256": "371f0826d537ccbc0f3a54aff45af7d1055cc665313bb738000e5c953ae8e6a4",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-pointnet": {
+      "path": "04-computer-vision/cv-pointnet.md",
+      "text_sha256": "5cb2c5d2299b218e1520fa3c600303fee33fb6b5dc34c2547fb4c30ac231cb16",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-bev": {
+      "path": "04-computer-vision/cv-bev.md",
+      "text_sha256": "1351142ca8dfe07ea635e7eb4c4bd5d667b50a6fcd221ba8fcbb4b4818011256",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-nerf": {
+      "path": "04-computer-vision/cv-nerf.md",
+      "text_sha256": "28f05e0ea0bca45503d25550f292dda83ea58484d952e7bfe456e6eb601022fa",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-gaussians": {
+      "path": "04-computer-vision/cv-gaussians.md",
+      "text_sha256": "9f19b33161eaa28980515581264312b2cad6995a67f3d5be5766b40d19d15a8a",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-text-detection": {
+      "path": "04-computer-vision/cv-text-detection.md",
+      "text_sha256": "0f8d44f951e7e9bbfb29424c469a2f8336b718c55224a9c7e0b81ddaf6357206",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-text-recognition": {
+      "path": "04-computer-vision/cv-text-recognition.md",
+      "text_sha256": "658618b70f3877794ef7e26ecbe7d234576a1d042a01e40f5fdf6396f8092c76",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-documents": {
+      "path": "04-computer-vision/cv-documents.md",
+      "text_sha256": "b695e71088da5a1f5a5f921713c8b32f35b18511ceae51f4b6e9de3a36f3f334",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-anomaly": {
+      "path": "04-computer-vision/cv-anomaly.md",
+      "text_sha256": "adc95ced97b54c340930c871b31d006a94815beef8141e491466f76d5a4f07b4",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-restoration": {
+      "path": "04-computer-vision/cv-restoration.md",
+      "text_sha256": "24626b4657ceed53cf9c9ac4d6065a33fa88a985626aa1e13e88927bccd88e16",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-domains": {
+      "path": "04-computer-vision/cv-domains.md",
+      "text_sha256": "d19422458c17c2cbaf913fbfa5e8e9d76c70ea47551653c4889698f4ea3ad8b1",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-generative": {
+      "path": "04-computer-vision/cv-generative.md",
+      "text_sha256": "a1d3abcf763cb8ea732dcb54abdb98c811e1c32135c4f1674ed7c47ffb8492dc",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-ddpm": {
+      "path": "04-computer-vision/cv-ddpm.md",
+      "text_sha256": "5b44449cfaf038a9670ad7b2beccd29c46c447e789e822e24d1d3de4c0146f86",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-sampling": {
+      "path": "04-computer-vision/cv-sampling.md",
+      "text_sha256": "9ed61389e42217d9668de92aa630f974a6691288d37590fdbfd05bfa487ab52b",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-latent-diffusion": {
+      "path": "04-computer-vision/cv-latent-diffusion.md",
+      "text_sha256": "b5e62d6b80fa29607dfe7fd072c555ba6f885b14d0fcb68f71e096a28e7ba535",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-dit-flow": {
+      "path": "04-computer-vision/cv-dit-flow.md",
+      "text_sha256": "7a5052a4b09a5e977411699e9966363797ad11ebe7b7bee1cee4a560c05b987b",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-control": {
+      "path": "04-computer-vision/cv-control.md",
+      "text_sha256": "de087f413b9ddc647bc9f68e83e210774ee6d90a331fe6675e70a0f1a2a2a82e",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-generation-eval": {
+      "path": "04-computer-vision/cv-generation-eval.md",
+      "text_sha256": "b1ba006581bcf472661927893e91cc5e6bd15054be1cfb5d8cdbdf8adbf3b5da",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-diagnosis": {
+      "path": "04-computer-vision/cv-diagnosis.md",
+      "text_sha256": "f6c18f31a0ba298c1b89be193868bd90cacdc874cc501b5241fe6068e198ec40",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-robustness": {
+      "path": "04-computer-vision/cv-robustness.md",
+      "text_sha256": "bdb4b6e7bbf5e8247b176175b7e604b3304f98a6deb6d5bb344d87f11bfe4135",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-deployment": {
+      "path": "04-computer-vision/cv-deployment.md",
+      "text_sha256": "9385f46d5f6ace4cbc8791d6129f996011246f7003dac724bfed593cae5662ff",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    },
+    "cv-cases": {
+      "path": "04-computer-vision/cv-cases.md",
+      "text_sha256": "d6799f33100f844ff927efd99c045844cbb44c4ee82c0b4f8ddc57e25776995a",
+      "scenario": "authored",
+      "prose": "authored-and-self-reviewed-cv-expansion",
+      "content_acceptance": "closed",
+      "remaining": [],
+      "evidence": [
+        "editorial/cv-expansion.json",
+        "editorial/cv-user-acceptance.md"
+      ],
+      "acceptance_basis": "explicit-user-acceptance",
+      "accepted_on": "2026-10-25"
+    }
+  }
+}

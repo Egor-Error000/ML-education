@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "host": "win32",
+  "htmlSha256": "1b7af5e6a57cfc7c95d48760cb3d83f8b3d26d33c3cd3d796d6d15e8171b9241",
+  "workingHtmlSha256": "f3d1ff2ad932104ea12b062b339454075b1ea35a14ea3d63c776f52a0db04959",
+  "fixtureReaderRegeneratedForIgnoredExamples": true,
+  "excludedLocalExampleCount": 5,
+  "checks": [
+    {
+      "mode": "LF clean clone",
+      "build_check": "passed",
+      "audit": "passed",
+      "two_builds_identical": true,
+      "tracked_changes": false
+    },
+    {
+      "mode": "CRLF working text",
+      "build_check": "passed",
+      "audit": "passed",
+      "two_builds_identical": true,
+      "tracked_changes": false
+    }
+  ],
+  "linux_execution": "Use CI ubuntu-latest; this command does not emulate another OS.",
+  "published_on": "2026-10-25"
+}

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 880" role="img" aria-labelledby="title desc"><title id="title">DSpark: подготовить блок, сохранить связи, выбрать длину</title><desc id="desc">Параллельная основа даёт признаки, лёгкий последовательный модуль связывает предложения. Планирование использует оценённый survival и профиль стоимости движка.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="880" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">DSpark: подготовить блок, сохранить связи, выбрать длину</tspan></text>
+<rect x="40" y="100" width="470" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Подтверждённая история → parallel backbone</tspan></text>
+<rect x="40" y="230" width="470" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="257" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Признаки нескольких будущих позиций</tspan></text>
+<path d="M275.0,190 L275.0,230" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="360" width="470" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="387" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Лёгкая последовательная часть → qᵢ</tspan><tspan x="54" dy="24">Учитывать предыдущий выбранный токен</tspan></text>
+<path d="M275.0,320 L275.0,360" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M510,425 L570,425 L570,510 L275,510 L275,450" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="660" y="120" width="410" height="110" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="674" y="147" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="674" dy="0">Профиль движка и текущая нагрузка</tspan><tspan x="674" dy="24">Стоимость проверки разной длины</tspan></text>
+<rect x="660" y="350" width="410" height="120" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="674" y="377" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="674" dy="0">Оценить survival префикса</tspan><tspan x="674" dy="24">Планировщик выбирает глубину γ</tspan></text>
+<path d="M510,405 L660,405" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M865,230 L865,350" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="310" y="590" width="630" height="100" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="324" y="617" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="324" dy="0">Выбранный префикс предложений → target verification</tspan><tspan x="324" dy="24">Accept / residual → подтвердить путь и согласовать состояния</tspan></text>
+<path d="M865,470 L865,590" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="785" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="35" dy="0">Учебные costs 10/12/18 ms предпочитают длину 2; при 10/16/18 — длину 1. Это не benchmark авторов.</tspan></text></svg>

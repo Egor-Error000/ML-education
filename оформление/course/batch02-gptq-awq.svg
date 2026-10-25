@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 840" role="img" aria-labelledby="title desc"><title id="title">GPTQ и AWQ: разные способы сохранить выход слоя</title><desc id="desc">Калибровочные входы X и исходные веса W Раздельные ветви имеют собственные промежуточные объекты и сходятся только в указанной проверке.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="840" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">GPTQ и AWQ: разные способы сохранить выход слоя</tspan></text>
+<rect x="220" y="85" width="680" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="234" y="112" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="234" dy="0">Калибровочные входы X и исходные веса W</tspan></text>
+<rect x="40" y="290" width="300" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="317" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">GPTQ: локальная ошибка ½||Xδ||²</tspan></text>
+<rect x="40" y="420" width="300" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="447" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">H=XᵀX → компенсация свободных</tspan><tspan x="54" dy="24">весов</tspan></text>
+<path d="M190.0,380 L190.0,420" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="550" width="300" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="577" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">δ=(−.4,.2), цена .16→.12</tspan></text>
+<path d="M190.0,510 L190.0,550" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M560,170 L560,225 L190.0,225 L190.0,290" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="410" y="290" width="300" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="424" y="317" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="424" dy="0">AWQ: согласованное</tspan><tspan x="424" dy="24">масштабирование</tspan></text>
+<rect x="410" y="420" width="300" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="424" y="447" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="424" dy="0">Wx=(WD)(D⁻¹x) до округления</tspan></text>
+<path d="M560.0,380 L560.0,420" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="410" y="550" width="300" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="424" y="577" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="424" dy="0">Ошибка −.20→+.075 в двух</tspan><tspan x="424" dy="24">координатах</tspan></text>
+<path d="M560.0,510 L560.0,550" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M560,170 L560,225 L560.0,225 L560.0,290" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="780" y="290" width="300" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="794" y="317" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="794" dy="0">Итоговый артефакт</tspan></text>
+<rect x="780" y="420" width="300" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="794" y="447" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="794" dy="0">Коды + шкалы +</tspan><tspan x="794" dy="24">поддерживаемое ядро</tspan></text>
+<path d="M930.0,380 L930.0,420" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="780" y="550" width="300" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="794" y="577" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="794" dy="0">Независимая задача и полная</tspan><tspan x="794" dy="24">нагрузка</tspan></text>
+<path d="M930.0,510 L930.0,550" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M560,170 L560,225 L930.0,225 L930.0,290" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="765" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="35" dy="0">Hessian реконструкции слоя не является полным Hessian языковой ошибки LLM. Версия и группировка входят в сравнение.</tspan></text></svg>

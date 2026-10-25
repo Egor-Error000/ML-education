@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 680" role="img" aria-labelledby="title desc"><title id="title">Аффинная сетка: коды и восстановленные числа</title><desc id="desc">Сначала фиксируют шаг, нулевую точку, диапазон и округление. Представленный code сам не равен вещественному весу.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="680" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Аффинная сетка: коды и восстановленные числа</tspan></text>
+<rect x="40" y="100" width="470" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">x, шаг s&gt;0, нулевая точка z</tspan></text>
+<rect x="40" y="230" width="470" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="257" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">q=clip(round(x/s)+z, qmin,qmax)</tspan></text>
+<path d="M275.0,190 L275.0,230" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="360" width="470" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="387" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">x̂=s(q−z); ошибка x̂−x</tspan></text>
+<path d="M275.0,320 L275.0,360" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="660" y="130" width="410" height="170" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="674" y="157" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="674" dy="0">s=.2, z=0, codes −7…7</tspan><tspan x="674" dy="24">x=(−1.4,−.3,.2,1.3)</tspan><tspan x="674" dy="24">x̂=(−1.4,−.4,.2,1.4)</tspan><tspan x="674" dy="24">Половины округлены от нуля.</tspan><tspan x="674" dy="24">MSE=.005</tspan></text>
+<text x="35" y="610" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="35" dy="0">Без clipping ошибка nearest rounding ≲s/2. После обрезания 100 до 1 ошибка ≈99 — эта граница уже не действует.</tspan></text></svg>

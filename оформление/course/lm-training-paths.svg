@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1080" role="img" aria-labelledby="title desc"><title id="title">Обучение языковой модели: вход, цели и изменение параметров</title><desc id="desc">Вход и сдвинутые цели разделены. Модель использует причинную маску, функция потерь — отдельную маску целей. Производные возвращаются к параметрам, затем оптимизатор создаёт новое состояние весов.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1280" height="1080" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Обучение языковой модели: вход, цели и изменение параметров</tspan></text>
+<rect x="40" y="95" width="520" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="122" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Входные IDs [B,L]</tspan><tspan x="54" dy="24">[BOS, кот, спит]; причинная маска</tspan></text>
+<rect x="700" y="95" width="520" height="100" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="714" y="122" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="714" dy="0">Сдвинутые цели [B,L]</tspan><tspan x="714" dy="24">[кот, спит, EOS]; отдельные правильные IDs</tspan></text>
+<rect x="40" y="295" width="520" height="110" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="322" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Модель с текущими параметрами θ</tspan><tspan x="54" dy="24">Векторы → Transformer → словарная голова</tspan><tspan x="54" dy="24">Будущие входные позиции закрыты</tspan></text>
+<rect x="700" y="295" width="520" height="110" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="714" y="322" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="714" dy="0">Маска ошибки m [B,L]</tspan><tspan x="714" dy="24">Выбрать обучаемые цели; M=Σm &gt; 0</tspan><tspan x="714" dy="24">Это не маска доступного контекста</tspan></text>
+<path d="M300,195 L300,295" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M960,195 L960,295" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="510" width="520" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="537" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Логиты z [B,L,V]</tspan><tspan x="54" dy="24">Непрерывные оценки словаря</tspan></text>
+<path d="M300,405 L300,510" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="700" y="510" width="520" height="90" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="714" y="537" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="714" dy="0">Ошибка: сумма m·CE(z,y), делённая на M</tspan><tspan x="714" dy="24">Для целей 0.5 и 0.25: L≈1.039721</tspan></text>
+<path d="M560,555 L700,555" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M960,405 L960,510" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="725" width="520" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="752" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Backward: производные по использованным θ</tspan><tspan x="54" dy="24">Через голову, блоки и входные представления</tspan><tspan x="54" dy="24">Градиенты накапливаются</tspan></text>
+<path d="M700,580 L630,580 L630,665 L300,665 L300,725" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="700" y="725" width="520" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="714" y="752" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="714" dy="0">Оптимизатор</tspan><tspan x="714" dy="24">При необходимости: clipping градиента</tspan><tspan x="714" dy="24">Обновление разрешённых параметров</tspan></text>
+<path d="M560,775 L700,775" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="700" y="920" width="520" height="90" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="714" y="947" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="714" dy="0">Новые параметры θ⁺</tspan><tspan x="714" dy="24">Их использует следующий прямой проход</tspan></text>
+<path d="M960,825 L960,920" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="40" y="955" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="40" dy="0">Обычное применение: только прямой проход.</tspan><tspan x="40" dy="24">Выбор токена сам по себе не обновляет θ.</tspan></text>
+<text x="40" y="1050" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="40" dy="0">Обнуление старых градиентов выполняется на границе шага; при накоплении — на границе группы микропакетов.</tspan></text></svg>

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" role="img" aria-labelledby="t"><title id="t">Local + global attention: граф доступных связей</title><rect width="900" height="640" rx="16" fill="#f5f8f5"/><g font-family="Segoe UI,sans-serif" fill="#213244"><text x="30" y="42" font-size="24" font-weight="600">Local + global attention: граф доступных связей</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" role="img" aria-labelledby="t"><title id="t">Local + global attention: граф доступных связей</title><desc>Локальные связи ограничивают соседство, глобальные позиции связывают удалённые участки; это разные пути обмена контекстом.</desc><rect width="900" height="640" rx="16" fill="#f5f8f5"/><g font-family="Segoe UI,sans-serif" fill="#213244"><text x="30" y="42" font-size="24" font-weight="600">Local + global attention: граф доступных связей</text>
 <text x="30" y="83" font-size="19">Учебная схема: 8 позиций, local radius 1, global position 0.</text>
 <text x="119" y="118" font-size="19">0</text>
 <text x="167" y="118" font-size="19">1</text>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 690" role="img" aria-labelledby="title desc"><title id="title">Почему причинный KV-cache нельзя перенести на обычный BERT</title><desc id="desc">В двунаправленном внимании добавленный токен меняет старое состояние. В причинной модели старым позициям запрещено видеть новые, что сохраняет их состояния.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="690" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Почему причинный KV-cache нельзя перенести на обычный BERT</tspan></text>
+<text x="40" y="100" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#173644"><tspan x="40" dy="0">Двунаправленная модель; оценки внимания равны нулю</tspan></text>
+<rect x="40" y="150" width="420" height="125" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="177" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Сначала одна позиция</tspan><tspan x="54" dy="24">V₁=2; softmax(0)=1</tspan><tspan x="54" dy="24">Выход позиции 1: 2</tspan></text>
+<rect x="650" y="150" width="420" height="125" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="664" y="177" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Добавили вторую позицию</tspan><tspan x="664" dy="24">V=(2,6); softmax(0,0)=(0.5,0.5)</tspan><tspan x="664" dy="24">Выход старой позиции 1: 4</tspan></text>
+<path d="M460,210 L650,210" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="430" width="420" height="125" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="54" y="457" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Причинная маска</tspan><tspan x="54" dy="24">Старый запрос 1 видит только ключ 1.</tspan><tspan x="54" dy="24">После добавления позиции выход 1</tspan><tspan x="54" dy="24">остаётся 2.</tspan></text>
+<rect x="650" y="430" width="420" height="125" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="664" y="457" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Encoder можно кешировать как функцию</tspan><tspan x="664" dy="24">Те же IDs, маски, веса, режим, pooling</tspan><tspan x="664" dy="24">→ тот же выход. Новый контекст</tspan><tspan x="664" dy="24">требует нового прохода.</tspan></text>
+<text x="35" y="640" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="35" dy="0">Кеш готовых векторов идентичных документов и причинный KV-cache хранят разные объекты.</tspan></text></svg>

@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "htmlSha256": "f3d1ff2ad932104ea12b062b339454075b1ea35a14ea3d63c776f52a0db04959",
+  "cvChapters": 60,
+  "cvSections": 9,
+  "routeResults": [
+    {
+      "id": "vision",
+      "chapters": 9
+    },
+    {
+      "id": "vision-backbones",
+      "chapters": 18
+    },
+    {
+      "id": "vision-detection",
+      "chapters": 15
+    },
+    {
+      "id": "vision-segmentation",
+      "chapters": 16
+    },
+    {
+      "id": "vision-video",
+      "chapters": 15
+    },
+    {
+      "id": "vision-3d",
+      "chapters": 16
+    },
+    {
+      "id": "vision-ocr",
+      "chapters": 12
+    },
+    {
+      "id": "vision-generation",
+      "chapters": 15
+    },
+    {
+      "id": "vision-systems",
+      "chapters": 21
+    }
+  ],
+  "imagesChecked": 195,
+  "externalFigures": 56,
+  "offline": true,
+  "mobile": true,
+  "figureZoom": true,
+  "search": true,
+  "pageErrors": [],
+  "networkRequests": []
+}

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 448" role="img" aria-labelledby="title desc">
+<title id="title">ConvNeXt: современная свёрточная архитектура</title><desc id="desc">ConvNeXt backbone: B×3×224×224 → Stem 4/4 → 56×56×96 → Стадии → 7×7×768 → Pooling → logits B×K; Residual block: Карта H×W×C → DW 7×7 → LayerNorm → C → 4C → GELU → C → Layer scale → + shortcut</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#416474"/></marker></defs>
+<rect width="1120" height="448" rx="14" fill="#f6f8fb"/>
+<text x="30" y="36" font-family="Arial,sans-serif" font-size="23" font-weight="bold" fill="#173b50">ConvNeXt: современная свёрточная архитектура</text>
+<text x="30" y="112" font-family="Arial,sans-serif" font-size="18" fill="#315a67">ConvNeXt backbone</text>
+<rect x="30" y="131" width="235" height="94" rx="9" fill="#dceafa" stroke="#718b9b"/>
+<text x="147.5" y="168" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">B×3×224×224</text>
+<path d="M268,178 H296" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="305" y="131" width="235" height="94" rx="9" fill="#e1eee8" stroke="#718b9b"/>
+<text x="422.5" y="168" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Stem 4/4 → 56×56×96</text>
+<path d="M543,178 H571" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="580" y="131" width="235" height="94" rx="9" fill="#fff0d8" stroke="#718b9b"/>
+<text x="697.5" y="168" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Стадии → 7×7×768</text>
+<path d="M818,178 H846" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="855" y="131" width="235" height="94" rx="9" fill="#ede5f7" stroke="#718b9b"/>
+<text x="972.5" y="168" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Pooling → logits B×K</text>
+<text x="30" y="277" font-family="Arial,sans-serif" font-size="18" fill="#315a67">Residual block</text>
+<rect x="30" y="296" width="235" height="94" rx="9" fill="#dceafa" stroke="#718b9b"/>
+<text x="147.5" y="333" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Карта H×W×C</text>
+<path d="M268,343 H296" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="305" y="296" width="235" height="94" rx="9" fill="#e1eee8" stroke="#718b9b"/>
+<text x="422.5" y="333" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">DW 7×7 → LayerNorm</text>
+<path d="M543,343 H571" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="580" y="296" width="235" height="94" rx="9" fill="#fff0d8" stroke="#718b9b"/>
+<text x="697.5" y="333" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">C → 4C → GELU → C</text>
+<path d="M818,343 H846" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="855" y="296" width="235" height="94" rx="9" fill="#ede5f7" stroke="#718b9b"/>
+<text x="972.5" y="327" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Layer scale → +</text>
+<text x="972.5" y="350" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">shortcut</text>
+</svg>

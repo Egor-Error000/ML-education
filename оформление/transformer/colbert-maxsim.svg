@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" role="img" aria-labelledby="t"><title id="t">ColBERT MaxSim: максимум по document tokens</title><rect width="900" height="430" rx="16" fill="#f5f8f5"/><g font-family="Segoe UI,sans-serif" fill="#213244"><text x="30" y="42" font-size="24" font-weight="600">ColBERT MaxSim: максимум по document tokens</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" role="img" aria-labelledby="t"><title id="t">ColBERT MaxSim: максимум по document tokens</title><desc>Каждый токен запроса выбирает максимальное сходство среди токенов документа; сумма максимумов задаёт оценку пары.</desc><rect width="900" height="430" rx="16" fill="#f5f8f5"/><g font-family="Segoe UI,sans-serif" fill="#213244"><text x="30" y="42" font-size="24" font-weight="600">ColBERT MaxSim: максимум по document tokens</text>
 <text x="145" y="100" font-size="21">d1</text>
 <text x="245" y="100" font-size="21">d2</text>
 <text x="345" y="100" font-size="21">d3</text>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 720" role="img" aria-labelledby="title desc"><title id="title">Управляющая MLP: две ветви до поэлементного произведения</title><desc id="desc">Один вектор h одновременно поступает в up и gate. Gate проходит SiLU, затем умножается поэлементно на up. Down возвращает исходную ширину.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="720" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Управляющая MLP: две ветви до поэлементного произведения</tspan></text>
+<rect x="35" y="285" width="220" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="312" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="49" dy="0">Вход h=(1,2)ᵀ</tspan><tspan x="49" dy="24">Ширина D=2</tspan></text>
+<rect x="360" y="100" width="300" height="110" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="374" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="374" dy="0">up: W_up h</tspan><tspan x="374" dy="24">(1,2,3)ᵀ</tspan><tspan x="374" dy="24">Ширина F=3</tspan></text>
+<rect x="360" y="430" width="300" height="140" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="374" y="457" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="374" dy="0">gate: W_gate h=(0,1,2)ᵀ</tspan><tspan x="374" dy="23">SiLU → (0,0.731059,</tspan><tspan x="374" dy="23">1.761594)ᵀ</tspan></text>
+<path d="M255,320 L295,320 L295,155 L360,155" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M255,350 L295,350 L295,500 L360,500" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="755" y="275" width="325" height="135" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="769" y="302" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="769" dy="0">Поэлементное произведение</tspan><tspan x="769" dy="23">(0,1.462117,5.284782)ᵀ</tspan><tspan x="769" dy="23">Ширина F=3</tspan></text>
+<path d="M660,155 L915,155 L915,275" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M660,500 L915,500 L915,410" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="370" y="600" width="710" height="80" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="384" y="627" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="384" dy="0">down: W_down (a ⊙ b) → (5.284782,−3.822665)ᵀ</tspan><tspan x="384" dy="24">Ширина D=2: можно складывать с остаточным потоком</tspan></text>
+<path d="M1080,345 L1100,345 L1100,640 L1080,640" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/></svg>

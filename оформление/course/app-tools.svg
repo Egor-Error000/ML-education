@@ -1,28 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 490" role="img" aria-labelledby="title desc">
-<title id="title">Вызов инструментов и исполнение</title><desc id="desc">Читайте схему по направлению стрелок: первый блок задаёт вход, средние — преобразования и их состояние, последний — результат и способ проверки. Параметры модели при обычном выполнении фиксированы. Состояние запроса, cache и состояние внешнего инструмента имеют разные жизненные циклы; их нельзя смешивать с optimizer states.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 460" role="img" aria-labelledby="title desc"><title id="title">Вызов инструментов и исполнение</title><desc id="desc">Модель предлагает вызов, а приложение выполняет операцию. Наблюдение возвращается в следующий контекст; корректный JSON ещё не означает допустимое или успешное действие.</desc>
 <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
-<rect width="1120" height="490" rx="16" fill="#f5f8f5"/>
-<text x="28" y="36" font-family="Segoe UI,sans-serif" font-size="22" fill="#173644">Вызов инструментов и исполнение</text>
-<path d="M295,136 L410,136" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M670,136 L785,136" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M915,182 L915,265" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M785,311 L670,311" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M410,311 L295,311" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="35" y="90" width="260" height="92" rx="10" fill="#e9eef1" stroke="#9bb6b0"/>
-<text x="165" y="136.0" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">запрос + schema / state</text>
-<rect x="410" y="90" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="540" y="126.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">model proposal</text>
-<text x="540" y="145.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">текст / args / query</text>
-<rect x="785" y="90" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="915" y="126.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">validation и доступный</text>
-<text x="915" y="145.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">context</text>
-<rect x="785" y="265" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="915" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">application execution</text>
-<text x="915" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">tool / retrieval / graph</text>
-<rect x="410" y="265" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="540" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">observation / evidence</text>
-<text x="540" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">обновить state</text>
-<rect x="35" y="265" width="260" height="92" rx="10" fill="#e9eef1" stroke="#9bb6b0"/>
-<text x="165" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">ответ + task evaluation</text>
-<text x="165" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">stop / budget / ошибки</text>
-<text x="28" y="470" font-family="Segoe UI,sans-serif" font-size="13" fill="#526b75">Зелёный: модель / преобразование; серый: вход, состояние или результат. Пунктир: обход / управление.</text></svg>
+<rect width="1120" height="460" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Вызов инструментов и исполнение</tspan></text>
+<rect x="30" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="44" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="44" dy="0">доступные инструменты</tspan></text>
+<rect x="246" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="260" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="260" dy="0">предложение вызова</tspan></text>
+<path d="M218,198 L246,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="462" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="476" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="476" dy="0">проверка аргументов</tspan></text>
+<path d="M434,198 L462,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="678" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="692" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="692" dy="0">исполнение</tspan></text>
+<path d="M650,198 L678,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="894" y="145" width="188" height="105" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="908" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="908" dy="0">наблюдение</tspan></text>
+<path d="M866,198 L894,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="30" y="320" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="30" dy="0">Модель предлагает вызов, а приложение выполняет операцию. Наблюдение возвращается в следующий контекст;</tspan><tspan x="30" dy="24">корректный JSON ещё не означает допустимое или успешное действие.</tspan></text></svg>

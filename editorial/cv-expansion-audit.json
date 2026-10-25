@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "counts": {
+    "snapshot_files_verified": 153,
+    "source_lessons": 96,
+    "mapped_blocks": 7412,
+    "mapping_actions": {
+      "сохранить происхождение": 444,
+      "перенести с обновлением ссылок и изложения": 4041,
+      "исправить": 1591,
+      "объединить с сохранением нюансов": 1239,
+      "объединить заголовки одной темы": 97
+    },
+    "legacy_bookmarks": 107,
+    "html_internal_links": 3728,
+    "chapters": 168,
+    "modules": 5,
+    "routes": 17,
+    "figures": 288,
+    "local_links_checked": 19808,
+    "new_numerical_checks": 10
+  },
+  "errors": [],
+  "content_review": {
+    "pending_spans": 2309,
+    "note": "Technical checks do not close chapter editorial review."
+  }
+}

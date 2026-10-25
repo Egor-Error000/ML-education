@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 613" role="img" aria-labelledby="title desc">
+<title id="title">Video understanding: 3D CNN, SlowFast, TimeSformer и VideoMAE</title><desc id="desc">SlowFast: Одно видео → два sampling → Slow: редкие; Fast: частые → 3D blocks + lateral fusion → Pooling → action logits; TimeSformer: T кадров → spatial patches → Temporal attention по позиции → Spatial attention по кадру → Aggregation → action logits; VideoMAE: Видео → tubelet tokens → Tube mask → visible encoder → Decoder + masked positions → Reconstruction loss → transfer</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#416474"/></marker></defs>
+<rect width="1120" height="613" rx="14" fill="#f6f8fb"/>
+<text x="30" y="36" font-family="Arial,sans-serif" font-size="23" font-weight="bold" fill="#173b50">Video understanding: 3D CNN, SlowFast, TimeSformer и VideoMAE</text>
+<text x="30" y="112" font-family="Arial,sans-serif" font-size="18" fill="#315a67">SlowFast</text>
+<rect x="30" y="131" width="235" height="94" rx="9" fill="#dceafa" stroke="#718b9b"/>
+<text x="147.5" y="162" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Одно видео → два</text>
+<text x="147.5" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">sampling</text>
+<path d="M268,178 H296" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="305" y="131" width="235" height="94" rx="9" fill="#e1eee8" stroke="#718b9b"/>
+<text x="422.5" y="162" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Slow: редкие; Fast:</text>
+<text x="422.5" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">частые</text>
+<path d="M543,178 H571" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="580" y="131" width="235" height="94" rx="9" fill="#fff0d8" stroke="#718b9b"/>
+<text x="697.5" y="162" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">3D blocks + lateral</text>
+<text x="697.5" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">fusion</text>
+<path d="M818,178 H846" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="855" y="131" width="235" height="94" rx="9" fill="#ede5f7" stroke="#718b9b"/>
+<text x="972.5" y="168" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Pooling → action logits</text>
+<text x="30" y="277" font-family="Arial,sans-serif" font-size="18" fill="#315a67">TimeSformer</text>
+<rect x="30" y="296" width="235" height="94" rx="9" fill="#dceafa" stroke="#718b9b"/>
+<text x="147.5" y="327" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">T кадров → spatial</text>
+<text x="147.5" y="350" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">patches</text>
+<path d="M268,343 H296" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="305" y="296" width="235" height="94" rx="9" fill="#e1eee8" stroke="#718b9b"/>
+<text x="422.5" y="327" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Temporal attention по</text>
+<text x="422.5" y="350" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">позиции</text>
+<path d="M543,343 H571" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="580" y="296" width="235" height="94" rx="9" fill="#fff0d8" stroke="#718b9b"/>
+<text x="697.5" y="327" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Spatial attention по</text>
+<text x="697.5" y="350" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">кадру</text>
+<path d="M818,343 H846" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="855" y="296" width="235" height="94" rx="9" fill="#ede5f7" stroke="#718b9b"/>
+<text x="972.5" y="327" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Aggregation → action</text>
+<text x="972.5" y="350" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">logits</text>
+<text x="30" y="442" font-family="Arial,sans-serif" font-size="18" fill="#315a67">VideoMAE</text>
+<rect x="30" y="461" width="235" height="94" rx="9" fill="#dceafa" stroke="#718b9b"/>
+<text x="147.5" y="498" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Видео → tubelet tokens</text>
+<path d="M268,508 H296" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="305" y="461" width="235" height="94" rx="9" fill="#e1eee8" stroke="#718b9b"/>
+<text x="422.5" y="492" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Tube mask → visible</text>
+<text x="422.5" y="515" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">encoder</text>
+<path d="M543,508 H571" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="580" y="461" width="235" height="94" rx="9" fill="#fff0d8" stroke="#718b9b"/>
+<text x="697.5" y="492" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Decoder + masked</text>
+<text x="697.5" y="515" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">positions</text>
+<path d="M818,508 H846" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="855" y="461" width="235" height="94" rx="9" fill="#ede5f7" stroke="#718b9b"/>
+<text x="972.5" y="492" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Reconstruction loss →</text>
+<text x="972.5" y="515" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">transfer</text>
+</svg>

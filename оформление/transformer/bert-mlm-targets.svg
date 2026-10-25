@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 545" role="img" aria-labelledby="t"><title id="t">BERT MLM: выбор целей и замена входа — разные шаги</title><rect width="900" height="545" rx="16" fill="#f5f8f5"/><g font-family="Segoe UI,sans-serif" fill="#213244"><text x="30" y="42" font-size="24" font-weight="600">BERT MLM: выбор целей и замена входа — разные шаги</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 545" role="img" aria-labelledby="t"><title id="t">BERT MLM: выбор целей и замена входа — разные шаги</title><desc>Выбранные исходные токены остаются labels, вход частично искажён; состояния выбранных позиций проецируются в словарь.</desc><rect width="900" height="545" rx="16" fill="#f5f8f5"/><g font-family="Segoe UI,sans-serif" fill="#213244"><text x="30" y="42" font-size="24" font-weight="600">BERT MLM: выбор целей и замена входа — разные шаги</text>
 <rect x="35" y="85" width="830" height="80" rx="9" fill="#ffffff" stroke="#adc8bb"/>
 <text x="51" y="115" font-size="21">Исходная последовательность</text>
 <text x="51" y="144" font-size="17">[CLS] кот спит на мягком диване [SEP]</text>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 840" role="img" aria-labelledby="title desc"><title id="title">Две работы с выбросами — разные преобразования</title><desc id="desc">Произведение XW и большие координаты входа Раздельные ветви имеют собственные промежуточные объекты и сходятся только в указанной проверке.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="840" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Две работы с выбросами — разные преобразования</tspan></text>
+<rect x="220" y="85" width="680" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="234" y="112" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="234" dy="0">Произведение XW и большие координаты входа</tspan></text>
+<rect x="40" y="290" width="300" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="317" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">LLM.int8: разделить измерения</tspan></text>
+<rect x="40" y="420" width="300" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="447" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">XᵣWᵣ + XₒWₒ</tspan></text>
+<path d="M190.0,380 L190.0,420" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="550" width="300" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="577" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Обычные low-bit, выбросы</tspan><tspan x="54" dy="24">точнее</tspan></text>
+<path d="M190.0,510 L190.0,550" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M560,170 L560,225 L190.0,225 L190.0,290" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="410" y="290" width="300" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="424" y="317" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="424" dy="0">SmoothQuant: изменить</tspan><tspan x="424" dy="24">масштабы</tspan></text>
+<rect x="410" y="420" width="300" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="424" y="447" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="424" dy="0">(XS⁻¹)(SW) = XW до rounding</tspan></text>
+<path d="M560.0,380 L560.0,420" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="410" y="550" width="300" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="424" y="577" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="424" dy="0">X=(100,1) → (10,1), y=2</tspan></text>
+<path d="M560.0,510 L560.0,550" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M560,170 L560,225 L560.0,225 L560.0,290" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="780" y="290" width="300" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="794" y="317" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="794" dy="0">Группы сетки</tspan></text>
+<rect x="780" y="420" width="300" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="794" y="447" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="794" dy="0">Разделить оси / блоки quantizer</tspan></text>
+<path d="M930.0,380 L930.0,420" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="780" y="550" width="300" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="794" y="577" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="794" dy="0">Больше шкал → больше</tspan><tspan x="794" dy="24">метаданных</tspan></text>
+<path d="M930.0,510 L930.0,550" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M560,170 L560,225 L930.0,225 L930.0,290" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="765" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="35" dy="0">Ни одна ветвь не доказывает фиксированный процент «важных» каналов или одинаковую точность всех задач.</tspan></text></svg>

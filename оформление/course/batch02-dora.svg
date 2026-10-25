@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 690" role="img" aria-labelledby="title desc"><title id="title">DoRA: одна норма и один масштаб на выходную строку</title><desc id="desc">Нормировка выполняется по входным координатам каждой строки; m задаёт отдельную длину. Сохраняются оси матрицы и путь изменения направления.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="690" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">DoRA: одна норма и один масштаб на выходную строку</tspan></text>
+<rect x="40" y="100" width="450" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">W₀ [dout,din] + sBA → U</tspan></text>
+<rect x="40" y="230" width="450" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="257" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">nᵢ=||Uᵢ,:||; направление vᵢ=Uᵢ,:/nᵢ</tspan></text>
+<path d="M265.0,190 L265.0,230" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="360" width="450" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="387" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">mᵢ · vᵢ → строка W → Wx</tspan></text>
+<path d="M265.0,320 L265.0,360" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="650" y="150" width="420" height="150" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="664" y="177" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">W₀ = ((3,4),(0,2)); m=(5,2).</tspan><tspan x="664" dy="24">Только m→(6,1): выход (8.4,1).</tspan><tspan x="664" dy="24">Только первая direction (4,4):</tspan><tspan x="664" dy="24">норма 5; выход 7.071068 при x=(1,1).</tspan></text>
+<text x="35" y="620" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="35" dy="0">Нулевые строки требуют отдельного правила. Математическая производная нормы и detach в реализации — разные backward.</tspan></text></svg>

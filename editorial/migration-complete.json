@@ -1,6 +1,6 @@
 {
   "edition": "course-rebuild-v2",
-  "status": "accepted",
+  "status": "historical-baseline-superseded",
   "source_of_truth": [
     "course.json",
     "module Markdown",
@@ -15,5 +15,7 @@
   "modules": 5,
   "chapters": 121,
   "projects": 6,
-  "one_time_migration_locked": true
+  "one_time_migration_locked": true,
+  "current_revision": "editorial/acceptance.md",
+  "note": "Хэши относятся к исторической приёмке v2. Редакция v3 имеет отдельную техническую и содержательную приёмку; lock запрещает повторную миграцию."
 }

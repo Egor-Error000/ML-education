@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 650" role="img" aria-labelledby="title desc"><title id="title">BERT: стек encoder-слоёв</title><desc id="desc">Вход H0 проходит N разных по параметрам encoder-блоков. Каждый сохраняет форму B,L,D. Голова задачи подключается к последним состояниям.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="650" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">BERT: стек encoder-слоёв</tspan></text>
+<rect x="260" y="80" width="600" height="65" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="274" y="107" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="274" dy="0">Вход: H⁽⁰⁾ = embeddings [B, L, D]</tspan></text>
+<rect x="260" y="180" width="600" height="65" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="274" y="207" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="274" dy="0">Encoder 1: внимание + FFN; свои веса</tspan></text>
+<rect x="260" y="280" width="600" height="65" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="274" y="307" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="274" dy="0">Encoder 2: внимание + FFN; свои веса</tspan></text>
+<rect x="260" y="410" width="600" height="65" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="274" y="437" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="274" dy="0">Encoder N: внимание + FFN; свои веса</tspan></text>
+<rect x="260" y="520" width="600" height="65" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="274" y="547" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="274" dy="0">Выход H⁽ᴺ⁾ [B, L, D] → голова задачи</tspan></text>
+<path d="M560,145 L560,180" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M560,245 L560,280" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M560,345 L560,410" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M560,475 L560,520" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="545" y="385" font-family="Segoe UI,Arial,sans-serif" font-size="28" fill="#173644"><tspan x="545" dy="0">…</tspan></text>
+<text x="35" y="605" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="35" dy="0">BERT-base: N=12, D=768, H=12; BERT-large: N=24, D=1024, H=16.</tspan></text></svg>

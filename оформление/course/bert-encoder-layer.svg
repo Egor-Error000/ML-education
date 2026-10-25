@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 1040" role="img" aria-labelledby="title desc"><title id="title">Один слой исходного BERT: post-LayerNorm</title><desc id="desc">Внимание и FFN имеют отдельные остаточные обходы. LayerNorm стоит после сложения; dropout применяется к выходу каждой ветви.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="1040" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Один слой исходного BERT: post-LayerNorm</tspan></text>
+<rect x="300" y="80" width="570" height="70" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="314" y="107" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="314" dy="0">Вход X [B,L,D]</tspan></text>
+<rect x="300" y="170" width="570" height="70" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="314" y="197" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="314" dy="0">Q/K/V → H голов attention</tspan><tspan x="314" dy="24">concat → выходная Dense D→D</tspan></text>
+<rect x="300" y="290" width="570" height="70" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="314" y="317" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="314" dy="0">Dropout выхода attention</tspan></text>
+<rect x="300" y="390" width="570" height="70" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="314" y="417" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="314" dy="0">Сложение X + attention_output</tspan></text>
+<rect x="300" y="480" width="570" height="70" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="314" y="507" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="314" dy="0">LayerNorm → Y [B,L,D]</tspan></text>
+<rect x="300" y="580" width="570" height="70" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="314" y="607" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="314" dy="0">FFN: Dense D→4D → GELU</tspan><tspan x="314" dy="24">Dense 4D→D</tspan></text>
+<rect x="300" y="700" width="570" height="70" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="314" y="727" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="314" dy="0">Dropout выхода FFN</tspan></text>
+<rect x="300" y="800" width="570" height="70" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="314" y="827" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="314" dy="0">Сложение Y + FFN_output</tspan></text>
+<rect x="300" y="890" width="570" height="70" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="314" y="917" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="314" dy="0">LayerNorm → H_next [B,L,D]</tspan></text>
+<path d="M585,150 L585,170" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M585,240 L585,290" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M585,360 L585,390" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M585,460 L585,480" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M585,550 L585,580" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M585,650 L585,700" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M585,770 L585,800" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M585,870 L585,890" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M300,115 L155,115 L155,425 L300,425" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="25" y="260" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#173644"><tspan x="25" dy="0">X: остаточный</tspan><tspan x="25" dy="22">путь</tspan></text>
+<path d="M300,515 L220,515 L220,835 L300,835" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="25" y="660" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#173644"><tspan x="25" dy="0">Y: остаточный</tspan><tspan x="25" dy="22">путь</tspan></text>
+<text x="30" y="1004" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="30" dy="0">Маска ограничивает источники внутри attention. Размер 4D — конфигурация классических base/large.</tspan></text></svg>

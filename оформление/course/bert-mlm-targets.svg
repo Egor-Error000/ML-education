@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 950" role="img" aria-labelledby="title desc"><title id="title">MLM: сначала сохранить оригинал, затем изменить только вход</title><desc id="desc">Исходные ID расходятся в две независимые ветви: создание изменённого входа и сохранение правильных целей. Выбор позиций не является маской доступности контекста. Ошибка считается в исходной позиции без сдвига.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1280" height="950" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">MLM: сначала сохранить оригинал, затем изменить только вход</tspan></text>
+<rect x="35" y="100" width="1210" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#173644"><tspan x="49" dy="0">Оригинал: [CLS] кот спит на мягком диване [SEP]</tspan><tspan x="49" dy="28">Позиции 0…6; выбранные цели I={2,4,5}</tspan></text>
+<rect x="35" y="330" width="550" height="120" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="357" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="49" dy="0">Изменить вход: MASK / случайный ID / оставить</tspan><tspan x="49" dy="25">[CLS] кот [MASK] на старом диване [SEP]</tspan><tspan x="49" dy="25">Невыбранные токены также остаются контекстом</tspan></text>
+<rect x="735" y="330" width="510" height="120" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="749" y="357" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="749" dy="0">Сохранить правильные ответы до замен</tspan><tspan x="749" dy="25">Позиция 2: спит; 4: мягком; 5: диване</tspan><tspan x="749" dy="25">На остальных местах прямой ошибки нет</tspan></text>
+<path d="M350,190 L350,330" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M990,190 L990,330" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="35" y="605" width="550" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="632" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#173644"><tspan x="49" dy="0">Двунаправленный кодировщик → MLM-голова</tspan><tspan x="49" dy="26">Предсказания выбранных мест [3,V]</tspan><tspan x="49" dy="26">Токен MASK доступен вниманию</tspan></text>
+<path d="M310,450 L310,605" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="735" y="605" width="510" height="100" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="749" y="632" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#173644"><tspan x="749" dy="0">Сравнить с сохранёнными исходными ID</tspan><tspan x="749" dy="26">Средняя CE по трём целям</tspan><tspan x="749" dy="26">Логиты позиции t ↔ цель той же t</tspan></text>
+<path d="M585,655 L735,655" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M990,450 L990,605" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="825" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#173644"><tspan x="35" dy="0">На позиции 4 восстанавливается «мягком», хотя видимо «старом». Позиция 5 тоже даёт ошибку.</tspan></text>
+<text x="35" y="885" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#173644"><tspan x="35" dy="0">Учебная тройка показывает все ветви; доля выбранных мест здесь специально не равна 15%.</tspan></text></svg>

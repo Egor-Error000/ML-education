@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1070" role="img" aria-labelledby="title desc"><title id="title">DeBERTa-v3: внимание и разделение градиентов таблиц</title><desc id="desc">Внимание различает содержимое токенов и относительные позиции. При RTD таблица различителя складывается из остановленного значения таблицы генератора и своей добавки. Сигналы обновления таблиц разведены.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1280" height="1070" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">DeBERTa-v3: внимание и разделение градиентов таблиц</tspan></text>
+<rect x="35" y="100" width="510" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#173644"><tspan x="49" dy="0">Содержательные состояния H [B,L,D]</tspan><tspan x="49" dy="27">Проекции Q_c и K_c</tspan></text>
+<rect x="735" y="100" width="510" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="749" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#173644"><tspan x="749" dy="0">Относительное положение i−j</tspan><tspan x="749" dy="27">Позиционные проекции Q_r и K_r</tspan></text>
+<rect x="350" y="330" width="895" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="364" y="357" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#173644"><tspan x="364" dy="0">Оценки внимания: содержание–содержание и содержание–позиция</tspan><tspan x="364" dy="26">Маска → softmax → сумма V → выходная проекция</tspan><tspan x="364" dy="26">Остаточные связи, нормализация и FFN сохраняют [B,L,D]</tspan></text>
+<path d="M290,200 L290,380 L350,380" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M990,200 L990,330" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="530" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#173644"><tspan x="35" dy="0">Отдельный механизм предобучения: GDES + RTD</tspan></text>
+<rect x="35" y="595" width="360" height="120" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="49" y="622" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="49" dy="0">Таблица генератора E_G</tspan><tspan x="49" dy="24">MLM изменяет E_G</tspan><tspan x="49" dy="24">sg(E_G): значение без градиента</tspan></text>
+<rect x="465" y="595" width="330" height="120" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="479" y="622" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#173644"><tspan x="479" dy="0">Добавка E_Δ</tspan><tspan x="479" dy="26">Свои параметры</tspan><tspan x="479" dy="26">Начальное значение 0</tspan></text>
+<rect x="865" y="595" width="380" height="120" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="879" y="622" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="879" dy="0">Таблица E_D = sg(E_G) + E_Δ</tspan><tspan x="879" dy="24">Различитель DeBERTa</tspan><tspan x="879" dy="24">→ бинарные оценки RTD</tspan></text>
+<path d="M395,655 L425,655 L425,765 L1055,765 L1055,715" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M795,655 L865,655" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="465" y="880" width="780" height="90" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="479" y="907" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#173644"><tspan x="479" dy="0">Ошибка RTD изменяет различитель и E_Δ</tspan><tspan x="479" dy="26">RTD не обновляет E_G через sg; после обучения E_D сохраняют</tspan></text>
+<path d="M1055,715 L1258,715 L1258,925 L1245,925" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="1030" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#173644"><tspan x="35" dy="0">Изменение оценки внимания и изменение пути градиента таблиц — разные решения.</tspan></text></svg>

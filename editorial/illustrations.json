@@ -1,0 +1,2689 @@
+{
+  "version": 1,
+  "checked_on": "2026-10-25",
+  "figures": [
+    {
+      "path": "оформление/course/bert-paper-figure-1.png",
+      "title": "BERT pre-training and fine-tuning",
+      "authors": "Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova",
+      "publication": "NAACL-HLT 2019",
+      "source": "https://aclanthology.org/N19-1423/",
+      "source_pdf": "https://aclanthology.org/N19-1423.pdf",
+      "figure": "Figure 1, printed p.4173, PDF page 3",
+      "copyright": "© 2019 Association for Computational Linguistics",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "policy": "https://aclanthology.org/faq/copyright/",
+      "changes": "Figure region extracted from page at 200 dpi; original drawing and labels unchanged; caption supplied separately."
+    },
+    {
+      "path": "оформление/course/lm-tokenizer.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://github.com/google-research/bert/blob/master/tokenization.py",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/lm-states.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://github.com/google-research/bert/blob/master/modeling.py",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/lm-position.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2104.09864",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-adaptation.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://docs.pytorch.org/docs/2.14/notes/autograd.html",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-crf.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://docs.pytorch.org/tutorials/beginner/nlp/advanced_tutorial.html",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-span-relations.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://aclanthology.org/N19-1423/",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-qa-decode.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://aclanthology.org/N19-1423/",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-setfit.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2209.11055",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-embeddings.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://aclanthology.org/D19-1410/",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-contrastive-pool.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://sbert.net/docs/package_reference/sentence_transformer/losses.html",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-simcse.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2104.08821",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-embedding-distill.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1503.02531",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-matryoshka.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2205.13147",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-retrieval.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/html/2005.11401v4#S2.SS3",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-splade.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2109.10086",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-colbert.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2112.01488",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-bge-m3.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/html/2402.03216v5",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-domains.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2004.05150",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-longformer.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2004.05150",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-domain-pretraining.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://aclanthology.org/D19-1371/ ; https://arxiv.org/abs/2002.08155",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-linking.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "Авторская схема разложения задачи: упоминание, кандидаты, ранжирование и NIL.",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-layout.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1912.13318",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-evaluation.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1706.04599",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-attribution.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1703.01365",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-operations.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1503.02531",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-encoder-cache.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://github.com/google-research/bert/blob/master/modeling.py",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-serving-queue.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "Авторская арифметическая модель очереди: 100 запросов, пакет 10, обслуживание 0.2 с.",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/bert-rollout.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "Авторский протокол согласованного encoder/index и отката.",
+      "external_figure": "none",
+      "production": "tools/draw_batch10_figures.py",
+      "changes": "Собственный русскоязычный рисунок; внешняя иллюстрация не копировалась. Числа — учебные вычисления, не benchmark."
+    },
+    {
+      "path": "оформление/course/expanded-cv-input.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://docs.pytorch.org/docs/stable/generated/torch.nn.Conv2d.html",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-classical.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://www.cs.ubc.ca/~lowe/papers/ijcv04.pdf",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-classification.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1512.03385",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/resnet.png",
+      "chapter": "cv-resnet",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1512.03385",
+      "source_pdf": "https://arxiv.org/pdf/1512.03385",
+      "title": "resnet",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 2,
+      "crop_pdf_points": [
+        25,
+        72.86444056000005,
+        306.0,
+        154.9253424000001
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "1568dcaf4da0304853a2c069b40e9c0ba944c9d44e989536e3f721f67322f6d1",
+      "source_pdf_sha256": "1e0651b6810ecba34a3dbc5b5b0209226f889004607c1f203540a48d64e5a93a",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Показан исходный post-activation residual block: shortcut складывается с обучаемой ветвью перед последней ReLU."
+    },
+    {
+      "path": "оформление/course/expanded-cv-resnet.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1512.03385",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/mobilenet.png",
+      "chapter": "cv-efficient",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1801.04381",
+      "source_pdf": "https://arxiv.org/pdf/1801.04381",
+      "title": "mobilenet",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 3,
+      "crop_pdf_points": [
+        68,
+        205,
+        299,
+        369
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "a688226cf56552f27b605fc9a6ea8c7d17bba9f4e9874fa1112ae2278b3eb2be",
+      "source_pdf_sha256": "1f4c30fa6b938c0b7a4d82bc274077dbece70e7cd553a69f591eba7482b51736",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "manually-corrected",
+      "note": "Сопоставлены полная и separable свёртки и bottleneck с expansion; это не полная схема всех стадий MobileNetV2."
+    },
+    {
+      "path": "оформление/course/papers/efficientnet.png",
+      "chapter": "cv-efficient",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1905.11946",
+      "source_pdf": "https://arxiv.org/pdf/1905.11946",
+      "title": "EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks",
+      "authors": "Mingxing Tan, Quoc V. Le",
+      "figure": "Figure 2",
+      "pdf_page": 2,
+      "crop_pdf_points": [
+        25,
+        55.057000000000016,
+        587,
+        266.5173424000001
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "b625a34585a2ec6adaa1b065a83e133862889fa6d024b01d214c6c3c07236c05",
+      "source_pdf_sha256": "af6b1bd620f81bfaea81edf8227484588e1fcc2427d6b5020fa17454d7566c70",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Это схема вариантов масштабирования depth, width и resolution, а не точная спецификация слоёв B0."
+    },
+    {
+      "path": "оформление/course/expanded-cv-efficient.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1801.04381",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/convnext.png",
+      "chapter": "cv-convnext",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2201.03545",
+      "source_pdf": "https://arxiv.org/pdf/2201.03545",
+      "title": "convnext",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 4",
+      "pdf_page": 5,
+      "crop_pdf_points": [
+        307,
+        69,
+        554,
+        332
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "c7e7c68c377461f2e82ac1141a7e56ec508bcdf4b1e718f35b1397d31d179e97",
+      "source_pdf_sha256": "1fde2340370d0eb8045bda97fc94da7adb2a7abe8e6ded1a473d22475b945e1a",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "manually-corrected",
+      "note": "Сравниваются residual blocks Swin, ResNet и ConvNeXt; одинаковая роль backbone не делает эти вычисления эквивалентными."
+    },
+    {
+      "path": "оформление/course/expanded-cv-convnext.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2201.03545",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/vit.png",
+      "chapter": "cv-vit",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2010.11929",
+      "source_pdf": "https://arxiv.org/pdf/2010.11929",
+      "title": "vit",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 1",
+      "pdf_page": 3,
+      "crop_pdf_points": [
+        25,
+        69.86016000000006,
+        587,
+        263.0663215999999
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "ae0ee3252cc7bb8ffbdac1abb9f3a4091cdce21ba04d7c11cdbad74f940553fb",
+      "source_pdf_sha256": "8ce7b83971a14508ca711a27c875c9b6914c4f6767cf3150fb1ca6c07aa056d6",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-vit.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2010.11929",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/swin.png",
+      "chapter": "cv-hierarchy",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2103.14030",
+      "source_pdf": "https://arxiv.org/pdf/2103.14030",
+      "title": "swin",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 3",
+      "pdf_page": 4,
+      "crop_pdf_points": [
+        25,
+        63.90480155458613,
+        587,
+        220.4733424000001
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "c4c11bce30ed1a9e138579e3499d9cdba78231b9739c888174669866e31f8057",
+      "source_pdf_sha256": "dfdc7631fe2a35bb5892080b9c0eeadc4432d55cf1856f84bc88802efa877a7c",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-hierarchy.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2103.14030",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-transfer.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://docs.pytorch.org/tutorials/beginner/transfer_learning_tutorial.html",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-losses.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1708.02002",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/fpn.png",
+      "chapter": "cv-pyramids",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1612.03144",
+      "source_pdf": "https://arxiv.org/pdf/1612.03144",
+      "title": "fpn",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 2,
+      "crop_pdf_points": [
+        306.0,
+        60.969156693999935,
+        587,
+        212.6033424000001
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "3e720213e480ccc6e33ba1115099663420b956d9258ad86869adf8deac9f5f42",
+      "source_pdf_sha256": "3a33e7ad38c17037624defde57f380f49dee918c1c14abd5dbcad032bae91428",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-pyramids.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1612.03144",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/simclr.png",
+      "chapter": "cv-contrastive",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2002.05709",
+      "source_pdf": "https://arxiv.org/pdf/2002.05709",
+      "title": "A Simple Framework for Contrastive Learning of Visual Representations",
+      "authors": "Ting Chen, Simon Kornblith, Mohammad Norouzi, Geoffrey Hinton",
+      "figure": "Figure 2",
+      "pdf_page": 2,
+      "crop_pdf_points": [
+        306.0,
+        67.76120000000003,
+        587,
+        216.69734240000003
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "c512f912b9621eba8ced1ab86f8792f917bc6145be83f9bdd9d32a36708ca9f0",
+      "source_pdf_sha256": "e1b10db76adeb0d21a014b9abcf42f6a6af928540c223f010fa1d8c293d9d105",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/papers/moco.png",
+      "chapter": "cv-contrastive",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1911.05722",
+      "source_pdf": "https://arxiv.org/pdf/1911.05722",
+      "title": "moco",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 3,
+      "crop_pdf_points": [
+        25,
+        71.86763987400002,
+        587,
+        194.97034240000005
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "5919cc09f27e0ce1adcad34568e5d19ada489afa9e84a6665198c2c17e1c8d35",
+      "source_pdf_sha256": "ad31ea26ed2d9ba3e2f767a2dcb0961a5b70ff505b1c3fb18d07201140e4e1fe",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-contrastive.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2002.05709",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/mae.png",
+      "chapter": "cv-pretraining",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2111.06377",
+      "source_pdf": "https://arxiv.org/pdf/2111.06377",
+      "title": "mae",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 1",
+      "pdf_page": 1,
+      "crop_pdf_points": [
+        306.0,
+        190.77344413000003,
+        587,
+        338.2633424
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "45faf9d13e7996890af954ea5189611f8824c088351f778e146fad1b6fd529f5",
+      "source_pdf_sha256": "1b490443925c72a2b7c770f90dd797e248729ae34a57e1abfe9ed36751c4cc5b",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/papers/deit.png",
+      "chapter": "cv-pretraining",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2012.12877",
+      "source_pdf": "https://arxiv.org/pdf/2012.12877",
+      "title": "deit",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 7,
+      "crop_pdf_points": [
+        25,
+        113.230419877896,
+        587,
+        399.4968532
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "fabff97bebe3a4c1849a54ab320d9b595ccc7b64b9c3637cb8bc8a10e5ce256a",
+      "source_pdf_sha256": "a0fbdd27c115594326fd75b3a0f569fb94cbf0b5c34c84fdc204d993064188bb",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-pretraining.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2111.06377",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/dino.png",
+      "chapter": "cv-dino",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2104.14294",
+      "source_pdf": "https://arxiv.org/pdf/2104.14294",
+      "title": "dino",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 2,
+      "crop_pdf_points": [
+        306.0,
+        59.99955,
+        587,
+        225.22134240000003
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "95c7f507ef05d4dc14e052250828c01f31f1890a596a23d3c150d203f79599fd",
+      "source_pdf_sha256": "aa464cfd59a428890190bea1065823a491a853478b4fb2a25f5eb44d442ce296",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-dino.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2104.14294",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-retrieval.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1503.03832",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-detection.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocotools/cocoeval.py",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/faster-rcnn.png",
+      "chapter": "cv-faster-rcnn",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1506.01497",
+      "source_pdf": "https://arxiv.org/pdf/1506.01497",
+      "title": "faster-rcnn",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 3,
+      "crop_pdf_points": [
+        25,
+        44.74165760000005,
+        283.5,
+        288.7898532
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "09855a833dcdc8b263f37d88b8c854ee2cd6b12314e18a77127b39ed09082c74",
+      "source_pdf_sha256": "f2630182ccfabd6fc89ac20270b4daf15a0ca849298a7db1e5d124ca443051f1",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Историческая схема использует RoI pooling. RoIAlign в современном варианте разобран отдельно; он появился в Mask R-CNN."
+    },
+    {
+      "path": "оформление/course/expanded-cv-faster-rcnn.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1506.01497",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/retinanet.png",
+      "chapter": "cv-dense-detectors",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1708.02002",
+      "source_pdf": "https://arxiv.org/pdf/1708.02002",
+      "title": "retinanet",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 3",
+      "pdf_page": 5,
+      "crop_pdf_points": [
+        25,
+        60.158122100000014,
+        587,
+        200.37334240000007
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "08c492ff248e36bc87709cec838400bc8a056542a6c4bc1e1a96bb8215a0cd38",
+      "source_pdf_sha256": "2e6f45b97007009f32b82a3c19f35638d8da7022d8d4e4416b9078de91339f71",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/papers/fcos.png",
+      "chapter": "cv-dense-detectors",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1904.01355",
+      "source_pdf": "https://arxiv.org/pdf/1904.01355",
+      "title": "fcos",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 3,
+      "crop_pdf_points": [
+        43,
+        36,
+        568,
+        261
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "15931735ce0dc893fa398343e8b64b85aa4e70a9e91935bb9b3c65103755c90d",
+      "source_pdf_sha256": "371091dbe8d3d9e990eecd9a435d350ce24a0602c0ceec327d0a48eddbf95ec4",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "manually-corrected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-dense-detectors.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1708.02002",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/yolov3.png",
+      "chapter": "cv-yolo",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1804.02767",
+      "source_pdf": "https://arxiv.org/pdf/1804.02767",
+      "title": "yolov3",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 2,
+      "crop_pdf_points": [
+        25,
+        114.46250375,
+        306.0,
+        250.1173424000001
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "d2771451623f38f13cb9649c243d78c8b8ed25a1dde6e9341a34ff112e90a247",
+      "source_pdf_sha256": "37049049b5e06f67c6cd22b72f7b9352914b0eb3a03e99abf54594c1005a8468",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Рисунок показывает параметризацию рамки YOLOv3. Формулы этой схемы не относятся к distributional head YOLOv8."
+    },
+    {
+      "path": "оформление/course/expanded-cv-yolo.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1804.02767",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/detr.png",
+      "chapter": "cv-detr",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2005.12872",
+      "source_pdf": "https://arxiv.org/pdf/2005.12872",
+      "title": "detr",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 7,
+      "crop_pdf_points": [
+        25,
+        25,
+        388.858,
+        128.9620816000001
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "e76b4e20179df8a6a130fa1f3045bd7bcdf0a2f32d84aa5ab4adec3364e5c6b4",
+      "source_pdf_sha256": "d4b846bd44896e1d21527f48eddc422c263c9a4f8a3fa4be249750956882698d",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-detr.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2005.12872",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/deformable.png",
+      "chapter": "cv-deformable",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2010.04159",
+      "source_pdf": "https://arxiv.org/pdf/2010.04159",
+      "title": "deformable",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 5,
+      "crop_pdf_points": [
+        25,
+        70.44264770999996,
+        587,
+        298.48432160000004
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "70e3434c3f71e20d3b1fd03407d0dcbb920fb593c696b97ad795e18302f60391",
+      "source_pdf_sha256": "9bbba0cd4474e8e5e936187be81c93b938d2ce567bed38aee0ac262dc97dd7e2",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/papers/rtdetr.png",
+      "chapter": "cv-deformable",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2304.08069",
+      "source_pdf": "https://arxiv.org/pdf/2304.08069",
+      "title": "rtdetr",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 4",
+      "pdf_page": 5,
+      "crop_pdf_points": [
+        25,
+        60.00094100000001,
+        587,
+        239.52934240000002
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "68f3f63366380d4379a4b443631b0746c2c81768ec6aa4b21d153258b1a43adb",
+      "source_pdf_sha256": "01018b33f15723f057b1b65c4ae6958e8cc99b75acf1ca434467c9f5f0782f15",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-deformable.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2010.04159",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-obb.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://captain-whu.github.io/DOTA/",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-semantic.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1802.02611",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/unet.png",
+      "chapter": "cv-unet",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1505.04597",
+      "source_pdf": "https://arxiv.org/pdf/1505.04597",
+      "title": "U-Net: Convolutional Networks for Biomedical Image Segmentation",
+      "authors": "Olaf Ronneberger (ronneber@informatik.uni-freiburg.de), Philipp Fischer, Thomas Brox",
+      "figure": "Figure 1",
+      "pdf_page": 2,
+      "crop_pdf_points": [
+        25,
+        103.83614999999998,
+        587,
+        348.7920816
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "f0e7a32571331b3a806bceb586ef00bd02aadca4a7506d8fce935a84b0c36974",
+      "source_pdf_sha256": "a3172b2124f38e260dc2c7ed968d87c31bc94dbc19a42a7ab3dcbd7534319c44",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-unet.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1505.04597",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/deeplab.png",
+      "chapter": "cv-segformers",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1802.02611",
+      "source_pdf": "https://arxiv.org/pdf/1802.02611",
+      "title": "deeplab",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 4,
+      "crop_pdf_points": [
+        25,
+        107.64352600000007,
+        587,
+        296.8930816
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "24c48d8880e6c2e9d09be7b8e2630be339914c619e37349386c59fa18faa510f",
+      "source_pdf_sha256": "6d266d4f88f6314c423c9e0156b3a0969068d1d9991228ce3d7de5b16540a2d3",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/papers/segformer.png",
+      "chapter": "cv-segformers",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2105.15203",
+      "source_pdf": "https://arxiv.org/pdf/2105.15203",
+      "title": "segformer",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 3,
+      "crop_pdf_points": [
+        25,
+        59.99800000000005,
+        587,
+        240.16634240000008
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "4d9a76c9fd482f8c0b7051fc13ab20e35039316aff60e0ad14e3f18d221ef5d3",
+      "source_pdf_sha256": "6f8867c9600277fe39e046ad1ef9050f0c7087a24736284b85710265821c1027",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-segformers.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1802.02611",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/mask-rcnn.png",
+      "chapter": "cv-instance",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1703.06870",
+      "source_pdf": "https://arxiv.org/pdf/1703.06870",
+      "title": "mask-rcnn",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 4",
+      "pdf_page": 4,
+      "crop_pdf_points": [
+        306.0,
+        59.62466747999997,
+        587,
+        146.16634240000008
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "c5821a925e3e9f1b8d8b20e5e604906b3a2283d09f678c9ef57f04c0eed8260d",
+      "source_pdf_sha256": "b595a882b763d55d933543131f32a2c4b6f41d0818d418ef46a2b66f946b67a8",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-instance.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1703.06870",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/yolact.png",
+      "chapter": "cv-prototypes",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1904.02689",
+      "source_pdf": "https://arxiv.org/pdf/1904.02689",
+      "title": "yolact",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 3,
+      "crop_pdf_points": [
+        25,
+        61.481357935999995,
+        587,
+        254.2413216
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "037d8dbe7efa0c4f9be356c6f87e0aedafa454e6b3fe98cab7b4b139efbaa035",
+      "source_pdf_sha256": "223c83bd8f229beeaaf316b4eb4d4a92b1798c4ff61346d4ed142ad81e345d16",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-prototypes.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1904.02689",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/mask2former.png",
+      "chapter": "cv-mask2former",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2112.01527",
+      "source_pdf": "https://arxiv.org/pdf/2112.01527",
+      "title": "mask2former",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 3,
+      "crop_pdf_points": [
+        306.0,
+        61.14685676399995,
+        587,
+        240.73834240000008
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "13666c40f14f5d18101ab752b5b09028a024c5d668c1338fce482138de697f5b",
+      "source_pdf_sha256": "a360185a7682efb920247c916c448555a5262e3c52e0710192626592ea267d6f",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-mask2former.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2112.01527",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/clip.png",
+      "chapter": "cv-open-vocabulary",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2103.00020",
+      "source_pdf": "https://arxiv.org/pdf/2103.00020",
+      "title": "Learning Transferable Visual Models From Natural Language Supervision",
+      "authors": "Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen Krueger, Ilya Sutskever",
+      "figure": "Figure 1",
+      "pdf_page": 2,
+      "crop_pdf_points": [
+        25,
+        69.19399256795225,
+        587,
+        250.1363424000001
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "2b697a1983cc4d4b0ea0f8aba04b98eeba99268340d8e5cb4a01a1f1a5800e58",
+      "source_pdf_sha256": "6478b6e571a7d6fcd846d8ef77bfd60c285f1986abb8f475eedc43de403074f5",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/papers/sam.png",
+      "chapter": "cv-open-vocabulary",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2304.02643",
+      "source_pdf": "https://arxiv.org/pdf/2304.02643",
+      "title": "sam",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 4",
+      "pdf_page": 5,
+      "crop_pdf_points": [
+        25,
+        25,
+        587,
+        173.48732159999997
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "f07f82c2f4cb00fcb353ccd504a9afba2b96c20f918f4c2b93d033bbea56465b",
+      "source_pdf_sha256": "c6ca524e47200c3e542587ca76ac1dbc89cc67340f948c819250d16fdbd90cfb",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Это исходный SAM со spatial prompts. Text/concept интерфейс поздних SAM 3 и video updates не следует приписывать этой схеме."
+    },
+    {
+      "path": "оформление/course/expanded-cv-open-vocabulary.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2103.00020",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-pose.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1902.09212",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/hrnet.png",
+      "chapter": "cv-pose-models",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1902.09212",
+      "source_pdf": "https://arxiv.org/pdf/1902.09212",
+      "title": "hrnet",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 1",
+      "pdf_page": 1,
+      "crop_pdf_points": [
+        306.0,
+        201.88352826000005,
+        587,
+        334.4773424
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "4dc4c3db7b3e03611459adca8ff41fcac710952b9aefaa3f460b2678fe840277",
+      "source_pdf_sha256": "a940b9a5799981a9e2210875c9b1c4fc6063f499f31b1ec4bea06407ac95b23d",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/papers/vitpose.png",
+      "chapter": "cv-pose-models",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2204.12484",
+      "source_pdf": "https://arxiv.org/pdf/2204.12484",
+      "title": "vitpose",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 4,
+      "crop_pdf_points": [
+        25,
+        25,
+        587,
+        262.4183216
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "b6b93ac79c5db98f8e268a9bd4838cdf5b2610182a42df21f340cdc9687735ca",
+      "source_pdf_sha256": "c1717096f19bc7c4a468f6448415f373c4cdd76d97a894a7f6bce267302f076c",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/papers/rtmpose.png",
+      "chapter": "cv-pose-models",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2303.07399",
+      "source_pdf": "https://arxiv.org/pdf/2303.07399",
+      "title": "rtmpose",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 3,
+      "crop_pdf_points": [
+        25,
+        59.999040000000036,
+        587,
+        204.5393424
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "838c361e28e3252df08e5f100796dc5f034781f1f4f9319bb1784753a746fc9f",
+      "source_pdf_sha256": "8b627e839807081bfc7e8eefb53d4af6e9e2b199f645420b8c73c69e3e246b21",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-pose-models.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1902.09212",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-tracking.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1602.00763",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/bytetrack.png",
+      "chapter": "cv-tracking-models",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2110.06864",
+      "source_pdf": "https://arxiv.org/pdf/2110.06864",
+      "title": "bytetrack",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 2,
+      "crop_pdf_points": [
+        25,
+        60.00567000000001,
+        306.0,
+        318.6893424
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "320c1ed9e3f6818ca595793bd397544b366fcd7eaa37d2e477db00de0d132378",
+      "source_pdf_sha256": "772e647095359c8f0db537b04dd41c48e77c17edf83a6d17f7e22dadac0261ad",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-tracking-models.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1703.07402",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/raft.png",
+      "chapter": "cv-flow",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2003.12039",
+      "source_pdf": "https://arxiv.org/pdf/2003.12039",
+      "title": "raft",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 1",
+      "pdf_page": 2,
+      "crop_pdf_points": [
+        25,
+        25,
+        388.858,
+        166.64714440000006
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "1e7226c770bf0c8124b15cd96b42cc2b9da928e30e0e8eed485b8d3718215dc8",
+      "source_pdf_sha256": "32526df4111c7521f1b523964594c65e0ccb6885bcb3f5680fb43fe197c4edeb",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-flow.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2003.12039",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/slowfast.png",
+      "chapter": "cv-video",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1812.03982",
+      "source_pdf": "https://arxiv.org/pdf/1812.03982",
+      "title": "slowfast",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 1",
+      "pdf_page": 1,
+      "crop_pdf_points": [
+        306.0,
+        206.53011482399995,
+        587,
+        333.60834239999997
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "224c8b5998e9c4d9d6d0ba4b964be2799f2c21f21cee5141991dd66032ec68e1",
+      "source_pdf_sha256": "0061172db85174526c75b8f4812c039fbedeba142effa18efd8a2930a9a3e905",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/papers/timesformer.png",
+      "chapter": "cv-video",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2102.05095",
+      "source_pdf": "https://arxiv.org/pdf/2102.05095",
+      "title": "Is Space-Time Attention All You Need for Video Understanding?",
+      "authors": "Gedas Bertasius, Heng Wang, Lorenzo Torresani",
+      "figure": "Figure 1",
+      "pdf_page": 3,
+      "crop_pdf_points": [
+        25,
+        55.0566,
+        587,
+        279.7123424
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "79898464a914e6e5f5bb80230b1105b772a35269b20c418f39ced69c33d6d40f",
+      "source_pdf_sha256": "9b61b223ece84f8d88a60fab70871be3cd368cae2fbbac57a3281aa5f4b1517a",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/papers/videomae.png",
+      "chapter": "cv-video",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2203.12602",
+      "source_pdf": "https://arxiv.org/pdf/2203.12602",
+      "title": "videomae",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 1",
+      "pdf_page": 2,
+      "crop_pdf_points": [
+        25,
+        53.34795830999997,
+        587,
+        162.34532159999992
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "3c3ac22beb6bb0812e4d84c559dd2026986cb7e888e55a8b82b7602e3e207a8e",
+      "source_pdf_sha256": "0fff5bdfb88ff8c3dc7de45d5108faf4bd3aa50d287e332a43f5fd664eb427ae",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-video.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1812.03982",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-camera.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/stereo.png",
+      "chapter": "cv-stereo",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1803.08669",
+      "source_pdf": "https://arxiv.org/pdf/1803.08669",
+      "title": "stereo",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 1",
+      "pdf_page": 4,
+      "crop_pdf_points": [
+        25,
+        63.58556647,
+        587,
+        363.3843424
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "bc7122085b4c8d0b8ac372ed71b676e76962655d111941cd1963f983c9f82368",
+      "source_pdf_sha256": "c21dc659407afcbb18f5eee76ea85b0163dde45dd10f8d7be4fc42319981ac1c",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-stereo.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1803.08669",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/dpt.png",
+      "chapter": "cv-depth",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2103.13413",
+      "source_pdf": "https://arxiv.org/pdf/2103.13413",
+      "title": "dpt",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 1",
+      "pdf_page": 3,
+      "crop_pdf_points": [
+        25,
+        64.27766708000001,
+        587,
+        226.45934240000008
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "c20899e0f5017c1d1a2da8206f518407d0e49aa76260620f6abdc698d53d96dc",
+      "source_pdf_sha256": "ecd8826047fcd4e5e36ead0e1eb72e884c2e0a01cf62f01d247473d91beeb403",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-depth.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2103.13413",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-sfm.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://colmap.github.io/tutorial.html",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/pointnet.png",
+      "chapter": "cv-pointnet",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1612.00593",
+      "source_pdf": "https://arxiv.org/pdf/1612.00593",
+      "title": "pointnet",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 3,
+      "crop_pdf_points": [
+        25,
+        54.184983666699964,
+        587,
+        236.21034240000006
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "3320afbf860fce7409f996f1b75570f38da0392da9706b5c05c5674b91ebcbef",
+      "source_pdf_sha256": "f13e3b3c744a3977155876e2d5dcd1d0cf83c22f98ce9cc11e0a2f5e37388b6a",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/papers/pointnet2.png",
+      "chapter": "cv-pointnet",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1706.02413",
+      "source_pdf": "https://arxiv.org/pdf/1706.02413",
+      "title": "pointnet2",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 3,
+      "crop_pdf_points": [
+        25,
+        61.907278157000064,
+        587,
+        218.49932159999992
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "48c9450e6e2414a937e568db7031917e176df54a2ac4460ca12e06bacee7b28e",
+      "source_pdf_sha256": "5cd120458cd481078aaf927f0bfed0ef646423e107f5cc2750b9c59f5b8e3795",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-pointnet.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1612.00593",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/pointpillars.png",
+      "chapter": "cv-bev",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1812.05784",
+      "source_pdf": "https://arxiv.org/pdf/1812.05784",
+      "title": "pointpillars",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 3,
+      "crop_pdf_points": [
+        25,
+        54.34344257887062,
+        587,
+        226.55334240000002
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "8bf9783eb640b4ed83c76eeb143895dc0ea2053e1cf141d543cf62c6f40435ab",
+      "source_pdf_sha256": "fc3211f5d3754c8c6fb4a36e69a86cc8a21c915796a0b19ab612e610d42b2e69",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-bev.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1812.05784",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/nerf.png",
+      "chapter": "cv-nerf",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2003.08934",
+      "source_pdf": "https://arxiv.org/pdf/2003.08934",
+      "title": "nerf",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 5,
+      "crop_pdf_points": [
+        25,
+        40.56347148000009,
+        388.858,
+        144.66705000000007
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "bbffe6dea10a987c5ff8cd21f15c96065744df1287500aa6a3466d04427d8029",
+      "source_pdf_sha256": "c7fc70b38f84cb2e42890a69a7c9b9c26ded464b221e0355031004f24fb8e727",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-nerf.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2003.08934",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/gaussians.png",
+      "chapter": "cv-gaussians",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2308.04079",
+      "source_pdf": "https://arxiv.org/pdf/2308.04079",
+      "title": "3D Gaussian Splatting for Real-Time Radiance Field Rendering",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 5,
+      "crop_pdf_points": [
+        25,
+        69.54348620000007,
+        587,
+        180.44281030000002
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "4a325bc93e175acfde3c6bb2b538aef11789d9846aa75cc68f81e102589c08fc",
+      "source_pdf_sha256": "f4c0c9f27e2d02b0265017f66049d471eb66cb50203bc918f51ba07d20cbbe11",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-gaussians.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/craft.png",
+      "chapter": "cv-text-detection",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1904.01941",
+      "source_pdf": "https://arxiv.org/pdf/1904.01941",
+      "title": "craft",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 2,
+      "crop_pdf_points": [
+        306.0,
+        60.000479999999925,
+        587,
+        306.9313424
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "9a634e8ca7c9b6dc204247d6eeabe787d53bc0bc77565ecdeedcabace9f3a81a",
+      "source_pdf_sha256": "f5ec386087e48b000253f5c40034da36a8a0e17f732af3fd3baa6b74170394ef",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/papers/dbnet.png",
+      "chapter": "cv-text-detection",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1911.08947",
+      "source_pdf": "https://arxiv.org/pdf/1911.08947",
+      "title": "Real-time Scene Text Detection with Differentiable Binarization",
+      "authors": "Minghui Liao, Zhaoyi Wan, Cong Yao, Kai Chen, Xiang Bai",
+      "figure": "Figure 3",
+      "pdf_page": 3,
+      "crop_pdf_points": [
+        25,
+        44.2002015999999,
+        587,
+        186.3921444
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "944093f57623ef0080cdcb4fbcdeab1632c2295ef5b42b56fbd7aa1da14d2860",
+      "source_pdf_sha256": "81aafca19957a33fc7115ba6b76c038ab65d44ccbf0d6cb671b4ce3f0a200ab0",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-text-detection.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1904.01941",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/crnn.png",
+      "chapter": "cv-text-recognition",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1507.05717",
+      "source_pdf": "https://arxiv.org/pdf/1507.05717",
+      "title": "crnn",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 1",
+      "pdf_page": 2,
+      "crop_pdf_points": [
+        306.0,
+        143.14546414999995,
+        587,
+        400.6933424
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "cd8289c79375ac653d9288ab8b0e74f1f563096fa76287f3c8938122ff04b21a",
+      "source_pdf_sha256": "16274fe89262a9dee10acb47d84b417ffb50cbddee6acba026efa3c9d1e6c13e",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/papers/trocr.png",
+      "chapter": "cv-text-recognition",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2109.10282",
+      "source_pdf": "https://arxiv.org/pdf/2109.10282",
+      "title": "trocr",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 1",
+      "pdf_page": 2,
+      "crop_pdf_points": [
+        25,
+        52.462280299999975,
+        587,
+        258.28232159999993
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "26bdfb3ab76bd51ae10f0cd21053501fdaeaceef31423a48227c5d1cfe8520ab",
+      "source_pdf_sha256": "46baf09c8757a7358b02ceb9e521457d44e4133a7e1cde33b24071455e2dfa19",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-text-recognition.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1507.05717",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-documents.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2204.08387",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/padim.png",
+      "chapter": "cv-anomaly",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2011.08785",
+      "source_pdf": "https://arxiv.org/pdf/2011.08785",
+      "title": "padim",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 2,
+      "crop_pdf_points": [
+        40,
+        79,
+        552,
+        228
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "e575f44a1a2099b7cbd8052c470f59e3a0c0754f755741ddfe6de986876625cf",
+      "source_pdf_sha256": "f00a3650715b1478784d93be1ad365e9dbb8bcb7381433404bbaa6b227650bed",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "manually-corrected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/papers/patchcore.png",
+      "chapter": "cv-anomaly",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2106.08265",
+      "source_pdf": "https://arxiv.org/pdf/2106.08265",
+      "title": "patchcore",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 4,
+      "crop_pdf_points": [
+        25,
+        60.00116000000003,
+        587,
+        199.9863424
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "e4246860686bf8e9f1f976a311eec3d3bd36bb18c116401cb8aa6b51e1e4d365",
+      "source_pdf_sha256": "371ef2388859aa2a102442c37f55cc6f4a87350ae83036b3174ea0726c3ccddd",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-anomaly.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2011.08785",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/srcnn.png",
+      "chapter": "cv-restoration",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1501.00092",
+      "source_pdf": "https://arxiv.org/pdf/1501.00092",
+      "title": "srcnn",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 4,
+      "crop_pdf_points": [
+        25,
+        42.72982800119985,
+        587,
+        199.64243379999994
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "390dcc3d2d83ec9447a4a8309b1e8099b49e60f57f19b4ca76467518e40a040e",
+      "source_pdf_sha256": "d0bf3b1b84bc9b6c540a96e52f3f157bae02b5390a9ac4df5b793efe65fdd02e",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-restoration.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1501.00092",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-domains.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://github.com/MIC-DKFZ/nnUNet",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/vae.png",
+      "chapter": "cv-generative",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1312.6114",
+      "source_pdf": "https://arxiv.org/pdf/1312.6114",
+      "title": "vae",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 1",
+      "pdf_page": 2,
+      "crop_pdf_points": [
+        253,
+        68,
+        363,
+        176
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "b1f0ab71a85640959fe28949aac75176df1d311cfa75f8d434d35e4fcf1df763",
+      "source_pdf_sha256": "bdcb63b79ed88f64f8ee2d43a721930d01dde5441a4dba20ecaa2342b34e017c",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "manually-corrected",
+      "note": "Это directed graphical model VAE: сплошные линии описывают генерацию, пунктир — approximate posterior. Это не схема CNN layers."
+    },
+    {
+      "path": "оформление/course/papers/gan.png",
+      "chapter": "cv-generative",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/1406.2661",
+      "source_pdf": "https://arxiv.org/pdf/1406.2661",
+      "title": "gan",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 1",
+      "pdf_page": 3,
+      "crop_pdf_points": [
+        25,
+        323.16116,
+        587,
+        470.0293216
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "0740f4f352eb0af81daf6e30c55b75ea126ecd0b095d2c76148632a08c979e23",
+      "source_pdf_sha256": "ff5819e3a7b713c3bd3107b7de3d51fe0a347aa5d8444f0efdcf2345ef0a8b63",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Показана динамика распределений и discriminator исходного GAN; рисунок объясняет objective, а не фиксирует архитектуру generator."
+    },
+    {
+      "path": "оформление/course/expanded-cv-generative.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1312.6114",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/ddpm.png",
+      "chapter": "cv-ddpm",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2006.11239",
+      "source_pdf": "https://arxiv.org/pdf/2006.11239",
+      "title": "ddpm",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 2",
+      "pdf_page": 2,
+      "crop_pdf_points": [
+        25,
+        60.34707899600005,
+        587,
+        119.14832159999992
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "12b504775664f18a947f8aa21c1345dd2ed962850833e37df54a61223a7e6ba7",
+      "source_pdf_sha256": "aee5e07a802e8dfd2a386374c94fd61d1d056cb7e1e0fec4f28e8120ff5d8505",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Граф показывает прямую и обратную цепи. Сеть denoiser используется многократно, а не является отдельной новой сетью на каждый timestep."
+    },
+    {
+      "path": "оформление/course/expanded-cv-ddpm.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2006.11239",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-sampling.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2010.02502",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/ldm.png",
+      "chapter": "cv-latent-diffusion",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2112.10752",
+      "source_pdf": "https://arxiv.org/pdf/2112.10752",
+      "title": "ldm",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 3",
+      "pdf_page": 4,
+      "crop_pdf_points": [
+        306.0,
+        61.665004996405514,
+        587,
+        195.20534240000006
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "a3cfca3334df5f7b0ee60beda17bac3757d97180eea8ed7c37dfaa69d2c8a4f2",
+      "source_pdf_sha256": "46ede043a8dc07ca1f0f445620523fe1ad8b2436bd83856a3835612a47e9f79e",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-latent-diffusion.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2112.10752",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/dit.png",
+      "chapter": "cv-dit-flow",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2212.09748",
+      "source_pdf": "https://arxiv.org/pdf/2212.09748",
+      "title": "dit",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 3",
+      "pdf_page": 3,
+      "crop_pdf_points": [
+        25,
+        49.04272337000009,
+        587,
+        284.0543424
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "20df8f7af29fb89aa0f70b67c7c595823f92d6e2eed1ea58c3d642c0dea02c31",
+      "source_pdf_sha256": "5fbb0ec35e3ae76826240171ca63ed4c27de6cb43180367453019e9d28a8b076",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-dit-flow.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2212.09748",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/controlnet.png",
+      "chapter": "cv-control",
+      "kind": "primary-paper-figure",
+      "source": "https://arxiv.org/abs/2302.05543",
+      "source_pdf": "https://arxiv.org/pdf/2302.05543",
+      "title": "controlnet",
+      "authors": "Авторы указаны в статье по ссылке",
+      "figure": "Figure 3",
+      "pdf_page": 4,
+      "crop_pdf_points": [
+        306.0,
+        69.49970356282995,
+        587,
+        406.7313216
+      ],
+      "checked_on": "2026-10-25",
+      "sha256": "da022285de33efcde55a1937045f9da32292d3e43df316f0637155ecd6effec1",
+      "source_pdf_sha256": "1539c841018cea52b7f0d4a108e6e698d2a5ba2a26c0a665df81d5da79f88170",
+      "changes": "Обрезана область отдельного рисунка; отрисовано из авторского PDF, содержание и подписи сохранены.",
+      "rights": "Права на исходный рисунок принадлежат авторам/издателю; открытая лицензия не утверждается.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Проследите вход, преобразования и выход по стрелкам. Сопоставьте обозначения статьи с формами и targets, определёнными в тексте главы."
+    },
+    {
+      "path": "оформление/course/expanded-cv-control.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2302.05543",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-generation-eval.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1706.08500",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-diagnosis.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2008.08115",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-robustness.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1903.12261",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-deployment.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/expanded-cv-cases.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2110.06864",
+      "external_figure": "none",
+      "production": "tools/draw_cv_expansion_figures.py",
+      "changes": "Авторская поясняющая схема с входами, преобразованиями и выходами; иллюстрации статей приведены отдельно."
+    },
+    {
+      "path": "оформление/course/papers/yolov8-rangeking.jpg",
+      "chapter": "cv-yolo",
+      "kind": "author-published-diagram",
+      "source": "https://github.com/ultralytics/ultralytics/issues/189",
+      "source_image": "https://github.com/ultralytics/ultralytics/assets/27466624/57391d0f-1848-4388-9f30-88c2fb79233f",
+      "title": "YOLOv8 model structure P5, v1.6",
+      "authors": "RangeKing",
+      "figure": "YOLOv8_structure_v1.6",
+      "checked_on": "2026-10-25",
+      "sha256": "9c522e4a52c1716eb9e3e1a59082e82d93321d3db2e919b97d7f2336dfceb3dd",
+      "changes": "Исходное изображение сохранено без изменения; расширение соответствует JPEG.",
+      "rights": "Автор в исходном обсуждении прямо разрешает использование схемы; источник и автор сохранены.",
+      "visual_review": "contact-sheet-inspected",
+      "note": "Схема опубликована автором RangeKing в репозитории Ultralytics. Показаны backbone, FPN/PAN-путь, C2f, SPPF и раздельная Detect head с CIoU/DFL и BCE. Это community diagram для P5-моделей, а не официальная статья YOLOv8; численные детали главы сверены с кодом v8.3.0."
+    },
+    {
+      "path": "оформление/course/adapt-alternatives.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "adapt-alternatives"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/adapt-choice.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "adapt-choice"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/adapt-continual.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "adapt-continual"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/adapt-distillation.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "adapt-distillation"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/adapt-evaluation.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "adapt-evaluation"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/adapt-lora.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "adapt-lora"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/adapt-merging.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "adapt-merging"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/adapt-preference.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "adapt-preference"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/adapt-regimes.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "adapt-regimes"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/adapt-sft.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "adapt-sft"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/adapt-variants.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "adapt-variants"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/batch02-affine-quant.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-quantization"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/batch02-attention-layouts.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-context"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/batch02-dora.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "adapt-variants"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/batch02-dspark.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-speculative"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/batch02-gptq-awq.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-quantization"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/batch02-gqa.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-kv"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/batch02-grammar.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-decoding"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/batch02-outliers.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-quantization"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/batch02-paged-kv.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-serving"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/batch02-prefix.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "adapt-alternatives"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/batch02-pruning-structures.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-pruning"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/batch02-qlora.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "adapt-variants"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/batch02-recurrent-hybrid.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-context"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/batch02-request-lifecycle.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-deployment"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/batch02-scaling-timeline.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-deployment"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/batch02-spec-proposals.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-speculative"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/batch02-spec-residual.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-speculative"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/infer-context.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-context"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/infer-decoding.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-decoding"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/infer-deployment.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-deployment"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/infer-generation.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-generation"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/infer-kv.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-kv"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/infer-pruning.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-pruning"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/infer-quantization.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-quantization"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/infer-serving.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-serving"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/infer-speculative.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch02_figures.py",
+      "chapters": [
+        "infer-speculative"
+      ],
+      "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
+      "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
+      "checked_on": "2026-10-25"
+    }
+  ],
+  "original_svg_sources": [
+    "https://github.com/google-research/bert/blob/master/modeling.py",
+    "https://aclanthology.org/N19-1423/"
+  ],
+  "note": "Other revision SVGs are original drawings; claims, shapes and links are explained in the adjacent lesson.",
+  "encoder_revision_artwork": [
+    {
+      "path": "оформление/course/bert-mlm-targets.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://github.com/google-research/bert/blob/master/create_pretraining_data.py",
+      "external_figure": "none",
+      "production": "tools/draw_encoder_figures.py",
+      "changes": "Собственная русскоязычная схема; чужой рисунок не копировался. Формы, связи и границы объяснены в главе."
+    },
+    {
+      "path": "оформление/course/bert-objectives.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://github.com/google-research/bert/blob/master/run_pretraining.py",
+      "external_figure": "none",
+      "production": "tools/draw_encoder_figures.py",
+      "changes": "Собственная русскоязычная схема; чужой рисунок не копировался. Формы, связи и границы объяснены в главе."
+    },
+    {
+      "path": "оформление/course/encoder-roberta.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1907.11692",
+      "external_figure": "none",
+      "production": "tools/draw_encoder_figures.py",
+      "changes": "Собственная русскоязычная схема; чужой рисунок не копировался. Формы, связи и границы объяснены в главе."
+    },
+    {
+      "path": "оформление/course/encoder-spanbert.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1907.10529",
+      "external_figure": "none",
+      "production": "tools/draw_encoder_figures.py",
+      "changes": "Собственная русскоязычная схема; чужой рисунок не копировался. Формы, связи и границы объяснены в главе."
+    },
+    {
+      "path": "оформление/course/encoder-electra.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2003.10555",
+      "external_figure": "none",
+      "production": "tools/draw_encoder_figures.py",
+      "changes": "Собственная русскоязычная схема; чужой рисунок не копировался. Формы, связи и границы объяснены в главе."
+    },
+    {
+      "path": "оформление/course/encoder-albert.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1909.11942",
+      "external_figure": "none",
+      "production": "tools/draw_encoder_figures.py",
+      "changes": "Собственная русскоязычная схема; чужой рисунок не копировался. Формы, связи и границы объяснены в главе."
+    },
+    {
+      "path": "оформление/course/encoder-distilbert.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1910.01108",
+      "external_figure": "none",
+      "production": "tools/draw_encoder_figures.py",
+      "changes": "Собственная русскоязычная схема; чужой рисунок не копировался. Формы, связи и границы объяснены в главе."
+    },
+    {
+      "path": "оформление/course/encoder-deberta.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2111.09543",
+      "external_figure": "none",
+      "production": "tools/draw_encoder_figures.py",
+      "changes": "Собственная русскоязычная схема; чужой рисунок не копировался. Формы, связи и границы объяснены в главе."
+    },
+    {
+      "path": "оформление/course/encoder-xlmr.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/1911.02116",
+      "external_figure": "none",
+      "production": "tools/draw_encoder_figures.py",
+      "changes": "Собственная русскоязычная схема; чужой рисунок не копировался. Формы, связи и границы объяснены в главе."
+    },
+    {
+      "path": "оформление/course/encoder-modernbert.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2412.13663",
+      "external_figure": "none",
+      "production": "tools/draw_encoder_figures.py",
+      "changes": "Собственная русскоязычная схема; чужой рисунок не копировался. Формы, связи и границы объяснены в главе."
+    },
+    {
+      "path": "оформление/course/encoder-neobert.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2502.19587",
+      "external_figure": "none",
+      "production": "tools/draw_encoder_figures.py",
+      "changes": "Собственная русскоязычная схема; чужой рисунок не копировался. Формы, связи и границы объяснены в главе."
+    },
+    {
+      "path": "оформление/course/encoder-mmbert.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://proceedings.mlr.press/v306/marone26a.html",
+      "external_figure": "none",
+      "production": "tools/draw_encoder_figures.py",
+      "changes": "Собственная русскоязычная схема; чужой рисунок не копировался. Формы, связи и границы объяснены в главе."
+    },
+    {
+      "path": "оформление/course/encoder-ettin.svg",
+      "kind": "original-course-diagram",
+      "source_of_mechanism": "https://arxiv.org/abs/2507.11412",
+      "external_figure": "none",
+      "production": "tools/draw_encoder_figures.py",
+      "changes": "Собственная русскоязычная схема; чужой рисунок не копировался. Формы, связи и границы объяснены в главе."
+    }
+  ]
+}

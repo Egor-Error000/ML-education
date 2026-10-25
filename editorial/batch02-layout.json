@@ -1,0 +1,142 @@
+{
+  "status": "passed",
+  "htmlSha256": "7f6dc3e474a5d25fb7ebd6530438043907e6208526061de5717c83474eb3c25d",
+  "batch": "lm-batch-02",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "chapters": [
+    {
+      "id": "adapt-choice",
+      "height": 8359,
+      "images": 1,
+      "missingAlt": 0
+    },
+    {
+      "id": "adapt-sft",
+      "height": 7534,
+      "images": 1,
+      "missingAlt": 0
+    },
+    {
+      "id": "adapt-regimes",
+      "height": 4498,
+      "images": 1,
+      "missingAlt": 0
+    },
+    {
+      "id": "adapt-lora",
+      "height": 7969,
+      "images": 1,
+      "missingAlt": 0
+    },
+    {
+      "id": "adapt-variants",
+      "height": 10070,
+      "images": 3,
+      "missingAlt": 0
+    },
+    {
+      "id": "adapt-alternatives",
+      "height": 7171,
+      "images": 2,
+      "missingAlt": 0
+    },
+    {
+      "id": "adapt-preference",
+      "height": 8683,
+      "images": 1,
+      "missingAlt": 0
+    },
+    {
+      "id": "adapt-merging",
+      "height": 6542,
+      "images": 1,
+      "missingAlt": 0
+    },
+    {
+      "id": "adapt-distillation",
+      "height": 7502,
+      "images": 1,
+      "missingAlt": 0
+    },
+    {
+      "id": "adapt-continual",
+      "height": 6556,
+      "images": 1,
+      "missingAlt": 0
+    },
+    {
+      "id": "adapt-evaluation",
+      "height": 7118,
+      "images": 1,
+      "missingAlt": 0
+    },
+    {
+      "id": "infer-generation",
+      "height": 4553,
+      "images": 1,
+      "missingAlt": 0
+    },
+    {
+      "id": "infer-kv",
+      "height": 7801,
+      "images": 2,
+      "missingAlt": 0
+    },
+    {
+      "id": "infer-context",
+      "height": 8864,
+      "images": 3,
+      "missingAlt": 0
+    },
+    {
+      "id": "infer-decoding",
+      "height": 8920,
+      "images": 2,
+      "missingAlt": 0
+    },
+    {
+      "id": "infer-serving",
+      "height": 11098,
+      "images": 2,
+      "missingAlt": 0
+    },
+    {
+      "id": "infer-speculative",
+      "height": 11184,
+      "images": 4,
+      "missingAlt": 0
+    },
+    {
+      "id": "infer-quantization",
+      "height": 15552,
+      "images": 4,
+      "missingAlt": 0
+    },
+    {
+      "id": "infer-pruning",
+      "height": 8625,
+      "images": 2,
+      "missingAlt": 0
+    },
+    {
+      "id": "infer-deployment",
+      "height": 12492,
+      "images": 3,
+      "missingAlt": 0
+    }
+  ],
+  "networkRequests": [],
+  "pageErrors": [],
+  "screenshots": [
+    "adapt-lora-desktop-text.png",
+    "infer-quantization-desktop-text.png",
+    "infer-deployment-desktop-text.png",
+    "adapt-lora-mobile-text.png",
+    "infer-quantization-mobile-text.png",
+    "infer-deployment-mobile-text.png"
+  ],
+  "published_on": "2026-10-25"
+}

@@ -7,3 +7,10 @@ Thumbs.db
 # Python caches
 __pycache__/
 *.py[cod]
+
+# Local QA / browser dependencies
+.qa-results/
+node_modules/
+
+# Private, local project examples (Markdown is embedded into the generated reader)
+Примеры проектов/

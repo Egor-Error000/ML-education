@@ -1,7 +1,8 @@
 """Independent acceptance checks: source preservation, coverage, routes and local links."""
 from pathlib import Path
 from collections import Counter, defaultdict
-import hashlib,json,math,re,sys
+import hashlib,json,math,re,sys,argparse
+from editorial_io import file_digest,verify_span,span_text
 from urllib.parse import unquote
 import xml.etree.ElementTree as ET
 
@@ -16,9 +17,9 @@ def main():
     snapshot=json.loads((snap/'snapshot.json').read_text(encoding='utf-8'))
     for rec in snapshot['files']:
         p=snap/rec.get('snapshot',rec['path'])
-        require(p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==rec['sha256'],'snapshot changed: '+str(p))
-    for rec in json.loads((snap/'assets.json').read_text(encoding='utf-8')):
-        p=snap/rec['path'];require(hashlib.sha256(p.read_bytes()).hexdigest()==rec['sha256'],'snapshot asset changed: '+rec['path'])
+        require(p.is_file() and file_digest(p)==rec['sha256'],'snapshot changed: '+str(p))
+    for rec in json.loads((snap/'assets.json').read_text(encoding='utf-8'))['files']:
+        p=snap/rec['path'];require(file_digest(p)==rec['sha256'],'snapshot asset changed: '+rec['path'])
     counts['snapshot_files_verified']=len(snapshot['files'])
     text_cache={};source_cache={};unit_cache={};covered=defaultdict(set)
     for unit in coverage['units']:
@@ -30,15 +31,19 @@ def main():
         covered[unit['source']].update(range(a-1,b))
         target=ROOT/unit['target']
         if target not in text_cache:text_cache[target]=target.read_text(encoding='utf-8')
-        if target not in unit_cache:
-            unit_cache[target]={m[1]:m[2].strip() for m in re.finditer(r'<!-- unit:([a-f0-9]+) -->\s*<a id="u-[a-f0-9]+"></a>\s*([\s\S]*?)\s*<!-- /unit:\1 -->',text_cache[target])}
-        canonical=unit['anchor'][2:];text=unit_cache[target].get(canonical)
-        require(text is not None,'missing mapped block: '+unit['id'])
-        if text is not None:
-            if unit['status']=='archived-editorial':text=re.sub(r'^\*\*Источник:\*\*[^\n]*\n\s*','',text)
-            require(sha(text)==unit['target_sha256'],'target block changed without mapping update: '+unit['id'])
-            math_pattern=r'\$\$[\s\S]*?\$\$|\$[^$\n]+\$'
-            require(re.findall(math_pattern,source)==re.findall(math_pattern,text),'formula changed during transfer: '+unit['id'])
+        for key in unit['targets']:
+            span=coverage['spans'].get(key)
+            require(span is not None,'unknown target span '+unit['id']+' -> '+key)
+            if not span:continue
+            path=ROOT/span['path']
+            if path not in text_cache:text_cache[path]=path.read_text(encoding='utf8')
+            require(verify_span(text_cache[path],span),f'stale target span {key} at {span["path"]}:{span["start_line"]}; review explicit target range')
+            if span['status']=='transfer-verified' and unit.get('status')!='archived-editorial':
+                math_pattern=r'\$\$[\s\S]*?\$\$|\$[^$\n]+\$'
+                require(re.findall(math_pattern,source)==re.findall(math_pattern,span_text(text_cache[path],span)),'formula changed during exact transfer: '+unit['id'])
+            elif span['status']=='revised':
+                require(bool(span.get('rationale')),'rewritten span lacks rationale '+key)
+                require(span.get('review_status') in ('pending','verified'),'rewritten span lacks review state '+key)
     scoped={s['source']:s for s in coverage.get('source_scopes',[])}
     for old,indices in covered.items():
         lines=(snap/old).read_text(encoding='utf-8-sig').splitlines()
@@ -122,10 +127,12 @@ def main():
             require(exists_cache[p] or p==ROOT/'editorial/audit.json',f'missing local file {file.relative_to(ROOT)} -> {target}')
             if frag.startswith('u-') and p.suffix=='.md' and exists_cache[p]:
                 if p not in text_cache:text_cache[p]=p.read_text(encoding='utf-8')
-                require(f'id="{frag}"' in text_cache[p],'missing mapped local anchor '+target)
+                require(frag in coverage['spans'] and (ROOT/coverage['spans'][frag]['path']).resolve()==p,'missing sidecar anchor '+target)
     figures=set()
     for c in course['chapters']:
         text=(ROOT/c['path']).read_text(encoding='utf-8')
+        require('<!-- unit:' not in text and not re.search(r'<a id="u-',text),'inline provenance in active chapter '+c['id'])
+        require(not re.search(r'!\[[^\]]*\]\([^\n]*archive/',text),'archive runtime image '+c['id'])
         require(text.startswith('# '+c['title']),'chapter title mismatch '+c['id'])
         for field in ['**Уровень:**','**Предпосылки:**','**Используют:**','**Учебный вопрос:**']:require(field in text,'chapter metadata missing '+c['id']+field)
         require('Практика' in text or 'практика' in text,'chapter practice missing '+c['id'])
@@ -155,7 +162,11 @@ def main():
     require(abs(-(math.log(.8)+math.log(.4))/2-.5697171416)<1e-9,'CV classifier example')
     counts['new_numerical_checks']=10
     report={'status':'passed' if not errors else 'failed','counts':counts,'errors':errors}
-    (ROOT/'editorial/audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    report['content_review']={'pending_spans':sum(s.get('review_status')=='pending' for s in coverage['spans'].values()),'note':'Technical checks do not close chapter editorial review.'}
+    options=argparse.ArgumentParser();options.add_argument('--output-dir',type=Path);args=options.parse_args()
+    if args.output_dir:
+        args.output_dir.mkdir(parents=True,exist_ok=True)
+        (args.output_dir/'audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps(report,ensure_ascii=False,indent=2))
     if errors:sys.exit(1)
 if __name__=='__main__':main()

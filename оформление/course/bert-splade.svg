@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 770" role="img" aria-labelledby="title desc"><title id="title">SPLADE: контекстные оценки превращаются в разреженный словарь</title><desc id="desc">MLM-подобная проекция выдаёт оценки словаря на каждой позиции. После log1p и ReLU агрегируют позиции; исходная сумма и max-вариант различаются.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="770" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">SPLADE: контекстные оценки превращаются в разреженный словарь</tspan></text>
+<rect x="40" y="90" width="470" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="117" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Текст → encoder → H [L,D]</tspan></text>
+<rect x="40" y="215" width="470" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="242" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Проекция D→V → logits [L,V]</tspan></text>
+<path d="M275.0,175 L275.0,215" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="340" width="470" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="367" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Для каждой ячейки: log(1 + ReLU(logit))</tspan></text>
+<path d="M275.0,300 L275.0,340" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="465" width="470" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="492" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Агрегация по реальным позициям</tspan><tspan x="54" dy="24">wⱼ = maxᵢ log(1+ReLU(logitᵢⱼ))</tspan></text>
+<path d="M275.0,425 L275.0,465" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="650" y="95" width="420" height="140" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="664" y="122" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Один словарный термин j</tspan><tspan x="664" dy="24">logits в двух позициях: (1,2)</tspan><tspan x="664" dy="24">После преобразования: (log 2, log 3)</tspan><tspan x="664" dy="24">max: log 3; sum: log 6</tspan></text>
+<rect x="650" y="340" width="420" height="125" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="664" y="367" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="664" dy="0">Разреженный вектор w [V]</tspan><tspan x="664" dy="23">Ненулевой термин может отсутствовать</tspan><tspan x="664" dy="23">в исходной строке: расширение словаря</tspan><tspan x="664" dy="23">задаёт обученная контекстная проекция.</tspan></text>
+<path d="M510,507 L570,507 L570,402 L650,402" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="650" y="565" width="420" height="95" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="664" y="592" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Инвертированный индекс</tspan><tspan x="664" dy="24">Сходство: сумма qⱼ dⱼ</tspan><tspan x="664" dy="24">Регуляризация ограничивает активность</tspan></text>
+<path d="M860,465 L860,565" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="735" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="35" dy="0">Max передаёт производную через максимальную позицию; сумма — через все положительные позиции.</tspan></text></svg>

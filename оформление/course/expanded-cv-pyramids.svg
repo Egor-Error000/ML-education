@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 448" role="img" aria-labelledby="title desc">
+<title id="title">FPN и PAN: многомасштабные представления</title><desc id="desc">FPN top-down: C5: 20×20×1024 → 1×1 → M5: 256 → Up + lateral C4 → M4 → Up + lateral C3 → M3; PAN bottom-up: P3: 80×80×256 → Down 2 + merge P4 → Down 2 + merge P5 → Heads на трёх масштабах</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#416474"/></marker></defs>
+<rect width="1120" height="448" rx="14" fill="#f6f8fb"/>
+<text x="30" y="36" font-family="Arial,sans-serif" font-size="23" font-weight="bold" fill="#173b50">FPN и PAN: многомасштабные представления</text>
+<text x="30" y="112" font-family="Arial,sans-serif" font-size="18" fill="#315a67">FPN top-down</text>
+<rect x="30" y="131" width="235" height="94" rx="9" fill="#dceafa" stroke="#718b9b"/>
+<text x="147.5" y="168" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">C5: 20×20×1024</text>
+<path d="M268,178 H296" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="305" y="131" width="235" height="94" rx="9" fill="#e1eee8" stroke="#718b9b"/>
+<text x="422.5" y="168" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">1×1 → M5: 256</text>
+<path d="M543,178 H571" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="580" y="131" width="235" height="94" rx="9" fill="#fff0d8" stroke="#718b9b"/>
+<text x="697.5" y="168" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Up + lateral C4 → M4</text>
+<path d="M818,178 H846" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="855" y="131" width="235" height="94" rx="9" fill="#ede5f7" stroke="#718b9b"/>
+<text x="972.5" y="168" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Up + lateral C3 → M3</text>
+<text x="30" y="277" font-family="Arial,sans-serif" font-size="18" fill="#315a67">PAN bottom-up</text>
+<rect x="30" y="296" width="235" height="94" rx="9" fill="#dceafa" stroke="#718b9b"/>
+<text x="147.5" y="333" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">P3: 80×80×256</text>
+<path d="M268,343 H296" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="305" y="296" width="235" height="94" rx="9" fill="#e1eee8" stroke="#718b9b"/>
+<text x="422.5" y="333" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Down 2 + merge P4</text>
+<path d="M543,343 H571" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="580" y="296" width="235" height="94" rx="9" fill="#fff0d8" stroke="#718b9b"/>
+<text x="697.5" y="333" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Down 2 + merge P5</text>
+<path d="M818,343 H846" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="855" y="296" width="235" height="94" rx="9" fill="#ede5f7" stroke="#718b9b"/>
+<text x="972.5" y="333" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Heads на трёх масштабах</text>
+</svg>

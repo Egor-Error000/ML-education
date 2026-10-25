@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 900" role="img" aria-labelledby="title desc"><title id="title">ALBERT: факторизация входа и общие параметры блоков</title><desc id="desc">ID выбирает узкий вектор, проекция возвращает ширину скрытого состояния. Общий по параметрам блок применяется последовательно, каждый раз к новому состоянию. MLM и SOP используют разные головы.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1280" height="900" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">ALBERT: факторизация входа и общие параметры блоков</tspan></text>
+<rect x="35" y="110" width="360" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="137" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#173644"><tspan x="49" dy="0">ID [B,L]</tspan><tspan x="49" dy="27">Словарь V</tspan></text>
+<rect x="460" y="110" width="360" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="474" y="137" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#173644"><tspan x="474" dy="0">Таблица [V,E₀]</tspan><tspan x="474" dy="27">→ [B,L,E₀]</tspan></text>
+<path d="M395,160 L460,160" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="885" y="110" width="360" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="899" y="137" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#173644"><tspan x="899" dy="0">Проекция [E₀,D]</tspan><tspan x="899" dy="27">→ H⁽⁰⁾ [B,L,D]</tspan></text>
+<path d="M820,160 L885,160" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="35" y="330" width="360" height="120" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="49" y="357" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#173644"><tspan x="49" dy="0">Один набор параметров θ</tspan><tspan x="49" dy="26">Внимание + FFN</tspan><tspan x="49" dy="26">Два residual + Post-LN</tspan></text>
+<rect x="530" y="300" width="715" height="80" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="544" y="327" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#173644"><tspan x="544" dy="0">H⁽¹⁾ = Block_θ(H⁽⁰⁾)</tspan></text>
+<rect x="530" y="450" width="715" height="80" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="544" y="477" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#173644"><tspan x="544" dy="0">H⁽²⁾ = Block_θ(H⁽¹⁾)</tspan></text>
+<path d="M887,380 L887,450" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="530" y="600" width="715" height="80" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="544" y="627" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#173644"><tspan x="544" dy="0">… H⁽ᴺ⁾ = Block_θ(H⁽ᴺ⁻¹⁾)</tspan></text>
+<path d="M887,530 L887,600" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1065,210 L1065,300" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M395,365 L530,340" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M395,390 L470,390 L470,490 L530,490" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M395,420 L440,420 L440,640 L530,640" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="530" y="760" width="715" height="85" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="544" y="787" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#173644"><tspan x="544" dy="0">Выбранные состояния → MLM; состояние CLS → SOP</tspan><tspan x="544" dy="26">Разные состояния и вычисления, хотя θ повторяется</tspan></text>
+<path d="M887,680 L887,760" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/></svg>

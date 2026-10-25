@@ -15,4 +15,4 @@
 
 **Оценка агента перед обучением:** [Постановка обучения агента и baseline](<agent-task.md>) → [Среда, observations, actions и horizon](<agent-environment.md>) → [Оценка траекторий и воспроизводимость](<agent-evaluation.md>) → [Behavior cloning и SFT на демонстрациях](<agent-demonstrations.md>) → [Distribution shift, recovery и DAgger](<agent-recovery.md>) → [Обучение через взаимодействие: PPO и GRPO](<agent-rl.md>)
 
-Вход в маршрут: [Состояние, orchestration и граф управления](<../05-applications/app-state.md>), [Оценка retrieval, ответов и task success](<../05-applications/app-evaluation.md>), [SFT: данные, шаблоны, masks и objective](<../03-adaptation/adapt-sft.md>).
+Вход в маршрут: [Состояние, orchestration и граф управления](<../05-applications/app-state.md>), [Оценка retrieval, ответов и task success](<../05-applications/app-evaluation.md>), [SFT: демонстрации, шаблоны и обучающие цели](<../03-adaptation/adapt-sft.md>).

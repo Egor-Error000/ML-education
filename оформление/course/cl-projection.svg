@@ -1,28 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 490" role="img" aria-labelledby="title desc">
-<title id="title">Масштабирование, PCA, t-SNE и UMAP</title><desc id="desc">Читайте схему по направлению стрелок: первый блок задаёт вход, средние — преобразования и их состояние, последний — результат и способ проверки. Сравните формы и смысл каждого перехода с формулами главы. Выход преобразования и доказательство его качества — разные объекты: последняя проверка использует отдельный протокол оценки.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 760" role="img" aria-labelledby="title desc"><title id="title">Проекции: разные цели и общая проверка искажений</title><desc id="desc">Исходные координаты подаются в разные варианты представления. PCA сохраняет дисперсию, t-SNE сопоставляет попарные сходства, UMAP использует граф соседства. Каждый результат сверяется с исходными соседями и задачей.</desc>
 <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
-<rect width="1120" height="490" rx="16" fill="#f5f8f5"/>
-<text x="28" y="36" font-family="Segoe UI,sans-serif" font-size="22" fill="#173644">Масштабирование, PCA, t-SNE и UMAP</text>
-<path d="M295,136 L410,136" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M670,136 L785,136" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M915,182 L915,265" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M785,311 L670,311" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M410,311 L295,311" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="35" y="90" width="260" height="92" rx="10" fill="#e9eef1" stroke="#9bb6b0"/>
-<text x="165" y="136.0" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">objects + representation</text>
-<rect x="410" y="90" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="540" y="126.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">train-only transform</text>
-<text x="540" y="145.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">масштаб / basis</text>
-<rect x="785" y="90" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="915" y="126.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">geometry / algorithm</text>
-<text x="915" y="145.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">предположения главы</text>
-<rect x="785" y="265" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="915" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">partition / coordinates</text>
-<text x="915" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">или probabilities</text>
-<rect x="410" y="265" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="540" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">original-space checks</text>
-<text x="540" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">метрики и stability</text>
-<rect x="35" y="265" width="260" height="92" rx="10" fill="#e9eef1" stroke="#9bb6b0"/>
-<text x="165" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">new objects / system</text>
-<text x="165" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">явная граница применения</text>
-<text x="28" y="470" font-family="Segoe UI,sans-serif" font-size="13" fill="#526b75">Зелёный: модель / преобразование; серый: вход, состояние или результат. Пунктир: обход / управление.</text></svg>
+<rect width="1120" height="760" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Проекции: разные цели и общая проверка искажений</tspan></text>
+<rect x="35" y="95" width="1050" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="122" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="49" dy="0">Векторы x [n,d]; объявлены масштаб и область обучения преобразования</tspan><tspan x="49" dy="25">Сохранить исходные объекты и соседей для последующей проверки</tspan></text>
+<rect x="35" y="330" width="320" height="125" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="357" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#173644"><tspan x="49" dy="0">PCA: центрирование + SVD</tspan><tspan x="49" dy="22">Z=X V_r, ширина r</tspan><tspan x="49" dy="22">Цель: дисперсия / восстановление</tspan></text>
+<path d="M560,195 L560,265 L195,265 L195,330" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M195,455 L195,570" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="400" y="330" width="320" height="125" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="414" y="357" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#173644"><tspan x="414" dy="0">t-SNE: p исходных сходств</tspan><tspan x="414" dy="22">Обучить y по KL(p || q)</tspan><tspan x="414" dy="22">Цель: отображение соседств</tspan></text>
+<path d="M560,195 L560,265 L560,265 L560,330" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M560,455 L560,570" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="765" y="330" width="320" height="125" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="779" y="357" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#173644"><tspan x="779" dy="0">UMAP: граф соседства</tspan><tspan x="779" dy="22">Обучить координаты ширины r</tspan><tspan x="779" dy="22">Цель: структура выбранного графа</tspan></text>
+<path d="M560,195 L560,265 L925,265 L925,330" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M925,455 L925,570" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="35" y="570" width="1050" height="110" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="49" y="597" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="49" dy="0">Проверить исходных соседей, представителей, устойчивость и пользу задачи</tspan><tspan x="49" dy="25">Параметры карты и размерность могут менять плотности, промежутки и видимые островки</tspan><tspan x="49" dy="25">Для новых объектов требуется сохранённый контракт преобразования</tspan></text>
+<text x="35" y="730" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="35" dy="0">Карта для иллюстрации и представление для алгоритма могут иметь разные размерности.</tspan></text></svg>

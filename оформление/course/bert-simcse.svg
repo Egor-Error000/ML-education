@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 700" role="img" aria-labelledby="title desc"><title id="title">SimCSE: два прохода, один текст и одна версия весов</title><desc id="desc">При обучении независимые маски dropout создают два вида предложения. При детерминированном вычислении одной и той же функции эти виды совпадают.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="700" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">SimCSE: два прохода, один текст и одна версия весов</tspan></text>
+<rect x="340" y="85" width="450" height="75" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="354" y="112" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="354" dy="0">Один train-текст x</tspan><tspan x="354" dy="24">Два независимых прохода</tspan></text>
+<rect x="40" y="255" width="420" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="282" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Общий encoder: dropout mask A</tspan></text>
+<rect x="40" y="380" width="420" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="407" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Pooling → z₁</tspan></text>
+<path d="M250.0,340 L250.0,380" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M565,160 L565,205 L250,205 L250,255" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="650" y="255" width="420" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="664" y="282" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Общий encoder: dropout mask B</tspan></text>
+<rect x="650" y="380" width="420" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="664" y="407" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Pooling → z₂</tspan></text>
+<path d="M860.0,340 L860.0,380" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M565,160 L565,205 L860,205 L860,255" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="340" y="550" width="450" height="85" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="354" y="577" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="354" dy="0">Контрастивная цель: z₁ ↔ z₂</tspan><tspan x="354" dy="24">Другие предложения дают сравнения</tspan></text>
+<path d="M250,465 L250,592 L340,592" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M860,465 L860,592 L790,592" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="680" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="35" dy="0">Два вида одного предложения не становятся двумя независимыми документами при разделении данных.</tspan></text></svg>

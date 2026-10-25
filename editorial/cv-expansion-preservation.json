@@ -1,0 +1,71 @@
+{
+  "checked_on": "2026-10-25",
+  "status": "passed",
+  "chapters": [
+    {
+      "id": "cv-input",
+      "old_text_sha256": "b5d233316ad701f71f410f33df0362fa63f4caba366748142d908606af49eb4e",
+      "original_text_preserved_except_navigation_metadata": true
+    },
+    {
+      "id": "cv-classification",
+      "old_text_sha256": "27005252d39849cdeeb658be29a61c9508973ef546ccf9b79278c250f8af51f1",
+      "original_text_preserved_except_navigation_metadata": true
+    },
+    {
+      "id": "cv-vit",
+      "old_text_sha256": "5839cabb88641cd02a23731160ec7bdd421323626d8c59b9ebf822268ceef148",
+      "original_text_preserved_except_navigation_metadata": true
+    },
+    {
+      "id": "cv-hierarchy",
+      "old_text_sha256": "788d3773fabe5e7dce3f7987d0485e43fee4694935dd4e1ee6db287b3c783f5a",
+      "original_text_preserved_except_navigation_metadata": true
+    },
+    {
+      "id": "cv-pretraining",
+      "old_text_sha256": "9e821c0753e3b45691bcf068a6957bd6f2beecc25eb8582f31c06a19cc1ac1fd",
+      "original_text_preserved_except_navigation_metadata": true
+    },
+    {
+      "id": "cv-detection",
+      "old_text_sha256": "ca9a94efa62b2b2a1e609f80a87fa50c8584d05aa99ade0809c81def78d0b351",
+      "original_text_preserved_except_navigation_metadata": true
+    },
+    {
+      "id": "cv-obb",
+      "old_text_sha256": "79fde8961a267d26c435497b960915d98fea48ac587578ba3b42e074ae9e5748",
+      "original_text_preserved_except_navigation_metadata": true
+    },
+    {
+      "id": "cv-semantic",
+      "old_text_sha256": "0d370b9048583203289b20224e0f41812dd6f166ee2afb97462420d4df30344e",
+      "original_text_preserved_except_navigation_metadata": true
+    },
+    {
+      "id": "cv-instance",
+      "old_text_sha256": "fc084760a672c89c5d16bdf73472eafc85fe20eab55b9777cc53be57e2d3c2cb",
+      "original_text_preserved_except_navigation_metadata": true
+    },
+    {
+      "id": "cv-open-vocabulary",
+      "old_text_sha256": "b017774fb8ad1cd42a69bd449672cc5ec005ca76c9296cb66634a9dfa0780882",
+      "original_text_preserved_except_navigation_metadata": true
+    },
+    {
+      "id": "cv-pose",
+      "old_text_sha256": "1cd667f6862a040a0f98113c83dbe9a752c4f04f6bc21ae15487c7c3bc7f8b82",
+      "original_text_preserved_except_navigation_metadata": true
+    },
+    {
+      "id": "cv-tracking",
+      "old_text_sha256": "24c6f1ce0245169f5a29ef8d6235845dafb427188c87c5390ccfffa420b2ffc4",
+      "original_text_preserved_except_navigation_metadata": true
+    },
+    {
+      "id": "cv-depth",
+      "old_text_sha256": "72b524bbca76b113ad66d8b13d26f1af0956ecd2019168fb2632fb0136a44222",
+      "original_text_preserved_except_navigation_metadata": true
+    }
+  ]
+}

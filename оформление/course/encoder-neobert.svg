@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1050" role="img" aria-labelledby="title desc"><title id="title">NeoBERT: блок с Pre-RMSNorm, RoPE и SwiGLU</title><desc id="desc">Показан один повторяемый блок: две преобразующие ветви и два остаточных обхода. Стек сохраняет длину и ширину состояний; обучающая голова и её цели обозначены отдельно.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1280" height="1050" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">NeoBERT: блок с Pre-RMSNorm, RoPE и SwiGLU</tspan></text>
+<rect x="35" y="100" width="360" height="120" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="49" dy="0">ID → представления</tspan><tspan x="49" dy="25">Стек двунаправленных слоёв</tspan><tspan x="49" dy="25">Глубина и ширина заданы</tspan></text>
+<rect x="530" y="100" width="690" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="544" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="544" dy="0">Вход блока H [B,L,D]</tspan><tspan x="544" dy="25">Повторить N блоков; параметры по конфигурации</tspan></text>
+<path d="M395,160 L530,160" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="530" y="300" width="690" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="544" y="327" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="544" dy="0">RMSNorm → Q/K с RoPE, V → внимание → проекция</tspan><tspan x="544" dy="25">Каждая позиция использует разрешённый контекст</tspan></text>
+<rect x="530" y="490" width="690" height="75" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="544" y="517" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#173644"><tspan x="544" dy="0">Сложить с H → Y</tspan></text>
+<rect x="530" y="650" width="690" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="544" y="677" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="544" dy="0">RMSNorm → SwiGLU: up и gate, SiLU, произведение</tspan><tspan x="544" dy="25">Выходная проекция возвращает ширину D</tspan></text>
+<rect x="530" y="835" width="690" height="75" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="544" y="862" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#173644"><tspan x="544" dy="0">Сложить с Y → выход блока</tspan></text>
+<path d="M875,190 L875,300" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M875,400 L875,490" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M875,565 L875,650" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M875,750 L875,835" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M530,145 L465,145 L465,528 L530,528" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M530,528 L425,528 L425,872 L530,872" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="340" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="35" dy="0">H: обход преобразования</tspan></text>
+<text x="35" y="700" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="35" dy="0">Y: второй обход</tspan></text>
+<rect x="35" y="800" width="360" height="110" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="49" y="827" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="49" dy="0">Выбранные состояния → MLM</tspan><tspan x="49" dy="24">При адаптации — новая цель</tspan><tspan x="49" dy="24">Сопоставимое дообучение</tspan></text>
+<path d="M875,910 L875,945 L215,945 L215,910" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="985" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="35" dy="0">Изменения архитектуры сравниваются вместе с данными, токенизатором и режимом обучения.</tspan></text>
+<text x="35" y="1020" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="35" dy="0">В описанной модели: около 250 млн параметров, контекст 4096; проверка задачи проводится отдельно.</tspan></text></svg>

@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "host": "win32",
+  "htmlSha256": "663fc616eff9ec241b597e9e5c275e515c51d145732ca3c820d42b5ddff4a6fc",
+  "checks": [
+    {
+      "mode": "LF clean clone",
+      "build_check": "passed",
+      "audit": "passed",
+      "two_builds_identical": true,
+      "tracked_changes": false
+    },
+    {
+      "mode": "CRLF working text",
+      "build_check": "passed",
+      "audit": "passed",
+      "two_builds_identical": true,
+      "tracked_changes": false
+    }
+  ],
+  "linux_execution": "Use CI ubuntu-latest; this command does not emulate another OS."
+}

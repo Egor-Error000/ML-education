@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 730" role="img" aria-labelledby="title desc"><title id="title">Запрос: приём, ожидание, исполнение и терминальный переход</title><desc id="desc">Ожидающая очередь отличается от всех принятых незавершённых запросов. И успех, и ошибка, и отмена завершают владение резервом ровно один раз.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="730" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Запрос: приём, ожидание, исполнение и терминальный переход</tspan></text>
+<rect x="40" y="100" width="450" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Handler: admission + общий deadline</tspan></text>
+<rect x="40" y="230" width="450" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="257" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Очередь (input,ID,future) → ждать</tspan></text>
+<path d="M265.0,190 L265.0,230" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="360" width="450" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="387" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Worker извлекает → engine выполняет</tspan></text>
+<path d="M265.0,320 L265.0,360" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="650" y="360" width="420" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="664" y="387" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Результат / ошибка / отмена</tspan></text>
+<rect x="650" y="490" width="420" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="664" y="517" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Вернуть terminal status по ID</tspan></text>
+<path d="M860.0,450 L860.0,490" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="650" y="620" width="420" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="664" y="647" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Освободить reservations один раз</tspan></text>
+<path d="M860.0,580 L860.0,620" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M490,405 L650,405" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="650" y="100" width="420" height="130" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="664" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Nnext=N+A−D−X</tspan><tspan x="664" dy="24">N: waiting + running.</tspan><tspan x="664" dy="24">Очередь теряет запись при старте,</tspan><tspan x="664" dy="24">N — при терминальном завершении.</tspan></text></svg>

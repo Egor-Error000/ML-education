@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 510" role="img" aria-labelledby="title desc"><title id="title">Иерархия: три linkage на одних точках</title><desc id="desc">Сначала AB на высоте 1, затем CD на высоте 2. Последняя высота: single 3, complete sqrt13, average 3.2325.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="510" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Иерархия: три linkage на одних точках</tspan></text>
+<text x="70" y="80" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#173644"><tspan x="70" dy="0">single</tspan></text>
+<path d="M55,405 L55,105" stroke="#9aa8b7" fill="none"/>
+<text x="32" y="335" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#173644"><tspan x="32" dy="0">1</tspan></text>
+<text x="32" y="260" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#173644"><tspan x="32" dy="0">2</tspan></text>
+<text x="32" y="185" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#173644"><tspan x="32" dy="0">3</tspan></text>
+<text x="32" y="110" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#173644"><tspan x="32" dy="0">4</tspan></text>
+<text x="85" y="435" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="85" dy="0">A</tspan></text>
+<text x="150" y="435" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="150" dy="0">B</tspan></text>
+<text x="245" y="435" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="245" dy="0">C</tspan></text>
+<text x="310" y="435" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="310" dy="0">D</tspan></text>
+<polyline points="90,405 90,330 155,330 155,405" stroke="#315a67" stroke-width="3" fill="none"/>
+<polyline points="250,405 250,255 315,255 315,405" stroke="#315a67" stroke-width="3" fill="none"/>
+<polyline points="122.5,330 122.5,180 282.5,180 282.5,255" stroke="#315a67" stroke-width="3" fill="none"/>
+<text x="140" y="470" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#173644"><tspan x="140" dy="0">Последняя высота 3.0000</tspan></text>
+<text x="435" y="80" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#173644"><tspan x="435" dy="0">complete</tspan></text>
+<path d="M420,405 L420,105" stroke="#9aa8b7" fill="none"/>
+<text x="397" y="335" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#173644"><tspan x="397" dy="0">1</tspan></text>
+<text x="397" y="260" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#173644"><tspan x="397" dy="0">2</tspan></text>
+<text x="397" y="185" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#173644"><tspan x="397" dy="0">3</tspan></text>
+<text x="397" y="110" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#173644"><tspan x="397" dy="0">4</tspan></text>
+<text x="450" y="435" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="450" dy="0">A</tspan></text>
+<text x="515" y="435" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="515" dy="0">B</tspan></text>
+<text x="610" y="435" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="610" dy="0">C</tspan></text>
+<text x="675" y="435" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="675" dy="0">D</tspan></text>
+<polyline points="455,405 455,330 520,330 520,405" stroke="#315a67" stroke-width="3" fill="none"/>
+<polyline points="615,405 615,255 680,255 680,405" stroke="#315a67" stroke-width="3" fill="none"/>
+<polyline points="487.5,330 487.5,134.58365434020084 647.5,134.58365434020084 647.5,255" stroke="#315a67" stroke-width="3" fill="none"/>
+<text x="505" y="470" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#173644"><tspan x="505" dy="0">Последняя высота 3.6056</tspan></text>
+<text x="800" y="80" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#173644"><tspan x="800" dy="0">average</tspan></text>
+<path d="M785,405 L785,105" stroke="#9aa8b7" fill="none"/>
+<text x="762" y="335" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#173644"><tspan x="762" dy="0">1</tspan></text>
+<text x="762" y="260" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#173644"><tspan x="762" dy="0">2</tspan></text>
+<text x="762" y="185" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#173644"><tspan x="762" dy="0">3</tspan></text>
+<text x="762" y="110" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#173644"><tspan x="762" dy="0">4</tspan></text>
+<text x="815" y="435" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="815" dy="0">A</tspan></text>
+<text x="880" y="435" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="880" dy="0">B</tspan></text>
+<text x="975" y="435" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="975" dy="0">C</tspan></text>
+<text x="1040" y="435" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="1040" dy="0">D</tspan></text>
+<polyline points="820,405 820,330 885,330 885,405" stroke="#315a67" stroke-width="3" fill="none"/>
+<polyline points="980,405 980,255 1045,255 1045,405" stroke="#315a67" stroke-width="3" fill="none"/>
+<polyline points="852.5,330 852.5,162.56050132873597 1012.5,162.56050132873597 1012.5,255" stroke="#315a67" stroke-width="3" fill="none"/>
+<text x="870" y="470" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#173644"><tspan x="870" dy="0">Последняя высота 3.2325</tspan></text></svg>

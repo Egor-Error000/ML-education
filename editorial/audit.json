@@ -5,20 +5,25 @@
     "source_lessons": 96,
     "mapped_blocks": 7412,
     "mapping_actions": {
-      "сохранить происхождение": 334,
-      "перенести с обновлением ссылок и изложения": 6936,
-      "объединить заголовки одной темы": 116,
-      "объединить точный повтор": 1,
-      "перенести полный протокол проекта": 25
+      "сохранить происхождение": 444,
+      "перенести с обновлением ссылок и изложения": 4410,
+      "исправить": 1775,
+      "объединить с сохранением нюансов": 667,
+      "объединить заголовки одной темы": 97,
+      "перенести полный протокол проекта": 19
     },
     "legacy_bookmarks": 107,
-    "html_internal_links": 2046,
+    "html_internal_links": 2060,
     "chapters": 121,
     "modules": 5,
     "routes": 9,
-    "figures": 184,
-    "local_links_checked": 16889,
+    "figures": 215,
+    "local_links_checked": 17637,
     "new_numerical_checks": 10
   },
-  "errors": []
+  "errors": [],
+  "content_review": {
+    "pending_spans": 1857,
+    "note": "Technical checks do not close chapter editorial review."
+  }
 }

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 650" role="img" aria-labelledby="title desc"><title id="title">BERT: разные головы над одними состояниями</title><desc id="desc">Классификация использует CLS/pooler, NER — каждую разрешённую позицию, extractive QA — два распределения по позициям контекста.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="650" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">BERT: разные головы над одними состояниями</tspan></text>
+<rect x="350" y="90" width="430" height="80" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="364" y="117" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="364" dy="0">Encoder: H [B,L,D]</tspan><tspan x="364" dy="24">Состояние каждой входной позиции</tspan></text>
+<rect x="30" y="280" width="330" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="44" y="307" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="44" dy="0">CLS → Dense + tanh</tspan><tspan x="44" dy="24">Линейная D→C</tspan></text>
+<path d="M565,170 L565,220 L195,220 L195,280" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="400" y="280" width="330" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="414" y="307" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="414" dy="0">H каждой позиции</tspan><tspan x="414" dy="24">Линейная D→C</tspan></text>
+<path d="M565,170 L565,220 L565,220 L565,280" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="770" y="280" width="330" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="784" y="307" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="784" dy="0">H каждой позиции</tspan><tspan x="784" dy="24">Две проекции D→1</tspan></text>
+<path d="M565,170 L565,220 L935,220 L935,280" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="30" y="440" width="330" height="115" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="44" y="467" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="44" dy="0">Классификация [B,C]</tspan><tspan x="44" dy="24">softmax или sigmoid</tspan><tspan x="44" dy="24">зависит от разметки</tspan></text>
+<path d="M195,370 L195,440" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="400" y="440" width="330" height="115" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="414" y="467" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="414" dy="0">NER [B,L,C]</tspan><tspan x="414" dy="24">маска labels/padding</tspan><tspan x="414" dy="24">согласование subwords</tspan></text>
+<path d="M565,370 L565,440" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="770" y="440" width="330" height="115" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="784" y="467" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="784" dy="0">QA: start/end [B,L]</tspan><tspan x="784" dy="24">маска контекста</tspan><tspan x="784" dy="24">ограничение start ≤ end</tspan></text>
+<path d="M935,370 L935,440" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="30" y="612" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="30" dy="0">Голова задаёт смысл выхода и loss. Одинаковая ширина состояний не делает задачи взаимозаменяемыми.</tspan></text></svg>

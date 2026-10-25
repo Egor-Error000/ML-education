@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 730" role="img" aria-labelledby="title desc"><title id="title">BGE-M3: три вида представления и три способа сравнения</title><desc id="desc">Общий encoder поддерживает плотную, разреженную и многовекторную ветви. У каждой свой выход и механизм оценки; качество гибрида проверяют на задаче.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="730" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">BGE-M3: три вида представления и три способа сравнения</tspan></text>
+<rect x="340" y="90" width="450" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="354" y="117" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="354" dy="0">Текст → tokenizer → общий encoder</tspan><tspan x="354" dy="24">Состояния H [L,D]</tspan></text>
+<rect x="35" y="290" width="300" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="317" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="49" dy="0">Один плотный вектор [d]</tspan></text>
+<rect x="35" y="415" width="300" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="442" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="49" dy="0">dot / cosine</tspan><tspan x="49" dy="24">Векторный индекс</tspan></text>
+<path d="M185.0,375 L185.0,415" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M565,175 L565,225 L185,225 L185,290" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="410" y="290" width="300" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="424" y="317" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="424" dy="0">Веса словарных терминов [V]</tspan></text>
+<rect x="410" y="415" width="300" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="424" y="442" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="424" dy="0">Разреженное произведение</tspan><tspan x="424" dy="24">Инвертированный индекс</tspan></text>
+<path d="M560.0,375 L560.0,415" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M565,175 L565,225 L560,225 L560,290" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="785" y="290" width="300" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="799" y="317" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="799" dy="0">Набор векторов токенов [L,d]</tspan></text>
+<rect x="785" y="415" width="300" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="799" y="442" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="799" dy="0">Позднее взаимодействие</tspan><tspan x="799" dy="24">MaxSim по позициям</tspan></text>
+<path d="M935.0,375 L935.0,415" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M565,175 L565,225 L935,225 L935,290" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="250" y="580" width="620" height="85" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="264" y="607" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="264" dy="0">Ветки сравнивают отдельно; объединение требует</tspan><tspan x="264" dy="24">согласованных кандидатов, фильтров и оценки.</tspan></text></svg>

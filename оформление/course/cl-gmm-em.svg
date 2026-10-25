@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 690" role="img" aria-labelledby="title desc"><title id="title">GMM: одна итерация EM на двух двумерных точках</title><desc id="desc">Показаны апостериорные веса, новые средние и ковариация до и после регуляризации.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="690" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">GMM: одна итерация EM на двух двумерных точках</tspan></text>
+<rect x="40" y="100" width="460" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">x₁=(0,0), x₂=(2,0)</tspan><tspan x="54" dy="24">μ₁=(0,0), μ₂=(2,0)</tspan><tspan x="54" dy="24">π₁=π₂=0.5; Σ₁=Σ₂=I</tspan></text>
+<rect x="620" y="100" width="450" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="634" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="634" dy="0">E-шаг: строки r</tspan><tspan x="634" dy="24">(0.880797, 0.119203)</tspan><tspan x="634" dy="24">(0.119203, 0.880797)</tspan></text>
+<path d="M500,150 L620,150" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="620" y="285" width="450" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="634" y="312" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="634" dy="0">M-шаг: N₁=N₂=1</tspan><tspan x="634" dy="24">μ₁⁺=(0.238406,0)</tspan><tspan x="634" dy="24">μ₂⁺=(1.761594,0)</tspan></text>
+<path d="M845,200 L845,285" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="285" width="460" height="100" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="54" y="312" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Ковариация каждой компоненты</tspan><tspan x="54" dy="24">diag(0.419974, 0)</tspan><tspan x="54" dy="24">Вырождена: все y равны 0</tspan></text>
+<path d="M620,335 L500,335" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="480" width="460" height="95" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="54" y="507" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Добавить 10⁻³I</tspan><tspan x="54" dy="24">diag(0.420974, 0.001)</tspan><tspan x="54" dy="24">Положительно определена</tspan></text>
+<path d="M270,385 L270,480" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="620" y="490" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="620" dy="0">Следующий E-шаг использует</tspan><tspan x="620" dy="25">обновлённые параметры.</tspan><tspan x="620" dy="25">Поправка меняет модель;</tspan><tspan x="620" dy="25">её величина входит в протокол.</tspan></text></svg>

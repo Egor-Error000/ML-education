@@ -1,28 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 490" role="img" aria-labelledby="title desc">
-<title id="title">Отбор признаков и устойчивость выбора</title><desc id="desc">Читайте схему по направлению стрелок: первый блок задаёт вход, средние — преобразования и их состояние, последний — результат и способ проверки. Обучаемые статистики вычисляются на train; validation и новые объекты используют сохранённое состояние. Геометрическая формула с фиксированными константами не превращается в fit только из-за наличия блока на схеме.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 820" role="img" aria-labelledby="title desc"><title id="title">Отбор признаков: внутренний выбор и внешняя оценка</title><desc id="desc">Внешняя обучающая часть разделяется на внутренние train и validation. Отбор учится только на inner train. После выбора k вся процедура переобучается на outer train, затем проверяется на outer test.</desc>
 <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
-<rect width="1120" height="490" rx="16" fill="#f5f8f5"/>
-<text x="28" y="36" font-family="Segoe UI,sans-serif" font-size="22" fill="#173644">Отбор признаков и устойчивость выбора</text>
-<path d="M295,136 L410,136" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M670,136 L785,136" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M915,182 L915,265" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M785,311 L670,311" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M410,311 L295,311" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="35" y="90" width="260" height="92" rx="10" fill="#e9eef1" stroke="#9bb6b0"/>
-<text x="165" y="136.0" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">train features / labels</text>
-<rect x="410" y="90" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="540" y="126.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">inner-fold score</text>
-<text x="540" y="145.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">selector + estimator</text>
-<rect x="785" y="90" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="915" y="126.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">поиск k / budget</text>
-<text x="915" y="145.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">inner validation</text>
-<rect x="785" y="265" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="915" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">refit на outer train</text>
-<text x="915" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">сохранить S и порядок</text>
-<rect x="410" y="265" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="540" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">outer test / new data</text>
-<text x="540" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">использовать S</text>
-<rect x="35" y="265" width="260" height="92" rx="10" fill="#e9eef1" stroke="#9bb6b0"/>
-<text x="165" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">quality + stability</text>
-<text x="165" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">стоимость полей</text>
-<text x="28" y="470" font-family="Segoe UI,sans-serif" font-size="13" fill="#526b75">Зелёный: модель / преобразование; серый: вход, состояние или результат. Пунктир: обход / управление.</text></svg>
+<rect width="1120" height="820" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Отбор признаков: внутренний выбор и внешняя оценка</tspan></text>
+<rect x="35" y="85" width="340" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="112" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="49" dy="0">Внешняя обучающая часть</tspan><tspan x="49" dy="24">outer train</tspan></text>
+<rect x="35" y="260" width="340" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="287" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="49" dy="0">Внутренний train</tspan><tspan x="49" dy="24">fit отбора → fit модели</tspan></text>
+<path d="M205,175 L205,260" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="435" y="260" width="300" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="449" y="287" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="449" dy="0">Внутренняя validation</tspan><tspan x="449" dy="24">transform → ошибка</tspan></text>
+<path d="M375,310 L435,310" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M205,205 L585,205 L585,260" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="795" y="260" width="285" height="100" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="809" y="287" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="809" dy="0">Сравнить k=1 и k=2</tspan><tspan x="809" dy="24">0.22 &lt; 0.24 → k=1</tspan></text>
+<path d="M735,310 L795,310" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="435" y="465" width="645" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="449" y="492" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="449" dy="0">После выбора: fit отбора и модели на всём outer train</tspan><tspan x="449" dy="24">Сохранить поля, порядок столбцов и модель</tspan></text>
+<path d="M935,360 L935,465" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M375,130 L755,130 L755,465" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="35" y="650" width="340" height="90" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="49" y="677" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="49" dy="0">Внешняя проверочная часть</tspan><tspan x="49" dy="24">outer test: не участвовала в выборе</tspan></text>
+<rect x="435" y="650" width="645" height="90" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="449" y="677" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="449" dy="0">Только transform и прогноз → внешняя ошибка</tspan><tspan x="449" dy="24">Оценивается вся процедура выбора</tspan></text>
+<path d="M375,695 L435,695" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M755,565 L755,650" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="770" y="610" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#173644"><tspan x="770" dy="0">сохранённое состояние</tspan></text>
+<text x="35" y="790" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="35" dy="0">Внутренние складки повторяются; стрелки от outer test к выбору k нет.</tspan></text></svg>

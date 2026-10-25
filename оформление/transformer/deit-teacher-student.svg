@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 625" role="img" aria-labelledby="t"><title id="t">DeiT: два сигнала обучают общий student Transformer</title><rect width="900" height="625" rx="16" fill="#f5f8f5"/><g font-family="Segoe UI,sans-serif" fill="#213244"><text x="30" y="42" font-size="24" font-weight="600">DeiT: два сигнала обучают общий student Transformer</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 625" role="img" aria-labelledby="t"><title id="t">DeiT: два сигнала обучают общий student Transformer</title><desc>Учитель задаёт сигнал дистилляции, ученик получает изображение и отдельные обучающие цели; применение и обучение различаются.</desc><rect width="900" height="625" rx="16" fill="#f5f8f5"/><g font-family="Segoe UI,sans-serif" fill="#213244"><text x="30" y="42" font-size="24" font-weight="600">DeiT: два сигнала обучают общий student Transformer</text>
 <rect x="280" y="80" width="340" height="80" rx="9" fill="white" stroke="#adc8bb"/>
 <text x="296" y="111" font-size="21">Одна картинка x</text>
 <text x="296" y="141" font-size="17">Истинная метка y хранится отдельно</text>

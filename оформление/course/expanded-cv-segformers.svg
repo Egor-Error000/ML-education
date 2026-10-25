@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 448" role="img" aria-labelledby="title desc">
+<title id="title">DeepLabv3+ и SegFormer: контекст и декодирование</title><desc id="desc">DeepLabv3+: CNN с atrous features → ASPP: rates + global pooling → Up + low-level skip → Decoder → semantic logits; SegFormer: Overlapping patch stages → MiT: 4 scales of features → MLP project → up → concat → Fusion → K pixel logits</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#416474"/></marker></defs>
+<rect width="1120" height="448" rx="14" fill="#f6f8fb"/>
+<text x="30" y="36" font-family="Arial,sans-serif" font-size="23" font-weight="bold" fill="#173b50">DeepLabv3+ и SegFormer: контекст и декодирование</text>
+<text x="30" y="112" font-family="Arial,sans-serif" font-size="18" fill="#315a67">DeepLabv3+</text>
+<rect x="30" y="131" width="235" height="94" rx="9" fill="#dceafa" stroke="#718b9b"/>
+<text x="147.5" y="168" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">CNN с atrous features</text>
+<path d="M268,178 H296" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="305" y="131" width="235" height="94" rx="9" fill="#e1eee8" stroke="#718b9b"/>
+<text x="422.5" y="162" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">ASPP: rates + global</text>
+<text x="422.5" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">pooling</text>
+<path d="M543,178 H571" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="580" y="131" width="235" height="94" rx="9" fill="#fff0d8" stroke="#718b9b"/>
+<text x="697.5" y="168" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Up + low-level skip</text>
+<path d="M818,178 H846" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="855" y="131" width="235" height="94" rx="9" fill="#ede5f7" stroke="#718b9b"/>
+<text x="972.5" y="162" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Decoder → semantic</text>
+<text x="972.5" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">logits</text>
+<text x="30" y="277" font-family="Arial,sans-serif" font-size="18" fill="#315a67">SegFormer</text>
+<rect x="30" y="296" width="235" height="94" rx="9" fill="#dceafa" stroke="#718b9b"/>
+<text x="147.5" y="327" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Overlapping patch</text>
+<text x="147.5" y="350" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">stages</text>
+<path d="M268,343 H296" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="305" y="296" width="235" height="94" rx="9" fill="#e1eee8" stroke="#718b9b"/>
+<text x="422.5" y="327" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">MiT: 4 scales of</text>
+<text x="422.5" y="350" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">features</text>
+<path d="M543,343 H571" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="580" y="296" width="235" height="94" rx="9" fill="#fff0d8" stroke="#718b9b"/>
+<text x="697.5" y="327" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">MLP project → up →</text>
+<text x="697.5" y="350" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">concat</text>
+<path d="M818,343 H846" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="855" y="296" width="235" height="94" rx="9" fill="#ede5f7" stroke="#718b9b"/>
+<text x="972.5" y="333" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Fusion → K pixel logits</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 720" role="img" aria-labelledby="title desc"><title id="title">Extractive QA: два выхода и допустимые интервалы</title><desc id="desc">Нельзя независимо взять максимум начала и конца. Маска контекста, порядок границ и максимальная длина определяют множество кандидатов.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="720" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Extractive QA: два выхода и допустимые интервалы</tspan></text>
+<rect x="40" y="90" width="460" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="117" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">[CLS] вопрос [SEP] контекст [SEP]</tspan><tspan x="54" dy="24">Encoder → H [B,L,D]</tspan></text>
+<rect x="40" y="215" width="460" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="242" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Две линейные проекции D→1</tspan><tspan x="54" dy="24">start logits и end logits [B,L]</tspan></text>
+<path d="M270.0,175 L270.0,215" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="340" width="460" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="367" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Оставить позиции контекста</tspan><tspan x="54" dy="24">Проверить start≤end и длину≤2</tspan></text>
+<path d="M270.0,300 L270.0,340" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="650" y="90" width="420" height="130" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="664" y="117" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="664" dy="0">Три позиции контекста (нумерация 1…3)</tspan><tspan x="664" dy="23">start = (0, 5, 2)</tspan><tspan x="664" dy="23">end = (4, 0, 2)</tspan><tspan x="664" dy="23">Независимые argmax: 2 и 1 — нельзя</tspan></text>
+<rect x="650" y="290" width="420" height="175" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="664" y="317" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Интервал       сумма logits</tspan><tspan x="664" dy="24">[1,1] → 4       [1,2] → 0</tspan><tspan x="664" dy="24">[2,2] → 5       [2,3] → 7</tspan><tspan x="664" dy="24">[3,3] → 4</tspan><tspan x="664" dy="24">Лучший допустимый ответ: [2,3]</tspan></text>
+<path d="M500,382 L650,382" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="540" width="1030" height="115" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="567" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Offsets восстанавливают символы исходного документа, а не текст после detokenize.</tspan><tspan x="54" dy="24">При нескольких окнах проверяют правило сравнения и вариант «ответа нет».</tspan><tspan x="54" dy="24">Видимость ответа в окне ещё не означает правильность извлечения.</tspan></text></svg>

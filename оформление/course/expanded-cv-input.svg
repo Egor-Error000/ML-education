@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 283" role="img" aria-labelledby="title desc">
+<title id="title">Изображение, карты признаков и блоки модели</title><desc id="desc">Convolution stack: Pixels: r=1, j=1 → 3×3 / stride 2 → r=3,j=2 → 3×3 / stride 1 → r=7,j=2 → Dilated 3×3 / 2 → r=15,j=2</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#416474"/></marker></defs>
+<rect width="1120" height="283" rx="14" fill="#f6f8fb"/>
+<text x="30" y="36" font-family="Arial,sans-serif" font-size="23" font-weight="bold" fill="#173b50">Изображение, карты признаков и блоки модели</text>
+<text x="30" y="112" font-family="Arial,sans-serif" font-size="18" fill="#315a67">Convolution stack</text>
+<rect x="30" y="131" width="235" height="94" rx="9" fill="#dceafa" stroke="#718b9b"/>
+<text x="147.5" y="168" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Pixels: r=1, j=1</text>
+<path d="M268,178 H296" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="305" y="131" width="235" height="94" rx="9" fill="#e1eee8" stroke="#718b9b"/>
+<text x="422.5" y="162" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">3×3 / stride 2 →</text>
+<text x="422.5" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">r=3,j=2</text>
+<path d="M543,178 H571" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="580" y="131" width="235" height="94" rx="9" fill="#fff0d8" stroke="#718b9b"/>
+<text x="697.5" y="162" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">3×3 / stride 1 →</text>
+<text x="697.5" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">r=7,j=2</text>
+<path d="M818,178 H846" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="855" y="131" width="235" height="94" rx="9" fill="#ede5f7" stroke="#718b9b"/>
+<text x="972.5" y="162" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Dilated 3×3 / 2 →</text>
+<text x="972.5" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">r=15,j=2</text>
+</svg>

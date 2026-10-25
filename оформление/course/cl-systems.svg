@@ -1,28 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 490" role="img" aria-labelledby="title desc">
-<title id="title">Аномалии, псевдометки, потоки и IVF</title><desc id="desc">Читайте схему по направлению стрелок: первый блок задаёт вход, средние — преобразования и их состояние, последний — результат и способ проверки. Сравните формы и смысл каждого перехода с формулами главы. Выход преобразования и доказательство его качества — разные объекты: последняя проверка использует отдельный протокол оценки.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1060" role="img" aria-labelledby="title desc"><title id="title">IVF: построение индекса и отдельный путь запроса</title><desc id="desc">База обучает грубые центры и формирует списки. Новый запрос в той же версии представления выбирает ближайшие ячейки, просматривает их объекты и возвращает top-k. Независимый точный поиск нужен для оценки полноты.</desc>
 <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
-<rect width="1120" height="490" rx="16" fill="#f5f8f5"/>
-<text x="28" y="36" font-family="Segoe UI,sans-serif" font-size="22" fill="#173644">Аномалии, псевдометки, потоки и IVF</text>
-<path d="M295,136 L410,136" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M670,136 L785,136" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M915,182 L915,265" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M785,311 L670,311" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M410,311 L295,311" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="35" y="90" width="260" height="92" rx="10" fill="#e9eef1" stroke="#9bb6b0"/>
-<text x="165" y="136.0" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">objects + representation</text>
-<rect x="410" y="90" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="540" y="126.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">train-only transform</text>
-<text x="540" y="145.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">масштаб / basis</text>
-<rect x="785" y="90" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="915" y="126.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">geometry / algorithm</text>
-<text x="915" y="145.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">предположения главы</text>
-<rect x="785" y="265" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="915" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">partition / coordinates</text>
-<text x="915" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">или probabilities</text>
-<rect x="410" y="265" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="540" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">original-space checks</text>
-<text x="540" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">метрики и stability</text>
-<rect x="35" y="265" width="260" height="92" rx="10" fill="#e9eef1" stroke="#9bb6b0"/>
-<text x="165" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">new objects / system</text>
-<text x="165" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">явная граница применения</text>
-<text x="28" y="470" font-family="Segoe UI,sans-serif" font-size="13" fill="#526b75">Зелёный: модель / преобразование; серый: вход, состояние или результат. Пунктир: обход / управление.</text></svg>
+<rect width="1280" height="1060" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">IVF: построение индекса и отдельный путь запроса</tspan></text>
+<text x="35" y="85" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#173644"><tspan x="35" dy="0">Построение: зафиксировать представление и обучить центры</tspan></text>
+<rect x="35" y="130" width="360" height="120" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="157" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="49" dy="0">База N объектов</tspan><tspan x="49" dy="25">Кодировщик + нормировка</tspan><tspan x="49" dy="25">Версия представления</tspan></text>
+<rect x="460" y="130" width="360" height="120" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="474" y="157" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="474" dy="0">Векторы [N,d]</tspan><tspan x="474" dy="25">Обучить n_list центров</tspan><tspan x="474" dy="25">Назначить каждый вектор</tspan></text>
+<path d="M395,190 L460,190" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="885" y="130" width="360" height="120" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="899" y="157" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="899" dy="0">Списки ячеек</tspan><tspan x="899" dy="25">ID и векторы объектов</tspan><tspan x="899" dy="25">+ центры [n_list,d]</tspan></text>
+<path d="M820,190 L885,190" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="355" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#173644"><tspan x="35" dy="0">Запрос: веса, предобработка и центры не обновляются</tspan></text>
+<rect x="35" y="410" width="275" height="120" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="437" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="49" dy="0">Новый объект</tspan><tspan x="49" dy="23">Тот же кодировщик</tspan><tspan x="49" dy="23">→ q [d]</tspan></text>
+<rect x="350" y="410" width="275" height="120" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="364" y="437" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="364" dy="0">Расстояния до центров</tspan><tspan x="364" dy="23">Выбрать n_probe ячеек</tspan><tspan x="364" dy="23">K(q) — их номера</tspan></text>
+<path d="M310,470 L350,470" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="665" y="410" width="275" height="120" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="679" y="437" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="679" dy="0">Прочитать списки</tspan><tspan x="679" dy="23">Объединить объекты</tspan><tspan x="679" dy="23">Кандидаты C(q)</tspan></text>
+<path d="M625,470 L665,470" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="980" y="410" width="275" height="120" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="994" y="437" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="994" dy="0">Расстояния q–кандидат</tspan><tspan x="994" dy="23">Фильтрация / выдача</tspan><tspan x="994" dy="23">Приближённый top-k</tspan></text>
+<path d="M940,470 L980,470" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1035,250 L1035,305 L485,305 L485,410" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1100,250 L1100,330 L800,330 L800,410" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="35" y="650" width="590" height="110" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="49" y="677" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="49" dy="0">Контроль: точный поиск по всей базе</tspan><tspan x="49" dy="25">E_k(q) и A_k(q) → |пересечение| / k</tspan><tspan x="49" dy="25">Не найденный список может содержать истинного соседа</tspan></text>
+<path d="M170,530 L170,650" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1117,530 L1117,600 L625,600 L625,705" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="35" y="845" width="1215" height="125" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="49" y="872" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#173644"><tspan x="49" dy="0">При равных списках: N · n_probe / n_list просмотренных векторов</tspan><tspan x="49" dy="26">1 000 000 · 10 / 1000 = 10 000; дополнительно: центры, чтение, фильтры и расстояния</tspan><tspan x="49" dy="26">Версия включает кодировщик, нормировку, центры и базу; одинаковая ширина не обеспечивает совместимость</tspan></text>
+<text x="35" y="1020" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="35" dy="0">Группы обслуживают поиск; смысловые классы, тревоги и псевдометки требуют своих проверок.</tspan></text></svg>

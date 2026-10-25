@@ -54,9 +54,49 @@
       "title": "Компьютерное зрение",
       "sections": [
         {
-          "id": "main",
-          "path": "",
-          "title": "Основы и задачи"
+          "id": "cv-found",
+          "path": "01-foundations",
+          "title": "Основы и архитектуры"
+        },
+        {
+          "id": "cv-representations",
+          "path": "02-representations",
+          "title": "Обучение и представления"
+        },
+        {
+          "id": "cv-detection",
+          "path": "03-detection",
+          "title": "Детекция"
+        },
+        {
+          "id": "cv-segmentation",
+          "path": "04-segmentation",
+          "title": "Сегментация и открытый словарь"
+        },
+        {
+          "id": "cv-video",
+          "path": "05-video",
+          "title": "Поза, движение и видео"
+        },
+        {
+          "id": "cv-geometry",
+          "path": "06-geometry",
+          "title": "Геометрия и 3D"
+        },
+        {
+          "id": "cv-specialized",
+          "path": "07-specialized",
+          "title": "Специализированные задачи"
+        },
+        {
+          "id": "cv-generation",
+          "path": "08-generation",
+          "title": "Генерация изображений"
+        },
+        {
+          "id": "cv-systems",
+          "path": "09-systems",
+          "title": "Выбор и эксплуатация решения"
         }
       ]
     },
@@ -565,7 +605,9 @@
       "level": "основа ветки",
       "path": "01-data-features/02-features/feat-geography.md",
       "source": null,
-      "used_by": [],
+      "used_by": [
+        "feat-pipeline"
+      ],
       "source_files": [],
       "figures": [
         "оформление/course/feat-geography.svg"
@@ -1021,7 +1063,8 @@
         "04-clustering/Учебные конспекты/Б — K-Means, иерархии, плотность и GMM.md"
       ],
       "figures": [
-        "оформление/course/cl-kmeans.svg"
+        "оформление/course/cl-kmeans.svg",
+        "оформление/course/cl-kmeans-2d.svg"
       ]
     },
     {
@@ -1044,7 +1087,7 @@
         "04-clustering/Учебные конспекты/Б — K-Means, иерархии, плотность и GMM.md"
       ],
       "figures": [
-        "оформление/course/cl-hierarchy.svg"
+        "оформление/course/cl-linkage-trees.svg"
       ]
     },
     {
@@ -1067,7 +1110,7 @@
         "04-clustering/Учебные конспекты/Б — K-Means, иерархии, плотность и GMM.md"
       ],
       "figures": [
-        "оформление/course/cl-density.svg"
+        "оформление/course/cl-density-points.svg"
       ]
     },
     {
@@ -1090,7 +1133,7 @@
         "04-clustering/Учебные конспекты/Б — K-Means, иерархии, плотность и GMM.md"
       ],
       "figures": [
-        "оформление/course/cl-gmm.svg"
+        "оформление/course/cl-gmm-em.svg"
       ]
     },
     {
@@ -1186,7 +1229,8 @@
         "04-clustering/Учебные конспекты/Д — Frozen embeddings, DEC и IDEC.md"
       ],
       "figures": [
-        "оформление/course/cl-deep.svg"
+        "оформление/course/cl-deep.svg",
+        "оформление/course/cl-idec-branches.svg"
       ]
     },
     {
@@ -1253,7 +1297,7 @@
     {
       "id": "cv-input",
       "module": "cv",
-      "section": "main",
+      "section": "cv-found",
       "title": "Изображение, карты признаков и блоки модели",
       "question": "Как меняются форма, разрешение и рецептивное поле по пути изображения?",
       "prerequisites": [
@@ -1263,28 +1307,49 @@
       "path": "04-computer-vision/cv-input.md",
       "source": "cv-00",
       "used_by": [
+        "cv-classical",
         "cv-classification",
         "cv-vit",
+        "cv-pyramids",
         "cv-detection",
         "cv-semantic",
-        "cv-instance",
         "cv-pose",
-        "cv-obb",
-        "cv-tracking",
-        "cv-depth",
-        "cv-open-vocabulary"
+        "cv-flow",
+        "cv-camera",
+        "cv-restoration"
       ],
       "source_files": [
         "05-computer-vision/Учебные конспекты/00 — Изображение, тензоры и общий путь модели.md"
       ],
       "figures": [
-        "оформление/course/cv-input.svg"
+        "оформление/course/cv-input.svg",
+        "оформление/course/expanded-cv-input.svg"
+      ]
+    },
+    {
+      "id": "cv-classical",
+      "module": "cv",
+      "section": "cv-found",
+      "title": "Классическое CV: фильтры, границы, морфология, HOG и SIFT",
+      "path": "04-computer-vision/cv-classical.md",
+      "prerequisites": [
+        "cv-input"
+      ],
+      "question": "Когда фиксированные признаки полезнее обучения большой сети?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-classical.svg"
+      ],
+      "used_by": [
+        "cv-sfm"
       ]
     },
     {
       "id": "cv-classification",
       "module": "cv",
-      "section": "main",
+      "section": "cv-found",
       "title": "Классификация, CNN и residual learning",
       "question": "Как изображение превращается в logits класса и что меняет backbone?",
       "prerequisites": [
@@ -1294,28 +1359,92 @@
       "path": "04-computer-vision/cv-classification.md",
       "source": "cv-А",
       "used_by": [
+        "cv-resnet",
         "cv-vit",
+        "cv-transfer",
+        "cv-losses",
+        "cv-pyramids",
         "cv-detection",
         "cv-semantic",
-        "cv-instance",
         "cv-pose",
-        "cv-obb",
-        "cv-tracking",
+        "cv-flow",
         "cv-depth",
-        "cv-open-vocabulary"
+        "cv-pointnet",
+        "cv-nerf",
+        "cv-text-recognition",
+        "cv-restoration",
+        "cv-generative"
       ],
       "source_files": [
         "05-computer-vision/Учебные конспекты/А — Классификация, backbone и математика ViT.md"
       ],
       "figures": [
         "оформление/course/cv-classification.svg",
-        "оформление/course/arch-resnet.svg"
+        "оформление/course/arch-resnet.svg",
+        "оформление/course/expanded-cv-classification.svg"
       ]
+    },
+    {
+      "id": "cv-resnet",
+      "module": "cv",
+      "section": "cv-found",
+      "title": "ResNet: residual-блоки, projection и градиенты",
+      "path": "04-computer-vision/cv-resnet.md",
+      "prerequisites": [
+        "cv-classification"
+      ],
+      "question": "Как residual-связь меняет вычисление и прохождение градиента?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-resnet.svg"
+      ],
+      "used_by": [
+        "cv-efficient",
+        "cv-convnext"
+      ]
+    },
+    {
+      "id": "cv-efficient",
+      "module": "cv",
+      "section": "cv-found",
+      "title": "MobileNet и EfficientNet: вычисления при ограниченном бюджете",
+      "path": "04-computer-vision/cv-efficient.md",
+      "prerequisites": [
+        "cv-resnet"
+      ],
+      "question": "Откуда берётся экономия MobileNet и как масштабируется EfficientNet?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-efficient.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-convnext",
+      "module": "cv",
+      "section": "cv-found",
+      "title": "ConvNeXt: современная свёрточная архитектура",
+      "path": "04-computer-vision/cv-convnext.md",
+      "prerequisites": [
+        "cv-resnet"
+      ],
+      "question": "Какие изменения позволяют CNN использовать идеи дизайна Transformer?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-convnext.svg"
+      ],
+      "used_by": []
     },
     {
       "id": "cv-vit",
       "module": "cv",
-      "section": "main",
+      "section": "cv-found",
       "title": "Vision Transformer: patches, attention и обучение",
       "question": "Как patch projection, позиции и attention преобразуют изображение?",
       "prerequisites": [
@@ -1327,20 +1456,31 @@
       "source": null,
       "used_by": [
         "cv-hierarchy",
-        "cv-pretraining"
+        "cv-pretraining",
+        "cv-dino",
+        "cv-detr",
+        "cv-segformers",
+        "cv-open-vocabulary",
+        "cv-pose-models",
+        "cv-video",
+        "cv-text-recognition",
+        "cv-latent-diffusion"
       ],
       "source_files": [
         "05-computer-vision/Учебные конспекты/А — Классификация, backbone и математика ViT.md"
       ],
       "figures": [
         "оформление/course/cv-vit.svg",
-        "оформление/course/arch-vit.svg"
+        "оформление/transformer/patch-to-tokens.svg",
+        "оформление/transformer/vit-pipeline.svg",
+        "оформление/course/arch-vit.svg",
+        "оформление/course/expanded-cv-vit.svg"
       ]
     },
     {
       "id": "cv-hierarchy",
       "module": "cv",
-      "section": "main",
+      "section": "cv-found",
       "title": "Углубление: Swin и иерархические представления",
       "question": "Как окна и patch merging создают пространственную иерархию?",
       "prerequisites": [
@@ -1355,38 +1495,171 @@
       ],
       "figures": [
         "оформление/course/cv-hierarchy.svg",
-        "оформление/course/arch-swin.svg"
+        "оформление/transformer/swin-shift.svg",
+        "оформление/course/arch-swin.svg",
+        "оформление/course/expanded-cv-hierarchy.svg"
       ]
+    },
+    {
+      "id": "cv-transfer",
+      "module": "cv",
+      "section": "cv-representations",
+      "title": "Обучение и перенос: frozen features, fine-tuning и аугментации",
+      "path": "04-computer-vision/cv-transfer.md",
+      "prerequisites": [
+        "cv-classification"
+      ],
+      "question": "Как выбрать между frozen features и полным fine-tuning?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-transfer.svg"
+      ],
+      "used_by": [
+        "cv-contrastive",
+        "cv-dino",
+        "cv-retrieval",
+        "cv-anomaly",
+        "cv-robustness",
+        "cv-deployment"
+      ]
+    },
+    {
+      "id": "cv-losses",
+      "module": "cv",
+      "section": "cv-representations",
+      "title": "Loss, дисбаланс, пороги и калибровка в CV",
+      "path": "04-computer-vision/cv-losses.md",
+      "prerequisites": [
+        "cv-classification"
+      ],
+      "question": "Как связать функцию потерь, дисбаланс и порог принятия решения?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-losses.svg"
+      ],
+      "used_by": [
+        "cv-diagnosis",
+        "cv-robustness",
+        "cv-deployment"
+      ]
+    },
+    {
+      "id": "cv-pyramids",
+      "module": "cv",
+      "section": "cv-representations",
+      "title": "FPN и PAN: многомасштабные представления",
+      "path": "04-computer-vision/cv-pyramids.md",
+      "prerequisites": [
+        "cv-input",
+        "cv-classification"
+      ],
+      "question": "Как передать голове одновременно детали и контекст разных масштабов?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-pyramids.svg"
+      ],
+      "used_by": [
+        "cv-faster-rcnn",
+        "cv-dense-detectors",
+        "cv-yolo",
+        "cv-deformable"
+      ]
+    },
+    {
+      "id": "cv-contrastive",
+      "module": "cv",
+      "section": "cv-representations",
+      "title": "SimCLR и MoCo: контрастивное обучение изображений",
+      "path": "04-computer-vision/cv-contrastive.md",
+      "prerequisites": [
+        "cv-transfer"
+      ],
+      "question": "Как обучить encoder на разных видах одного изображения без class labels?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-contrastive.svg"
+      ],
+      "used_by": []
     },
     {
       "id": "cv-pretraining",
       "module": "cv",
-      "section": "main",
+      "section": "cv-representations",
       "title": "Углубление: SSL, MAE, DeiT и DINOv3",
-      "question": "Как получить и проверить представление без полного набора task labels?",
+      "question": "Как различаются восстановление masked patches и distillation?",
       "prerequisites": [
         "cv-vit"
       ],
       "level": "углубление",
       "path": "04-computer-vision/cv-pretraining.md",
       "source": null,
-      "used_by": [],
+      "used_by": [
+        "cv-video"
+      ],
       "source_files": [
         "05-computer-vision/Учебные конспекты/А — Классификация, backbone и математика ViT.md"
       ],
       "figures": [
         "оформление/course/cv-pretraining.svg",
+        "оформление/transformer/mae-visible-hidden.svg",
+        "оформление/transformer/deit-teacher-student.svg",
         "оформление/course/arch-mae.svg",
         "оформление/course/arch-deit.svg",
-        "оформление/course/arch-dinov3.svg"
+        "оформление/course/arch-dinov3.svg",
+        "оформление/course/expanded-cv-pretraining.svg"
       ]
+    },
+    {
+      "id": "cv-dino",
+      "module": "cv",
+      "section": "cv-representations",
+      "title": "DINO, DINOv2 и DINOv3: self-distillation и dense features",
+      "path": "04-computer-vision/cv-dino.md",
+      "prerequisites": [
+        "cv-vit",
+        "cv-transfer"
+      ],
+      "question": "Как self-distillation учит глобальные и пространственные признаки?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-dino.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-retrieval",
+      "module": "cv",
+      "section": "cv-representations",
+      "title": "Visual retrieval: metric learning и поиск изображений",
+      "path": "04-computer-vision/cv-retrieval.md",
+      "prerequisites": [
+        "cv-transfer"
+      ],
+      "question": "Как обучить и оценить поиск похожих изображений?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-retrieval.svg"
+      ],
+      "used_by": []
     },
     {
       "id": "cv-detection",
       "module": "cv",
-      "section": "main",
+      "section": "cv-detection",
       "title": "Detection: множества объектов, IoU, AP и архитектуры",
-      "question": "Как получить множество рамок и оценить его с учётом matching?",
+      "question": "Как отделить ошибки candidates, assignment и post-processing?",
       "prerequisites": [
         "cv-input",
         "cv-classification"
@@ -1395,10 +1668,17 @@
       "path": "04-computer-vision/cv-detection.md",
       "source": "cv-Б",
       "used_by": [
-        "cv-instance",
+        "cv-faster-rcnn",
+        "cv-dense-detectors",
+        "cv-yolo",
+        "cv-detr",
         "cv-obb",
+        "cv-instance",
+        "cv-open-vocabulary",
         "cv-tracking",
-        "cv-open-vocabulary"
+        "cv-bev",
+        "cv-text-detection",
+        "cv-diagnosis"
       ],
       "source_files": [
         "05-computer-vision/Учебные конспекты/Б — Detection, IoU, AP, NMS и архитектуры.md"
@@ -1414,15 +1694,138 @@
         "оформление/course/arch-yolov1.svg",
         "оформление/course/arch-yolov2.svg",
         "оформление/course/arch-yolov3.svg",
-        "оформление/course/arch-rtdetr.svg"
+        "оформление/course/arch-rtdetr.svg",
+        "оформление/course/expanded-cv-detection.svg"
+      ]
+    },
+    {
+      "id": "cv-faster-rcnn",
+      "module": "cv",
+      "section": "cv-detection",
+      "title": "Faster R-CNN: RPN, RoI и обучение двух стадий",
+      "path": "04-computer-vision/cv-faster-rcnn.md",
+      "prerequisites": [
+        "cv-detection",
+        "cv-pyramids"
+      ],
+      "question": "Как RPN и RoI-head совместно превращают карту признаков в объекты?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-faster-rcnn.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-dense-detectors",
+      "module": "cv",
+      "section": "cv-detection",
+      "title": "RetinaNet и FCOS: anchors и dense prediction",
+      "path": "04-computer-vision/cv-dense-detectors.md",
+      "prerequisites": [
+        "cv-detection",
+        "cv-pyramids"
+      ],
+      "question": "Что меняется при переходе от anchors RetinaNet к расстояниям FCOS?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-dense-detectors.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-yolo",
+      "module": "cv",
+      "section": "cv-detection",
+      "title": "YOLOv3 и YOLOv8: головы, assignment и декодирование",
+      "path": "04-computer-vision/cv-yolo.md",
+      "prerequisites": [
+        "cv-detection",
+        "cv-pyramids"
+      ],
+      "question": "Почему YOLOv3 и YOLOv8 нельзя объяснять одной формулой головы?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-yolo.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-detr",
+      "module": "cv",
+      "section": "cv-detection",
+      "title": "DETR: queries, matching и set prediction",
+      "path": "04-computer-vision/cv-detr.md",
+      "prerequisites": [
+        "cv-detection",
+        "cv-vit"
+      ],
+      "question": "Как обучение множества предсказаний устраняет необходимость обычной NMS?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-detr.svg"
+      ],
+      "used_by": [
+        "cv-deformable",
+        "cv-mask2former"
+      ]
+    },
+    {
+      "id": "cv-deformable",
+      "module": "cv",
+      "section": "cv-detection",
+      "title": "Deformable DETR и RT-DETR: внимание и скорость",
+      "path": "04-computer-vision/cv-deformable.md",
+      "prerequisites": [
+        "cv-detr",
+        "cv-pyramids"
+      ],
+      "question": "Как сократить внимание к изображению и ускорить set prediction?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-deformable.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-obb",
+      "module": "cv",
+      "section": "cv-detection",
+      "title": "Ориентированные рамки и периодичность угла",
+      "question": "Как избежать противоречивых целей для угла ориентированной рамки?",
+      "prerequisites": [
+        "cv-detection"
+      ],
+      "level": "углубление",
+      "path": "04-computer-vision/cv-obb.md",
+      "source": "cv-Е",
+      "used_by": [
+        "cv-domains"
+      ],
+      "source_files": [
+        "05-computer-vision/Учебные конспекты/Е — OBB, поворот, periodicity и rotated IoU.md"
+      ],
+      "figures": [
+        "оформление/course/cv-obb.svg",
+        "оформление/course/arch-obb.svg",
+        "оформление/course/expanded-cv-obb.svg"
       ]
     },
     {
       "id": "cv-semantic",
       "module": "cv",
-      "section": "main",
+      "section": "cv-segmentation",
       "title": "Semantic segmentation: FCN, U-Net и DeepLab",
-      "question": "Как предсказывать класс пикселя и восстанавливать пространственную сетку?",
+      "question": "Как проверить pixel prediction отдельно от восстановления границ?",
       "prerequisites": [
         "cv-input",
         "cv-classification"
@@ -1431,7 +1834,11 @@
       "path": "04-computer-vision/cv-semantic.md",
       "source": "cv-В",
       "used_by": [
-        "cv-instance"
+        "cv-unet",
+        "cv-segformers",
+        "cv-instance",
+        "cv-text-detection",
+        "cv-diagnosis"
       ],
       "source_files": [
         "05-computer-vision/Учебные конспекты/В — Semantic segmentation, FCN, U-Net и DeepLab.md"
@@ -1445,25 +1852,66 @@
         "оформление/course/arch-pspnet.svg",
         "оформление/course/arch-hrnet.svg",
         "оформление/course/arch-segformer.svg",
-        "оформление/course/arch-mask2former.svg"
+        "оформление/course/arch-mask2former.svg",
+        "оформление/course/expanded-cv-semantic.svg"
       ]
+    },
+    {
+      "id": "cv-unet",
+      "module": "cv",
+      "section": "cv-segmentation",
+      "title": "U-Net и nnU-Net: пространственный decoder и настройка pipeline",
+      "path": "04-computer-vision/cv-unet.md",
+      "prerequisites": [
+        "cv-semantic"
+      ],
+      "question": "Как U-Net восстанавливает детали и что автоматизирует nnU-Net?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-unet.svg"
+      ],
+      "used_by": [
+        "cv-domains"
+      ]
+    },
+    {
+      "id": "cv-segformers",
+      "module": "cv",
+      "section": "cv-segmentation",
+      "title": "DeepLabv3+ и SegFormer: контекст и декодирование",
+      "path": "04-computer-vision/cv-segformers.md",
+      "prerequisites": [
+        "cv-semantic",
+        "cv-vit"
+      ],
+      "question": "Как DeepLabv3+ и SegFormer объединяют контекст с пространственными деталями?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-segformers.svg"
+      ],
+      "used_by": []
     },
     {
       "id": "cv-instance",
       "module": "cv",
-      "section": "main",
+      "section": "cv-segmentation",
       "title": "Instance segmentation: Mask R-CNN и prototype masks",
-      "question": "Как отличить экземпляры одного класса и получить маску каждого?",
+      "question": "Как проверить связь mask prediction с конкретным экземпляром?",
       "prerequisites": [
-        "cv-input",
-        "cv-classification",
         "cv-detection",
         "cv-semantic"
       ],
       "level": "общее ядро",
       "path": "04-computer-vision/cv-instance.md",
       "source": "cv-Г",
-      "used_by": [],
+      "used_by": [
+        "cv-prototypes",
+        "cv-mask2former"
+      ],
       "source_files": [
         "05-computer-vision/Учебные конспекты/Г — Instance segmentation, RoIAlign и prototype masks.md"
       ],
@@ -1477,123 +1925,56 @@
         "оформление/course/arch-pointrend.svg",
         "оформление/course/arch-sam.svg",
         "оформление/course/arch-sam3.svg",
-        "оформление/course/arch-mask2former.svg"
+        "оформление/course/arch-mask2former.svg",
+        "оформление/course/expanded-cv-instance.svg"
       ]
     },
     {
-      "id": "cv-pose",
+      "id": "cv-prototypes",
       "module": "cv",
-      "section": "main",
-      "title": "Pose: keypoints, heatmaps и группировка",
-      "question": "Как связать положение ключевых точек с конкретным объектом?",
+      "section": "cv-segmentation",
+      "title": "YOLACT: prototype masks, коэффициенты и crop",
+      "path": "04-computer-vision/cv-prototypes.md",
       "prerequisites": [
-        "cv-input",
-        "cv-classification"
+        "cv-instance"
       ],
+      "question": "Как получить маску экземпляра без отдельного пространственного decoder на каждый объект?",
       "level": "основа ветки",
-      "path": "04-computer-vision/cv-pose.md",
-      "source": "cv-Д",
-      "used_by": [],
-      "source_files": [
-        "05-computer-vision/Учебные конспекты/Д — Pose, heatmaps, OKS и группировка keypoints.md"
-      ],
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
       "figures": [
-        "оформление/course/cv-pose.svg",
-        "оформление/course/arch-pose-topdown.svg",
-        "оформление/course/arch-pose-bottomup.svg",
-        "оформление/course/arch-pose-onestage.svg",
-        "оформление/course/arch-simplebaseline.svg",
-        "оформление/course/arch-higherhrnet.svg",
-        "оформление/course/arch-vitpose.svg",
-        "оформление/course/arch-rtmpose.svg",
-        "оформление/course/arch-blazepose.svg",
-        "оформление/course/arch-hrnet.svg"
-      ]
+        "оформление/course/expanded-cv-prototypes.svg"
+      ],
+      "used_by": []
     },
     {
-      "id": "cv-obb",
+      "id": "cv-mask2former",
       "module": "cv",
-      "section": "main",
-      "title": "Ориентированные рамки и периодичность угла",
-      "question": "Как сравнивать геометрически одинаковые рамки с разными параметрами?",
+      "section": "cv-segmentation",
+      "title": "Mask2Former: mask queries и panoptic segmentation",
+      "path": "04-computer-vision/cv-mask2former.md",
       "prerequisites": [
-        "cv-input",
-        "cv-classification",
-        "cv-detection"
+        "cv-instance",
+        "cv-detr"
       ],
-      "level": "основа ветки",
-      "path": "04-computer-vision/cv-obb.md",
-      "source": "cv-Е",
-      "used_by": [],
-      "source_files": [
-        "05-computer-vision/Учебные конспекты/Е — OBB, поворот, periodicity и rotated IoU.md"
-      ],
+      "question": "Как один набор mask queries решает разные виды segmentation?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
       "figures": [
-        "оформление/course/cv-obb.svg",
-        "оформление/course/arch-obb.svg"
-      ]
-    },
-    {
-      "id": "cv-tracking",
-      "module": "cv",
-      "section": "main",
-      "title": "Tracking: Kalman, association и идентичность",
-      "question": "Как сохранить идентичность объекта между кадрами?",
-      "prerequisites": [
-        "cv-input",
-        "cv-classification",
-        "cv-detection"
+        "оформление/course/expanded-cv-mask2former.svg"
       ],
-      "level": "основа ветки",
-      "path": "04-computer-vision/cv-tracking.md",
-      "source": "cv-Ж",
-      "used_by": [],
-      "source_files": [
-        "05-computer-vision/Учебные конспекты/Ж — Tracking, Kalman, association, MOTA, IDF1 и HOTA.md"
-      ],
-      "figures": [
-        "оформление/course/cv-tracking.svg",
-        "оформление/course/arch-sort.svg",
-        "оформление/course/arch-deepsort.svg",
-        "оформление/course/arch-bytetrack.svg",
-        "оформление/course/arch-botsort.svg",
-        "оформление/course/arch-sam31.svg"
-      ]
-    },
-    {
-      "id": "cv-depth",
-      "module": "cv",
-      "section": "main",
-      "title": "Depth: геометрия, масштаб и DPT",
-      "question": "Что можно восстановить из одного изображения и какие допущения нужны для масштаба?",
-      "prerequisites": [
-        "cv-input",
-        "cv-classification"
-      ],
-      "level": "основа ветки",
-      "path": "04-computer-vision/cv-depth.md",
-      "source": "cv-З",
-      "used_by": [],
-      "source_files": [
-        "05-computer-vision/Учебные конспекты/З — Depth, scale ambiguity, DPT и метрики.md"
-      ],
-      "figures": [
-        "оформление/course/cv-depth.svg",
-        "оформление/course/arch-dpt.svg",
-        "оформление/course/arch-midas.svg",
-        "оформление/course/arch-depth-anything.svg"
-      ]
+      "used_by": []
     },
     {
       "id": "cv-open-vocabulary",
       "module": "cv",
-      "section": "main",
+      "section": "cv-segmentation",
       "title": "CLIP, открытый словарь и YOLO-World",
-      "question": "Как связать текстовое название с локализованным объектом?",
+      "question": "Как разделить text-image alignment, grounding и prompting масок?",
       "prerequisites": [
-        "cv-input",
-        "cv-classification",
-        "cv-detection"
+        "cv-detection",
+        "cv-vit"
       ],
       "level": "основа ветки",
       "path": "04-computer-vision/cv-open-vocabulary.md",
@@ -1613,8 +1994,658 @@
         "оформление/course/arch-owlvit.svg",
         "оформление/course/arch-owlv2.svg",
         "оформление/course/arch-detic.svg",
-        "оформление/course/arch-sam3.svg"
+        "оформление/course/arch-sam3.svg",
+        "оформление/course/expanded-cv-open-vocabulary.svg"
       ]
+    },
+    {
+      "id": "cv-pose",
+      "module": "cv",
+      "section": "cv-video",
+      "title": "Pose: keypoints, heatmaps и группировка",
+      "question": "Как согласовать targets, visibility и координаты keypoints?",
+      "prerequisites": [
+        "cv-input",
+        "cv-classification"
+      ],
+      "level": "основа ветки",
+      "path": "04-computer-vision/cv-pose.md",
+      "source": "cv-Д",
+      "used_by": [
+        "cv-pose-models"
+      ],
+      "source_files": [
+        "05-computer-vision/Учебные конспекты/Д — Pose, heatmaps, OKS и группировка keypoints.md"
+      ],
+      "figures": [
+        "оформление/course/cv-pose.svg",
+        "оформление/course/arch-pose-topdown.svg",
+        "оформление/course/arch-pose-bottomup.svg",
+        "оформление/course/arch-pose-onestage.svg",
+        "оформление/course/arch-simplebaseline.svg",
+        "оформление/course/arch-higherhrnet.svg",
+        "оформление/course/arch-vitpose.svg",
+        "оформление/course/arch-rtmpose.svg",
+        "оформление/course/arch-blazepose.svg",
+        "оформление/course/arch-hrnet.svg",
+        "оформление/course/expanded-cv-pose.svg"
+      ]
+    },
+    {
+      "id": "cv-pose-models",
+      "module": "cv",
+      "section": "cv-video",
+      "title": "HRNet, ViTPose и RTMPose: архитектуры pose estimation",
+      "path": "04-computer-vision/cv-pose-models.md",
+      "prerequisites": [
+        "cv-pose",
+        "cv-vit"
+      ],
+      "question": "Чем различаются HRNet, ViTPose и координатная классификация RTMPose?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-pose-models.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-tracking",
+      "module": "cv",
+      "section": "cv-video",
+      "title": "Tracking: Kalman, association и идентичность",
+      "question": "Как motion uncertainty и assignment определяют сохранение ID?",
+      "prerequisites": [
+        "cv-detection"
+      ],
+      "level": "основа ветки",
+      "path": "04-computer-vision/cv-tracking.md",
+      "source": "cv-Ж",
+      "used_by": [
+        "cv-tracking-models"
+      ],
+      "source_files": [
+        "05-computer-vision/Учебные конспекты/Ж — Tracking, Kalman, association, MOTA, IDF1 и HOTA.md"
+      ],
+      "figures": [
+        "оформление/course/cv-tracking.svg",
+        "оформление/course/arch-sort.svg",
+        "оформление/course/arch-deepsort.svg",
+        "оформление/course/arch-bytetrack.svg",
+        "оформление/course/arch-botsort.svg",
+        "оформление/course/arch-sam31.svg",
+        "оформление/course/expanded-cv-tracking.svg"
+      ]
+    },
+    {
+      "id": "cv-tracking-models",
+      "module": "cv",
+      "section": "cv-video",
+      "title": "SORT, DeepSORT, ByteTrack и BoT-SORT: разбор последовательности",
+      "path": "04-computer-vision/cv-tracking-models.md",
+      "prerequisites": [
+        "cv-tracking"
+      ],
+      "question": "Как сохранить ID при падении confidence и пересечении траекторий?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-tracking-models.svg"
+      ],
+      "used_by": [
+        "cv-cases"
+      ]
+    },
+    {
+      "id": "cv-flow",
+      "module": "cv",
+      "section": "cv-video",
+      "title": "Optical flow и RAFT: плотное движение",
+      "path": "04-computer-vision/cv-flow.md",
+      "prerequisites": [
+        "cv-input",
+        "cv-classification"
+      ],
+      "question": "Как RAFT находит перемещение каждого пикселя между двумя кадрами?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-flow.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-video",
+      "module": "cv",
+      "section": "cv-video",
+      "title": "Video understanding: 3D CNN, SlowFast, TimeSformer и VideoMAE",
+      "path": "04-computer-vision/cv-video.md",
+      "prerequisites": [
+        "cv-vit",
+        "cv-pretraining"
+      ],
+      "question": "Как модель использует время и почему выбор кадров входит в постановку?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-video.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-camera",
+      "module": "cv",
+      "section": "cv-geometry",
+      "title": "Камера и геометрия: проекция, координаты и калибровка",
+      "path": "04-computer-vision/cv-camera.md",
+      "prerequisites": [
+        "cv-input"
+      ],
+      "question": "Как связать пиксели, координаты камеры и точки сцены?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-camera.svg"
+      ],
+      "used_by": [
+        "cv-stereo",
+        "cv-depth",
+        "cv-sfm",
+        "cv-pointnet",
+        "cv-nerf",
+        "cv-domains"
+      ]
+    },
+    {
+      "id": "cv-stereo",
+      "module": "cv",
+      "section": "cv-geometry",
+      "title": "Стереозрение: disparity, cost volume и погрешность глубины",
+      "path": "04-computer-vision/cv-stereo.md",
+      "prerequisites": [
+        "cv-camera"
+      ],
+      "question": "Как disparity превращается в глубину и почему дальние точки менее точны?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-stereo.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-depth",
+      "module": "cv",
+      "section": "cv-geometry",
+      "title": "Depth: геометрия, масштаб и DPT",
+      "question": "Как связать output depth model с геометрией и корректной оценкой масштаба?",
+      "prerequisites": [
+        "cv-camera",
+        "cv-classification"
+      ],
+      "level": "основа ветки",
+      "path": "04-computer-vision/cv-depth.md",
+      "source": "cv-З",
+      "used_by": [],
+      "source_files": [
+        "05-computer-vision/Учебные конспекты/З — Depth, scale ambiguity, DPT и метрики.md"
+      ],
+      "figures": [
+        "оформление/course/cv-depth.svg",
+        "оформление/course/arch-dpt.svg",
+        "оформление/course/arch-midas.svg",
+        "оформление/course/arch-depth-anything.svg",
+        "оформление/course/expanded-cv-depth.svg"
+      ]
+    },
+    {
+      "id": "cv-sfm",
+      "module": "cv",
+      "section": "cv-geometry",
+      "title": "Feature matching, SfM и SLAM: восстановление сцены и движения",
+      "path": "04-computer-vision/cv-sfm.md",
+      "prerequisites": [
+        "cv-camera",
+        "cv-classical"
+      ],
+      "question": "Как из нескольких изображений восстановить камеры и разреженную сцену?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-sfm.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-pointnet",
+      "module": "cv",
+      "section": "cv-geometry",
+      "title": "PointNet и PointNet++: обучение на множествах точек",
+      "path": "04-computer-vision/cv-pointnet.md",
+      "prerequisites": [
+        "cv-camera",
+        "cv-classification"
+      ],
+      "question": "Как сеть обрабатывает облако точек без заданного порядка?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-pointnet.svg"
+      ],
+      "used_by": [
+        "cv-bev"
+      ]
+    },
+    {
+      "id": "cv-bev",
+      "module": "cv",
+      "section": "cv-geometry",
+      "title": "Voxels, PointPillars и BEV: представления для 3D detection",
+      "path": "04-computer-vision/cv-bev.md",
+      "prerequisites": [
+        "cv-pointnet",
+        "cv-detection"
+      ],
+      "question": "Как преобразовать 3D measurements в удобное представление для detection?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-bev.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-nerf",
+      "module": "cv",
+      "section": "cv-geometry",
+      "title": "NeRF: лучи, radiance field и volume rendering",
+      "path": "04-computer-vision/cv-nerf.md",
+      "prerequisites": [
+        "cv-camera",
+        "cv-classification"
+      ],
+      "question": "Как обучить представление сцены по фотографиям и отрисовать новый вид?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-nerf.svg"
+      ],
+      "used_by": [
+        "cv-gaussians"
+      ]
+    },
+    {
+      "id": "cv-gaussians",
+      "module": "cv",
+      "section": "cv-geometry",
+      "title": "3D Gaussian Splatting: проекция, compositing и densification",
+      "path": "04-computer-vision/cv-gaussians.md",
+      "prerequisites": [
+        "cv-nerf"
+      ],
+      "question": "Как явные 3D Gaussian primitives заменяют многократные запросы neural field?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-gaussians.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-text-detection",
+      "module": "cv",
+      "section": "cv-specialized",
+      "title": "CRAFT и DBNet: поиск текста на изображении",
+      "path": "04-computer-vision/cv-text-detection.md",
+      "prerequisites": [
+        "cv-detection",
+        "cv-semantic"
+      ],
+      "question": "Как обнаруживать текст разной ориентации и формы?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-text-detection.svg"
+      ],
+      "used_by": [
+        "cv-documents"
+      ]
+    },
+    {
+      "id": "cv-text-recognition",
+      "module": "cv",
+      "section": "cv-specialized",
+      "title": "CRNN, CTC и TrOCR: распознавание текста",
+      "path": "04-computer-vision/cv-text-recognition.md",
+      "prerequisites": [
+        "cv-classification",
+        "cv-vit"
+      ],
+      "question": "Как читать строку без отдельной рамки каждого символа?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-text-recognition.svg"
+      ],
+      "used_by": [
+        "cv-documents"
+      ]
+    },
+    {
+      "id": "cv-documents",
+      "module": "cv",
+      "section": "cv-specialized",
+      "title": "Document vision: layout, reading order и таблицы",
+      "path": "04-computer-vision/cv-documents.md",
+      "prerequisites": [
+        "cv-text-detection",
+        "cv-text-recognition"
+      ],
+      "question": "Как связать геометрию страницы, OCR и структуру документа?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-documents.svg"
+      ],
+      "used_by": [
+        "cv-cases"
+      ]
+    },
+    {
+      "id": "cv-anomaly",
+      "module": "cv",
+      "section": "cv-specialized",
+      "title": "Anomaly detection: reconstruction, PaDiM и PatchCore",
+      "path": "04-computer-vision/cv-anomaly.md",
+      "prerequisites": [
+        "cv-transfer"
+      ],
+      "question": "Как искать дефекты, если при обучении есть преимущественно нормальные изделия?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-anomaly.svg"
+      ],
+      "used_by": [
+        "cv-cases"
+      ]
+    },
+    {
+      "id": "cv-restoration",
+      "module": "cv",
+      "section": "cv-specialized",
+      "title": "Восстановление изображений: denoising, deblurring и super-resolution",
+      "path": "04-computer-vision/cv-restoration.md",
+      "prerequisites": [
+        "cv-input",
+        "cv-classification"
+      ],
+      "question": "Как восстанавливать изображение, не принимая правдоподобные детали за измеренные?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-restoration.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-domains",
+      "module": "cv",
+      "section": "cv-specialized",
+      "title": "Медицинские и спутниковые изображения: данные, объём и масштаб",
+      "path": "04-computer-vision/cv-domains.md",
+      "prerequisites": [
+        "cv-unet",
+        "cv-obb",
+        "cv-camera"
+      ],
+      "question": "Какие свойства медицинских и спутниковых данных меняют обычный CV pipeline?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-domains.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-generative",
+      "module": "cv",
+      "section": "cv-generation",
+      "title": "Autoencoder, VAE и GAN: вероятностные основы генерации",
+      "path": "04-computer-vision/cv-generative.md",
+      "prerequisites": [
+        "cv-classification"
+      ],
+      "question": "Чем различаются восстановление входа и обучение распределения новых изображений?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-generative.svg"
+      ],
+      "used_by": [
+        "cv-ddpm",
+        "cv-generation-eval"
+      ]
+    },
+    {
+      "id": "cv-ddpm",
+      "module": "cv",
+      "section": "cv-generation",
+      "title": "DDPM: прямой процесс, noise prediction и обучение",
+      "path": "04-computer-vision/cv-ddpm.md",
+      "prerequisites": [
+        "cv-generative"
+      ],
+      "question": "Как обучение предсказанию шума превращается в генерацию изображения?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-ddpm.svg"
+      ],
+      "used_by": [
+        "cv-sampling"
+      ]
+    },
+    {
+      "id": "cv-sampling",
+      "module": "cv",
+      "section": "cv-generation",
+      "title": "DDIM, расписания шума и classifier-free guidance",
+      "path": "04-computer-vision/cv-sampling.md",
+      "prerequisites": [
+        "cv-ddpm"
+      ],
+      "question": "Как менять число шагов и силу условия, не смешивая sampler с обучением?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-sampling.svg"
+      ],
+      "used_by": [
+        "cv-latent-diffusion"
+      ]
+    },
+    {
+      "id": "cv-latent-diffusion",
+      "module": "cv",
+      "section": "cv-generation",
+      "title": "Latent diffusion: autoencoder, denoiser и conditioning",
+      "path": "04-computer-vision/cv-latent-diffusion.md",
+      "prerequisites": [
+        "cv-sampling",
+        "cv-vit"
+      ],
+      "question": "Что меняется, когда diffusion работает в пространстве сжатых признаков?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-latent-diffusion.svg"
+      ],
+      "used_by": [
+        "cv-dit-flow",
+        "cv-control",
+        "cv-generation-eval"
+      ]
+    },
+    {
+      "id": "cv-dit-flow",
+      "module": "cv",
+      "section": "cv-generation",
+      "title": "DiT и flow matching: Transformer и цели обучения",
+      "path": "04-computer-vision/cv-dit-flow.md",
+      "prerequisites": [
+        "cv-latent-diffusion"
+      ],
+      "question": "Почему Transformer-backbone и flow matching являются разными выборами?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-dit-flow.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-control",
+      "module": "cv",
+      "section": "cv-generation",
+      "title": "ControlNet, inpainting, image-to-image и LoRA",
+      "path": "04-computer-vision/cv-control.md",
+      "prerequisites": [
+        "cv-latent-diffusion"
+      ],
+      "question": "Как направлять генерацию геометрией, исходным изображением и небольшими обновлениями весов?",
+      "level": "углубление",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-control.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-generation-eval",
+      "module": "cv",
+      "section": "cv-generation",
+      "title": "Оценка генерации: fidelity, diversity, условия и FID",
+      "path": "04-computer-vision/cv-generation-eval.md",
+      "prerequisites": [
+        "cv-generative",
+        "cv-latent-diffusion"
+      ],
+      "question": "Как проверить качество генератора без одного вводящего в заблуждение числа?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-generation-eval.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-diagnosis",
+      "module": "cv",
+      "section": "cv-systems",
+      "title": "Диагностика CV: ошибки данных, модели и post-processing",
+      "path": "04-computer-vision/cv-diagnosis.md",
+      "prerequisites": [
+        "cv-losses",
+        "cv-detection",
+        "cv-semantic"
+      ],
+      "question": "Как локализовать причину плохого результата до замены архитектуры?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-diagnosis.svg"
+      ],
+      "used_by": [
+        "cv-cases"
+      ]
+    },
+    {
+      "id": "cv-robustness",
+      "module": "cv",
+      "section": "cv-systems",
+      "title": "Robustness, domain shift, OOD и отказ от ответа",
+      "path": "04-computer-vision/cv-robustness.md",
+      "prerequisites": [
+        "cv-losses",
+        "cv-transfer"
+      ],
+      "question": "Как обнаружить потерю качества при новой камере или неизвестных объектах?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-robustness.svg"
+      ],
+      "used_by": []
+    },
+    {
+      "id": "cv-deployment",
+      "module": "cv",
+      "section": "cv-systems",
+      "title": "Deployment: экспорт, quantization, distillation и производительность",
+      "path": "04-computer-vision/cv-deployment.md",
+      "prerequisites": [
+        "cv-transfer",
+        "cv-losses"
+      ],
+      "question": "Как сохранить смысл предсказаний после экспорта и измерить полную стоимость?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-deployment.svg"
+      ],
+      "used_by": [
+        "cv-cases"
+      ]
+    },
+    {
+      "id": "cv-cases",
+      "module": "cv",
+      "section": "cv-systems",
+      "title": "Сквозные разборы: дефекты, видеопоток и документы",
+      "path": "04-computer-vision/cv-cases.md",
+      "prerequisites": [
+        "cv-anomaly",
+        "cv-tracking-models",
+        "cv-documents",
+        "cv-diagnosis",
+        "cv-deployment"
+      ],
+      "question": "Как выбрать и проверить весь CV pipeline под конкретную цель?",
+      "level": "основа ветки",
+      "source": "cv-expansion-2026-10-25",
+      "source_files": [],
+      "figures": [
+        "оформление/course/expanded-cv-cases.svg"
+      ],
+      "used_by": []
     },
     {
       "id": "lm-task",
@@ -1639,7 +2670,7 @@
       "module": "lm",
       "section": "found",
       "title": "Токенизация: от текста к индексам",
-      "question": "Как строка становится последовательностью ID и где заканчивается токенизатор?",
+      "question": "Как превратить текст в IDs, сохранив связь с исходными символами?",
       "prerequisites": [
         "lm-task"
       ],
@@ -1661,7 +2692,7 @@
       "module": "lm",
       "section": "found",
       "title": "Embeddings и контекстные состояния",
-      "question": "Чем различаются ID, embedding и скрытое состояние?",
+      "question": "Чем отличаются ID, строка таблицы embeddings, контекстное состояние и оценка слова?",
       "prerequisites": [
         "lm-tokenizer"
       ],
@@ -1702,8 +2733,8 @@
         "06-llm/01-foundations/Учебные конспекты/Г — QKV, multi-head attention и точный backward.md"
       ],
       "figures": [
-        "оформление/course/lm-attention.svg",
-        "оформление/course/arch-attention.svg"
+        "оформление/course/arch-attention.svg",
+        "оформление/transformer/multihead-mixtures.svg"
       ]
     },
     {
@@ -1711,7 +2742,7 @@
       "module": "lm",
       "section": "found",
       "title": "Позиции, causal mask и padding",
-      "question": "Как независимо задать порядок токенов и доступ к информации?",
+      "question": "Как модель различает расположение токенов и ограничивает доступ к контексту?",
       "prerequisites": [
         "lm-states",
         "lm-attention"
@@ -1727,7 +2758,9 @@
         "06-llm/01-foundations/Учебные конспекты/В — Transformer, causal mask и устройство блока.md"
       ],
       "figures": [
-        "оформление/course/lm-position.svg"
+        "оформление/course/lm-position.svg",
+        "оформление/transformer/attention-masks.svg",
+        "оформление/transformer/rope-rotation.svg"
       ]
     },
     {
@@ -1750,8 +2783,9 @@
         "06-llm/01-foundations/Учебные конспекты/В — Transformer, causal mask и устройство блока.md"
       ],
       "figures": [
-        "оформление/course/lm-transformer.svg",
-        "оформление/course/arch-transformer.svg"
+        "оформление/course/arch-transformer.svg",
+        "оформление/course/lm-gated-mlp.svg",
+        "оформление/course/lm-transformer.svg"
       ]
     },
     {
@@ -1776,6 +2810,7 @@
       ],
       "figures": [
         "оформление/course/lm-families.svg",
+        "оформление/transformer/cross-attention-sources.svg",
         "оформление/course/arch-encoder-decoder.svg"
       ]
     },
@@ -1828,7 +2863,7 @@
         "06-llm/01-foundations/Учебные конспекты/Д — Hidden states, LM head и границы интерпретации.md"
       ],
       "figures": [
-        "оформление/course/lm-training.svg"
+        "оформление/course/lm-training-paths.svg"
       ]
     },
     {
@@ -1876,8 +2911,10 @@
         "06-llm/01-foundations/Учебные конспекты/В — Transformer, causal mask и устройство блока.md"
       ],
       "figures": [
-        "оформление/course/lm-bert.svg",
-        "оформление/course/arch-bert.svg"
+        "оформление/course/bert-stack.svg",
+        "оформление/course/bert-input-layers.svg",
+        "оформление/course/bert-mlm-head.svg",
+        "оформление/course/bert-task-heads.svg"
       ]
     },
     {
@@ -1975,16 +3012,19 @@
         "07-bert/Учебные конспекты/А — Encoder, tokenizer, attention и pooling.md"
       ],
       "figures": [
-        "оформление/course/bert-interface.svg",
-        "оформление/course/arch-bert.svg"
+        "оформление/course/bert-input-layers.svg",
+        "оформление/course/bert-stack.svg",
+        "оформление/course/bert-encoder-layer.svg",
+        "оформление/transformer/attention-masks.svg",
+        "оформление/course/bert-retrieval-paths.svg"
       ]
     },
     {
       "id": "bert-objectives",
       "module": "lm",
       "section": "bert",
-      "title": "MLM, альтернативные objectives и семейства encoder",
-      "question": "Какие позиции дают loss и как цель обучения меняет представления?",
+      "title": "Цели предобучения BERT и варианты кодировщиков",
+      "question": "Что модель видит, что должна предсказать и какие параметры меняет ошибка?",
       "prerequisites": [
         "bert-interface"
       ],
@@ -1998,15 +3038,28 @@
         "07-bert/Учебные конспекты/Б — MLM, objectives и эволюция encoder-моделей.md"
       ],
       "figures": [
-        "оформление/course/bert-objectives.svg"
+        "оформление/course/bert-mlm-targets.svg",
+        "оформление/course/bert-mlm-head.svg",
+        "оформление/course/bert-objectives.svg",
+        "оформление/course/encoder-roberta.svg",
+        "оформление/course/encoder-spanbert.svg",
+        "оформление/course/encoder-electra.svg",
+        "оформление/course/encoder-albert.svg",
+        "оформление/course/encoder-distilbert.svg",
+        "оформление/course/encoder-deberta.svg",
+        "оформление/course/encoder-xlmr.svg",
+        "оформление/course/encoder-modernbert.svg",
+        "оформление/course/encoder-neobert.svg",
+        "оформление/course/encoder-mmbert.svg",
+        "оформление/course/encoder-ettin.svg"
       ]
     },
     {
       "id": "bert-adaptation",
       "module": "lm",
       "section": "bert",
-      "title": "Данные, task heads, fine-tuning и DAPT",
-      "question": "Как согласовать разметку, форму выхода и objective encoder?",
+      "title": "Данные, головы задач и адаптация BERT",
+      "question": "Какие данные, выход и параметры следует выбрать для адаптации BERT?",
       "prerequisites": [
         "bert-interface",
         "bert-objectives"
@@ -2031,8 +3084,8 @@
       "id": "bert-tasks",
       "module": "lm",
       "section": "bert",
-      "title": "Classification, NER, spans и extractive QA",
-      "question": "Как преобразовать текстовую задачу в targets и восстановить ответ в исходных координатах?",
+      "title": "Классификация, сущности и извлечение ответов",
+      "question": "Как разметка превращается в голову классификации, сущностей или извлечения ответа?",
       "prerequisites": [
         "bert-interface",
         "bert-adaptation"
@@ -2046,15 +3099,19 @@
         "07-bert/План — BERT и encoder-модели для NLP.md"
       ],
       "figures": [
-        "оформление/course/bert-tasks.svg"
+        "оформление/course/bert-task-heads.svg",
+        "оформление/course/bert-crf.svg",
+        "оформление/course/bert-span-relations.svg",
+        "оформление/course/bert-qa-decode.svg",
+        "оформление/course/bert-setfit.svg"
       ]
     },
     {
       "id": "bert-embeddings",
       "module": "lm",
       "section": "bert",
-      "title": "Sentence embeddings и contrastive learning",
-      "question": "Как обучить пространство, где близость полезна для конкретной задачи?",
+      "title": "Векторы предложений и контрастивное обучение",
+      "question": "Как обучить и проверить векторы предложений для сравнения текстов?",
       "prerequisites": [
         "bert-interface",
         "bert-adaptation"
@@ -2069,15 +3126,19 @@
         "07-bert/Учебные конспекты/Д — Sentence embeddings, contrastive loss и геометрия.md"
       ],
       "figures": [
-        "оформление/course/bert-embeddings.svg"
+        "оформление/course/bert-embeddings.svg",
+        "оформление/course/bert-contrastive-pool.svg",
+        "оформление/course/bert-simcse.svg",
+        "оформление/course/bert-embedding-distill.svg",
+        "оформление/course/bert-matryoshka.svg"
       ]
     },
     {
       "id": "bert-retrieval",
       "module": "lm",
       "section": "bert",
-      "title": "Dense retrieval, cross-encoder, SPLADE и ColBERT",
-      "question": "Как выбрать место взаимодействия query и document и оценить полный budget?",
+      "title": "Поиск: плотные векторы, BM25, SPLADE и ColBERT",
+      "question": "Как устроены кандидаты, переранжирование и разные представления поискового документа?",
       "prerequisites": [
         "bert-interface",
         "bert-embeddings"
@@ -2091,15 +3152,19 @@
         "07-bert/План — BERT и encoder-модели для NLP.md"
       ],
       "figures": [
-        "оформление/course/bert-retrieval.svg"
+        "оформление/course/bert-retrieval.svg",
+        "оформление/course/bert-retrieval-paths.svg",
+        "оформление/course/bert-splade.svg",
+        "оформление/course/bert-colbert.svg",
+        "оформление/course/bert-bge-m3.svg"
       ]
     },
     {
       "id": "bert-domains",
       "module": "lm",
       "section": "bert",
-      "title": "Языки, длинные документы, домены и layout",
-      "question": "Какие части контракта меняются при переносе на новый язык или тип документа?",
+      "title": "Языки, длинные документы и пространственная структура",
+      "question": "Что меняется при переносе encoder между языками, доменами и видами документа?",
       "prerequisites": [
         "bert-interface",
         "bert-adaptation"
@@ -2113,15 +3178,19 @@
         "07-bert/План — BERT и encoder-модели для NLP.md"
       ],
       "figures": [
-        "оформление/course/bert-domains.svg"
+        "оформление/course/bert-domains.svg",
+        "оформление/course/bert-longformer.svg",
+        "оформление/course/bert-domain-pretraining.svg",
+        "оформление/course/bert-linking.svg",
+        "оформление/course/bert-layout.svg"
       ]
     },
     {
       "id": "bert-evaluation",
       "module": "lm",
       "section": "bert",
-      "title": "Метрики, калибровка, OOD и интерпретация",
-      "question": "Как оценить encoder на правильной единице задачи и проверить отказ?",
+      "title": "Метрики, калибровка и границы интерпретации",
+      "question": "Какие выводы позволяют метрики, калибровка и объяснения encoder?",
       "prerequisites": [
         "bert-interface",
         "bert-adaptation"
@@ -2137,15 +3206,16 @@
         "07-bert/План — BERT и encoder-модели для NLP.md"
       ],
       "figures": [
-        "оформление/course/bert-evaluation.svg"
+        "оформление/course/bert-evaluation.svg",
+        "оформление/course/bert-attribution.svg"
       ]
     },
     {
       "id": "bert-operations",
       "module": "lm",
       "section": "bert",
-      "title": "Сжатие, сервис encoder и жизненный цикл индекса",
-      "question": "Как обновить encoder и индекс, сохраняя согласованность представлений?",
+      "title": "Сжатие, служба кодировщика и обновление индекса",
+      "question": "Как уменьшить стоимость encoder и безопасно для качества обновить служебный комплект?",
       "prerequisites": [
         "bert-interface",
         "bert-evaluation"
@@ -2159,15 +3229,18 @@
         "07-bert/План — BERT и encoder-модели для NLP.md"
       ],
       "figures": [
-        "оформление/course/bert-operations.svg"
+        "оформление/course/bert-operations.svg",
+        "оформление/course/bert-encoder-cache.svg",
+        "оформление/course/bert-serving-queue.svg",
+        "оформление/course/bert-rollout.svg"
       ]
     },
     {
       "id": "adapt-choice",
       "module": "lm",
       "section": "adapt",
-      "title": "Задача адаптации, baseline и выбор вмешательства",
-      "question": "Как отличить нехватку знаний, ошибку поведения и проблему исполнения?",
+      "title": "Адаптация: задача, базовая система и бюджет",
+      "question": "Как выбрать изменение, которое исправляет наблюдаемую ошибку системы?",
       "prerequisites": [
         "lm-training",
         "lm-generation",
@@ -2200,8 +3273,8 @@
       "id": "adapt-sft",
       "module": "lm",
       "section": "adapt",
-      "title": "SFT: данные, шаблоны, masks и objective",
-      "question": "Какие позиции становятся целями supervised fine-tuning?",
+      "title": "SFT: демонстрации, шаблоны и обучающие цели",
+      "question": "Какие токены учат модель нужному поведению и с каким весом?",
       "prerequisites": [
         "adapt-choice"
       ],
@@ -2231,8 +3304,8 @@
       "id": "adapt-regimes",
       "module": "lm",
       "section": "adapt",
-      "title": "Полное обучение или PEFT",
-      "question": "Какие параметры обновляются и почему это не меняет смысл SFT?",
+      "title": "Полное обучение, замороженная основа и PEFT",
+      "question": "Какая часть модели должна получать обновления при выбранной обучающей цели?",
       "prerequisites": [
         "adapt-choice",
         "adapt-sft"
@@ -2252,8 +3325,8 @@
       "id": "adapt-lora",
       "module": "lm",
       "section": "adapt",
-      "title": "LoRA: low-rank обновление и градиенты",
-      "question": "Как low-rank ветвь обновляет конкретную линейную проекцию?",
+      "title": "LoRA: низкоранговое обновление и его градиенты",
+      "question": "Куда добавляются факторы A/B и как они начинают обучаться?",
       "prerequisites": [
         "adapt-choice",
         "adapt-sft",
@@ -2277,8 +3350,8 @@
       "id": "adapt-variants",
       "module": "lm",
       "section": "adapt",
-      "title": "DoRA, AdaLoRA, LoRA+ и QLoRA",
-      "question": "Как различаются изменяемый объект, бюджет ранга и формат хранения базы?",
+      "title": "DoRA, AdaLoRA, LoRA+ и QLoRA: что именно меняется",
+      "question": "Как различить норму весов, бюджет компонентов, скорость факторов и хранение базы?",
       "prerequisites": [
         "adapt-choice",
         "adapt-sft",
@@ -2292,15 +3365,17 @@
         "06-llm/02-adaptation/Учебные конспекты/В — DoRA, AdaLoRA, LoRA+ и QLoRA.md"
       ],
       "figures": [
-        "оформление/course/adapt-variants.svg"
+        "оформление/course/adapt-variants.svg",
+        "оформление/course/batch02-dora.svg",
+        "оформление/course/batch02-qlora.svg"
       ]
     },
     {
       "id": "adapt-alternatives",
       "module": "lm",
       "section": "adapt",
-      "title": "Adapters, prefix tuning, soft prompts и BitFit",
-      "question": "Где добавляются обучаемые параметры и что меняется при inference?",
+      "title": "Адаптерные блоки, мягкие запросы, префиксы и BitFit",
+      "question": "Где находятся обучаемые величины и что добавляется к вычислению при применении?",
       "prerequisites": [
         "adapt-choice",
         "adapt-sft"
@@ -2313,15 +3388,16 @@
         "06-llm/02-adaptation/Учебные конспекты/Г — Adapters, prefix tuning, soft prompts и BitFit.md"
       ],
       "figures": [
-        "оформление/course/adapt-alternatives.svg"
+        "оформление/course/adapt-alternatives.svg",
+        "оформление/course/batch02-prefix.svg"
       ]
     },
     {
       "id": "adapt-preference",
       "module": "lm",
       "section": "adapt",
-      "title": "RLHF, PPO, DPO, IPO, KTO и ORPO",
-      "question": "Как предпочтения превращаются в objective и каких данных он требует?",
+      "title": "Предпочтения: награда, PPO, DPO и альтернативные цели",
+      "question": "Как сравнение ответов превращается в обучающий сигнал и что оно не устанавливает?",
       "prerequisites": [
         "adapt-choice",
         "adapt-sft"
@@ -2343,8 +3419,8 @@
       "id": "adapt-merging",
       "module": "lm",
       "section": "adapt",
-      "title": "Model soup, TIES, DARE и переключение адаптеров",
-      "question": "Когда операции над весами совместимы и как проверить итоговую функцию?",
+      "title": "Слияние моделей и переключение адаптеров",
+      "question": "Какой объект объединяется и при каких условиях сохраняется его смысл?",
       "prerequisites": [
         "adapt-choice",
         "adapt-sft"
@@ -2364,8 +3440,8 @@
       "id": "adapt-distillation",
       "module": "lm",
       "section": "adapt",
-      "title": "Дистилляция и обучение на траекториях",
-      "question": "Какой сигнал teacher передаёт student и как проверить перенос?",
+      "title": "Дистилляция: распределения, ответы и состояния ученика",
+      "question": "Какой сигнал передаёт учитель и по какой цене ученик его воспроизводит?",
       "prerequisites": [
         "adapt-choice",
         "adapt-sft"
@@ -2385,8 +3461,8 @@
       "id": "adapt-continual",
       "module": "lm",
       "section": "adapt",
-      "title": "AI feedback и continual learning",
-      "question": "Как обновлять поведение, контролируя источник feedback и забывание?",
+      "title": "Обратная связь моделей и последовательное обучение",
+      "question": "Как обновлять модель, сохраняя источник оценки и проверку прежних задач?",
       "prerequisites": [
         "adapt-choice",
         "adapt-sft",
@@ -2407,8 +3483,8 @@
       "id": "adapt-evaluation",
       "module": "lm",
       "section": "adapt",
-      "title": "Оценка, perplexity, judge и экспорт",
-      "question": "Как сравнить candidate с baseline и подтвердить сохранение поведения после экспорта?",
+      "title": "Оценка адаптации: задача, неопределённость и экспорт",
+      "question": "Что именно улучшилось и сохраняет ли это загруженная итоговая модель?",
       "prerequisites": [
         "adapt-choice",
         "adapt-sft"
@@ -2428,8 +3504,8 @@
       "id": "infer-generation",
       "module": "lm",
       "section": "infer",
-      "title": "От prompt к обычному циклу генерации",
-      "question": "Какие состояния меняются при генерации и какие веса остаются фиксированными?",
+      "title": "Инференс: от входа к обычному циклу генерации",
+      "question": "Что пересчитывается на каждом шаге и что нужно измерить до оптимизаций?",
       "prerequisites": [
         "lm-generation"
       ],
@@ -2458,8 +3534,8 @@
       "id": "infer-kv",
       "module": "lm",
       "section": "infer",
-      "title": "Prefill, decode, KV-cache, MQA и GQA",
-      "question": "Какие вычисления и тензоры можно повторно использовать?",
+      "title": "Prefill, decode и KV-кеш: вычисление и память",
+      "question": "Почему можно сохранить прошлые ключи и значения и чего это не устраняет?",
       "prerequisites": [
         "infer-generation"
       ],
@@ -2481,15 +3557,16 @@
         "06-llm/03-inference/Учебные конспекты/В — KV-cache, prefill, decode, MQA и GQA.md"
       ],
       "figures": [
-        "оформление/course/infer-kv.svg"
+        "оформление/course/infer-kv.svg",
+        "оформление/course/batch02-gqa.svg"
       ]
     },
     {
       "id": "infer-context",
       "module": "lm",
       "section": "infer",
-      "title": "Контекст, sliding window и prefix caching",
-      "question": "Что меняется при ограничении истории и повторном использовании prefix?",
+      "title": "Контекст: длина, локальное окно и повторение префикса",
+      "question": "Какая информация остаётся доступной и какие вычисления действительно повторяются?",
       "prerequisites": [
         "infer-generation",
         "infer-kv"
@@ -2502,15 +3579,17 @@
         "06-llm/03-inference/Учебные конспекты/Ж — Длинный контекст, sliding window и prompt caching.md"
       ],
       "figures": [
-        "оформление/course/infer-context.svg"
+        "оформление/course/infer-context.svg",
+        "оформление/course/batch02-attention-layouts.svg",
+        "оформление/course/batch02-recurrent-hybrid.svg"
       ]
     },
     {
       "id": "infer-decoding",
       "module": "lm",
       "section": "infer",
-      "title": "Greedy, temperature, top-p, beam и ограничения",
-      "question": "Как decoding policy выбирает токен из logits?",
+      "title": "Выбор токенов: температура, отсечение, поиск и ограничения",
+      "question": "Как правило выбора меняет распределение и какие гарантии даёт грамматика?",
       "prerequisites": [
         "infer-generation",
         "infer-kv"
@@ -2525,15 +3604,16 @@
         "06-llm/03-inference/Учебные конспекты/Е — Greedy, temperature, top-p, beam и constrained decoding.md"
       ],
       "figures": [
-        "оформление/course/infer-decoding.svg"
+        "оформление/course/infer-decoding.svg",
+        "оформление/course/batch02-grammar.svg"
       ]
     },
     {
       "id": "infer-serving",
       "module": "lm",
       "section": "infer",
-      "title": "Serving, batching и PagedAttention",
-      "question": "Как совместно обслуживать запросы при ограничениях памяти и задержки?",
+      "title": "Обслуживание запросов: планировщик, пакеты и страницы KV",
+      "question": "Как совместить запросы, сохранив их состояние, задержку и границы памяти?",
       "prerequisites": [
         "infer-generation",
         "infer-kv"
@@ -2549,15 +3629,16 @@
         "06-llm/03-inference/Учебные конспекты/Г — Serving, continuous batching и PagedAttention.md"
       ],
       "figures": [
-        "оформление/course/infer-serving.svg"
+        "оформление/course/infer-serving.svg",
+        "оформление/course/batch02-paged-kv.svg"
       ]
     },
     {
       "id": "infer-speculative",
       "module": "lm",
       "section": "infer",
-      "title": "Speculative decoding и rejection sampling",
-      "question": "Почему проверка draft сохраняет заданное распределение?",
+      "title": "Спекулятивная генерация: черновик, коррекция и состояние",
+      "question": "Как принять дешёвое предложение, сохранив распределение целевой модели?",
       "prerequisites": [
         "infer-generation",
         "infer-kv",
@@ -2571,15 +3652,18 @@
         "06-llm/03-inference/Учебные конспекты/Д — Speculative decoding, rejection sampling и beam search.md"
       ],
       "figures": [
-        "оформление/course/infer-speculative.svg"
+        "оформление/course/infer-speculative.svg",
+        "оформление/course/batch02-spec-residual.svg",
+        "оформление/course/batch02-spec-proposals.svg",
+        "оформление/course/batch02-dspark.svg"
       ]
     },
     {
       "id": "infer-quantization",
       "module": "lm",
       "section": "infer",
-      "title": "Квантизация: PTQ, QAT, GPTQ и AWQ",
-      "question": "Какие массивы и ошибки меняются при сокращении precision?",
+      "title": "Квантизация: представление чисел, калибровка и ошибка задачи",
+      "question": "Какие массивы становятся малобитными и как их ошибка влияет на вычисление?",
       "prerequisites": [
         "infer-generation",
         "infer-kv"
@@ -2592,15 +3676,18 @@
         "06-llm/03-inference/Учебные конспекты/А — Квантизация, активации, PTQ, QAT, GPTQ и AWQ.md"
       ],
       "figures": [
-        "оформление/course/infer-quantization.svg"
+        "оформление/course/infer-quantization.svg",
+        "оформление/course/batch02-affine-quant.svg",
+        "оформление/course/batch02-outliers.svg",
+        "оформление/course/batch02-gptq-awq.svg"
       ]
     },
     {
       "id": "infer-pruning",
       "module": "lm",
       "section": "infer",
-      "title": "Pruning и границы сжатия",
-      "question": "Как удаление структуры связано с реальным ускорением?",
+      "title": "Удаление весов и структур: границы сжатия модели",
+      "question": "Как отличить нулевой вес, меньший граф и реальное ускорение?",
       "prerequisites": [
         "infer-generation",
         "infer-kv"
@@ -2613,15 +3700,16 @@
         "06-llm/03-inference/Учебные конспекты/Б — Pruning и граница с дистилляцией.md"
       ],
       "figures": [
-        "оформление/course/infer-pruning.svg"
+        "оформление/course/infer-pruning.svg",
+        "оформление/course/batch02-pruning-structures.svg"
       ]
     },
     {
       "id": "infer-deployment",
       "module": "lm",
       "section": "infer",
-      "title": "Deployment, cold start, очереди и масштабирование",
-      "question": "Как согласовать admission, startup и воспроизводимый rollout?",
+      "title": "Развёртывание: готовность, очередь и масштабирование",
+      "question": "Как выпустить согласованный комплект и принимать только исполнимую работу?",
       "prerequisites": [
         "infer-generation",
         "infer-kv",
@@ -2635,7 +3723,9 @@
         "06-llm/03-inference/Учебные конспекты/И — Deployment, cold start, очереди и масштабирование.md"
       ],
       "figures": [
-        "оформление/course/infer-deployment.svg"
+        "оформление/course/infer-deployment.svg",
+        "оформление/course/batch02-request-lifecycle.svg",
+        "оформление/course/batch02-scaling-timeline.svg"
       ]
     },
     {
@@ -3050,6 +4140,182 @@
         "cv-detection",
         "cv-semantic",
         "cv-instance"
+      ]
+    },
+    {
+      "id": "vision-backbones",
+      "title": "CV: backbone и представления",
+      "chapters": [
+        "df-task",
+        "df-split",
+        "df-loading",
+        "df-images",
+        "cv-input",
+        "cv-classical",
+        "cv-classification",
+        "cv-resnet",
+        "cv-efficient",
+        "cv-convnext",
+        "cv-vit",
+        "cv-hierarchy",
+        "cv-transfer",
+        "cv-losses",
+        "cv-contrastive",
+        "cv-pretraining",
+        "cv-dino",
+        "cv-retrieval"
+      ]
+    },
+    {
+      "id": "vision-detection",
+      "title": "CV: детекция и архитектуры",
+      "chapters": [
+        "df-task",
+        "df-split",
+        "df-loading",
+        "df-images",
+        "cv-input",
+        "cv-classification",
+        "cv-detection",
+        "cv-pyramids",
+        "cv-faster-rcnn",
+        "cv-dense-detectors",
+        "cv-yolo",
+        "cv-vit",
+        "cv-detr",
+        "cv-deformable",
+        "cv-obb"
+      ]
+    },
+    {
+      "id": "vision-segmentation",
+      "title": "CV: сегментация и prompting",
+      "chapters": [
+        "df-task",
+        "df-split",
+        "df-loading",
+        "df-images",
+        "cv-input",
+        "cv-classification",
+        "cv-semantic",
+        "cv-unet",
+        "cv-vit",
+        "cv-segformers",
+        "cv-detection",
+        "cv-instance",
+        "cv-prototypes",
+        "cv-detr",
+        "cv-mask2former",
+        "cv-open-vocabulary"
+      ]
+    },
+    {
+      "id": "vision-video",
+      "title": "CV: поза, движение и видео",
+      "chapters": [
+        "df-task",
+        "df-split",
+        "df-loading",
+        "df-images",
+        "cv-input",
+        "cv-classification",
+        "cv-pose",
+        "cv-vit",
+        "cv-pose-models",
+        "cv-detection",
+        "cv-tracking",
+        "cv-tracking-models",
+        "cv-flow",
+        "cv-pretraining",
+        "cv-video"
+      ]
+    },
+    {
+      "id": "vision-3d",
+      "title": "CV: геометрия и 3D",
+      "chapters": [
+        "df-task",
+        "df-split",
+        "df-loading",
+        "df-images",
+        "cv-input",
+        "cv-camera",
+        "cv-stereo",
+        "cv-classification",
+        "cv-depth",
+        "cv-classical",
+        "cv-sfm",
+        "cv-pointnet",
+        "cv-detection",
+        "cv-bev",
+        "cv-nerf",
+        "cv-gaussians"
+      ]
+    },
+    {
+      "id": "vision-ocr",
+      "title": "CV: OCR и документы",
+      "chapters": [
+        "df-task",
+        "df-split",
+        "df-loading",
+        "df-images",
+        "cv-input",
+        "cv-classification",
+        "cv-detection",
+        "cv-semantic",
+        "cv-text-detection",
+        "cv-vit",
+        "cv-text-recognition",
+        "cv-documents"
+      ]
+    },
+    {
+      "id": "vision-generation",
+      "title": "CV: восстановление и генерация",
+      "chapters": [
+        "df-task",
+        "df-split",
+        "df-loading",
+        "df-images",
+        "cv-input",
+        "cv-classification",
+        "cv-restoration",
+        "cv-generative",
+        "cv-ddpm",
+        "cv-sampling",
+        "cv-vit",
+        "cv-latent-diffusion",
+        "cv-dit-flow",
+        "cv-control",
+        "cv-generation-eval"
+      ]
+    },
+    {
+      "id": "vision-systems",
+      "title": "CV: от baseline до применения",
+      "chapters": [
+        "df-task",
+        "df-split",
+        "df-loading",
+        "df-images",
+        "cv-input",
+        "cv-classification",
+        "cv-transfer",
+        "cv-anomaly",
+        "cv-detection",
+        "cv-tracking",
+        "cv-tracking-models",
+        "cv-semantic",
+        "cv-text-detection",
+        "cv-vit",
+        "cv-text-recognition",
+        "cv-documents",
+        "cv-losses",
+        "cv-diagnosis",
+        "cv-deployment",
+        "cv-cases",
+        "cv-robustness"
       ]
     },
     {

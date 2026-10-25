@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 613" role="img" aria-labelledby="title desc">
+<title id="title">HRNet, ViTPose и RTMPose: архитектуры pose estimation</title><desc id="desc">HRNet: Person crop → high-res stem → Параллельные low/high branches → Повторное multi-scale fusion → K heatmaps → inverse affine; ViTPose: Person crop → patches → Plain ViT → patch features → Лёгкий upsampling decoder → K heatmaps → keypoints; RTMPose: Person crop → backbone → Features → SimCC head → K×Lx и K×Ly logits → 1D decoding → keypoints</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#416474"/></marker></defs>
+<rect width="1120" height="613" rx="14" fill="#f6f8fb"/>
+<text x="30" y="36" font-family="Arial,sans-serif" font-size="23" font-weight="bold" fill="#173b50">HRNet, ViTPose и RTMPose: архитектуры pose estimation</text>
+<text x="30" y="112" font-family="Arial,sans-serif" font-size="18" fill="#315a67">HRNet</text>
+<rect x="30" y="131" width="235" height="94" rx="9" fill="#dceafa" stroke="#718b9b"/>
+<text x="147.5" y="162" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Person crop → high-res</text>
+<text x="147.5" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">stem</text>
+<path d="M268,178 H296" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="305" y="131" width="235" height="94" rx="9" fill="#e1eee8" stroke="#718b9b"/>
+<text x="422.5" y="162" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Параллельные low/high</text>
+<text x="422.5" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">branches</text>
+<path d="M543,178 H571" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="580" y="131" width="235" height="94" rx="9" fill="#fff0d8" stroke="#718b9b"/>
+<text x="697.5" y="162" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Повторное multi-scale</text>
+<text x="697.5" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">fusion</text>
+<path d="M818,178 H846" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="855" y="131" width="235" height="94" rx="9" fill="#ede5f7" stroke="#718b9b"/>
+<text x="972.5" y="162" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">K heatmaps → inverse</text>
+<text x="972.5" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">affine</text>
+<text x="30" y="277" font-family="Arial,sans-serif" font-size="18" fill="#315a67">ViTPose</text>
+<rect x="30" y="296" width="235" height="94" rx="9" fill="#dceafa" stroke="#718b9b"/>
+<text x="147.5" y="333" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Person crop → patches</text>
+<path d="M268,343 H296" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="305" y="296" width="235" height="94" rx="9" fill="#e1eee8" stroke="#718b9b"/>
+<text x="422.5" y="327" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Plain ViT → patch</text>
+<text x="422.5" y="350" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">features</text>
+<path d="M543,343 H571" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="580" y="296" width="235" height="94" rx="9" fill="#fff0d8" stroke="#718b9b"/>
+<text x="697.5" y="327" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Лёгкий upsampling</text>
+<text x="697.5" y="350" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">decoder</text>
+<path d="M818,343 H846" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="855" y="296" width="235" height="94" rx="9" fill="#ede5f7" stroke="#718b9b"/>
+<text x="972.5" y="333" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">K heatmaps → keypoints</text>
+<text x="30" y="442" font-family="Arial,sans-serif" font-size="18" fill="#315a67">RTMPose</text>
+<rect x="30" y="461" width="235" height="94" rx="9" fill="#dceafa" stroke="#718b9b"/>
+<text x="147.5" y="498" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Person crop → backbone</text>
+<path d="M268,508 H296" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="305" y="461" width="235" height="94" rx="9" fill="#e1eee8" stroke="#718b9b"/>
+<text x="422.5" y="498" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">Features → SimCC head</text>
+<path d="M543,508 H571" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="580" y="461" width="235" height="94" rx="9" fill="#fff0d8" stroke="#718b9b"/>
+<text x="697.5" y="498" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">K×Lx и K×Ly logits</text>
+<path d="M818,508 H846" stroke="#416474" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="855" y="461" width="235" height="94" rx="9" fill="#ede5f7" stroke="#718b9b"/>
+<text x="972.5" y="498" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#173b50">1D decoding → keypoints</text>
+</svg>

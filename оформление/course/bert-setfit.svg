@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 760" role="img" aria-labelledby="title desc"><title id="title">SetFit: пары для encoder и отдельная голова</title><desc id="desc">Независимые размеченные примеры разделяют до построения пар. Контрастивный этап обучает геометрию, классификатор обучается на векторах исходных примеров.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="760" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">SetFit: пары для encoder и отдельная голова</tspan></text>
+<rect x="40" y="90" width="460" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="117" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Независимые примеры → train / test</tspan><tspan x="54" dy="24">16 train-примеров: не 120 наблюдений</tspan></text>
+<rect x="40" y="215" width="460" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="242" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Только train → пары</tspan><tspan x="54" dy="24">16·15/2 = 120 возможных пар</tspan></text>
+<path d="M270.0,175 L270.0,215" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="340" width="460" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="367" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Encoder + pooling</tspan><tspan x="54" dy="24">Сблизить одинаковые, развести разные метки</tspan></text>
+<path d="M270.0,300 L270.0,340" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="650" y="340" width="420" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="664" y="367" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Обученный encoder</tspan><tspan x="664" dy="24">Векторы исходных train-примеров</tspan></text>
+<rect x="650" y="465" width="420" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="664" y="492" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Классификатор → C классов</tspan><tspan x="664" dy="24">Проверка на независимом test</tspan></text>
+<path d="M860.0,425 L860.0,465" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M500,382 L650,382" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="625" width="1030" height="85" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="54" y="652" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Пары увеличивают число учебных сравнений, но не число независимых источников.</tspan><tspan x="54" dy="24">Точность few-shot проверяют на нескольких наборах примеров и инициализациях.</tspan></text></svg>

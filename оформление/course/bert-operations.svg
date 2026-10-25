@@ -1,28 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 490" role="img" aria-labelledby="title desc">
-<title id="title">Сжатие, сервис encoder и жизненный цикл индекса</title><desc id="desc">Читайте схему по направлению стрелок: первый блок задаёт вход, средние — преобразования и их состояние, последний — результат и способ проверки. Сравните формы и смысл каждого перехода с формулами главы. Выход преобразования и доказательство его качества — разные объекты: последняя проверка использует отдельный протокол оценки.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 760" role="img" aria-labelledby="title desc"><title id="title">Сжатие encoder: учитель, ученик и целевая оценка</title><desc id="desc">Логиты замороженного учителя и истинные labels задают разные слагаемые ошибки ученика. Проверяют качество задачи и реальные затраты, а не только размер параметров.</desc>
 <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
-<rect width="1120" height="490" rx="16" fill="#f5f8f5"/>
-<text x="28" y="36" font-family="Segoe UI,sans-serif" font-size="22" fill="#173644">Сжатие, сервис encoder и жизненный цикл индекса</text>
-<path d="M295,136 L410,136" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M670,136 L785,136" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M915,182 L915,265" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M785,311 L670,311" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M410,311 L295,311" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="35" y="90" width="260" height="92" rx="10" fill="#e9eef1" stroke="#9bb6b0"/>
-<text x="165" y="136.0" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">text + task labels</text>
-<rect x="410" y="90" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="540" y="126.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">tokenizer / offsets</text>
-<text x="540" y="145.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">mask и lengths</text>
-<rect x="785" y="90" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="915" y="126.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">bidirectional encoder</text>
-<text x="915" y="145.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">H [B,L,D]</text>
-<rect x="785" y="265" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="915" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">head / pooling</text>
-<text x="915" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">форма зависит от задачи</text>
-<rect x="410" y="265" width="260" height="92" rx="10" fill="#dbece3" stroke="#9bb6b0"/>
-<text x="540" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">loss или retrieval score</text>
-<text x="540" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">правильная единица</text>
-<rect x="35" y="265" width="260" height="92" rx="10" fill="#e9eef1" stroke="#9bb6b0"/>
-<text x="165" y="301.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">predictions / metric</text>
-<text x="165" y="320.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#173644">held-out задача</text>
-<text x="28" y="470" font-family="Segoe UI,sans-serif" font-size="13" fill="#526b75">Зелёный: модель / преобразование; серый: вход, состояние или результат. Пунктир: обход / управление.</text></svg>
+<rect width="1120" height="760" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Сжатие encoder: учитель, ученик и целевая оценка</tspan></text>
+<rect x="40" y="90" width="420" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="117" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Вход x → замороженный учитель</tspan></text>
+<rect x="40" y="215" width="420" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="242" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Логиты zₜ → softmax(zₜ / T)</tspan><tspan x="54" dy="24">Нет градиента в учителя</tspan></text>
+<path d="M250.0,175 L250.0,215" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="650" y="90" width="420" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="664" y="117" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Тот же x → меньший ученик</tspan></text>
+<rect x="650" y="215" width="420" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="664" y="242" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Логиты zₛ → softmax(zₛ / T)</tspan><tspan x="664" dy="24">Градиент в ученика</tspan></text>
+<path d="M860.0,175 L860.0,215" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="340" y="430" width="450" height="110" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="354" y="457" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="354" dy="0">Loss = hard labels + αT² KL(pₜ || pₛ)</tspan><tspan x="354" dy="23">T, коэффициенты и усреднение фиксируют</tspan><tspan x="354" dy="23">Encoder поиска требует проверки геометрии</tspan></text>
+<path d="M250,300 L250,485 L340,485" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M860,300 L860,485 L790,485" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="620" width="1030" height="85" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="54" y="647" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Сравнить: метрики редких классов / retrieval, память, задержку и пропускную способность.</tspan><tspan x="54" dy="24">Половина параметров не означает вдвое меньшую задержку или вдвое меньший индекс.</tspan></text></svg>

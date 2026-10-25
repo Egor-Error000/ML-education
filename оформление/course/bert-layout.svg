@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 820" role="img" aria-labelledby="title desc"><title id="title">Документ с вёрсткой: текст и координаты</title><desc id="desc">LayoutLM связывает распознанные слова с двумерными рамками. Визуальные признаки подключают по контракту конкретной модели; схема отделяет их от текстовых координат.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
+<rect width="1120" height="820" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Документ с вёрсткой: текст и координаты</tspan></text>
+<rect x="40" y="90" width="420" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="117" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Страница 1000×2000 → OCR</tspan><tspan x="54" dy="24">Слова + рамки (x₀,y₀,x₁,y₁)</tspan><tspan x="54" dy="24">«Итого»: (100,400,500,600)</tspan></text>
+<rect x="650" y="90" width="420" height="100" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="664" y="117" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Перевести рамку в шкалу 0…1000</tspan><tspan x="664" dy="24">(100,200,500,300)</tspan><tspan x="664" dy="24">Сохранить номер страницы</tspan></text>
+<path d="M460,140 L650,140" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="310" width="300" height="95" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="337" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Token + 1D position</tspan><tspan x="54" dy="24">Вектор подслова [D]</tspan></text>
+<rect x="410" y="310" width="300" height="95" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="424" y="337" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="424" dy="0">2D layout embeddings</tspan><tspan x="424" dy="24">Координаты рамки [D]</tspan></text>
+<rect x="780" y="310" width="300" height="95" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="794" y="337" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="794" dy="0">Визуальные признаки</tspan><tspan x="794" dy="24">Путь зависит от варианта</tspan></text>
+<path d="M250,190 L250,310" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M860,190 L560,240 L560,310" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="240" y="525" width="650" height="100" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="254" y="552" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="254" dy="0">Текстовые и пространственные представления → encoder</tspan><tspan x="254" dy="24">Состояния + предусмотренный визуальный путь → голова</tspan><tspan x="254" dy="24">Извлечь поле, класс документа или связи</tspan></text>
+<path d="M190,405 L190,575 L240,575" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M560,405 L560,525" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M930,405 L930,575 L890,575" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="745" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="35" dy="0">Ошибки OCR («100»→«700»), неверная связь с заголовком и арифметика таблицы требуют разных проверок.</tspan><tspan x="35" dy="23">Диаграмма не задаёт единую реализацию визуального слияния для всего семейства LayoutLM.</tspan></text></svg>
