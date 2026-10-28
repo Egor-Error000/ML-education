@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 460" role="img" aria-labelledby="title desc"><title id="title">Нативные категории в бустинге</title><desc id="desc">Нативная обработка категорий зависит от алгоритма бустинга. Нужно отличать поиск групп категорий от целевых статистик и проверить, какие данные используются при вычислении каждой величины.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 760" role="img" aria-labelledby="title desc"><title id="title">Один узел: числовой порог и категориальное подмножество</title><desc id="desc">У каждой категории по две строки, H=2. Сравниваются допустимые разбиения одного и того же узла при λ=1, γ=0.</desc>
 <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
-<rect width="1120" height="460" fill="#f7f9fc"/>
-<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Нативные категории в бустинге</tspan></text>
-<rect x="30" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="44" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="44" dy="0">категория</tspan></text>
-<rect x="246" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="260" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="260" dy="0">статистика или</tspan><tspan x="260" dy="23">разбиение</tspan></text>
-<path d="M218,198 L246,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="462" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="476" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="476" dy="0">обучаемое дерево</tspan></text>
-<path d="M434,198 L462,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="678" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="692" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="692" dy="0">редкие значения</tspan></text>
-<path d="M650,198 L678,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="894" y="145" width="188" height="105" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
-<text x="908" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="908" dy="0">проверка новых</tspan><tspan x="908" dy="23">категорий</tspan></text>
-<path d="M866,198 L894,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="30" y="320" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="30" dy="0">Нативная обработка категорий зависит от алгоритма бустинга. Нужно отличать поиск групп категорий от</tspan><tspan x="30" dy="24">целевых статистик и проверить, какие данные используются при вычислении каждой величины.</tspan></text></svg>
+<rect width="1120" height="760" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Один узел: числовой порог и категориальное подмножество</tspan></text>
+<rect x="195" y="55" width="730" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="209" y="82" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="209" dy="0">Категории A, B, C, D; исходные коды 1, 2, 3, 4</tspan><tspan x="209" dy="24">Суммы градиентов G: −4, 2, −2, 4; у родителя G=0</tspan></text>
+<rect x="25" y="265" width="500" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="39" y="292" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="39" dy="0">Числовые пороги: A | BCD; AB | CD; ABC | D</tspan><tspan x="39" dy="24">Выигрыши: 80/21; 0.8; 80/21</tspan></text>
+<rect x="595" y="265" width="500" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="609" y="292" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="609" dy="0">Подмножество: AC | BD</tspan><tspan x="609" dy="24">G = −6 / 6; H = 4 / 4</tspan></text>
+<path d="M560,155 L560,210 L275,210 L275,265" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M560,210 L845,210 L845,265" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="25" y="465" width="500" height="95" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="39" y="492" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="39" dy="0">Лучший числовой порог ≈ 3.81</tspan><tspan x="39" dy="24">Одним порогом AC не отделить</tspan></text>
+<rect x="595" y="465" width="500" height="95" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="609" y="492" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="609" dy="0">Веса листьев 1.2 / −1.2</tspan><tspan x="609" dy="24">Выигрыш 7.2</tspan></text>
+<path d="M275,365 L275,465" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M845,365 L845,465" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="665" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="35" dy="0">Пример относится к одному узлу и заданной функции потерь; он не доказывает превосходство библиотеки на реальных данных.</tspan></text></svg>

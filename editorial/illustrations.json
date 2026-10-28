@@ -2797,6 +2797,62 @@
       "checked_on": "2026-10-28",
       "source_of_mechanism": "Учебные выводы и примеры главы; ссылки на первичную документацию указаны в редакционном реестре.",
       "changes": "Перерисована русскоязычная предметная схема с объектами, ветвями и расчётом."
+    },
+    {
+      "path": "оформление/course/feat-target.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "feat-target"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Вложенный протокол и обработка меток описаны в главе; первичные источники приведены рядом с утверждениями.",
+      "changes": "Новая схема различает внутренние OOF-признаки, полную таблицу и внешний тест."
+    },
+    {
+      "path": "оформление/course/feat-embeddings.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "feat-embeddings"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Выбор строк и сложение градиентов описаны в главе; API реализации указан рядом с утверждениями.",
+      "changes": "Предметная схема таблицы, пакета и накопления градиентов с расчётом."
+    },
+    {
+      "path": "оформление/course/feat-native.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "feat-native"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Учебный пример функции потерь и разбиения подробно рассчитан в главе.",
+      "changes": "Предметная схема сравнения порога и подмножества с градиентами, весами и выигрышем."
+    },
+    {
+      "path": "оформление/course/feat-interactions.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "feat-interactions"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Сравнение факторных правил и полей разобрано в главе; исходная работа FFM приведена рядом.",
+      "changes": "Предметная схема отдельных пар, общих факторов FM и факторов FFM для полей партнёров."
     }
   ],
   "original_svg_sources": [

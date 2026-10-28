@@ -1,19 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 460" role="img" aria-labelledby="title desc"><title id="title">Target statistics, smoothing, cross-fitting и WoE</title><desc id="desc">Признаки обучающих строк строятся вне собственного фолда. Для новых объектов используется отдельная карта по всей разрешённой обучающей части; эти две карты выполняют разные роли.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 780" role="img" aria-labelledby="title desc"><title id="title">Вложенная проверка: две таблицы и разные роли меток</title><desc id="desc">Внешняя проверка не участвует ни в обучении модели, ни в построении её признаков. Внутренние фолды создают признаки для обучающих строк.</desc>
 <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
-<rect width="1120" height="460" fill="#f7f9fc"/>
-<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Target statistics, smoothing, cross-fitting и WoE</tspan></text>
-<rect x="30" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="44" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="44" dy="0">внешнее разбиение</tspan></text>
-<rect x="246" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="260" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="260" dy="0">внутренние фолды</tspan></text>
-<path d="M218,198 L246,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="462" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="476" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="476" dy="0">статистика без метки</tspan><tspan x="476" dy="23">строки</tspan></text>
-<path d="M434,198 L462,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="678" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="692" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="692" dy="0">сглаживание</tspan></text>
-<path d="M650,198 L678,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="894" y="145" width="188" height="105" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
-<text x="908" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="908" dy="0">карта для новых</tspan><tspan x="908" dy="23">объектов</tspan></text>
-<path d="M866,198 L894,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="30" y="320" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="30" dy="0">Признаки обучающих строк строятся вне собственного фолда. Для новых объектов используется отдельная карта</tspan><tspan x="30" dy="24">по всей разрешённой обучающей части; эти две карты выполняют разные роли.</tspan></text></svg>
+<rect width="1120" height="780" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Вложенная проверка: две таблицы и разные роли меток</tspan></text>
+<rect x="260" y="55" width="600" height="70" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="274" y="82" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="274" dy="0">Внешнее разбиение данных</tspan></text>
+<rect x="45" y="200" width="430" height="80" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="59" y="227" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="59" dy="0">Внешнее обучение T</tspan><tspan x="59" dy="24">признаки и разрешённые метки</tspan></text>
+<rect x="645" y="200" width="430" height="80" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="659" y="227" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="659" dy="0">Внешняя проверка V</tspan><tspan x="659" dy="24">метки скрыты до оценки</tspan></text>
+<path d="M560,125 L560,165 L260,165 L260,200" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M560,165 L860,165 L860,200" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="25" y="350" width="480" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="39" y="377" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="39" dy="0">Внутри T: K частей</tspan><tspan x="39" dy="24">для каждой части таблица по остальным</tspan><tspan x="39" dy="24">→ OOF-признаки для обучения</tspan></text>
+<rect x="615" y="350" width="480" height="100" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="629" y="377" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="629" dy="0">Таблица по всему T</tspan><tspan x="629" dy="24">→ кодировка новых объектов из V</tspan></text>
+<path d="M260,280 L260,350" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M260,310 L855,310 L855,350" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M860,280 L860,350" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="25" y="535" width="480" height="80" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="39" y="562" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="39" dy="0">OOF-признаки T → обучить модель</tspan></text>
+<rect x="615" y="535" width="480" height="80" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="629" y="562" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="629" dy="0">Прогнозы для V → оценить по меткам</tspan></text>
+<path d="M265,450 L265,535" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M855,450 L855,535" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M505,575 L615,575" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="40" y="690" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="40" dy="0">Групповые и временные ограничения применяют на обоих уровнях; prior вычисляют по разрешённым меткам.</tspan></text></svg>

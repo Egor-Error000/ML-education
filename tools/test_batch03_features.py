@@ -111,4 +111,70 @@ class Batch03FeatureExamples(unittest.TestCase):
   no_collision=math.prod(1-j/1000 for j in range(100))
   self.assertAlmostEqual(1-no_collision,.994,places=3)
   self.assertEqual(4*100000+4*100000+4*(100000+1),1200004)
+ def test_target_cross_fit_and_outer_leak(self):
+  categories=list('AABBCCDDEE');labels=[1,0,1,1,0,0,1,0,1,0]
+  def encoded(index,values):
+   reference=[j for j in range(10) if j%2!=index%2]
+   prior=sum(values[j] for j in reference)/len(reference)
+   matches=[values[j] for j in reference if categories[j]==categories[index]]
+   return (sum(matches)+2*prior)/(len(matches)+2)
+  expected=[2,13,7,13,2,8,2,13,2,13]
+  for i,value in enumerate(expected):self.assertAlmostEqual(encoded(i,labels),value/15)
+  changed=labels.copy();changed[9]=1
+  self.assertAlmostEqual(encoded(0,changed)-encoded(0,labels),2/15)
+ def test_woe_uses_class_conditional_denominators(self):
+  woe=math.log((12/40)/(6/60))
+  posterior=math.log(12/6);prior=math.log(40/60)
+  self.assertAlmostEqual(woe+prior,posterior)
+  self.assertAlmostEqual(math.log((13/43)/(7/63)),math.log(117/43))
+  self.assertNotAlmostEqual(math.log(117/43),math.log(13/7))
+ def test_embedding_accumulates_repeated_id_gradients(self):
+  table={'A':[1.,2.],'B':[-1.,0.]};head=[.5,-1.]
+  rows=[('A',0.),('A',1.),('B',-1.)]
+  gradients={key:[0.,0.] for key in table}
+  for key,y in rows:
+   prediction=sum(a*b for a,b in zip(table[key],head))
+   for j in range(2):gradients[key][j]+=(prediction-y)*head[j]/len(rows)
+  for key,expected in [('A',[-2/3,4/3]),('B',[1/12,-1/6])]:
+   for actual,want in zip(gradients[key],expected):self.assertAlmostEqual(actual,want)
+  e=[1.,2.];v=[.5,-1.];residual=sum(a*b for a,b in zip(e,v))
+  e2=[a-.1*residual*b for a,b in zip(e,v)]
+  v2=[a-.1*residual*b for a,b in zip(v,e)];b2=-.1*residual
+  self.assertAlmostEqual(sum(a*b for a,b in zip(e2,v2))+b2,-.44625)
+ def test_native_categorical_split_gain(self):
+  grad={'A':-4,'B':2,'C':-2,'D':4};hess={k:2 for k in grad};lam=1
+  def gain(left):
+   right=set(grad)-set(left)
+   def part(keys):
+    g=sum(grad[k] for k in keys);h=sum(hess[k] for k in keys)
+    return g*g/(h+lam)
+   return (part(left)+part(right)-part(grad))/2
+  self.assertAlmostEqual(gain({'A','C'}),7.2)
+  for left,expected in [({'A'},80/21),({'A','B'},.8),({'A','B','C'},80/21)]:
+   self.assertAlmostEqual(gain(left),expected)
+  targets=[2,2,-1,-1,1,1,-2,-2]
+  increments=[1.2,1.2,-1.2,-1.2,1.2,1.2,-1.2,-1.2]
+  loss=sum((y-d)**2/2 for y,d in zip(targets,increments))
+  self.assertAlmostEqual(loss,1.36)
+  self.assertAlmostEqual(loss+(.5*1.2**2)*2,2.8)
+ def test_factorization_machine_forward_and_gradients(self):
+  x=[1.,2.,-1.];v=[[1.,2.],[3.,-1.],[-2.,.5]]
+  def forward(factors):
+   return sum(sum(a*b for a,b in zip(factors[i],factors[j]))*x[i]*x[j]
+              for i in range(3) for j in range(i+1,3))
+  direct=forward(v)
+  sums=[sum(x[i]*v[i][k] for i in range(3)) for k in range(2)]
+  fast=sum((sums[k]**2-sum(x[i]**2*v[i][k]**2 for i in range(3)))/2 for k in range(2))
+  self.assertAlmostEqual(direct,16);self.assertAlmostEqual(fast,direct)
+  expected=[[8.,-2.5],[6.,3.],[-7.,0.]];eps=1e-6
+  for i in range(3):
+   for k in range(2):
+    plus=[row.copy() for row in v];minus=[row.copy() for row in v]
+    plus[i][k]+=eps;minus[i][k]-=eps
+    self.assertAlmostEqual((forward(plus)-forward(minus))/(2*eps),expected[i][k],places=6)
+ def test_field_aware_interactions(self):
+  def dot(a,b):return sum(x*y for x,y in zip(a,b))
+  values=[dot((1,0),(3,1)),dot((0,2),(2,-1)),dot((1,1),(-1,4))]
+  self.assertEqual(values,[3,-2,3]);self.assertEqual(sum(values),4)
+  self.assertEqual(values[0]+dot((0,3),(2,-1))+values[2],3)
 if __name__=='__main__':unittest.main()
