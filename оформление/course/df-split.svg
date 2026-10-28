@@ -1,19 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 460" role="img" aria-labelledby="title desc"><title id="title">Split, cross-validation и утечки</title><desc id="desc">Ветвь обучения создаёт состояние преобразований и модели. Валидация и тест используют сохранённое состояние; обратная передача их меток в выбор признаков нарушает этот контур.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 720" role="img" aria-labelledby="title desc"><title id="title">Разбиение и обучение преобразований внутри каждого fold</title><desc id="desc">Границы групп и времени выбирают для целевого переноса. Проверочная часть использует состояние, полученное только на обучении.</desc>
 <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
-<rect width="1120" height="460" fill="#f7f9fc"/>
-<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Split, cross-validation и утечки</tspan></text>
-<rect x="30" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="44" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="44" dy="0">единица независимости</tspan></text>
-<rect x="246" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="260" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="260" dy="0">группы и время</tspan></text>
-<path d="M218,198 L246,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="462" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="476" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="476" dy="0">обучающая часть</tspan></text>
-<path d="M434,198 L462,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="678" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="692" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="692" dy="0">выбор на валидации</tspan></text>
-<path d="M650,198 L678,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="894" y="145" width="188" height="105" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
-<text x="908" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="908" dy="0">закрытый тест</tspan></text>
-<path d="M866,198 L894,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="30" y="320" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="30" dy="0">Ветвь обучения создаёт состояние преобразований и модели. Валидация и тест используют сохранённое</tspan><tspan x="30" dy="24">состояние; обратная передача их меток в выбор признаков нарушает этот контур.</tspan></text></svg>
+<rect width="1120" height="720" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Разбиение и обучение преобразований внутри каждого fold</tspan></text>
+<rect x="290" y="70" width="540" height="70" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="304" y="97" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="304" dy="0">Объявленная граница: объекты, группы и время</tspan></text>
+<rect x="35" y="230" width="460" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="257" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="49" dy="0">Обучающий fold</tspan><tspan x="49" dy="24">Признаки и разрешённые метки</tspan></text>
+<rect x="35" y="380" width="460" height="100" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="49" y="407" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="49" dy="0">fit заполнения / масштаба / модели</tspan><tspan x="49" dy="24">Сохранить параметры и веса</tspan></text>
+<rect x="650" y="230" width="430" height="85" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="664" y="257" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Проверочный fold</tspan><tspan x="664" dy="24">Без запрещённого пересечения</tspan></text>
+<rect x="650" y="380" width="430" height="100" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="664" y="407" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">transform с параметрами train</tspan><tspan x="664" dy="24">Предсказание и проверочная оценка</tspan></text>
+<path d="M560,140 L560,180 L265,180 L265,230" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M560,180 L865,180 L865,230" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M265,315 L265,380" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M865,315 L865,380" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M495,430 L650,430" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="615" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="35" dy="0">Выбор конфигурации выполняется на данных разработки; закрытый тест оценивает выбранную процедуру.</tspan></text></svg>

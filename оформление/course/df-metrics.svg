@@ -1,19 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 460" role="img" aria-labelledby="title desc"><title id="title">Дисбаланс, метрики, порог и калибровка</title><desc id="desc">Вероятностная оценка превращается в действие только после выбора порога. Калибровка меняет соответствие чисел частотам, а порог — компромисс ошибок; их выбирают на разрешённых данных раздельно от финального теста.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 740" role="img" aria-labelledby="title desc"><title id="title">Оценка, вероятность и действие отвечают на разные вопросы</title><desc id="desc">Один набор оценок позволяет изучать порядок, соответствие частотам и выбранный порог. Итоговую нагрузку проверяют на независимых данных.</desc>
 <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
-<rect width="1120" height="460" fill="#f7f9fc"/>
-<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Дисбаланс, метрики, порог и калибровка</tspan></text>
-<rect x="30" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="44" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="44" dy="0">оценки модели</tspan></text>
-<rect x="246" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="260" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="260" dy="0">матрица ошибок</tspan></text>
-<path d="M218,198 L246,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="462" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="476" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="476" dy="0">цена решений</tspan></text>
-<path d="M434,198 L462,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="678" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="692" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="692" dy="0">калибровка</tspan></text>
-<path d="M650,198 L678,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="894" y="145" width="188" height="105" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
-<text x="908" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="908" dy="0">фиксированный порог</tspan></text>
-<path d="M866,198 L894,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="30" y="320" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="30" dy="0">Вероятностная оценка превращается в действие только после выбора порога. Калибровка меняет соответствие</tspan><tspan x="30" dy="24">чисел частотам, а порог — компромисс ошибок; их выбирают на разрешённых данных раздельно от финального</tspan><tspan x="30" dy="24">теста.</tspan></text></svg>
+<rect width="1120" height="740" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Оценка, вероятность и действие отвечают на разные вопросы</tspan></text>
+<rect x="275" y="70" width="570" height="70" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="289" y="97" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="289" dy="0">Оценки модели и известные метки</tspan></text>
+<rect x="25" y="240" width="310" height="80" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="39" y="267" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="39" dy="0">Ранжирование</tspan></text>
+<rect x="25" y="370" width="310" height="90" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="39" y="397" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="39" dy="0">ROC / PR / AP</tspan><tspan x="39" dy="23">порядок оценок</tspan></text>
+<path d="M560,140 L560,190 L180,190 L180,240" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M180,320 L180,370" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="405" y="240" width="310" height="80" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="419" y="267" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="419" dy="0">Вероятность</tspan></text>
+<rect x="405" y="370" width="310" height="90" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="419" y="397" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="419" dy="0">Калибровка, Brier и log loss</tspan><tspan x="419" dy="23">частоты и уверенность</tspan></text>
+<path d="M560,140 L560,190 L560,190 L560,240" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M560,320 L560,370" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="785" y="240" width="310" height="80" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="799" y="267" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="799" dy="0">Решение</tspan></text>
+<rect x="785" y="370" width="310" height="90" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="799" y="397" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="799" dy="0">Стоимость / порог / лимит K</tspan><tspan x="799" dy="23">TP, FP, FN, TN</tspan></text>
+<path d="M560,140 L560,190 L940,190 L940,240" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M940,320 L940,370" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="200" y="565" width="720" height="90" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="214" y="592" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="214" dy="0">При 100 событиях из 10000: TP=80, FP=495.</tspan><tspan x="214" dy="25">На проверке 575 объектов; precision≈13.91%.</tspan></text></svg>

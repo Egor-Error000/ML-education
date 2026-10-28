@@ -1,19 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 460" role="img" aria-labelledby="title desc"><title id="title">Типы признаков и контракты представлений</title><desc id="desc">Тип поля определяет допустимые операции. Число в таблице может быть идентификатором, порядком или измерением; выбор представления должен сохранять именно нужные отношения.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 650" role="img" aria-labelledby="title desc"><title id="title">Одинаковый тип хранения — разные операции</title><desc id="desc">Входное целое число может быть количеством, порядком или названием. Ветви показывают разные допустимые преобразования.</desc>
 <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
-<rect width="1120" height="460" fill="#f7f9fc"/>
-<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Типы признаков и контракты представлений</tspan></text>
-<rect x="30" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="44" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="44" dy="0">смысл поля</tspan></text>
-<rect x="246" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="260" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="260" dy="0">допустимые значения</tspan></text>
-<path d="M218,198 L246,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="462" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="476" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="476" dy="0">доступность во</tspan><tspan x="476" dy="23">времени</tspan></text>
-<path d="M434,198 L462,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="678" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="692" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="692" dy="0">преобразование</tspan></text>
-<path d="M650,198 L678,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="894" y="145" width="188" height="105" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
-<text x="908" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="908" dy="0">проверка контракта</tspan></text>
-<path d="M866,198 L894,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="30" y="320" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="30" dy="0">Тип поля определяет допустимые операции. Число в таблице может быть идентификатором, порядком или</tspan><tspan x="30" dy="24">измерением; выбор представления должен сохранять именно нужные отношения.</tspan></text></svg>
+<rect width="1120" height="650" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Одинаковый тип хранения — разные операции</tspan></text>
+<rect x="310" y="75" width="500" height="65" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="324" y="102" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="324" dy="0">Целочисленное поле в исходной таблице</tspan></text>
+<rect x="30" y="255" width="300" height="80" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="44" y="282" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="44" dy="0">Количество: 3 товара</tspan></text>
+<rect x="30" y="385" width="300" height="95" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="44" y="412" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#173644"><tspan x="44" dy="0">Разность 4−3 = 1 товар</tspan><tspan x="44" dy="22">Числовой признак и масштаб</tspan></text>
+<path d="M560,140 L560,195 L180,195 L180,255" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M180,335 L180,385" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="410" y="255" width="300" height="80" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="424" y="282" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="424" dy="0">Порядок: средний уровень</tspan></text>
+<rect x="410" y="385" width="300" height="95" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="424" y="412" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#173644"><tspan x="424" dy="0">Низкий &lt; средний &lt; высокий</tspan><tspan x="424" dy="22">Порядок есть, интервалы не заданы</tspan></text>
+<path d="M560,140 L560,195 L560,195 L560,255" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M560,335 L560,385" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="790" y="255" width="300" height="80" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="804" y="282" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="804" dy="0">Код города: A=1</tspan></text>
+<rect x="790" y="385" width="300" height="95" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="804" y="412" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#173644"><tspan x="804" dy="0">Равенство A=A допустимо</tspan><tspan x="804" dy="22">Коды не задают расстояние</tspan></text>
+<path d="M560,140 L560,195 L940,195 L940,255" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M940,335 L940,385" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="570" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="35" dy="0">Контракт: смысл, единицы, источник, момент доступности, пропуски и версия преобразования.</tspan></text></svg>

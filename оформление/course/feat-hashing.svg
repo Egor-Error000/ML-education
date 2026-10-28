@@ -1,19 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 460" role="img" aria-labelledby="title desc"><title id="title">Кардинальность, частотные кодировки и hashing</title><desc id="desc">Хеширование ограничивает размер представления ценой коллизий. Два разных ключа могут обновлять одну координату; размер таблицы выбирают по измеренному компромиссу памяти и качества.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 700" role="img" aria-labelledby="title desc"><title id="title">Категории: частота и хэш сохраняют разные свойства</title><desc id="desc">Частота объединяет значения с одинаковым числом наблюдений. Хэш задаёт фиксированное число ячеек и может связать разные ключи.</desc>
 <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
-<rect width="1120" height="460" fill="#f7f9fc"/>
-<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Кардинальность, частотные кодировки и hashing</tspan></text>
-<rect x="30" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="44" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="44" dy="0">строковый ключ</tspan></text>
-<rect x="246" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="260" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="260" dy="0">хеш-функция</tspan></text>
-<path d="M218,198 L246,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="462" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="476" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="476" dy="0">ограниченное число</tspan><tspan x="476" dy="23">корзин</tspan></text>
-<path d="M434,198 L462,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="678" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="692" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="692" dy="0">коллизии</tspan></text>
-<path d="M650,198 L678,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="894" y="145" width="188" height="105" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
-<text x="908" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="908" dy="0">оценка памяти и</tspan><tspan x="908" dy="23">ошибки</tspan></text>
-<path d="M866,198 L894,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="30" y="320" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="30" dy="0">Хеширование ограничивает размер представления ценой коллизий. Два разных ключа могут обновлять одну</tspan><tspan x="30" dy="24">координату; размер таблицы выбирают по измеренному компромиссу памяти и качества.</tspan></text></svg>
+<rect width="1120" height="700" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Категории: частота и хэш сохраняют разные свойства</tspan></text>
+<rect x="320" y="70" width="480" height="75" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="334" y="97" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="334" dy="0">Обучающие значения: A, A, B, B, C</tspan></text>
+<rect x="35" y="245" width="470" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="272" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="49" dy="0">Частоты A/B/C: 0.4 / 0.4 / 0.2</tspan><tspan x="49" dy="24">A и B неразличимы по частоте</tspan></text>
+<rect x="620" y="245" width="470" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="634" y="272" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="634" dy="0">Ключ поля + значение → хэш</tspan><tspan x="634" dy="24">A и B могут попасть в одну ячейку</tspan></text>
+<path d="M560,145 L560,190 L270,190 L270,245" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M560,190 L855,190 L855,245" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="170" y="465" width="780" height="100" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="184" y="492" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="184" dy="0">Словарь частот обучают только на разрешённой части.</tspan><tspan x="184" dy="24">Для хэша сохраняют алгоритм, размер, seed и сериализацию.</tspan></text>
+<path d="M270,335 L270,405 L400,405 L400,465" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M855,335 L855,405 L720,405 L720,465" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/></svg>

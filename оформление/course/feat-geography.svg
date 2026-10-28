@@ -1,19 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 460" role="img" aria-labelledby="title desc"><title id="title">Географические признаки и пространственная валидация</title><desc id="desc">Геометрическая ветвь использует фиксированную формулу расстояния. Районные статистики обучаются отдельно; проверка на новых территориях показывает перенос, который случайное разбиение соседних точек может скрыть.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 710" role="img" aria-labelledby="title desc"><title id="title">Близость через ±180° и проверка нового района</title><desc id="desc">179° и −179° близки на сфере. Отдельный территориальный тест проверяет перенос в район, а случайные соседи — интерполяцию.</desc>
 <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
-<rect width="1120" height="460" fill="#f7f9fc"/>
-<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Географические признаки и пространственная валидация</tspan></text>
-<rect x="30" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="44" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="44" dy="0">система координат</tspan></text>
-<rect x="246" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="260" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="260" dy="0">радианы и</tspan><tspan x="260" dy="23">периодичность</tspan></text>
-<path d="M218,198 L246,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="462" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="476" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="476" dy="0">расстояние на сфере</tspan></text>
-<path d="M434,198 L462,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="678" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="692" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="692" dy="0">районные статистики</tspan></text>
-<path d="M650,198 L678,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="894" y="145" width="188" height="105" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
-<text x="908" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="908" dy="0">новые территории</tspan></text>
-<path d="M866,198 L894,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="30" y="320" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="30" dy="0">Геометрическая ветвь использует фиксированную формулу расстояния. Районные статистики обучаются отдельно;</tspan><tspan x="30" dy="24">проверка на новых территориях показывает перенос, который случайное разбиение соседних точек может</tspan><tspan x="30" dy="24">скрыть.</tspan></text></svg>
+<rect width="1120" height="710" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Близость через ±180° и проверка нового района</tspan></text>
+<rect x="35" y="85" width="490" height="75" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="49" y="112" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="49" dy="0">Экватор: 179° и −179°</tspan><tspan x="49" dy="25">кратчайшая разница = 2°</tspan></text>
+<rect x="35" y="250" width="490" height="100" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="49" y="277" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="49" dy="0">R=6371 км; 2° = π/90 радиан</tspan><tspan x="49" dy="25">Дуга Rπ/90 ≈ 222.39 км</tspan></text>
+<path d="M280,160 L280,250" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="620" y="85" width="450" height="75" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="634" y="112" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="634" dy="0">Районы A, B, C и D</tspan><tspan x="634" dy="25">по 100 домов в каждом</tspan></text>
+<rect x="620" y="250" width="450" height="100" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="634" y="277" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#173644"><tspan x="634" dy="0">A/B/C → обучение</tspan><tspan x="634" dy="25">D → проверка нового района</tspan></text>
+<path d="M845,160 L845,250" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="205" y="500" width="710" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="219" y="527" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="219" dy="0">На 60°: 1° долготы вдоль параллели ≈ 55.6 км.</tspan><tspan x="219" dy="24">Система координат, доступность и границы ячеек важны.</tspan></text></svg>

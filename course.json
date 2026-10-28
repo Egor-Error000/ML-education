@@ -144,7 +144,7 @@
       "module": "data",
       "section": "reliability",
       "title": "Постановка задачи и паспорт данных",
-      "question": "Что является независимым объектом и какая информация доступна в момент прогноза?",
+      "question": "Что предсказывается, для кого и какая информация доступна в момент решения?",
       "prerequisites": [],
       "level": "общее ядро",
       "path": "01-data-features/01-reliability/df-task.md",
@@ -173,8 +173,8 @@
       "id": "df-split",
       "module": "data",
       "section": "reliability",
-      "title": "Split, cross-validation и утечки",
-      "question": "Как разделить данные так, чтобы оценить именно будущий сценарий применения?",
+      "title": "Разбиение данных, перекрёстная проверка и утечки",
+      "question": "Как проверить перенос модели на те объекты и даты, которые встретятся при применении?",
       "prerequisites": [
         "df-task"
       ],
@@ -216,7 +216,7 @@
       "id": "df-quality",
       "module": "data",
       "section": "reliability",
-      "title": "Качество данных, пропуски, выбросы и разметка",
+      "title": "Качество данных: пропуски, выбросы и разметка",
       "question": "Как отличить ошибку данных от редкого корректного наблюдения?",
       "prerequisites": [
         "df-task",
@@ -240,7 +240,7 @@
       "module": "data",
       "section": "reliability",
       "title": "Дисбаланс, метрики, порог и калибровка",
-      "question": "Как связать ошибки, вероятности и цену решения?",
+      "question": "Как связать ранжирование, вероятности и цену итогового решения?",
       "prerequisites": [
         "df-task",
         "df-split"
@@ -265,8 +265,8 @@
       "id": "df-augmentation",
       "module": "data",
       "section": "reliability",
-      "title": "Дубликаты, аугментации и синтетика",
-      "question": "Как расширять выборку, сохраняя смысл метки и независимость оценки?",
+      "title": "Аугментации, синтетика и группы дубликатов",
+      "question": "Как расширять обучение, сохраняя смысл цели и независимость проверки?",
       "prerequisites": [
         "df-task",
         "df-split",
@@ -287,8 +287,8 @@
       "id": "df-loading",
       "module": "data",
       "section": "reliability",
-      "title": "Dataset, batching и воспроизводимость",
-      "question": "Как проследить путь одного примера от хранилища до функции потерь?",
+      "title": "Доставка данных: выборка, пакет и воспроизводимость",
+      "question": "Как проследить путь объекта от хранения до ошибки и корректно возобновить обучение?",
       "prerequisites": [
         "df-task",
         "df-split"
@@ -311,8 +311,8 @@
       "id": "df-drift",
       "module": "data",
       "section": "reliability",
-      "title": "Drift и надёжность оценки",
-      "question": "Как отличить изменение данных от доказанного изменения качества?",
+      "title": "Изменение распределения и надёжность оценки",
+      "question": "Как отличить изменение входов от изменения качества и оценить неопределённость?",
       "prerequisites": [
         "df-split",
         "df-metrics"
@@ -332,8 +332,8 @@
       "id": "feat-types",
       "module": "data",
       "section": "features",
-      "title": "Типы признаков и контракты представлений",
-      "question": "Почему одинаковый dtype требует разных преобразований?",
+      "title": "Типы признаков: смысл, допустимые операции и контракт",
+      "question": "Почему одинаковый числовой тип может обозначать измерение, порядок или название?",
       "prerequisites": [
         "df-task",
         "df-split"
@@ -385,8 +385,8 @@
       "id": "feat-missing",
       "module": "data",
       "section": "features",
-      "title": "Missing, unknown, rare и стабильный словарь",
-      "question": "Как различать отсутствие значения, новую категорию и редкую известную категорию?",
+      "title": "Пропуск, неизвестная и редкая категория",
+      "question": "Как сохранить различие состояний при обучении и применении словаря?",
       "prerequisites": [
         "feat-types",
         "df-quality"
@@ -409,8 +409,8 @@
       "id": "feat-categorical",
       "module": "data",
       "section": "features",
-      "title": "Nominal, ordinal, one-hot и dummy encoding",
-      "question": "Как представить категорию, не приписав ей ложный числовой порядок?",
+      "title": "Категориальные признаки: порядок, one-hot и базовая категория",
+      "question": "Как представить категорию без ложного числового расстояния и с устойчивым словарём?",
       "prerequisites": [
         "feat-types",
         "feat-missing"
@@ -439,8 +439,8 @@
       "id": "feat-hashing",
       "module": "data",
       "section": "features",
-      "title": "Кардинальность, частотные кодировки и hashing",
-      "question": "Как ограничить размер представления и измерить цену столкновений?",
+      "title": "Кардинальность, частоты и хэширование категорий",
+      "question": "Как уменьшить представление категорий и понять цену потери различий?",
       "prerequisites": [
         "feat-categorical",
         "df-split"
@@ -460,7 +460,7 @@
       "id": "feat-target",
       "module": "data",
       "section": "features",
-      "title": "Target statistics, smoothing, cross-fitting и WoE",
+      "title": "Целевые статистики: сглаживание, перекрёстное вычисление и WoE",
       "question": "Как использовать целевую статистику, не раскрывая собственную метку?",
       "prerequisites": [
         "feat-categorical",
@@ -551,8 +551,8 @@
       "id": "feat-sets",
       "module": "data",
       "section": "features",
-      "title": "Наборы категорий и pooling",
-      "question": "Как отличить множество от последовательности и что теряет агрегирование?",
+      "title": "Несколько категорий: множество, кратность и агрегирование",
+      "question": "Какое свойство входного набора теряется при выборе представления?",
       "prerequisites": [
         "feat-categorical",
         "feat-embeddings"
@@ -572,8 +572,8 @@
       "id": "feat-time",
       "module": "data",
       "section": "features",
-      "title": "Временные признаки и доступность метки",
-      "question": "Как вычислить признак на исторический момент с учётом задержки данных?",
+      "title": "Временные признаки: событие, доступность и задержка метки",
+      "question": "Как восстановить признак именно по информации, доступной на момент прогноза?",
       "prerequisites": [
         "df-split",
         "feat-types"
@@ -595,8 +595,8 @@
       "id": "feat-geography",
       "module": "data",
       "section": "features",
-      "title": "Географические признаки и пространственная валидация",
-      "question": "Как измерять близость на сфере и проверять перенос на новые территории?",
+      "title": "Географические признаки и проверка на новых территориях",
+      "question": "Как измерить близость на Земле и какую задачу проверяет пространственное разбиение?",
       "prerequisites": [
         "feat-types",
         "df-split",
@@ -641,8 +641,8 @@
       "id": "feat-reduction",
       "module": "data",
       "section": "features",
-      "title": "Сокращение размерности: PCA и SVD",
-      "question": "Чем новая координата отличается от выбранного исходного признака?",
+      "title": "Сокращение размерности: PCA и восстановление",
+      "question": "Что сохраняет проекция и почему большая дисперсия не гарантирует полезность для задачи?",
       "prerequisites": [
         "feat-numeric",
         "df-split"
@@ -660,8 +660,8 @@
       "id": "feat-autofe",
       "module": "data",
       "section": "features",
-      "title": "Автоматическая генерация признаков",
-      "question": "Как искать признаки, контролируя время доступности и переобучение на validation?",
+      "title": "Автоматическая генерация признаков и бюджет поиска",
+      "question": "Как искать новые признаки, не используя будущие данные и закрытый тест?",
       "prerequisites": [
         "feat-time",
         "feat-selection"
@@ -4020,12 +4020,34 @@
       "level": "углубление",
       "path": "05-language-models/06-agent-learning/agent-reasoning.md",
       "source": "agent-Д",
-      "used_by": [],
+      "used_by": [
+        "agent-reasoning-training"
+      ],
       "source_files": [
         "06-llm/05-lifecycle/Учебные конспекты/Д — Reasoning, верификация и test-time compute.md"
       ],
       "figures": [
         "оформление/course/agent-reasoning.svg"
+      ]
+    },
+    {
+      "id": "agent-reasoning-training",
+      "module": "lm",
+      "section": "agent",
+      "title": "Обучение рассуждению: данные, RL и инфраструктура",
+      "question": "Как построить и проверить обучающий цикл для многошаговых задач?",
+      "prerequisites": [
+        "agent-reasoning",
+        "agent-rl",
+        "adapt-sft"
+      ],
+      "level": "углубление",
+      "path": "05-language-models/06-agent-learning/agent-reasoning-training.md",
+      "source": null,
+      "used_by": [],
+      "source_files": [],
+      "figures": [
+        "оформление/course/agent-reasoning-training.svg"
       ]
     },
     {
@@ -4448,6 +4470,24 @@
         "app-state",
         "app-evaluation",
         "adapt-sft"
+      ]
+    },
+    {
+      "id": "reasoning-training",
+      "title": "Обучение рассуждению и инфраструктура",
+      "chapters": [
+        "adapt-sft",
+        "agent-evaluation",
+        "agent-rl",
+        "agent-reasoning",
+        "agent-reasoning-training"
+      ],
+      "entry": [
+        "lm-training",
+        "app-evaluation",
+        "adapt-choice",
+        "agent-environment",
+        "agent-recovery"
       ]
     }
   ],

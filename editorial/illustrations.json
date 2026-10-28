@@ -2573,6 +2573,230 @@
       "source_of_mechanism": "Первичные ссылки и разбор расположены в соответствующей главе; реестр проверки: editorial/research.md, пакет 02.",
       "changes": "Новая русскоязычная схема объектов, связей и промежуточных вычислений; не репродукция.",
       "checked_on": "2026-10-25"
+    },
+    {
+      "path": "оформление/course/df-augmentation.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "df-augmentation"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Учебные выводы и примеры главы; ссылки на первичную документацию указаны в редакционном реестре.",
+      "changes": "Перерисована русскоязычная предметная схема с объектами, ветвями и расчётом."
+    },
+    {
+      "path": "оформление/course/df-drift.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "df-drift"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Учебные выводы и примеры главы; ссылки на первичную документацию указаны в редакционном реестре.",
+      "changes": "Перерисована русскоязычная предметная схема с объектами, ветвями и расчётом."
+    },
+    {
+      "path": "оформление/course/df-loading.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "df-loading"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Учебные выводы и примеры главы; ссылки на первичную документацию указаны в редакционном реестре.",
+      "changes": "Перерисована русскоязычная предметная схема с объектами, ветвями и расчётом."
+    },
+    {
+      "path": "оформление/course/df-metrics.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "df-metrics"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Учебные выводы и примеры главы; ссылки на первичную документацию указаны в редакционном реестре.",
+      "changes": "Перерисована русскоязычная предметная схема с объектами, ветвями и расчётом."
+    },
+    {
+      "path": "оформление/course/df-quality.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "df-quality"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Учебные выводы и примеры главы; ссылки на первичную документацию указаны в редакционном реестре.",
+      "changes": "Перерисована русскоязычная предметная схема с объектами, ветвями и расчётом."
+    },
+    {
+      "path": "оформление/course/df-split.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "df-split"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Учебные выводы и примеры главы; ссылки на первичную документацию указаны в редакционном реестре.",
+      "changes": "Перерисована русскоязычная предметная схема с объектами, ветвями и расчётом."
+    },
+    {
+      "path": "оформление/course/df-task.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "df-task"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Учебные выводы и примеры главы; ссылки на первичную документацию указаны в редакционном реестре.",
+      "changes": "Перерисована русскоязычная предметная схема с объектами, ветвями и расчётом."
+    },
+    {
+      "path": "оформление/course/feat-autofe.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "feat-autofe"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Учебные выводы и примеры главы; ссылки на первичную документацию указаны в редакционном реестре.",
+      "changes": "Перерисована русскоязычная предметная схема с объектами, ветвями и расчётом."
+    },
+    {
+      "path": "оформление/course/feat-categorical.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "feat-categorical"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Учебные выводы и примеры главы; ссылки на первичную документацию указаны в редакционном реестре.",
+      "changes": "Перерисована русскоязычная предметная схема с объектами, ветвями и расчётом."
+    },
+    {
+      "path": "оформление/course/feat-geography.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "feat-geography"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Учебные выводы и примеры главы; ссылки на первичную документацию указаны в редакционном реестре.",
+      "changes": "Перерисована русскоязычная предметная схема с объектами, ветвями и расчётом."
+    },
+    {
+      "path": "оформление/course/feat-hashing.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "feat-hashing"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Учебные выводы и примеры главы; ссылки на первичную документацию указаны в редакционном реестре.",
+      "changes": "Перерисована русскоязычная предметная схема с объектами, ветвями и расчётом."
+    },
+    {
+      "path": "оформление/course/feat-missing.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "feat-missing"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Учебные выводы и примеры главы; ссылки на первичную документацию указаны в редакционном реестре.",
+      "changes": "Перерисована русскоязычная предметная схема с объектами, ветвями и расчётом."
+    },
+    {
+      "path": "оформление/course/feat-reduction.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "feat-reduction"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Учебные выводы и примеры главы; ссылки на первичную документацию указаны в редакционном реестре.",
+      "changes": "Перерисована русскоязычная предметная схема с объектами, ветвями и расчётом."
+    },
+    {
+      "path": "оформление/course/feat-sets.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "feat-sets"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Учебные выводы и примеры главы; ссылки на первичную документацию указаны в редакционном реестре.",
+      "changes": "Перерисована русскоязычная предметная схема с объектами, ветвями и расчётом."
+    },
+    {
+      "path": "оформление/course/feat-time.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "feat-time"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Учебные выводы и примеры главы; ссылки на первичную документацию указаны в редакционном реестре.",
+      "changes": "Перерисована русскоязычная предметная схема с объектами, ветвями и расчётом."
+    },
+    {
+      "path": "оформление/course/feat-types.svg",
+      "kind": "original-course-diagram",
+      "external_figure": "none",
+      "authors": "Авторская схема курса",
+      "license": "Лицензия проекта; внешние рисунки не копируются.",
+      "production": "tools/draw_batch03_features.py",
+      "chapters": [
+        "feat-types"
+      ],
+      "checked_on": "2026-10-28",
+      "source_of_mechanism": "Учебные выводы и примеры главы; ссылки на первичную документацию указаны в редакционном реестре.",
+      "changes": "Перерисована русскоязычная предметная схема с объектами, ветвями и расчётом."
     }
   ],
   "original_svg_sources": [

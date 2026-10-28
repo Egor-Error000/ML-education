@@ -5,114 +5,106 @@
   "chapters": {
     "df-task": {
       "path": "01-data-features/01-reliability/df-task.md",
-      "text_sha256": "209a8ac328cd80e7b9c0ccc712e1ae3955b8feaa236b62c6f513ed2994ceb426",
+      "text_sha256": "1a89a5ab157fc23052ca1230e6e622512fe3fc85227dcca1c1fdfcd6e92500a9",
       "scenario": "authored",
-      "prose": "terminology-and-context-pass",
+      "prose": "rewritten",
       "source_units": 78,
-      "source_units_pending_semantic_review": 21,
+      "source_units_pending_semantic_review": 78,
       "content_acceptance": "open",
       "evidence": [],
       "remaining": [
-        "Сверить назначения различных исходных случаев, не только хэши.",
-        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+        "Итоговая сверка исходных случаев, вычислений и схем пакета 02."
       ]
     },
     "df-split": {
       "path": "01-data-features/01-reliability/df-split.md",
-      "text_sha256": "8fdd4ffd83aa8b58ef86b0aa453225a1e7a26d8fee188c20512f75e511e4c113",
+      "text_sha256": "93b6b3dd544103663c066819894f03fa978785b8e64927cb7d15467cf399394f",
       "scenario": "authored",
-      "prose": "terminology-and-context-pass",
+      "prose": "rewritten",
       "source_units": 60,
-      "source_units_pending_semantic_review": 19,
+      "source_units_pending_semantic_review": 60,
       "content_acceptance": "open",
       "evidence": [],
       "remaining": [
-        "Сверить назначения различных исходных случаев, не только хэши.",
-        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+        "Итоговая сверка исходных случаев, вычислений и схем пакета 02."
       ]
     },
     "df-quality": {
       "path": "01-data-features/01-reliability/df-quality.md",
-      "text_sha256": "cac63102653f4a2087a692ff6ca34b743fb5f57c9fd3965fc380a0f0e45a7b4e",
+      "text_sha256": "d090845dbfd4897a6219f9b84ff82990f682f69982e79a437ced01c1e3d76a19",
       "scenario": "authored",
-      "prose": "terminology-and-context-pass",
+      "prose": "rewritten",
       "source_units": 62,
-      "source_units_pending_semantic_review": 10,
+      "source_units_pending_semantic_review": 62,
       "content_acceptance": "open",
       "evidence": [],
       "remaining": [
-        "Сверить назначения различных исходных случаев, не только хэши.",
-        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+        "Итоговая сверка исходных случаев, вычислений и схем пакета 02."
       ]
     },
     "df-metrics": {
       "path": "01-data-features/01-reliability/df-metrics.md",
-      "text_sha256": "a9d54e76528c39b969fa32b9f334f026a029d3df3e1fe94c45e94fb37c7f940f",
+      "text_sha256": "2d82f2be6252a6bba61656439687218aee7f627f3d1535dff62746b224190927",
       "scenario": "authored",
-      "prose": "terminology-and-context-pass",
+      "prose": "rewritten",
       "source_units": 92,
-      "source_units_pending_semantic_review": 15,
+      "source_units_pending_semantic_review": 92,
       "content_acceptance": "open",
       "evidence": [],
       "remaining": [
-        "Сверить назначения различных исходных случаев, не только хэши.",
-        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+        "Итоговая сверка исходных случаев, вычислений и схем пакета 02."
       ]
     },
     "df-augmentation": {
       "path": "01-data-features/01-reliability/df-augmentation.md",
-      "text_sha256": "296701f40b923d88ff8a4430d9860033e7d76ec9d1ca9483ac39373c5404a7a9",
+      "text_sha256": "bebc290ccb57636de9725bfbd3b939ebbf0a7f574f266416252cd1ff067be465",
       "scenario": "authored",
-      "prose": "terminology-and-context-pass",
+      "prose": "rewritten",
       "source_units": 76,
-      "source_units_pending_semantic_review": 17,
+      "source_units_pending_semantic_review": 76,
       "content_acceptance": "open",
       "evidence": [],
       "remaining": [
-        "Сверить назначения различных исходных случаев, не только хэши.",
-        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+        "Итоговая сверка исходных случаев, вычислений и схем пакета 02."
       ]
     },
     "df-loading": {
       "path": "01-data-features/01-reliability/df-loading.md",
-      "text_sha256": "e6dd672c255ff3ce4b2472623b46a3dbdd53663b865496117ca899fedc9c0ad5",
+      "text_sha256": "2b7afe8c56a645e57f514c9952ff5db45b6c0b6359333855a8b067ebaf37bf9b",
       "scenario": "authored",
-      "prose": "terminology-and-context-pass",
+      "prose": "rewritten",
       "source_units": 74,
-      "source_units_pending_semantic_review": 18,
+      "source_units_pending_semantic_review": 74,
       "content_acceptance": "open",
       "evidence": [],
       "remaining": [
-        "Сверить назначения различных исходных случаев, не только хэши.",
-        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+        "Итоговая сверка исходных случаев, вычислений и схем пакета 02."
       ]
     },
     "df-drift": {
       "path": "01-data-features/01-reliability/df-drift.md",
-      "text_sha256": "69054b4da947a21080daa1b99d1d6e21860cbb4284f569a571158ce7037e3e25",
+      "text_sha256": "93cd033e838e5404fbf8863c4ecfa40baf66d4faaa92d823028ceccbf5054f8f",
       "scenario": "authored",
-      "prose": "terminology-and-context-pass",
+      "prose": "rewritten",
       "source_units": 83,
-      "source_units_pending_semantic_review": 11,
+      "source_units_pending_semantic_review": 83,
       "content_acceptance": "open",
       "evidence": [],
       "remaining": [
-        "Сверить назначения различных исходных случаев, не только хэши.",
-        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+        "Итоговая сверка исходных случаев, вычислений и схем пакета 02."
       ]
     },
     "feat-types": {
       "path": "01-data-features/02-features/feat-types.md",
-      "text_sha256": "37ea5bf3ae4f70e4048e373913cfef0ebff08328a27117a0e5fc0634fec030d2",
+      "text_sha256": "ed25f433d694a5bcc86d442b73a2a4ebef18ad71fbc740fd34c1e4264ddd002f",
       "scenario": "authored",
-      "prose": "terminology-and-context-pass",
+      "prose": "rewritten",
       "source_units": 0,
       "source_units_pending_semantic_review": 0,
       "content_acceptance": "open",
       "evidence": [],
       "remaining": [
-        "Сверить назначения различных исходных случаев, не только хэши.",
-        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+        "Итоговая сверка исходных случаев, вычислений и схем пакета 02."
       ]
     },
     "feat-numeric": {
@@ -130,44 +122,41 @@
     },
     "feat-missing": {
       "path": "01-data-features/02-features/feat-missing.md",
-      "text_sha256": "9ce61d589861b495ed6ca624dfa17ef5667e3766059e972c2bf3125e2aafac25",
+      "text_sha256": "6a5f9961cdf44a5af0cf49884827057286051c3b09bf972e631afa0e8d4f166b",
       "scenario": "authored",
-      "prose": "terminology-and-context-pass",
+      "prose": "rewritten",
       "source_units": 22,
-      "source_units_pending_semantic_review": 9,
+      "source_units_pending_semantic_review": 22,
       "content_acceptance": "open",
       "evidence": [],
       "remaining": [
-        "Сверить назначения различных исходных случаев, не только хэши.",
-        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+        "Итоговая сверка исходных случаев, вычислений и схем пакета 02."
       ]
     },
     "feat-categorical": {
       "path": "01-data-features/02-features/feat-categorical.md",
-      "text_sha256": "a0d4a284f8d9b1312d69f86ebcbd77348bfd9bcae452df1b7155becb0aaea2b5",
+      "text_sha256": "2ce1aa1aad9b5abd56cb52c06e320780e129d33e90d26572451a2586179f4f45",
       "scenario": "authored",
-      "prose": "terminology-and-context-pass",
+      "prose": "rewritten",
       "source_units": 69,
-      "source_units_pending_semantic_review": 10,
+      "source_units_pending_semantic_review": 69,
       "content_acceptance": "open",
       "evidence": [],
       "remaining": [
-        "Сверить назначения различных исходных случаев, не только хэши.",
-        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+        "Итоговая сверка исходных случаев, вычислений и схем пакета 02."
       ]
     },
     "feat-hashing": {
       "path": "01-data-features/02-features/feat-hashing.md",
-      "text_sha256": "e8f2f3779a78f98f95e998d41e4a09109c5847d18589bcc604613533322bc118",
+      "text_sha256": "39e8666fd8445e702f531e9000036047d04c49cd47eab37c39f125a8be78eb54",
       "scenario": "authored",
-      "prose": "terminology-and-context-pass",
+      "prose": "rewritten",
       "source_units": 71,
-      "source_units_pending_semantic_review": 14,
+      "source_units_pending_semantic_review": 71,
       "content_acceptance": "open",
       "evidence": [],
       "remaining": [
-        "Сверить назначения различных исходных случаев, не только хэши.",
-        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+        "Итоговая сверка исходных случаев, вычислений и схем пакета 02."
       ]
     },
     "feat-target": {
@@ -228,44 +217,41 @@
     },
     "feat-sets": {
       "path": "01-data-features/02-features/feat-sets.md",
-      "text_sha256": "03237b0261bf0f8964be2da024f35a5b7797e2f3a789f8d80622faa8943dad44",
+      "text_sha256": "cb6c84e75b1a4f8063ebad8a934a3f59c3bc37036b14bb709278d4c964a1bd44",
       "scenario": "authored",
-      "prose": "terminology-and-context-pass",
+      "prose": "rewritten",
       "source_units": 22,
-      "source_units_pending_semantic_review": 9,
+      "source_units_pending_semantic_review": 22,
       "content_acceptance": "open",
       "evidence": [],
       "remaining": [
-        "Сверить назначения различных исходных случаев, не только хэши.",
-        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+        "Итоговая сверка исходных случаев, вычислений и схем пакета 02."
       ]
     },
     "feat-time": {
       "path": "01-data-features/02-features/feat-time.md",
-      "text_sha256": "01c62f2e27687dce45b1d04d8b8518dc9a45842539e803e31780469dddb7aec0",
+      "text_sha256": "0e97161935e4f3a0ebd43896933ad3b9968af9d78e858400cbba7f020462232f",
       "scenario": "authored",
-      "prose": "terminology-and-context-pass",
+      "prose": "rewritten",
       "source_units": 25,
-      "source_units_pending_semantic_review": 12,
+      "source_units_pending_semantic_review": 25,
       "content_acceptance": "open",
       "evidence": [],
       "remaining": [
-        "Сверить назначения различных исходных случаев, не только хэши.",
-        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+        "Итоговая сверка исходных случаев, вычислений и схем пакета 02."
       ]
     },
     "feat-geography": {
       "path": "01-data-features/02-features/feat-geography.md",
-      "text_sha256": "f91d028f648fc5ce6f9b4c01c6762b0b0d0c0872d648719140eef5a9c665277b",
+      "text_sha256": "3c7864d146008555bfb6ffa7294b5343023b281985b7698ed2f25a86ff376a2e",
       "scenario": "authored",
-      "prose": "terminology-and-context-pass",
+      "prose": "rewritten",
       "source_units": 0,
       "source_units_pending_semantic_review": 0,
       "content_acceptance": "open",
       "evidence": [],
       "remaining": [
-        "Сверить назначения различных исходных случаев, не только хэши.",
-        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+        "Итоговая сверка исходных случаев, вычислений и схем пакета 02."
       ]
     },
     "feat-selection": {
@@ -283,30 +269,28 @@
     },
     "feat-reduction": {
       "path": "01-data-features/02-features/feat-reduction.md",
-      "text_sha256": "dffa56a88df84e18a75771ba5f710df3f2c6130fbb72f9b4712c1a52de8254c2",
+      "text_sha256": "c9e508824b2bb8de2680d884f2837bf1b3859cb6ff68077c18a8049ebb0c9758",
       "scenario": "authored",
-      "prose": "terminology-and-context-pass",
+      "prose": "rewritten",
       "source_units": 0,
       "source_units_pending_semantic_review": 0,
       "content_acceptance": "open",
       "evidence": [],
       "remaining": [
-        "Сверить назначения различных исходных случаев, не только хэши.",
-        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+        "Итоговая сверка исходных случаев, вычислений и схем пакета 02."
       ]
     },
     "feat-autofe": {
       "path": "01-data-features/02-features/feat-autofe.md",
-      "text_sha256": "40524c0b408ecbe3fee40a5024a8b0aa425f6ef8a8babaf8207de2428d515f4c",
+      "text_sha256": "85adada006dcc6b044373c1df5c95631b8be9d9795185bb0755ec476bc66a3d1",
       "scenario": "authored",
-      "prose": "terminology-and-context-pass",
+      "prose": "rewritten",
       "source_units": 0,
       "source_units_pending_semantic_review": 0,
       "content_acceptance": "open",
       "evidence": [],
       "remaining": [
-        "Сверить назначения различных исходных случаев, не только хэши.",
-        "Прочитать главу по авторскому сценарию и проверить естественность языка."
+        "Итоговая сверка исходных случаев, вычислений и схем пакета 02."
       ]
     },
     "feat-pipeline": {
@@ -2378,6 +2362,19 @@
       ],
       "acceptance_basis": "explicit-user-acceptance",
       "accepted_on": "2026-10-25"
+    },
+    "agent-reasoning-training": {
+      "path": "05-language-models/06-agent-learning/agent-reasoning-training.md",
+      "text_sha256": "e24f35512941bb9336d81567564e4bfabd1ac3a6e06e6f5655b3c21e61d49f3b",
+      "scenario": "authored",
+      "prose": "existing-unreviewed",
+      "source_units": 0,
+      "source_units_pending_semantic_review": 0,
+      "content_acceptance": "open",
+      "evidence": [],
+      "remaining": [
+        "Прочитать главу и принять её содержание отдельно."
+      ]
     }
   }
 }

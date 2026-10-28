@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 460" role="img" aria-labelledby="title desc"><title id="title">Nominal, ordinal, one-hot и dummy encoding</title><desc id="desc">Числовой код категории не задаёт расстояние между её значениями. Кодировка выбирается под модель; путь неизвестного значения должен быть определён до применения на новых данных.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 740" role="img" aria-labelledby="title desc"><title id="title">Категория, словарь и разные представления</title><desc id="desc">Номинальные значения не задают порядок. Полный one-hot и кодировка с базовой категорией имеют разные координаты и правила для неизвестных.</desc>
 <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#315a67"/></marker></defs>
-<rect width="1120" height="460" fill="#f7f9fc"/>
-<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Nominal, ordinal, one-hot и dummy encoding</tspan></text>
-<rect x="30" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="44" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="44" dy="0">словарь категорий</tspan></text>
-<rect x="246" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="260" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="260" dy="0">порядок или равенство</tspan></text>
-<path d="M218,198 L246,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="462" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="476" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="476" dy="0">кодировка</tspan></text>
-<path d="M434,198 L462,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="678" y="145" width="188" height="105" rx="10" fill="#e4edf7" stroke="#6c849d"/>
-<text x="692" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="692" dy="0">неизвестное значение</tspan></text>
-<path d="M650,198 L678,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="894" y="145" width="188" height="105" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
-<text x="908" y="172" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="908" dy="0">базовое сравнение</tspan></text>
-<path d="M866,198 L894,198" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="30" y="320" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="30" dy="0">Числовой код категории не задаёт расстояние между её значениями. Кодировка выбирается под модель; путь</tspan><tspan x="30" dy="24">неизвестного значения должен быть определён до применения на новых данных.</tspan></text></svg>
+<rect width="1120" height="740" fill="#f7f9fc"/>
+<text x="28" y="35" font-family="Segoe UI,Arial,sans-serif" font-size="23" fill="#173644"><tspan x="28" dy="0">Категория, словарь и разные представления</tspan></text>
+<rect x="300" y="70" width="520" height="75" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="314" y="97" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="314" dy="0">Поле: A, B, C; обученный словарь</tspan></text>
+<rect x="40" y="245" width="460" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="54" y="272" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">Номинальные A/B/C</tspan><tspan x="54" dy="24">One-hot: (1,0,0), (0,1,0), (0,0,1)</tspan></text>
+<rect x="650" y="245" width="430" height="90" rx="10" fill="#e4edf7" stroke="#6c849d"/>
+<text x="664" y="272" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Порядковые S&lt;M&lt;L</tspan><tspan x="664" dy="24">Индикаторы: (0,0), (1,0), (1,1)</tspan></text>
+<path d="M560,145 L560,190 L270,190 L270,245" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M560,190 L865,190 L865,245" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="40" y="410" width="460" height="95" rx="10" fill="#e3f2e7" stroke="#6c849d"/>
+<text x="54" y="437" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="54" dy="0">База A: (0,0), B=(1,0), C=(0,1)</tspan><tspan x="54" dy="24">Расстояния зависят от кодировки</tspan></text>
+<rect x="650" y="410" width="430" height="95" rx="10" fill="#fff1d7" stroke="#6c849d"/>
+<text x="664" y="437" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#173644"><tspan x="664" dy="0">Новая D → UNKNOWN / OTHER / ошибка</tspan><tspan x="664" dy="24">Пропуск — отдельное состояние</tspan></text>
+<path d="M270,335 L270,410" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M865,335 L865,410" fill="none" stroke="#315a67" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="655" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#173644"><tspan x="35" dy="0">Сохранить порядок категорий и веса вместе; неизвестная колонка без примеров может не иметь обученного эффекта.</tspan></text></svg>

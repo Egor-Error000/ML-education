@@ -206,4 +206,5 @@ class WorkedExamples(unittest.TestCase):
         self.assertEqual(2*50000*768,76800000)
 from test_batch10_examples import EncoderBatchExamples
 from test_batch02_examples import AdaptationInferenceExamples
+from test_batch03_features import Batch03FeatureExamples
 if __name__=='__main__':unittest.main()
